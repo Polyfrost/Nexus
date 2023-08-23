@@ -1,7 +1,9 @@
 {
   "name": "@polyfrost/nexus",
   "private": true,
-  "scripts": {},
+  "scripts": {
+	"website": "pnpm --filter @polyfrost/website"
+  },
   "devDependencies": {
     "@babel/plugin-syntax-import-assertions": "^7.22.5",
     "@storybook/react-vite": "^7.3.2",
