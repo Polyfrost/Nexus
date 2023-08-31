@@ -41,6 +41,10 @@ importers:
       astro:
         specifier: ^2.10.12
         version: 2.10.12
+    devDependencies:
+      typescript:
+        specifier: ^5.1.6
+        version: 5.1.6
 
 packages:
 

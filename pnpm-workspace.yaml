@@ -2,3 +2,4 @@ packages:
   - apps/*
   - pkgs/*
   - interface
+  - core
