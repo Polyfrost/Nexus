@@ -1,0 +1,20 @@
+{
+	"$schema": "https://turborepo.org/schema.json",
+	"pipeline": {
+		"build": {
+			"inputs": ["**/*.ts", "!src-tauri/**", "!node_modules/**"],
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		},
+		"lint": {
+			"outputs": []
+		},
+		"typecheck": {
+			"outputs": []
+		},
+		"dev": {
+			"cache": false
+		}
+	},
+	"globalEnv": ["PORT", "NODE_ENV"]
+}

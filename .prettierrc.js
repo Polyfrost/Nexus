@@ -7,10 +7,10 @@ module.exports = {
 	bracketSameLine: false,
 	semi: true,
 	quoteProps: 'consistent',
-	importOrder: ['^([A-Za-z]|@[^s/])', '^@polyfrost/(interface|client|ui)(/.*)?$', '^~/', '^\\.'],
+	importOrder: ['<THIRD_PARTY_MODULES>', '^@polyfrost/(interface|client|ui)(/.*)?$', '^~/', '^\\.'],
 	importOrderSortSpecifiers: true,
 	importOrderParserPlugins: ['importAssertions', 'typescript', 'jsx'],
 	pluginSearchDirs: false,
-	plugins: ['@trivago/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
+	plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
 	tailwindConfig: './packages/ui/tailwind.config.js'
 }

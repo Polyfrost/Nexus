@@ -1,5 +1,6 @@
 packages:
-  - apps/*
-  - pkgs/*
-  - interface
-  - core
+  - 'apps/*'
+  - 'pkgs/*'
+  - 'interface'
+  - 'scripts'
+  - '.github/actions/*'
