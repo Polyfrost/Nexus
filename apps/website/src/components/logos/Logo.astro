@@ -1,0 +1,52 @@
+---
+import type { LogoType } from "@webtypes/Config";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"svg"> {
+    logo: LogoType,
+    size?: number | [number, number],
+    silent?: boolean,
+}
+
+const { 
+    logo,
+    silent = false,
+    size = undefined,
+    ...attr
+} = Astro.props;
+let svg: string | undefined;
+
+try {
+    if (logo == undefined) return;
+    const dir = dirname(fileURLToPath(import.meta.url)) + "/../../../public/media";
+    svg = (await import(`${dir}/${logo.replaceAll(".", "/")}.svg?raw` /* @vite-ignore */)).default;
+
+    if (svg == undefined) return;
+
+    if (typeof size == "number" || Array.isArray(size)) {
+        // SVG main element regex
+        const svgElementRegex = /<svg[^>]*>/;
+
+        svg = svg.replace(svgElementRegex, (match) => {
+            let newMatch = match;
+            if (typeof size == "number") {
+                newMatch = newMatch.replace(/width="[^"]*"/, `width="${size}"`);
+                newMatch = newMatch.replace(/height="[^"]*"/, `height="${size}"`);
+            } else if (Array.isArray(size)) {
+                newMatch = newMatch.replace(/width="[^"]*"/, `width="${size[0]}"`);
+                newMatch = newMatch.replace(/height="[^"]*"/, `height="${size[1]}"`);
+            }
+            return newMatch;
+        });
+    }
+
+    svg = svg.replace(/<svg/, `<svg ${Object.entries(attr).map(([key, value]) => `${key}="${value}"`).join(" ")}`);
+} catch (err) {
+    if (typeof silent != "boolean" || silent == false) console.error(err);
+}
+
+---
+
+<Fragment set:html={svg} />

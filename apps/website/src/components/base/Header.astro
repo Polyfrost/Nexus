@@ -1,0 +1,57 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+const sizes = {
+    "xl": "h1",
+    "lg": "h2",
+    "md": "h3",
+    "sm": "h4",
+    "xs": "h5",
+    "xxs": "h6"  
+};
+
+type Headers = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+interface Props extends HTMLAttributes<Headers> {
+    size: keyof typeof sizes;
+}
+
+const { size, ...attr } = Astro.props;
+const Element = sizes[size] as any; // Unfortunately gotta do this
+---
+
+<Element {...attr}>
+    <slot />
+</Element>
+
+<style>
+    h1 {
+        font-size: theme("fontSize.header-lg");
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: theme("fontSize.header");
+        font-weight: 700;
+    }
+
+    h3 {
+        font-size: theme("fontSize.header-sm");
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: theme("fontSize.body-lg");
+        font-weight: 500;
+    }
+
+    h5 {
+        font-size: theme("fontSize.body");
+        font-weight: 500;
+    }
+
+    h6 {
+        font-size: theme("fontSize.body-sm");
+        font-weight: 500;
+    }
+</style>

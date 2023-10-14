@@ -1,0 +1,86 @@
+---
+import ChevronDown from "@components/icons/ChevronDown.astro";
+import type { LogoType, NavbarElement } from "@webtypes/Config";
+import ScreenOverlay from "./ScreenOverlay.astro";
+import Header from "./Header.astro";
+import Tag from "./Tag.astro";
+import Logo from "@components/logos/Logo.astro";
+import ScrollbarOverlayContainer from "./ScrollbarOverlayContainer.astro";
+
+interface Props {
+    element: NavbarElement;
+    index: number;
+}
+
+const {
+    element,
+    index
+} = Astro.props;
+---
+
+<li class="sm:relative max-sm:overflow-hidden flex flex-row justify-center items-center text-center">
+    <label for={`navbar-input-${index}`} class="group">
+
+        {element.path ? (
+            <a href={element.path} class="p-2 flex flex-row justify-center items-center text-gray-700 hover:text-blue-500">
+                {element.text && element.text}
+                {element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+                {element.dropdown && <ChevronDown />}
+            </a>
+        ) : (
+            <p class="p-2 flex flex-row justify-center items-center text-gray-700 hover:text-blue-500 cursor-default">
+                {element.text && element.text}
+                {element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+                {element.dropdown && <ChevronDown />}
+            </p>
+        )}
+
+        {element.dropdown && (
+            <ScreenOverlay class="max-sm:group-focus-within:opacity-100" />
+            <input type="checkbox" id={`navbar-input-${index}`} class="peer appearance-none absolute">
+            <div class={`transition-opacity
+                absolute right-0 max-sm:bottom-0
+                max-sm:overflow-hidden 
+                max-sm:max-h-[70vh] max-sm:h-screen max-sm:w-screen 
+                pointer-events-none opacity-0
+
+                md:top-full md:right-0
+
+                group-focus-within:pointer-events-auto group-focus-within:opacity-100
+                focus-within:pointer-events-auto focus-within:opacity-100
+                hover:pointer-events-auto hover:opacity-100
+            `}>
+                <ScrollbarOverlayContainer class={`
+                    bg-gray-50 
+                    rounded-t-lg md:rounded-lg 
+                    transition-transform
+                    max-sm:translate-y-1/3 max-sm:left-0
+                    group-focus-within:translate-y-0
+                    max-h-full md:max-h-96 overflow-y-auto
+                `}>
+                    <ul class="p-4">
+                        {element.dropdown.map((item) => (
+                            <li>
+                                <a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
+                                    <div class="transition-colors text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 hover:bg-white-hover">
+                                        <div class="w-[36px]">
+                                            {item.logo && <Logo size={40} logo={item.logo} />}    
+                                        </div>
+
+                                        <div class="flex flex-col justify-start items-start">
+                                            <div class="flex flex-row gap-2">
+                                                <Header size="sm" class="text-gray-800">{item.name}</Header>
+                                                {item.tag && <Tag>{item.tag}</Tag>}
+                                            </div>
+                                            <p class="text-sm text-gray-400 font-light">{item.description}</p>
+                                        </div>
+                                    </div>    
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </ScrollbarOverlayContainer>
+            </div>
+        )}
+    </label>
+</li>

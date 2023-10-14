@@ -1,5 +1,6 @@
 {
 	"name": "@polyfrost/website",
+	"type": "module",
   	"private": true,
 	"scripts": {
 		"dev": "astro dev",
@@ -8,9 +9,12 @@
 		"preview": "astro preview"
 	},
 	"dependencies": {
-		"astro": "^2.10.12"
+		"@astrojs/tailwind": "^5.0.2",
+		"astro": "^3.3.0",
+		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
-		"typescript": "^5.1.6"
+		"@types/node": "^18.0.0",
+		"typescript": "^5.2.2"
 	}
 }
