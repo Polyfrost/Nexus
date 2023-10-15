@@ -1,11 +1,11 @@
 @tailwind base;
 
 * {
-    font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 
 @layer base {
-    :focus-visible {
-        @apply outline-none ring ring-blue-500;
-    }
+	:focus-visible {
+		@apply outline-none ring ring-blue-500;
+	}
 }

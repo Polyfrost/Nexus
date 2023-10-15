@@ -1,4 +1,7 @@
 {
-	"files": [],
-	"references": []
+	"references": [
+		{
+			"path": "packages/ui"
+		}
+	]
 }

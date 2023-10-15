@@ -37,6 +37,8 @@ trim_trailing_whitespace = true
 # https://prettier.io
 [*.{cjs,js,json,jsx,mjs,ts,tsx}]
 indent_size = 4
+tab_width = 4
+indent_style = tab
 
 # Kotlin
 # https://android.github.io/kotlin-guides/style.html#indentation

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Default",
+	"compilerOptions": {
+		"strict": true,
+		"jsx": "react-jsx",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"preserveWatchOutput": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+		"noUncheckedIndexedAccess": true,
+		"composite": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"module": "ESNext",
+		"target": "ESNext",
+		"types": ["vite/client"]
+	}
+}

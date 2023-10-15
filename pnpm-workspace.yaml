@@ -1,6 +1,5 @@
 packages:
-  - 'apps/*'
-  - 'pkgs/*'
-  - 'interface'
-  - 'scripts'
-  - '.github/actions/*'
+    - 'apps/*'
+    - 'packages/*'
+    - 'interface'
+    - '.github/actions/*'

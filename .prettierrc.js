@@ -7,10 +7,13 @@ module.exports = {
 	bracketSameLine: false,
 	semi: true,
 	quoteProps: 'consistent',
-	importOrder: ['<THIRD_PARTY_MODULES>', '^@polyfrost/(interface|client|ui)(/.*)?$', '^~/', '^\\.'],
-	importOrderSortSpecifiers: true,
+	importOrder: [
+		'<THIRD_PARTY_MODULES>',
+		'^@polyfrost/(interface|client|ui)(/.*)?$',
+		'^~/',
+		'^\\.'
+	],
 	importOrderParserPlugins: ['importAssertions', 'typescript', 'jsx'],
-	pluginSearchDirs: false,
 	plugins: ['@ianvs/prettier-plugin-sort-imports', 'prettier-plugin-tailwindcss'],
 	tailwindConfig: './packages/ui/tailwind.config.js'
-}
+};

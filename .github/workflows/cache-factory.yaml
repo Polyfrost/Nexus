@@ -1,0 +1,77 @@
+# This workflow _produces_ caches which are used to speed up pull request builds.
+# Originally from https://github.com/libp2p/rust-libp2p/blob/master/.github/workflows/cache-factory.yml
+
+name: Cache Factory
+
+on:
+    push:
+        paths:
+            - 'Cargo.lock'
+            - './scripts/setup.sh'
+            - './scripts/setup.ps1'
+            - '.github/workflows/cache-factory.yaml'
+            - '.github/actions/**/*.yml'
+            - '.github/actions/**/*.yaml'
+            - '**/build.rs'
+            - 'core/prisma/**'
+        branches:
+            - main
+
+# Cancel previous runs of the same workflow on the same branch.
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    make_cache:
+        strategy:
+            fail-fast: true
+            matrix:
+                settings:
+                    - host: macos-latest
+                      target: x86_64-apple-darwin
+                    - host: macos-latest
+                      target: aarch64-apple-darwin
+                    - host: windows-latest
+                      target: x86_64-pc-windows-msvc
+                    - host: ubuntu-20.04
+                      target: x86_64-unknown-linux-gnu
+        name: 'Make Cache'
+        runs-on: ${{ matrix.settings.host }}
+        steps:
+            - name: Maximize build space
+              if: ${{ runner.os == 'Linux' }}
+              uses: easimon/maximize-build-space@master
+              with:
+                  swap-size-mb: 3072
+                  root-reserve-mb: 6144
+                  remove-dotnet: 'true'
+                  remove-codeql: 'true'
+                  remove-haskell: 'true'
+                  remove-docker-images: 'true'
+
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Symlink target to C:\
+              if: ${{ runner.os == 'Windows' }}
+              shell: powershell
+              run: |
+                  New-Item -ItemType Directory -Force -Path C:\nexus_target
+                  New-Item -Path target -ItemType Junction -Value C:\nexus_target
+
+            - name: Setup System and Rust
+              uses: ./.github/actions/setup-system
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  target: ${{ matrix.settings.target }}
+                  save-cache: 'true'
+
+            - name: Clippy
+              run: cargo clippy --workspace --all-features --target ${{ matrix.settings.target }}
+
+            - name: Compile (debug)
+              run: cargo test --workspace --all-features --no-run --target ${{ matrix.settings.target }}
+
+            - name: Compile (release)
+              run: cargo test --workspace --all-features --no-run --release --target ${{ matrix.settings.target }}

@@ -1,7 +1,7 @@
 {
 	"name": "@polyfrost/website",
 	"type": "module",
-  	"private": true,
+	"private": true,
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro start",
@@ -14,6 +14,8 @@
 		"tailwindcss": "^3.3.3"
 	},
 	"devDependencies": {
+		"@polyfrost/config": "workspace:*",
+		"@types/node": "~18.17.19",
 		"typescript": "^5.2.2"
 	}
 }

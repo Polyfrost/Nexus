@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+@layer base {
+	:focus-visible {
+		@apply outline-none ring ring-blue-500;
+	}
+}
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}
+
+// tauri button patch
+[type='button'] {
+	-webkit-appearance: none;
+}
