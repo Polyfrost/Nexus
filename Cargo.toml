@@ -1,6 +1,10 @@
 [workspace]
 resolver = "2"
 members = [
+	"core",
+	"crates/*",
+	"apps/cli",
+	"apps/desktop/src-tauri"
 ]
 
 [workspace.package]
@@ -14,6 +18,22 @@ homepage = "https://polyfrost.org"
 authors = ["Polyfrost"]
 
 [workspace.dependencies]
+prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
+	"rspc",
+	"sqlite-create-many",
+	"migrations",
+	"sqlite",
+], default-features = false }
+prisma-client-rust-cli = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
+	"rspc",
+	"sqlite-create-many",
+	"migrations",
+	"sqlite",
+], default-features = false }
+prisma-client-rust-sdk = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
+	"sqlite",
+], default-features = false }
+
 rspc = { version = "0.1.4" }
 specta = { version = "1.0.4" }
 tauri-specta = { version = "1.0.2" }

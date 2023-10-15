@@ -726,3 +726,6 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode,astro
 apps/.deps
+.cargo/config.toml
+.cargo/config
+.github/scripts/deps
