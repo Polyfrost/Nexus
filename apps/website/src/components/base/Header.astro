@@ -7,7 +7,7 @@ const sizes = {
     "md": "h3",
     "sm": "h4",
     "xs": "h5",
-    "xxs": "h6"  
+    "xxs": "h6"
 };
 
 type Headers = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
@@ -54,4 +54,11 @@ const Element = sizes[size] as any; // Unfortunately gotta do this
         font-size: theme("fontSize.body-sm");
         font-weight: 500;
     }
+
+	h1, h2, h3, h4, h5, h6 {
+		& :global(b) {
+			@apply text-blue-500;
+			font-weight: inherit;
+		}
+	}
 </style>
