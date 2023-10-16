@@ -4,7 +4,13 @@ module.exports = {
 	theme: {
 		colors: {
 			blue: {
-				500: 'rgba(31, 101, 214, 1)'
+				50: 'rgba(231, 235, 252, 1)',
+				100: 'rgba(210, 225, 249, 1)',
+				200: 'rgba(189, 215, 249, 1)',
+				400: 'rgba(56, 132, 255, 1)',
+				500: 'rgba(31, 101, 214, 1)',
+				600: 'rgba(9, 84, 165, 1)',
+				800: 'rgba(19, 43, 83, 1)'
 			},
 			gray: {
 				50: 'rgba(240, 242, 244, 1)',
@@ -14,8 +20,7 @@ module.exports = {
 			},
 			white: {
 				DEFAULT: 'rgba(255, 255, 255, 1)',
-				secondary: 'rgba(238, 241, 254, 1)',
-				hover: 'rgba(231, 235, 252, 1)'
+				"1/4": 'rgba(255, 255, 255, 0.25)'
 			},
 			black: {
 				DEFAULT: 'rgba(0, 0, 0, 1)'
@@ -31,21 +36,24 @@ module.exports = {
 			md: '5px',
 			lg: '8px',
 			xl: '12px',
+			"2xl": '16px',
 			full: '100vw'
 		},
 		fontSize: {
-			'xs': '12px',
-			'sm': '14px',
-			'md': '16px',
-			'lg': '18px',
+			// rem starts at 16px on desktop, 14px on tailwind 'sm' and below
+			'xs': '0.75rem', // 12px
+			'sm': '0.875rem', // 14px
+			'md': '1rem', // 16px
+			'lg': '1.125rem', // 18px
+			'xl': '1.25rem', // 20px
 
-			'header-sm': '24px',
-			'header': '28px',
-			'header-lg': '32px',
+			'header-sm': '1.5rem', // 24px
+			'header': '1.75rem', // 28px
+			'header-lg': '2rem', // 32px
 
-			'body-sm': '15px',
-			'body': '16px',
-			'body-lg': '17px'
+			'body-sm': '0.938rem', // 15px
+			'body': '1rem', // 16px
+			'body-lg': '1.063rem' // 17px
 		},
 		extend: {}
 	},

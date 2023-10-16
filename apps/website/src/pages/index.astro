@@ -2,11 +2,23 @@
 import Header from "@components/base/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import Logo from "@components/logos/Logo.astro";
+import Section from "@components/base/Section.astro";
+import Button from "@components/base/Button.astro";
+
+import Icon from "@components/icons/Icon.astro";
 ---
 
 <Layout>
-	<section>
-		<Logo size={44} logo="oneconfig.minimal" />
-		<Header size="xl">Meet <b>OneConfig</b>, the library for <b>everyone</b>.</Header>
-	</section>
+	<Section>
+		<Logo size={56} logo="oneconfig.minimal" />
+		<Header align="center" size="xl" class="max-w-[500px]">Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.</Header>
+		<div class="flex flex-row justify-center items-center gap-2">
+			<Button iconLeft="download" text="Download" size="lg" />
+			<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" size="lg" />
+		</div>
+	</Section>
+	<Section>
+		<Logo size={56} logo="oneconfig.minimal" />
+		<Header align="center" size="xl" class="max-w-[500px]">Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.</Header>
+	</Section>
 </Layout>

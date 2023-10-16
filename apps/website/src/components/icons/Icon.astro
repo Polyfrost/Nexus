@@ -1,0 +1,77 @@
+---
+export type Icons = "chevron-down" | "download" | "book-open";
+
+import { parse } from 'node-html-parser';
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"svg"> {
+  	icon: Icons;
+	size?: number | [number, number];
+}
+
+async function getSVG(name: string) {
+	const file = await import(`./impl/${name}.svg?raw` /* @vite-ignore */);
+
+	if (!file) {
+		throw new Error(`${name} not found`);
+	}
+
+	const content = parse(file.default);
+
+	const svg = content.querySelector('svg');
+
+	if (!svg) {
+		throw new Error(`${name} is not a valid SVG`);
+	}
+
+	const { attributes, innerHTML } = svg;
+
+	return {
+		attributes,
+		innerHTML,
+	};
+}
+
+const {
+	icon,
+	size,
+	...attributes
+} = Astro.props as Props;
+
+let svgAttributes = {};
+let html = "";
+
+try {
+	const sizeAttributes = () => {
+		if (!size) {
+			return {};
+		}
+
+		if (Array.isArray(size)) {
+			return {
+				width: size[0],
+				height: size[1],
+			};
+		}
+
+		return {
+			width: size,
+			height: size,
+		};
+	}
+
+	const { attributes: baseAttributes, innerHTML } = await getSVG(icon);
+	svgAttributes = {
+		...baseAttributes,
+		...attributes,
+		...sizeAttributes(),
+	};
+
+	const colorRegex = /(fill|stroke)=\"([^"]*)\"/g;
+	html = innerHTML.replaceAll(colorRegex, '$1="currentColor"');
+} catch (err) {
+
+}
+---
+
+<svg {...svgAttributes} set:html={html}></svg>

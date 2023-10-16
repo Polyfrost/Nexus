@@ -8,4 +8,17 @@
 	:focus-visible {
 		@apply outline-none ring ring-blue-500;
 	}
+
+	/* Has to be split because css parser moment */
+	::-moz-selection {
+		@apply bg-blue-500/20;
+	}
+
+	::selection {
+		@apply bg-blue-500/20;
+	}
+
+	html, body {
+		@apply text-[14px] md:text-[16px];
+	}
 }

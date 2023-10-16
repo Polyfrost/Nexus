@@ -10,7 +10,7 @@ export interface Props extends HTMLAttributes<"svg"> {
     silent?: boolean,
 }
 
-const { 
+const {
     logo,
     silent = false,
     size = undefined,
@@ -44,7 +44,7 @@ try {
 
     svg = svg.replace(/<svg/, `<svg ${Object.entries(attr).map(([key, value]) => `${key}="${value}"`).join(" ")}`);
 } catch (err) {
-    if (typeof silent != "boolean" || silent == false) console.error(err);
+
 }
 
 ---

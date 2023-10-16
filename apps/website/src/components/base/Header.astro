@@ -13,14 +13,21 @@ const sizes = {
 type Headers = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface Props extends HTMLAttributes<Headers> {
-    size: keyof typeof sizes;
+    size?: keyof typeof sizes;
+	align?: "left" | "center" | "right";
 }
 
-const { size, ...attr } = Astro.props;
+const {
+	size = "lg",
+	align = "left",
+	...attr
+} = Astro.props;
 const Element = sizes[size] as any; // Unfortunately gotta do this
+
+const className = `text-${align}` + (attr.class ? ` ${attr.class}` : "");
 ---
 
-<Element {...attr}>
+<Element {...attr} class={className}>
     <slot />
 </Element>
 

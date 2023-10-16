@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+	maxWidth?: number;
+}
+
+const {
+	maxWidth = 800,
+	...rest
+} = Astro.props;
+const className = `max-w-[${maxWidth}px] px-3 md:p-0 flex flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px] gap-4` + (rest.class ? ` ${rest.class}` : "");
+---
+
+<section {...rest} class={className}>
+	<slot></slot>
+</section>
