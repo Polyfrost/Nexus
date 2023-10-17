@@ -2,16 +2,37 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"section"> {
-	maxWidth?: number;
+	maxWidth?: "none" | String;
+	colReverse?: boolean;
+	wrapperClass?: string;
 }
 
 const {
-	maxWidth = 800,
-	...rest
+	maxWidth = "1080px",
+	colReverse = true,
+	wrapperClass = "",
+	...props
 } = Astro.props;
-const className = `max-w-[${maxWidth}px] px-3 md:p-0 flex flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px] gap-4` + (rest.class ? ` ${rest.class}` : "");
+
+const twoColumn = Astro.slots.has("left") || Astro.slots.has("right");
+
+const className = `max-w-[${maxWidth}] flex-grow px-5 md:p-0 flex gap-4`
+	+ (twoColumn ? ` justify-between md:justify-evenly lg:justify-between ${colReverse ? "flex-col-reverse" : "flex-col"} md:flex-row md:items-center md:flex-row` : "")
+	+ (props.class ? ` ${props.class}` : "");
 ---
 
-<section {...rest} class={className}>
-	<slot></slot>
+<section class={`w-full flex justify-center${wrapperClass ? ` ${wrapperClass}` : ""}`}>
+	<div class={className} {...props}>
+		{twoColumn ? (
+			<div class="flex flex-col items-start text-left relative">
+				<slot name="left"></slot>
+			</div>
+
+			<div class="flex flex-col items-start text-start relative">
+				<slot name="right"></slot>
+			</div>
+		) : (
+			<slot></slot>
+		)}
+	</div>
 </section>

@@ -14,17 +14,17 @@ type Headers = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface Props extends HTMLAttributes<Headers> {
     size?: keyof typeof sizes;
-	align?: "left" | "center" | "right";
+	align?: "left" | "center" | "right" | "inherit";
 }
 
 const {
 	size = "lg",
-	align = "left",
+	align = "inherit",
 	...attr
 } = Astro.props;
 const Element = sizes[size] as any; // Unfortunately gotta do this
 
-const className = `text-${align}` + (attr.class ? ` ${attr.class}` : "");
+const className = (align == "inherit" ? "" : `text-${align} `) + (attr.class ? ` ${attr.class}` : "");
 ---
 
 <Element {...attr} class={className}>
@@ -34,12 +34,12 @@ const className = `text-${align}` + (attr.class ? ` ${attr.class}` : "");
 <style>
     h1 {
         font-size: theme("fontSize.header-lg");
-        font-weight: 700;
+        font-weight: 600;
     }
 
     h2 {
         font-size: theme("fontSize.header");
-        font-weight: 700;
+        font-weight: 600;
     }
 
     h3 {

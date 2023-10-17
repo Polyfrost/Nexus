@@ -5,6 +5,7 @@ module.exports = {
 		colors: {
 			blue: {
 				50: 'rgba(231, 235, 252, 1)',
+				75: 'rgba(227, 236, 245, 1)',
 				100: 'rgba(210, 225, 249, 1)',
 				200: 'rgba(189, 215, 249, 1)',
 				400: 'rgba(56, 132, 255, 1)',
@@ -28,7 +29,9 @@ module.exports = {
 			text: {
 				DEFAULT: 'rgba(2, 3, 7, 1)',
 				primary: 'rgba(2, 3, 7, 1)'
-			}
+			},
+			// Other
+			"navy-peony": "rgba(32, 55, 91, 1)",
 		},
 		borderRadius: {
 			none: '0',

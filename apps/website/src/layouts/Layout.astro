@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/base/Navbar.astro";
 import Favicon from "/media/polyfrost/minimal_bg.svg?url";
+import Footer from "@components/base/Footer.astro";
 
 interface Props {
 	title?: string;
@@ -30,11 +31,11 @@ const {
 		<title>{title}</title>
 	</head>
 
-	<body class="bg-white">
+	<body class="bg-gray-50">
         <Navbar />
-		<main class="min-h-screen h-0">
+		<main class="min-h-screen h-auto">
 			<slot />
 		</main>
-
+		<Footer />
 	</body>
 </html>
