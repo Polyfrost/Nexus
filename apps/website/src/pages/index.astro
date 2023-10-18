@@ -6,13 +6,14 @@ import Section from "@components/base/Section.astro";
 import Button from "@components/base/Button.astro";
 
 import Paragraph from "@components/base/Paragraph.astro";
+import CodeBlock from "@components/base/CodeBlock.astro";
 
 ---
 
 <Layout>
 	<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
 		<Logo size={56} logo="oneconfig.minimal" />
-		<Header align="center" size="xl" class="max-w-[500px]">Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.</Header>
+		<Header align="center" size="xxl" class="max-w-[600px]">Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.</Header>
 		<div class="flex flex-row justify-center items-center gap-2">
 			<Button iconLeft="download" text="Download" />
 			<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
@@ -20,7 +21,7 @@ import Paragraph from "@components/base/Paragraph.astro";
 	</Section>
 
 	<div class="flex flex-col gap-40">
-		<Section>
+		<Section tabindex="0">
 			<div slot="left">
 				<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
 				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
@@ -39,7 +40,7 @@ import Paragraph from "@components/base/Paragraph.astro";
 			</div>
 		</Section>
 
-		<Section colReverse={false}>
+		<Section tabindex="0" colReverse={false}>
 			<div slot="left" class="w-1/2 md:w-auto">
 				<svg class="w-full h-full" width="157" height="140" viewBox="0 0 257 240" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M158.702 238.846H97.5448C91.7442 238.846 85.9689 238.08 80.3793 236.568C74.8802 235.081 69.5885 232.881 64.6511 230.029C59.7136 227.178 55.1637 223.693 51.1276 219.673C47.025 215.587 43.4751 210.968 40.5764 205.943L9.95514 152.866C7.05923 147.847 4.83842 142.466 3.35447 136.875C1.89454 131.374 1.1543 125.696 1.1543 120C1.1543 114.303 1.89454 108.626 3.35447 103.125C4.83842 97.5334 7.05923 92.1532 9.95514 87.1336L40.5765 34.0567C43.4751 29.0323 47.0251 24.4128 51.1276 20.3265C55.1637 16.3064 59.7137 12.8221 64.6511 9.97049C69.5885 7.11881 74.8802 4.91888 80.3793 3.43182C85.9689 1.92024 91.7443 1.15381 97.5448 1.15381H158.702C164.502 1.15381 170.277 1.92024 175.867 3.43182C181.366 4.91888 186.658 7.11881 191.595 9.97049C196.533 12.8222 201.083 16.3064 205.119 20.3265C209.221 24.4128 212.771 29.0323 215.67 34.0567L246.291 87.1336C249.187 92.1532 251.408 97.5334 252.892 103.125C254.352 108.626 255.092 114.303 255.092 120C255.092 125.696 254.352 131.374 252.892 136.875C251.408 142.466 249.187 147.847 246.291 152.866L215.67 205.943C212.771 210.968 209.221 215.587 205.119 219.673C201.083 223.693 196.533 227.178 191.595 230.029C186.658 232.881 181.366 235.081 175.867 236.568C170.278 238.08 164.502 238.846 158.702 238.846Z" fill="#F3F8FF"/>
@@ -60,7 +61,7 @@ import Paragraph from "@components/base/Paragraph.astro";
 			</div>
 		</Section>
 
-		<Section>
+		<Section tabindex="0">
 			<div slot="left">
 				<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
 				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
@@ -175,8 +176,20 @@ import Paragraph from "@components/base/Paragraph.astro";
 			</div>
 		</Section>
 
-		<Section wrapperClass="bg-blue-100">
-			test
+		<Section maxWidth="1100px" wrapperClass="bg-blue-75" class="md:py-20 gap-8">
+			<div slot="left">
+				<CodeBlock />
+			</div>
+
+			<div slot="right" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-600">Written for developers</Header>
+				<Paragraph class="text-navy-peony max-w-[500px]">
+					OneConfig's API was designed to give developers all of the tools available in the simplest way possible
+				</Paragraph>
+				<div class="flex">
+					<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
+				</div>
+			</div>
 		</Section>
 	</div>
 </Layout>

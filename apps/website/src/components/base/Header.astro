@@ -2,7 +2,8 @@
 import type { HTMLAttributes } from "astro/types"
 
 const sizes = {
-    "xl": "h1",
+	"xxl": "h1",
+    "xl": "h2",
     "lg": "h2",
     "md": "h3",
     "sm": "h4",
@@ -24,7 +25,9 @@ const {
 } = Astro.props;
 const Element = sizes[size] as any; // Unfortunately gotta do this
 
-const className = (align == "inherit" ? "" : `text-${align} `) + (attr.class ? ` ${attr.class}` : "");
+const className = (align == "inherit" ? "" : `text-${align} `)
+	+ (size == "xxl" ? " page-header" : "")
+	+ (attr.class ? ` ${attr.class}` : "");
 ---
 
 <Element {...attr} class={className}>
@@ -33,7 +36,10 @@ const className = (align == "inherit" ? "" : `text-${align} `) + (attr.class ? `
 
 <style>
     h1 {
-        font-size: theme("fontSize.header-lg");
+		font-size: theme("fontSize.header-lg");
+		&.page-header {
+			font-size: theme("fontSize.header-page");
+		}
         font-weight: 600;
     }
 

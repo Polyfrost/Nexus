@@ -16,8 +16,8 @@ const {
 
 const twoColumn = Astro.slots.has("left") || Astro.slots.has("right");
 
-const className = `max-w-[${maxWidth}] flex-grow px-5 md:p-0 flex gap-4`
-	+ (twoColumn ? ` justify-between md:justify-evenly lg:justify-between ${colReverse ? "flex-col-reverse" : "flex-col"} md:flex-row md:items-center md:flex-row` : "")
+const className = `max-w-[${maxWidth}] w-full px-5 md:p-0 flex gap-4`
+	+ (twoColumn ? ` ${maxWidth == "none" ? "justify-center" : "justify-between md:justify-evenly lg:justify-between"} ${colReverse ? "flex-col-reverse" : "flex-col"} md:flex-row md:items-center md:flex-row` : "")
 	+ (props.class ? ` ${props.class}` : "");
 ---
 
@@ -28,7 +28,7 @@ const className = `max-w-[${maxWidth}] flex-grow px-5 md:p-0 flex gap-4`
 				<slot name="left"></slot>
 			</div>
 
-			<div class="flex flex-col items-start text-start relative">
+			<div class="flex flex-col items-start text-left relative">
 				<slot name="right"></slot>
 			</div>
 		) : (

@@ -8,6 +8,7 @@ module.exports = {
 				75: 'rgba(227, 236, 245, 1)',
 				100: 'rgba(210, 225, 249, 1)',
 				200: 'rgba(189, 215, 249, 1)',
+				300: 'rgba(166, 200, 249, 1)',
 				400: 'rgba(56, 132, 255, 1)',
 				500: 'rgba(31, 101, 214, 1)',
 				600: 'rgba(9, 84, 165, 1)',
@@ -21,7 +22,8 @@ module.exports = {
 			},
 			white: {
 				DEFAULT: 'rgba(255, 255, 255, 1)',
-				"1/4": 'rgba(255, 255, 255, 0.25)'
+				"1/4": 'rgba(255, 255, 255, 0.25)',
+				light: "rgba(235, 245, 254, 1)"
 			},
 			black: {
 				DEFAULT: 'rgba(0, 0, 0, 1)'
@@ -53,6 +55,7 @@ module.exports = {
 			'header-sm': '1.5rem', // 24px
 			'header': '1.75rem', // 28px
 			'header-lg': '2rem', // 32px
+			'header-page': "2.25rem", // 36px
 
 			'body-sm': '0.938rem', // 15px
 			'body': '1rem', // 16px
