@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-
 import '@polyfrost/ui/style';
 
 const preview: Preview = {

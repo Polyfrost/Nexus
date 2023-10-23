@@ -16,7 +16,7 @@
 		"**/pnpm-lock.yaml": true,
 		"**/.gitignore": true,
 		"/packages/ctjs/types/*": true,
-		"**/dist": true,
+		"**/dist": true
 	},
 	"css.customData": [".vscode/tailwind.json"],
 	"eslint.lintTask.enable": true,
