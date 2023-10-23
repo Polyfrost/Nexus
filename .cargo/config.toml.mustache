@@ -9,6 +9,9 @@ rustflags = ["-L", "{{{nativeDeps}}}/lib"]
 {{#isWin}}
 [target.x86_64-pc-windows-msvc]
 rustflags = ["-L", "{{{nativeDeps}}}\\lib"]
+
+[target.'cfg(windows)']
+rustflags = ["-C", "link-args=/STACK:16777220"]
 {{/isWin}}
 
 {{#isLinux}}
