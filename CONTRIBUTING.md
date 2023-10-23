@@ -10,12 +10,12 @@ This guide will provide an overview of the contribution workflow, including open
 
 To familiarize yourself with the project, please read the [README](README.md). Here are some resources to help you get started with open-source contributions:
 
--   [Finding ways to contribute to open-source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
--   [Setting up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
--   [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
--   [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
--   [Getting started with Tauri](https://tauri.app/v1/guides/getting-started/prerequisites)
--   [pnpm CLI](https://pnpm.io/pnpm-cli)
+- [Finding ways to contribute to open-source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
+- [Setting up Git](https://docs.github.com/en/get-started/quickstart/set-up-git)
+- [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)
+- [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+- [Getting started with Tauri](https://tauri.app/v1/guides/getting-started/prerequisites)
+- [pnpm CLI](https://pnpm.io/pnpm-cli)
 
 ## Getting Started
 
@@ -49,20 +49,20 @@ To make changes locally, follow these steps:
 
 To quickly run only the launcher after `prep`, you can use:
 
--   `pnpm desktop dev`
+- `pnpm desktop dev`
 
     If necessary, react-devtools can be launched using `pnpm react-devtools`.
     However, it must be executed before starting the desktop app for it to connect.
 
 To run the website app:
 
--   `pnpm website dev`
+- `pnpm website dev`
 
 If you encounter any issues, ensure that you are using the following versions of Rust, Node and Pnpm:
 
--   Rust version: **1.70+**
--   Node version: **18+**
--   Pnpm version: **8.0+**
+- Rust version: **1.70+**
+- Node version: **18+**
+- Pnpm version: **8.0+**
 
 After cleaning out your build artifacts using `pnpm clean`, `git clean`, or `cargo clean`, it is necessary to re-run the `setup-system` script.
 
@@ -72,13 +72,13 @@ Make sure to read the [guidelines](https://docs.polyfrost.org/nexus/developers/p
 
 Once you have finished making your changes, create a pull request (PR) to submit them.
 
--   Fill out the "Ready for review" template to help reviewers understand your changes and the purpose of your PR.
--   If you are addressing an existing issue, don't forget to [link your PR to the issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
--   Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so that the branch can be updated for merging.
--   Once you submit your PR, a team member will review your proposal. They may ask questions or request additional information.
--   You may be asked to make changes before the PR can be merged, either through [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. For other changes, you can make them in your fork and commit them to your branch.
--   As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
--   If you run into any merge issues, refer to this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
+- Fill out the "Ready for review" template to help reviewers understand your changes and the purpose of your PR.
+- If you are addressing an existing issue, don't forget to [link your PR to the issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
+- Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so that the branch can be updated for merging.
+- Once you submit your PR, a team member will review your proposal. They may ask questions or request additional information.
+- You may be asked to make changes before the PR can be merged, either through [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. For other changes, you can make them in your fork and commit them to your branch.
+- As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
+- If you run into any merge issues, refer to this [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) to help you resolve merge conflicts and other issues.
 
 ### Your PR is Merged
 
