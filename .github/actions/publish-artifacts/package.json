@@ -1,4 +1,5 @@
 {
+	"name": "@polyfrost/publish-artifacts-action",
 	"private": true,
 	"scripts": {
 		"_build_comment": "there has to be a better way to do this lol",
@@ -12,6 +13,6 @@
 		"@actions/io": "^1.1.3"
 	},
 	"devDependencies": {
-		"@vercel/ncc": "^0.38.0"
+		"@vercel/ncc": "^0.38.1"
 	}
 }
