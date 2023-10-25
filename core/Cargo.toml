@@ -10,7 +10,39 @@ homepage.workspace = true
 authors.workspace = true
 
 [dependencies]
+notify = { version = "5.2", default-features = false, features = ["macos_fsevent"] }
+
 nexus-prisma = { path = "../crates/prisma" }
 nexus-utils = { path = "../crates/utils"}
 
+rspc.workspace = true
+prisma-client-rust.workspace = true
+interpulse.workspace = true
+thiserror.workspace = true
+chrono.workspace = true
+tokio.workspace = true
+base64.workspace = true
+futures.workspace = true
+uuid.workspace = true
+async-trait.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-appender.workspace = true
+async-stream.workspace = true
+once_cell.workspace = true
+itertools.workspace = true
+regex.workspace = true
+bytes.workspace = true
+reqwest.workspace = true
 tauri-specta.workspace = true
+
+
+[dependencies.openssl]
+version = "=0.10.57"
+features = ["vendored"]
+[dependencies.openssl-sys]
+version = "=0.9.93"
+features = ["vendored"]
+
+[target.'cfg(target_os = "macos")'.dependencies]
+plist = "1"

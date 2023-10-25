@@ -34,8 +34,8 @@ prisma-client-rust-sdk = { git = "https://github.com/pauliesnug/prisma-client-ru
 
 # rspc dependencies
 rspc = { version = "1.0.0-rc.5", features = [
-	"uuid",
-	"chrono"
+	"tracing",
+	"unstable"
 ] }
 specta = { version = "2.0.0-rc.6" }
 tauri-specta = { version = "2.0.0-rc.3" }
@@ -46,12 +46,22 @@ swift-rs = { version = "1.0.6" }
 tracing = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94" }
 tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94", features = ["env-filter"] }
 tracing-appender = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94" }
+interpulse = { git = "https://github.com/pulseflow/workers" }
 
 # general use packages
-tokio = { version = "1.33.0", features = ["full"] }
+tokio = { version = "1.33.0", features = [
+	"full",
+	"sync",
+	"rt-multi-thread",
+	"io-util",
+	"macros",
+	"time",
+	"process",
+] }
 uuid = { version = "1.4.1", features = ["v4", "serde"] }
 serde = { version = "1.0", features = ["derive"] }
-reqwest = { version = "0.11", features = ["blocking", "json"] }
+reqwest = { version = "0.11", features = ["blocking", "json", "native-tls-vendored"] }
+tokio-util = { version = "0.7", features = ["io"] }
 clap = { version = "4.4", features = ["derive"] }
 chrono = { version = "0.4", features = ["serde"] }
 thiserror = { version = "1.0" }
@@ -60,6 +70,9 @@ itertools = { version = "0.11" }
 dashmap = { version = "5.5", features = ["serde"] }
 regex = { version = "1.10" }
 bytes = { version = "1.5" }
+once_cell = { version = "1.18" }
+base64 = { version = "0.21" }
+async-trait = { version = "0.1" }
 anyhow = { version = "1.0" }
 cargo_metadata = { version = "0.18" }
 serde_json = { version = "1.0" }
