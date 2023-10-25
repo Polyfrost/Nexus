@@ -10,10 +10,14 @@
 		"typecheck": "tsc -b"
 	},
 	"dependencies": {
-		"@rspc/client": "github:oscartbeaumont/rspc#b168e62",
-		"@rspc/react": "github:oscarbeaumont/rspc#b168e62",
 		"@polyfrost/config": "workspace:*",
+		"@hookform/resolvers": "^3.3.2",
+		"@rspc/client": "^1.0.0-rc.3",
+		"@rspc/react-query": "^1.0.0-rc.4",
+		"@rspc/svelte-query": "^1.0.0-rc.4",
+		"@tanstack/query-core": "^5.0.5",
 		"@tanstack/react-query": "^5.0.5",
+		"@tanstack/svelte-query": "^5.0.5",
 		"plausible-tracker": "^0.3.8",
 		"react-hook-form": "^7.47.0",
 		"valtio": "^1.11.3",

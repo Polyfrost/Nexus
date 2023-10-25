@@ -1,6 +1,18 @@
 {
 	"references": [
 		{
+			"path": "apps/desktop"
+		},
+		{
+			"path": "apps/website"
+		},
+		{
+			"path": "interface"
+		},
+		{
+			"path": "packages/client"
+		},
+		{
 			"path": "packages/ui"
 		}
 	]

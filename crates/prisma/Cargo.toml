@@ -1,5 +1,5 @@
 [package]
-name = "nexuscore"
+name = "nexus-prisma"
 version = "0.1.0"
 license.workspace = true
 edition.workspace = true
@@ -10,7 +10,6 @@ homepage.workspace = true
 authors.workspace = true
 
 [dependencies]
-nexus-prisma = { path = "../crates/prisma" }
-nexus-utils = { path = "../crates/utils"}
-
-tauri-specta.workspace = true
+prisma-client-rust.workspace = true
+serde.workspace = true
+serde_json.workspace = true

@@ -3,8 +3,8 @@ resolver = "2"
 members = [
 	"core",
 	"crates/*",
-	"apps/cli",
-	"apps/desktop/src-tauri"
+	# "apps/cli",
+	# "apps/desktop/src-tauri"
 ]
 
 [workspace.package]
@@ -13,39 +13,59 @@ edition = "2021"
 repository = "https://github.com/Polyfrost/Nexus"
 documentation = "https://docs.polyfrost.org/nexus"
 readme = "README.md"
-license-file = "LICENSE"
 homepage = "https://polyfrost.org"
 authors = ["Polyfrost"]
 
 [workspace.dependencies]
-prisma-client-rust = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
-	"rspc",
+# prisma client rust dependencies
+prisma-client-rust = { git = "https://github.com/pauliesnug/prisma-client-rust", features = [
 	"sqlite-create-many",
 	"migrations",
 	"sqlite",
 ], default-features = false }
-prisma-client-rust-cli = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
-	"rspc",
+prisma-client-rust-cli = { git = "https://github.com/pauliesnug/prisma-client-rust", features = [
 	"sqlite-create-many",
 	"migrations",
 	"sqlite",
 ], default-features = false }
-prisma-client-rust-sdk = { git = "https://github.com/Brendonovich/prisma-client-rust", features = [
+prisma-client-rust-sdk = { git = "https://github.com/pauliesnug/prisma-client-rust", features = [
 	"sqlite",
 ], default-features = false }
 
-rspc = { version = "1.0.0-rc.5" }
+# rspc dependencies
+rspc = { version = "1.0.0-rc.5", features = [
+	"uuid",
+	"chrono"
+] }
 specta = { version = "2.0.0-rc.6" }
 tauri-specta = { version = "2.0.0-rc.3" }
-swift-rs = { version = "1.0.6" }
-tokio = { version = "1.33.0" }
-uuid = { version = "1.4.1", features = ["v4", "serde"] }
-serde = { version = "1.0" }
-serde_json = { version = "1.0" }
 
-tracing = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e" }
-tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e", features = ["env-filter"] }
-tracing-appender = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e" }
+# swift-rs for ios specific extensions
+swift-rs = { version = "1.0.6" }
+
+tracing = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94" }
+tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94", features = ["env-filter"] }
+tracing-appender = { git = "https://github.com/tokio-rs/tracing", rev = "f93cfa087e6ebdcbd8ecdcccca47d73c3a89ab94" }
+
+# general use packages
+tokio = { version = "1.33.0", features = ["full"] }
+uuid = { version = "1.4.1", features = ["v4", "serde"] }
+serde = { version = "1.0", features = ["derive"] }
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+clap = { version = "4.4", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = { version = "1.0" }
+async-stream = { version = "0.3" }
+itertools = { version = "0.11" }
+dashmap = { version = "5.5", features = ["serde"] }
+regex = { version = "1.10" }
+bytes = { version = "1.5" }
+anyhow = { version = "1.0" }
+cargo_metadata = { version = "0.18" }
+serde_json = { version = "1.0" }
+lazy_static = { version = "1.4" }
+futures = { version = "0.3" }
+
 
 [patch.crates-io]
 specta = { git = "https://github.com/oscartbeaumont/specta", rev = "22d4392b9296e761d12aebf9b50001235f4b2be7" }

@@ -729,3 +729,5 @@ apps/.deps
 .cargo/config.toml
 .cargo/config
 .github/scripts/deps
+dev.db
+dev.db-journal

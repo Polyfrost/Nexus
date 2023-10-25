@@ -1,5 +1,5 @@
 [package]
-name = "nexuscore"
+name = "interpoly"
 version = "0.1.0"
 license.workspace = true
 edition.workspace = true
@@ -8,9 +8,3 @@ documentation.workspace = true
 readme.workspace = true
 homepage.workspace = true
 authors.workspace = true
-
-[dependencies]
-nexus-prisma = { path = "../crates/prisma" }
-nexus-utils = { path = "../crates/utils"}
-
-tauri-specta.workspace = true
