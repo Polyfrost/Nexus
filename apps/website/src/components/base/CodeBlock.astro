@@ -2,20 +2,62 @@
 
 ---
 
-<pre class="flex flex-col">
-	<code class="whitespace-pre bg-white-light border border-gray-50 rounded-2xl text-sm">{`public class MyConfig {
-
-	@Switch(name = "Sub Switch", type = OptionType.SWITCH)
-	public static boolean subSwitch = false;
-
-	public MyConfig() {
-		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
-
-		addDependency("subSwitch", () -> {
-			// TODO: Make codeblocks better lmao
-		});
-	}
-
-}`}</code>
+<pre class="flex flex-col bg-gray-800 whitespace-pre border border-gray-50 rounded-2xl text-sm">
+	<!-- TODO: un-shit this -->
+	<code><ca>public</ca> <cb>class</cb> <cc>MyConfig</cc> <cd>&#123;</cd></code>
+	<code></code>
+	<code>    <ce>@</ce><ca>Switch</ca><cd>(</cd><ca>name</ca> <ce>=</ce> <cf>"Sub Switch"</cf><cd>,</cd> <ca>type</ca> <ce>=</ce> <ca>OptionType</ca><cd>.</cd><cb>SWITCH</cb><cd>)</cd></code>
+	<code>    <cb>public</cb> <cc>static boolean subSwitch</cc> <ce>=</ce> <cg>false</cg><cd>;</cd></code>
+	<code></code>
+	<code>    <ca>public MyConfig</ca><cd>() &#123;</cd></code>
+	<code>        <cb>super</cb><cd>(</cd><cb>new</cb> <ca>Mod</ca><cd>(</cd><cf>"My Mod"</cf><cd>,</cd> <ca>ModType</ca><cd>.</cd><cb>UTIL_QOL</cb><cd>),</cd> <cf>"config.json"</cf><cd>);</cd></code>
+	<code></code>
+	<code>        <cb>addDependency</cb><cd>(</cd><cf>"subSwitch"</cf><cd>, ()</cd> <ce>-&gt;</ce> <cd>&#123;</cd></code>
+	<code>            // Do stuff here!</code>
+	<code>        <cd>&#125;);</cd></code>
+	<code>    <cd>&#125;</cd></code>
+	<code></code>
+	<code><cd>&#125;</cd></code>
 </pre>
 
+<style>
+	/* thanks stackoverflow! https://stackoverflow.com/a/41309213 */
+	pre {
+		white-space: pre-wrap;
+		padding: 10px;
+		color: #546E7A;
+	}
+	pre::before {
+		counter-reset: listing;
+	}
+	pre code {
+		counter-increment: listing;
+		text-align: left;
+		float: left;
+		clear: left;
+		font-family: 'Roboto Mono', monospace !important;
+		font-size: 12px;
+		height: 1.5em;
+	}
+	pre code::before {
+		content: counter(listing) " ";
+		display: inline-block;
+		float: left;
+		height: 3em;
+		width: 2em;
+		padding: 0;
+		margin-left: auto;
+		margin-right: 10px;
+		text-align: right;
+		font-family: 'Roboto Mono', monospace !important;
+		font-size: 12px;
+	}
+
+	ca { color: #F07178; font-family: inherit; }
+	cb { color: #C792EA; font-family: inherit; }
+	cc { color: #82AAFF; font-family: inherit; }
+	cd { color: #EFF; font-family: inherit; }
+	ce { color: #89DDFF; font-family: inherit; }
+	cf { color: #C3E88D; font-family: inherit; }
+	cg { color: #F78C6C; font-family: inherit; }
+</style>

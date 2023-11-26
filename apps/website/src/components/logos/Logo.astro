@@ -1,7 +1,5 @@
 ---
 import type { LogoType } from "@webtypes/Config";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import type { HTMLAttributes } from "astro/types";
 
 export interface Props extends HTMLAttributes<"svg"> {
@@ -20,7 +18,7 @@ let svg: string | undefined;
 
 try {
     if (logo == undefined) return;
-    const dir = dirname(fileURLToPath(import.meta.url)) + "/../../../public/media";
+    const dir = "../../../public/media";
     svg = (await import(`${dir}/${logo.replaceAll(".", "/")}.svg?raw` /* @vite-ignore */)).default;
 
     if (svg == undefined) return;
@@ -44,7 +42,8 @@ try {
 
     svg = svg.replace(/<svg/, `<svg ${Object.entries(attr).map(([key, value]) => `${key}="${value}"`).join(" ")}`);
 } catch (err) {
-
+	console.error(`Error occurred while loading SVG. Logo name is ${logo}.`)
+	console.error(err);
 }
 
 ---

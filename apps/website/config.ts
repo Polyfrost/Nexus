@@ -39,42 +39,6 @@ function getProjects(): Project[] {
 			description: 'The next-generation launcher for Forge and Fabric',
 			logo: 'polyfrost.minimal',
 			tag: 'SOON'
-		},
-		{
-			name: 'OneConfig',
-			description: 'The next-generation config library for Forge and Fabric',
-			logo: 'oneconfig.minimal',
-			tag: 'BETA'
-		},
-		{
-			name: 'OneLauncher',
-			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
-			tag: 'SOON'
-		},
-		{
-			name: 'OneConfig',
-			description: 'The next-generation config library for Forge and Fabric',
-			logo: 'oneconfig.minimal',
-			tag: 'BETA'
-		},
-		{
-			name: 'OneLauncher',
-			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
-			tag: 'SOON'
-		},
-		{
-			name: 'OneConfig',
-			description: 'The next-generation config library for Forge and Fabric',
-			logo: 'oneconfig.minimal',
-			tag: 'BETA'
-		},
-		{
-			name: 'OneLauncher',
-			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
-			tag: 'SOON'
 		}
 	];
 }
