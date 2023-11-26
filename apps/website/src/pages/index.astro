@@ -1,73 +1,88 @@
 ---
-import Header from "@components/base/Header.astro";
-import Layout from "../layouts/Layout.astro";
-import Logo from "@components/logos/Logo.astro";
-import Section from "@components/base/Section.astro";
-import Button from "@components/base/Button.astro";
+import Header from '@components/base/Header.astro';
+import Logo from '@components/logos/Logo.astro';
+import Section from '@components/base/Section.astro';
+import Button from '@components/base/Button.astro';
 
-import Paragraph from "@components/base/Paragraph.astro";
-import CodeBlock from "@components/base/CodeBlock.astro";
+import Paragraph from '@components/base/Paragraph.astro';
+import Layout from '../layouts/Layout.astro';
+
+import { Code } from 'astro:components';
 
 ---
 
-<Layout>
-	<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
-		<Logo size={56} logo="oneconfig.minimal" />
-		<Header align="center" size="xxl" class="max-w-[600px]">Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.</Header>
-		<div class="flex flex-row justify-center items-center gap-2">
-			<Button iconLeft="download" text="Download" />
-			<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
-		</div>
-	</Section>
-
-	<div class="flex flex-col gap-40">
-		<Section tabindex="0">
-			<div slot="left">
-				<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
-			</div>
-			<div slot="right" class="w-3/4 md:w-auto">
-				<!-- TODO: make proper file names and alt text -->
-				<img src="/media/index/index1.svg" alt="stuff" />
+	<Layout>
+		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
+			<Logo size={56} logo="oneconfig.minimal" />
+			<Header align="center" size="xxl" class="max-w-[600px]">
+				Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
+			</Header>
+			<div class="flex flex-row justify-center items-center gap-2">
+				<Button iconLeft="download" text="Download" />
+				<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
 			</div>
 		</Section>
 
-		<Section tabindex="0" colReverse={false}>
-			<div slot="left" class="w-1/2 md:w-auto">
-				<img src="/media/index/index2.svg" alt="stuff" />
-			</div>
-
-			<div slot="right">
-				<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
-			</div>
-		</Section>
-
-		<Section tabindex="0">
-			<div slot="left">
-				<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
-			</div>
-
-			<div slot="right" class="w-3/4 md:w-auto">
-				<img src="/media/index/index3.svg" alt="stuff" />
-			</div>
-		</Section>
-
-		<Section maxWidth="1100px" wrapperClass="bg-blue-100" wFull={false} class="md:py-20 gap-8">
-			<div slot="left">
-				<CodeBlock />
-			</div>
-
-			<div slot="right" class="flex flex-col gap-2">
-				<Header size="xl" class="text-blue-500">Written for developers</Header>
-				<Paragraph class="text-blue-400 max-w-[500px]">
-					With Polyfrost's simple APIs, it's easy to integrate your mods into Polyfrost something
-				</Paragraph>
-				<div class="flex">
-					<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
+		<div class="flex flex-col gap-40">
+			<Section tabindex="0">
+				<div slot="left">
+					<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
+					<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
 				</div>
-			</div>
-		</Section>
-	</div>
-</Layout>
+				<div slot="right" class="w-3/4 md:w-auto">
+				<!-- TODO: make proper file names and alt text -->
+					<img src="/media/index/index1.svg" alt="stuff" />
+				</div>
+			</Section>
+
+			<Section tabindex="0" colReverse={false}>
+				<div slot="left" class="w-1/2 md:w-auto">
+					<img src="/media/index/index2.svg" alt="stuff" />
+				</div>
+
+				<div slot="right">
+					<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
+					<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
+				</div>
+			</Section>
+
+			<Section tabindex="0">
+				<div slot="left">
+					<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
+					<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
+				</div>
+
+				<div slot="right" class="w-3/4 md:w-auto">
+					<img src="/media/index/index3.svg" alt="stuff" />
+				</div>
+			</Section>
+
+			<Section maxWidth="1000px" wrapperClass="bg-blue-100" wFull={false} class="md:py-20 gap-4 pr-2">
+				<div slot="left" class='pr-2'>
+					<Code code={`
+	public class MyConfig {
+    	@Switch(name = "Sub Switch", type = OptionType.SWITCH)
+    	public static boolean subSwitch = false;
+
+    	public MyConfig() {
+        	super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+        	addDependency("subSwitch", () -> {
+            	// Do stuff here
+        	});
+    	}
+	}
+					`} lang={'java'}/>
+				</div>
+
+				<div slot="right" class="flex flex-col gap-2">
+					<Header size="xl" class="text-blue-500">Written for developers</Header>
+					<Paragraph class="text-blue-400 max-w-[500px]">
+						With Polyfrost's simple APIs, it's easy to integrate your mods into Polyfrost something
+					</Paragraph>
+					<div class="flex">
+						<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
+					</div>
+				</div>
+			</Section>
+		</div>
+	</Layout>

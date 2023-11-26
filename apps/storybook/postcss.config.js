@@ -4,7 +4,7 @@ module.exports = {
 		'autoprefixer': {},
 		'postcss-pseudo-companion-classes': {
 			prefix: 'sb-pseudo--',
-			restrictTo: [':hover', ':focus']
-		}
-	}
+			restrictTo: [':hover', ':focus'],
+		},
+	},
 };

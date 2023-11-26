@@ -1,4 +1,4 @@
-import type { Config, NavbarDropdown, NavbarElement, Project } from '@webtypes/Config';
+import type { Config, NavbarDropdown, Project } from '@webtypes/Config';
 
 export const configConst = {
 	projects: getProjects(),
@@ -7,24 +7,24 @@ export const configConst = {
 		left: [
 			{
 				logo: ['polyfrost.full', -1],
-				path: '/'
-			}
+				path: '/',
+			},
 		],
 		right: [
 			{
 				text: 'Home',
-				path: '/'
+				path: '/',
 			},
 			{
 				text: 'Projects',
 				dropdown: getProjects().map((project) => {
 					(project as any).path = `/projects/${project.name.toLowerCase()}`;
 					return project;
-				}) as unknown as NavbarDropdown[]
-			}
-		]
-	}
-} as const satisfies Config;
+				}) as unknown as NavbarDropdown[],
+			},
+		],
+	},
+} satisfies Config;
 
 function getProjects(): Project[] {
 	return [
@@ -32,14 +32,14 @@ function getProjects(): Project[] {
 			name: 'OneConfig',
 			description: 'The next-generation config library for Forge and Fabric',
 			logo: 'oneconfig.minimal',
-			tag: 'BETA'
+			tag: 'BETA',
 		},
 		{
 			name: 'OneLauncher',
 			description: 'The next-generation launcher for Forge and Fabric',
 			logo: 'polyfrost.minimal',
-			tag: 'SOON'
-		}
+			tag: 'SOON',
+		},
 	];
 }
 

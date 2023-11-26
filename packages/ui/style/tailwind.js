@@ -1,21 +1,24 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {(varName: string) => string} */
-const alpha = (varName) => `hsla(var(${varName}), <alpha-value>)`;
+// eslint-disable-next-line unused-imports/no-unused-vars
+const alpha = varName => `hsla(var(${varName}), <alpha-value>)`;
 const contentExts = `{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,stories.tsx}`;
+
+// TODO: make this not CJS
 
 /**
  * @param {string} app
  * @param {import('tailwindcss').Config} options
- * @returns {import('tailwindcss').Config}
+ * @returns {import('tailwindcss').Config} the tailwind config
  */
 module.exports = (app, options) => {
 	/** @type {import('tailwindcss').Config} */
-	let config = {
+	const config = {
 		content: [
 			`../../apps/${app}/src/**/*.${contentExts}`,
 			`../../packages/*/src/**/*.${contentExts}`,
-			`../../interface/**/*.${contentExts}`
+			`../../interface/**/*.${contentExts}`,
 		],
 		darkMode: 'class',
 		theme: {
@@ -25,7 +28,7 @@ module.exports = (app, options) => {
 				md: '868px',
 				lg: '1024px',
 				xl: '1280px',
-				...defaultTheme.screens
+				...defaultTheme.screens,
 			},
 			fontSize: {
 				'xs': '12px',
@@ -37,7 +40,7 @@ module.exports = (app, options) => {
 				'header-lg': '32px',
 				'body-sm': '15px',
 				'body': '16px',
-				'body-lg': '17px'
+				'body-lg': '17px',
 			},
 			borderRadius: {
 				none: '0',
@@ -45,31 +48,31 @@ module.exports = (app, options) => {
 				md: '5px',
 				lg: '8px',
 				xl: '12px',
-				full: '100vw'
+				full: '100vw',
 			},
 			extend: {
 				colors: {
 					blue: {
-						500: 'rgba(31, 101, 214, 1)'
+						500: 'rgba(31, 101, 214, 1)',
 					},
 					gray: {
 						50: 'rgba(240, 242, 244, 1)',
 						400: 'rgba(138, 150, 168, 1)',
 						700: 'rgba(65, 74, 88, 1)',
-						800: 'rgba(42, 47, 55, 1)'
+						800: 'rgba(42, 47, 55, 1)',
 					},
 					white: {
 						DEFAULT: 'rgba(255, 255, 255, 1)',
 						secondary: 'rgba(238, 241, 254, 1)',
-						hover: 'rgba(231, 235, 252, 1)'
+						hover: 'rgba(231, 235, 252, 1)',
 					},
 					black: {
-						DEFAULT: 'rgba(0, 0, 0, 1)'
+						DEFAULT: 'rgba(0, 0, 0, 1)',
 					},
 					text: {
 						DEFAULT: 'rgba(2, 3, 7, 1)',
-						primary: 'rgba(2, 3, 7, 1)'
-					}
+						primary: 'rgba(2, 3, 7, 1)',
+					},
 				},
 				extend: {
 					transitionTimingFunction: {
@@ -100,20 +103,23 @@ module.exports = (app, options) => {
 						'in-out-circ': 'cubic-bezier(0.85, 0, 0.15, 1)',
 						'in-back': 'cubic-bezier(0.36, 0, 0.66, -0.56)',
 						'out-back': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-						'in-out-back': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)'
-					}
-				}
-			}
+						'in-out-back': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)',
+					},
+				},
+			},
 		},
 		plugins: [
 			require('@tailwindcss/forms'),
 			require('tailwindcss-animate'),
 			require('@headlessui/tailwindcss'),
-			require('tailwindcss-radix')()
-		]
+			require('tailwindcss-radix')(),
+		],
+
+		...options,
 	};
 
-	if (app === 'website') config.plugins.push(require('@tailwindcss/typography'));
+	if (app === 'website')
+		config.plugins.push(require('@tailwindcss/typography'));
 
 	return config;
 };

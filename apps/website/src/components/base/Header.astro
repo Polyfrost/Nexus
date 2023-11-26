@@ -1,40 +1,40 @@
 ---
-import type { HTMLAttributes } from "astro/types"
+import type { HTMLAttributes } from 'astro/types';
 
 const sizes = {
-	"xxl": "h1",
-    "xl": "h2",
-    "lg": "h2",
-    "md": "h3",
-    "sm": "h4",
-    "xs": "h5",
-    "xxs": "h6"
+	xxl: 'h1',
+	xl: 'h2',
+	lg: 'h2',
+	md: 'h3',
+	sm: 'h4',
+	xs: 'h5',
+	xxs: 'h6',
 };
 
-type Headers = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type Headers = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface Props extends HTMLAttributes<Headers> {
-    size?: keyof typeof sizes;
-	align?: "left" | "center" | "right" | "inherit";
+	size?: keyof typeof sizes
+	align?: 'left' | 'center' | 'right' | 'inherit'
 }
 
 const {
-	size = "lg",
-	align = "inherit",
+	size = 'lg',
+	align = 'inherit',
 	...attr
 } = Astro.props;
 const Element = sizes[size] as any; // Unfortunately gotta do this
 
-const className = (align == "inherit" ? "" : `text-${align} `)
-	+ (size == "xxl" ? " page-header" : "")
-	+ (attr.class ? ` ${attr.class}` : "");
+const className = (align == 'inherit' ? '' : `text-${align} `)
+	+ (size == 'xxl' ? ' page-header' : '')
+	+ (attr.class ? ` ${attr.class}` : '');
 ---
 
-<Element {...attr} class={className}>
-    <slot />
-</Element>
+	<Element {...attr} class={className}>
+		<slot />
+	</Element>
 
-<style>
+		<style>
     h1 {
 		font-size: theme("fontSize.header-lg");
 		&.page-header {

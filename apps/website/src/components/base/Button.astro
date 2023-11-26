@@ -1,27 +1,27 @@
 ---
-import type { Icons } from "@components/icons/Icon.astro";
-import Icon from "@components/icons/Icon.astro";
-import type { HTMLAttributes } from "astro/types";
+import type { Icons } from '@components/icons/Icon.astro';
+import Icon from '@components/icons/Icon.astro';
+import type { HTMLAttributes } from 'astro/types';
 
 const styles = {
 	// TODO: adjust active / disabled colors
-	primary: "bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-600 disabled:bg-blue-800 disabled:text-white-1/4",
-	secondary: "bg-blue-20 text-blue-60 border-[1px] border-blue-30 hover:bg-blue-200 active:bg-blue-300 disabled:bg-blue-50 disabled:text-blue-200",
-}
+	primary: 'bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-600 disabled:bg-blue-800 disabled:text-white-1/4',
+	secondary: 'bg-blue-20 text-blue-60 border-[1px] border-blue-30 hover:bg-blue-200 active:bg-blue-300 disabled:bg-blue-50 disabled:text-blue-200',
+};
 
 const sizes = {
-	sm: "px-4 py-2 text-sm",
-	md: "px-5 py-3 text-md",
-	lg: "px-6 py-3 text-lg rounded-2xl"
-}
+	sm: 'px-4 py-2 text-sm',
+	md: 'px-5 py-3 text-md',
+	lg: 'px-6 py-3 text-lg rounded-2xl',
+};
 
 const iconSize = {
 	sm: 15,
 	md: 18,
-	lg: 24
-}
+	lg: 24,
+};
 
-interface Props extends HTMLAttributes<"button"> {
+interface Props extends HTMLAttributes<'button'> {
 	style?: keyof typeof styles
 	size?: keyof typeof sizes
 	text?: string
@@ -31,28 +31,28 @@ interface Props extends HTMLAttributes<"button"> {
 }
 
 const {
-	style = "primary",
-	size = "md",
-    text = "",
-	iconLeft = "",
-	iconRight = "",
+	style = 'primary',
+	size = 'md',
+	text = '',
+	iconLeft = '',
+	iconRight = '',
 	...rest
 } = Astro.props;
 
 const className = [
-	"flex flex-row justify-center items-center text-center focus-visible:ring-offset-4 focus-visible:outline-offset-4",
-	"rounded-xl font-medium",
+	'flex flex-row justify-center items-center text-center focus-visible:ring-offset-4 focus-visible:outline-offset-4',
+	'rounded-xl font-medium',
 	styles[style],
 	sizes[size],
-	"transition-colors",
-	rest.class
-].join(" ");
+	'transition-colors',
+	rest.class,
+].join(' ');
 
-const Element = rest.href ? "a" : "button" as any;
+const Element = rest.href ? 'a' : 'button' as any;
 ---
 
 <Element {...rest} class={className}>
 	{iconLeft && <span class="mr-2"><Icon icon={iconLeft} size={iconSize[size]}></Icon></span>}
-	{text ? text : <slot />}
+	{text || <slot />}
 	{iconRight && <span class="ml-2"><Icon icon={iconRight} size={iconSize[size]}></Icon></span>}
 </Element>

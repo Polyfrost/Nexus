@@ -1,40 +1,42 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"section"> {
-	maxWidth?: "none" | String;
-	colReverse?: boolean;
-	wrapperClass?: string;
-	wFull?: boolean;
+interface Props extends HTMLAttributes<'section'> {
+	maxWidth?: 'none' | String
+	colReverse?: boolean
+	wrapperClass?: string
+	wFull?: boolean
 }
 
 const {
-	maxWidth = "1080px",
+	maxWidth = '1080px',
 	colReverse = true,
-	wrapperClass = "",
+	wrapperClass = '',
 	wFull = true,
 	...props
 } = Astro.props;
 
-const twoColumn = Astro.slots.has("left") || Astro.slots.has("right");
+const twoColumn = Astro.slots.has('left') || Astro.slots.has('right');
 
-const className = `max-w-[${maxWidth}] ${wFull ? "w-full" : ""} px-5 md:p-0 flex gap-4`
-	+ (twoColumn ? ` ${maxWidth == "none" ? "justify-center" : "justify-between md:justify-evenly lg:justify-between"} ${colReverse ? "flex-col-reverse" : "flex-col"} md:flex-row md:items-center md:flex-row` : "")
-	+ (props.class ? ` ${props.class}` : "");
+const className = `max-w-[${maxWidth}] ${wFull ? 'w-full' : ''} px-5 md:p-0 flex gap-4${
+	 twoColumn ? ` ${maxWidth == 'none' ? 'justify-center' : 'justify-between md:justify-evenly lg:justify-between'} ${colReverse ? 'flex-col-reverse' : 'flex-col'} md:flex-row md:items-center md:flex-row` : ''
+	 }${props.class ? ` ${props.class}` : ''}`;
 ---
 
-<section class={`w-full flex justify-center ${wrapperClass ?? ""}`}>
-	<div class={className} {...props}>
-		{twoColumn ? (
-			<div class="flex flex-col items-start text-left relative">
-				<slot name="left"></slot>
-			</div>
+	<section class={`w-full flex justify-center ${wrapperClass ?? ''}`}>
+		<div class={className} {...props}>
+			{twoColumn
+				? (
+					<div class="flex flex-col items-start text-left relative">
+						<slot name="left"></slot>
+					</div>
 
-			<div class="flex flex-col items-start text-left relative">
-				<slot name="right"></slot>
-			</div>
-		) : (
-			<slot></slot>
-		)}
-	</div>
-</section>
+						<div class="flex flex-col items-start text-left relative">
+							<slot name="right"></slot>
+						</div>
+					)
+				: (
+					<slot></slot>
+					)}
+		</div>
+	</section>

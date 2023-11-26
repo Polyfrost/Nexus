@@ -1,3 +1,4 @@
+// https://www.w3.org/TR/uievents-key/#keys-modifier
 export enum ModifierKeys {
 	Alt = 'Alt',
 	Shift = 'Shift',
@@ -10,14 +11,30 @@ export enum ModifierKeys {
 	NumLock = 'NumLock',
 	ScrollLock = 'ScrollLock',
 	Symbol = 'Symbol',
-	SymbolLock = 'SymbolLock'
+	SymbolLock = 'SymbolLock',
+}
+
+export enum EditingKeys {
+	Backspace = 'Backspace',
+	Delete = 'Delete',
+}
+
+export enum UIKeys {
+	Escape = 'Escape',
+}
+
+export enum NavigationKeys {
+	ArrowUp = 'ArrowUp',
+	ArrowDown = 'ArrowDown',
+	ArrowLeft = 'ArrowLeft',
+	ArrowRight = 'ArrowRight',
 }
 
 export type OSforKeys = 'macOS' | 'Windows' | 'Other';
 
 export const modifierSymbols: Record<
-	ModifierKeys,
-	{ macOS?: string; Windows?: string; Other: string }
+	ModifierKeys | EditingKeys | UIKeys | NavigationKeys,
+	{ macOS?: string, Windows?: string, Other: string }
 > = {
 	Alt: { macOS: '⌥', Other: 'Alt' },
 	AltGraph: { macOS: '⌥', Other: 'Alt' },
@@ -30,10 +47,17 @@ export const modifierSymbols: Record<
 	ScrollLock: { macOS: '⤓', Other: 'ScrLk' },
 	Shift: { Other: 'Shift', macOS: '⇧' },
 	Symbol: { macOS: '⎄', Other: 'Sym' },
-	SymbolLock: { macOS: '⎄', Other: 'Sym' }
+	SymbolLock: { macOS: '⎄', Other: 'Sym' },
+	Escape: { macOS: '⎋', Other: 'Esc' },
+	Delete: { macOS: '⌦', Other: 'Del' },
+	Backspace: { macOS: '⌫', Other: '⟵' },
+	ArrowUp: { Other: '↑' },
+	ArrowDown: { Other: '↓' },
+	ArrowLeft: { Other: '←' },
+	ArrowRight: { Other: '→' },
 };
 
-export const keySymbols: Record<string, { macOS?: string; Windows?: string; Other: string }> = {
+export const keySymbols: Record<string, { macOS?: string, Windows?: string, Other: string }> = {
 	' ': { Other: '␣' },
 	'Tab': { macOS: '⇥', Other: '⭾' },
 	'Enter': { macOS: '↩', Other: '↵' },
@@ -52,5 +76,5 @@ export const keySymbols: Record<string, { macOS?: string; Windows?: string; Othe
 	'Shift': { macOS: '⇧', Other: 'Shift' },
 	'PrintScreen': { Other: 'PrtSc' },
 	'ScrollLock': { macOS: '⤓', Other: 'ScrLk' },
-	'Pause': { macOS: '⎉', Other: 'Pause' }
+	'Pause': { macOS: '⎉', Other: 'Pause' },
 };

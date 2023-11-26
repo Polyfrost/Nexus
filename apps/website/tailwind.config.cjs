@@ -15,28 +15,28 @@ module.exports = {
 				400: 'rgba(56, 132, 255, 1)',
 				500: 'rgba(31, 101, 214, 1)',
 				600: 'rgba(9, 84, 165, 1)',
-				800: 'rgba(19, 43, 83, 1)'
+				800: 'rgba(19, 43, 83, 1)',
 			},
 			'gray': {
 				50: 'rgba(240, 242, 244, 1)',
 				400: 'rgba(138, 150, 168, 1)',
 				700: 'rgba(65, 74, 88, 1)',
-				800: 'rgba(42, 47, 55, 1)'
+				800: 'rgba(42, 47, 55, 1)',
 			},
 			'white': {
 				'DEFAULT': 'rgba(255, 255, 255, 1)',
 				'1/4': 'rgba(255, 255, 255, 0.25)',
-				'light': 'rgba(235, 245, 254, 1)'
+				'light': 'rgba(235, 245, 254, 1)',
 			},
 			'black': {
-				DEFAULT: 'rgba(0, 0, 0, 1)'
+				DEFAULT: 'rgba(0, 0, 0, 1)',
 			},
 			'text': {
 				DEFAULT: 'rgba(2, 3, 7, 1)',
-				primary: 'rgba(2, 3, 7, 1)'
+				primary: 'rgba(2, 3, 7, 1)',
 			},
 			// Other
-			'navy-peony': 'rgba(32, 55, 91, 1)'
+			'navy-peony': 'rgba(32, 55, 91, 1)',
 		},
 		borderRadius: {
 			'none': '0',
@@ -45,7 +45,7 @@ module.exports = {
 			'lg': '8px',
 			'xl': '12px',
 			'2xl': '16px',
-			'full': '100vw'
+			'full': '100vw',
 		},
 		fontSize: {
 			// rem starts at 16px on desktop, 14px on tailwind 'sm' and below
@@ -62,9 +62,9 @@ module.exports = {
 
 			'body-sm': '0.938rem', // 15px
 			'body': '1rem', // 16px
-			'body-lg': '1.063rem' // 17px
+			'body-lg': '1.063rem', // 17px
 		},
-		extend: {}
+		extend: {},
 	},
-	plugins: []
+	plugins: [],
 };

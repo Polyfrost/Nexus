@@ -34,7 +34,6 @@ trim_trailing_whitespace = true
 
 # JavaScript, JSON, JSX, JavaScript Modules, TypeScript
 # https://github.com/feross/standard
-# https://prettier.io
 [*.{cjs,js,json,jsx,mjs,ts,tsx}]
 indent_size = 4
 tab_width = 4

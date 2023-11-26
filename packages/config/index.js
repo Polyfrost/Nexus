@@ -1,3 +1,1 @@
-module.exports = {
-	vite: require('./vite')
-};
+export { default as vite } from './vite';
