@@ -64,6 +64,9 @@ module.exports = {
 			'body': '1rem', // 16px
 			'body-lg': '1.063rem', // 17px
 		},
+		fontFamily: {
+			'mono': ['"Roboto Mono"', 'monospace'],
+		},
 		extend: {},
 	},
 	plugins: [],
