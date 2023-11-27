@@ -5,13 +5,17 @@
 	"exports": {
 		"./*": "./*",
 		"./vite": "./vite",
-		"./vite/relAlias": "./vite/relAlias"
+		"./vite/relAlias": "./vite/relAlias",
+		"./vitest": "./vitest.shared"
 	},
+	"main": "index.ts",
+	"types": "index.ts",
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.2.0",
 		"regexpp": "^3.2.0",
 		"vite-plugin-html": "^3.2.0",
 		"vite-plugin-svgr": "^4.2.0",
-		"vite-tsconfig-paths": "^4.2.1"
+		"vite-tsconfig-paths": "^4.2.1",
+		"vitest": "^0.34.6"
 	}
 }

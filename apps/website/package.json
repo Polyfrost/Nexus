@@ -6,15 +6,20 @@
 		"dev": "astro dev",
 		"start": "astro start",
 		"build": "astro build",
-		"preview": "astro preview"
+		"preview": "astro preview",
+		"test": "vitest"
 	},
 	"dependencies": {
+		"@astrojs/mdx": "^1.1.5",
+		"@astrojs/rss": "^3.0.0",
+		"@astrojs/sitemap": "^3.0.3",
 		"@astrojs/tailwind": "^5.0.2",
 		"astro": "^3.6.0",
-		"tailwindcss": "^3.3.5"
+		"tailwindcss": "^3.3.5",
+		"vitest": "^0.34.6"
 	},
 	"devDependencies": {
-		"@polyfrost/config": "../../packages/config",
+		"@polyfrost/config": "workspace:*",
 		"@types/node": "~20.10.0",
 		"node-html-parser": "^6.1.11",
 		"typescript": "^5.3.2"

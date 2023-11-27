@@ -11,12 +11,14 @@
 	},
 	"scripts": {
 		"build": "turbo run build",
+		"test": "turbo run test",
 		"typecheck": "pnpm -r typecheck",
 		"lint": "eslint --cache .",
 		"lint:fix": "pnpm run lint --fix",
 		"clean": "git clean -qfX .",
 		"prisma": "cd core && cargo prisma",
 		"tauri": "pnpm desktop tauri",
+
 		"desktop": "pnpm --filter @polyfrost/desktop -- ",
 		"website": "pnpm --filter @polyfrost/website -- ",
 		"interface": "pnpm --filter @polyfrost/interface -- ",

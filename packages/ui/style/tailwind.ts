@@ -1,20 +1,16 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
 
-/** @type {(varName: string) => string} */
-// eslint-disable-next-line unused-imports/no-unused-vars
-const alpha = varName => `hsla(var(${varName}), <alpha-value>)`;
-const contentExts = `{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,stories.tsx}`;
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
+import headlessui from '@headlessui/tailwindcss';
+import animate from 'tailwindcss-animate';
+import radix from 'tailwindcss-radix';
 
-// TODO: make this not CJS
+export const alpha = (varName: string) => `hsla(var(${varName}), <alpha-value>)`;
+export const contentExts = `{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue,stories.tsx}`;
 
-/**
- * @param {string} app
- * @param {import('tailwindcss').Config} options
- * @returns {import('tailwindcss').Config} the tailwind config
- */
-module.exports = (app, options) => {
-	/** @type {import('tailwindcss').Config} */
-	const config = {
+export default async (app: string, options?: Config): Promise<Config> => {
+	const config: Config = {
 		content: [
 			`../../apps/${app}/src/**/*.${contentExts}`,
 			`../../packages/*/src/**/*.${contentExts}`,
@@ -28,7 +24,6 @@ module.exports = (app, options) => {
 				md: '868px',
 				lg: '1024px',
 				xl: '1280px',
-				...defaultTheme.screens,
 			},
 			fontSize: {
 				'xs': '12px',
@@ -108,18 +103,13 @@ module.exports = (app, options) => {
 				},
 			},
 		},
-		plugins: [
-			require('@tailwindcss/forms'),
-			require('tailwindcss-animate'),
-			require('@headlessui/tailwindcss'),
-			require('tailwindcss-radix')(),
-		],
+		plugins: [forms, animate, headlessui, radix],
 
 		...options,
 	};
 
 	if (app === 'website')
-		config.plugins.push(require('@tailwindcss/typography'));
+		config.plugins!.push(typography);
 
 	return config;
 };

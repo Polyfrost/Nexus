@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss';
+
+const config: Config = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		colors: {
@@ -65,9 +66,11 @@ module.exports = {
 			'body-lg': '1.063rem', // 17px
 		},
 		fontFamily: {
-			'mono': ['"Roboto Mono"', 'monospace'],
+			mono: ['"Roboto Mono"', 'monospace'],
 		},
 		extend: {},
 	},
 	plugins: [],
 };
+
+export default config;

@@ -6,11 +6,13 @@ import Favicon from '/media/polyfrost/minimal_bg.svg?url';
 
 interface Props {
 	title?: string
+	description?: string
 	favicon?: string
 }
 
 const {
 	title = 'Polyfrost',
+	description = 'Official website for Polyfrost.',
 	favicon = Favicon,
 } = Astro.props;
 ---
@@ -19,7 +21,7 @@ const {
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8" />
-			<meta name="description" content="Official website for Polyfrost." />
+			<meta name="description" content={description} />
 			<meta name="viewport" content="width=device-width" />
 			<link rel="icon" type="image/svg+xml" href={favicon} />
 			<meta name="generator" content={Astro.generator} />

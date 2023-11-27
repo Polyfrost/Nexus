@@ -1,7 +1,7 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"composite": true,
+		"composite": false,
 		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],
@@ -9,7 +9,8 @@
 			"@webtypes/*": ["src/types/*"],
 			"@lib/*": ["src/lib/*"],
 			"@public/*": ["public/*"],
-			"@config": ["config.ts"]
+			"@config": ["config.ts"],
+			"@styles/*": ["src/styles/*"]
 		}
 	}
 }
