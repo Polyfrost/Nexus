@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode,astro
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode,astro
+# Created by https://www.toptal.com/developers/gitignore/api/git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode
 
 ### Astro ###
 # Gitignore template for Astro projects
@@ -724,8 +724,7 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocode,astro
-apps/.deps
+# End of https://www.toptal.com/developers/gitignore/api/git,java,node,rust,yarn,astro,linux,macos,maven,swift,turbo,gradle,kotlin,nextjs,windows,intellij,forgegradle,intellij+all,intellij+iml,rust-analyzer,visualstudiocodeapps/.deps
 .cargo/config.toml
 .cargo/config
 .github/scripts/deps
