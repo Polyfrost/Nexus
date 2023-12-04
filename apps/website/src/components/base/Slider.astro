@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+	dir?: string;
+	wrapperClass?: string;
+}
+
+const {
+	dir = "left",
+	wrapperClass = ""
+} = Astro.props;
+---
+
+<div class={
+	`w-full bg-blue-100 flex flex-row gap-2.5 overflow-hidden slider
+	${dir === "right" ? "reverse" : ""}
+	${wrapperClass}`}>
+	<slot />
+</div>
+
+<!-- might be cheating a bit using global styles here but at least it lets you use slots -->
+<style is:global>
+	.slider > * {
+		animation: 5s linear infinite slide;
+	}
+	.slider.reverse > * {
+		animation-direction: reverse;
+	}
+	@keyframes slide {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(calc(-100% - 10px));
+		}
+	}
+</style>

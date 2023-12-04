@@ -9,6 +9,8 @@ import Layout from '../layouts/Layout.astro';
 
 import { Code } from 'astro:components';
 
+import Slider from '@components/base/Slider.astro';
+import Card from '@components/base/Card.astro';
 ---
 
 <Layout>
@@ -107,7 +109,7 @@ import { Code } from 'astro:components';
 			</Paragraph>
 		</Section>
 
-		<Section tabindex="0" wrapperClass="bg-blue-100" class="md:py-20 gap-4 pr-2">
+		<Section tabindex="0" wrapperClass="bg-blue-100 -mb-40" class="md:py-20 gap-4 pr-2">
 			<div slot="left" class="flex flex-col gap-2">
 				<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
@@ -118,5 +120,27 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 		</Section>
+		<Slider wrapperClass="-mb-40 pb-4">
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+		</Slider>
+		<Slider dir="right">
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+		</Slider>
 	</div>
 </Layout>

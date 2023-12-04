@@ -21,6 +21,7 @@ const config: Config = {
 			'gray': {
 				50: 'rgba(240, 242, 244, 1)',
 				400: 'rgba(138, 150, 168, 1)',
+				600: 'rgba(42, 44, 48, 1)',
 				700: 'rgba(65, 74, 88, 1)',
 				800: 'rgba(42, 47, 55, 1)',
 			},
@@ -38,6 +39,9 @@ const config: Config = {
 			},
 			// Other
 			'navy-peony': 'rgba(32, 55, 91, 1)',
+			'primary': {
+				600: 'rgba(20, 82, 204, 1)',
+			},
 		},
 		borderRadius: {
 			'none': '0',
