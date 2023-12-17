@@ -1,0 +1,157 @@
+---
+import Header from '@components/base/Header.astro';
+import Logo from '@components/logos/Logo.astro';
+import Section from '@components/base/Section.astro';
+import Button from '@components/base/Button.astro';
+
+import Paragraph from '@components/base/Paragraph.astro';
+import Layout from '@layouts/Layout.astro';
+
+import { Code } from 'astro:components';
+
+import Slider from '@components/base/Slider.astro';
+import Card from '@components/base/Card.astro';
+---
+
+<Layout>
+	<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
+		<Logo size={56} logo="oneconfig.minimal" />
+		<Header align="center" size="xxl" class="max-w-[600px]">
+			Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
+		</Header>
+		<div class="flex flex-row justify-center items-center gap-2">
+			<Button iconLeft="download" text="Download" />
+			<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
+		</div>
+	</Section>
+
+	<div class="flex flex-col gap-40">
+		<Section tabindex="0">
+			<div slot="left">
+				<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
+				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
+			</div>
+			<div slot="right" class="w-3/4 md:w-auto">
+			<!-- TODO: make proper file names and alt text -->
+				<img src="/media/oneconfig/page_media_1.svg" alt="stuff" />
+			</div>
+		</Section>
+
+		<Section tabindex="0" colReverse={false}>
+			<div slot="left" class="w-1/2 md:w-auto">
+				<img src="/media/oneconfig/page_media_2.svg" alt="stuff" />
+			</div>
+
+			<div slot="right">
+				<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
+				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
+			</div>
+		</Section>
+
+		<Section tabindex="0">
+			<div slot="left">
+				<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
+				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
+			</div>
+
+			<div slot="right" class="w-3/4 md:w-auto">
+				<img src="/media/oneconfig/page_media_3.svg" alt="stuff" />
+			</div>
+		</Section>
+
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="md:py-20 gap-4 pr-2">
+			<div slot="left" class='pr-2'>
+				<Code code={`public class MyConfig {
+	@Switch(name = "Sub Switch", type = OptionType.SWITCH)
+	public static boolean subSwitch = false;
+
+	public MyConfig() {
+		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+		addDependency("subSwitch", () -> {
+			// Do stuff here
+		});
+	}
+}`} lang={'java'}/>
+			</div>
+
+			<div slot="right" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-500">Written for developers</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					With Polyfrost's simple APIs, it's easy to integrate your mods into Polyfrost something
+				</Paragraph>
+				<div class="flex">
+					<Button href="/documentation" iconLeft="book-open" style="secondary" text="Documentation" />
+				</div>
+			</div>
+		</Section>
+
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="md:py-20 gap-4 pr-2">
+			<div slot="left" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-500">Designed for users</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					Lorem ipsum dolor sit amet consectetur. Viverra a pulvinar eu pharetra. Porta feugiat purus blandit mauris ipsum eu.
+				</Paragraph>
+				<div class="flex">
+					<Button iconLeft="download" style="secondary" text="Download" />
+				</div>
+			</div>
+			<div slot="right">
+				<!-- TODO: figure out non-arbitrary values -->
+				<img src="/media/oneconfig/page_media_4.png" class="h-[285px] rounded-2xl" />
+			</div>
+		</Section>
+
+		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
+			<img src="/media/oneconfig/page_media_5.png" class="h-[581px] rounded-2xl" />
+			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
+			<Paragraph class="w-96 text-center text-gray-400">
+				Lorem ipsum dolor sit amet consectetur. Viverra a pulvinar eu pharetra. Porta feugiat purus blandit mauris ipsum eu.
+			</Paragraph>
+		</Section>
+
+		<Section tabindex="0" wrapperClass="bg-blue-100 -mb-40" class="md:py-20 gap-4 pr-2">
+			<div slot="left" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					Discover a wide range of mods integrated with OneConfig to enhance your experience.
+				</Paragraph>
+				<div class="flex">
+					<Button iconLeft="link-external" text="Discover mods" />
+				</div>
+			</div>
+		</Section>
+		<Slider wrapperClass="-mb-40 pb-4">
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+		</Slider>
+		<Slider dir="right" wrapperClass="pb-10">
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+			<Card icon="chatting"/>
+		</Slider>
+		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px] mb-[10rem]">
+			<div class="grid grid-rows-[repeat(8,_minmax(0,_1fr))] grid-cols-[repeat(7,_minmax(0,_1fr))]">
+				<!-- TODO: Change placeholder image -->
+				<!-- TODO: Mess around with the sizes to make it look nicer -->
+				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl col-[1_/_7] row-[1_/_8]" />
+				<div class="rounded-2xl col-[5_/_8] row-[6_/_9] shadow-md bg-white flex flex-col justify-items-start p-8 justify-center">
+					<Logo logo="oneconfig.logo_text" class="min-w-max"></Logo>
+					<Button iconLeft="download" text="Download now" class="max-w-fit" />
+				</div>
+			</div>
+		</Section>
+	</div>
+</Layout>
