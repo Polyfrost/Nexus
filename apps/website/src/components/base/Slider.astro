@@ -20,19 +20,28 @@ const {
 </div>
 
 <!-- might be cheating a bit using global styles here but at least it lets you use slots -->
-<style is:global>
-	.slider > * {
-		animation: 5s linear infinite slide;
+<style is:global lang="scss">
+	$sliderNum: 8;
+	@for $i from 1 through $sliderNum {
+		.slider > *:nth-child(#{$i}) {
+			animation: #{"slide" + $i} 10s linear infinite;
+		}
+		@keyframes #{"slide" + $i} {
+			0% {
+				transform: translateX(0);
+			}
+			#{calc(100% / $sliderNum * $i)} {
+				transform: translateX(calc((-100% - 10px) * $i));
+			}
+			#{calc((100% / $sliderNum * $i) + 0.001%)} {
+				transform: translateX(calc((100% + 10px) * ($sliderNum - $i)));
+			}
+			100% {
+				transform: translateX(0);
+			}
+		}
 	}
 	.slider.reverse > * {
 		animation-direction: reverse;
-	}
-	@keyframes slide {
-		from {
-			transform: translateX(0);
-		}
-		to {
-			transform: translateX(calc(-100% - 10px));
-		}
 	}
 </style>
