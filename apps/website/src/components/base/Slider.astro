@@ -21,7 +21,7 @@ const {
 
 <!-- might be cheating a bit using global styles here but at least it lets you use slots -->
 <style is:global lang="scss">
-	$sliderNum: 8;
+	$sliderNum: 7; /* TODO: figure out a way to make this either automatic or settable via component var */
 	@for $i from 1 through $sliderNum {
 		.slider > *:nth-child(#{$i}) {
 			animation: #{"slide" + $i} 10s linear infinite;
@@ -30,10 +30,10 @@ const {
 			0% {
 				transform: translateX(0);
 			}
-			#{calc(100% / $sliderNum * $i)} {
+			#{calc(99.999% / $sliderNum * $i)} {
 				transform: translateX(calc((-100% - 10px) * $i));
 			}
-			#{calc((100% / $sliderNum * $i) + 0.001%)} {
+			#{calc(99.999% / $sliderNum * $i + 0.001%)} {
 				transform: translateX(calc((100% + 10px) * ($sliderNum - $i)));
 			}
 			100% {
