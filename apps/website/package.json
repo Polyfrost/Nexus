@@ -7,6 +7,7 @@
 		"start": "astro start",
 		"build": "astro build",
 		"preview": "astro preview",
+		"astro": "astro",
 		"test": "vitest"
 	},
 	"dependencies": {
@@ -16,13 +17,13 @@
 		"@astrojs/tailwind": "^5.0.2",
 		"astro": "^4.0.6",
 		"sass": "^1.69.5",
-		"tailwindcss": "^3.3.5",
+		"tailwindcss": "^3.4.0",
 		"vitest": "^0.34.6"
 	},
 	"devDependencies": {
 		"@polyfrost/config": "workspace:*",
-		"@types/node": "~20.10.0",
+		"@types/node": "~20.10.5",
 		"node-html-parser": "^6.1.11",
-		"typescript": "^5.3.2"
+		"typescript": "^5.3.3"
 	}
 }

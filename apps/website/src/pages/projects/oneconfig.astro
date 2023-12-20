@@ -1,27 +1,27 @@
 ---
-import Header from '@components/base/Header.astro';
-import Logo from '@components/logos/Logo.astro';
-import Section from '@components/base/Section.astro';
 import Button from '@components/base/Button.astro';
-
+import Card from '@components/base/Card.astro';
+import Header from '@components/base/Header.astro';
 import Paragraph from '@components/base/Paragraph.astro';
+import Section from '@components/base/Section.astro';
+import Slider from '@components/base/Slider.astro';
+import Logo from '@components/logos/Logo.astro';
+
 import Layout from '@layouts/Layout.astro';
 
 import { Code } from 'astro:components';
 
-import Slider from '@components/base/Slider.astro';
-import Card from '@components/base/Card.astro';
 ---
 
 <Layout>
 	<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
-		<Logo size={56} logo="oneconfig.minimal" />
+		<Logo size={56} logo="oneconfig.minimal"/>
 		<Header align="center" size="xxl" class="max-w-[600px]">
 			Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
 		</Header>
 		<div class="flex flex-row justify-center items-center gap-2">
-			<Button href="/projects/oneconfig/download" iconLeft="download" text="Download" />
-			<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation" />
+			<Button href="/projects/oneconfig/download" iconLeft="download" text="Download"/>
+			<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
 		</div>
 	</Section>
 
@@ -33,13 +33,13 @@ import Card from '@components/base/Card.astro';
 			</div>
 			<div slot="right" class="w-3/4 md:w-auto">
 			<!-- TODO: make proper file names and alt text -->
-				<img src="/media/oneconfig/page_media_1.svg" alt="stuff" />
+			<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
 			</div>
 		</Section>
 
 		<Section tabindex="0" colReverse={false}>
 			<div slot="left" class="w-1/2 md:w-auto">
-				<img src="/media/oneconfig/page_media_2.svg" alt="stuff" />
+				<img src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
 			</div>
 
 			<div slot="right">
@@ -55,13 +55,14 @@ import Card from '@components/base/Card.astro';
 			</div>
 
 			<div slot="right" class="w-3/4 md:w-auto">
-				<img src="/media/oneconfig/page_media_3.svg" alt="stuff" />
+				<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
 			</div>
 		</Section>
 
 		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="md:py-20 gap-4 pr-2">
-			<div slot="left" class='pr-2'>
-				<Code code={`public class MyConfig {
+			<div slot="left" class="pr-2">
+				<Code
+					code={`public class MyConfig {
 	@Switch(
 	    name = "Sub Switch",
 	    type = OptionType.SWITCH
@@ -74,7 +75,8 @@ import Card from '@components/base/Card.astro';
 			// Do stuff here
 		});
 	}
-}`} lang={'java'}/>
+}`}
+					lang="java"/>
 			</div>
 
 			<div slot="right" class="flex flex-col gap-2">
@@ -83,7 +85,7 @@ import Card from '@components/base/Card.astro';
 					With our simple APIs and documentation, it's easier than ever to integrate your mods with OneConfig.
 				</Paragraph>
 				<div class="flex">
-					<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation" />
+					<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
 				</div>
 			</div>
 		</Section>
@@ -95,17 +97,17 @@ import Card from '@components/base/Card.astro';
 					We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
 				</Paragraph>
 				<div class="flex">
-					<Button href="/projects/oneconfig/download" iconLeft="download" style="secondary" text="Download" />
+					<Button href="/projects/oneconfig/download" iconLeft="download" style="secondary" text="Download"/>
 				</div>
 			</div>
 			<div slot="right">
 				<!-- TODO: figure out non-arbitrary values -->
-				<img src="/media/oneconfig/page_media_4.png" class="h-[285px] rounded-2xl" />
+				<img src="/media/oneconfig/page_media_4.png" class="h-[285px] rounded-2xl"/>
 			</div>
 		</Section>
 
 		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
-			<img src="/media/oneconfig/page_media_5.png" class="h-[581px] rounded-2xl" />
+			<img src="/media/oneconfig/page_media_5.png" class="h-[581px] rounded-2xl"/>
 			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
 			<Paragraph class="w-96 text-center text-gray-400">
 				Thanks to OneConfig's HUD API, you can customize any OneConfig-powered HUD to your liking, without having to worry about the hassle of finding the right command or keybind.
@@ -119,7 +121,7 @@ import Card from '@components/base/Card.astro';
 					Discover a wide range of mods integrated with OneConfig to enhance your experience.
 				</Paragraph>
 				<div class="flex">
-					<Button iconLeft="link-external" text="Discover mods" />
+					<Button iconLeft="link-external" text="Discover mods"/>
 				</div>
 			</div>
 		</Section>
@@ -148,10 +150,10 @@ import Card from '@components/base/Card.astro';
 			<div class="grid grid-rows-[repeat(8,_minmax(0,_1fr))] grid-cols-[repeat(7,_minmax(0,_1fr))]">
 				<!-- TODO: Change placeholder image -->
 				<!-- TODO: Mess around with the sizes to make it look nicer -->
-				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl col-[1_/_7] row-[1_/_8]" />
+				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl col-[1_/_7] row-[1_/_8]"/>
 				<div class="rounded-2xl col-[5_/_8] row-[6_/_9] shadow-md bg-white flex flex-col justify-items-start p-8 justify-center">
 					<Logo logo="oneconfig.logo_text" class="min-w-max"></Logo>
-					<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit" />
+					<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit"/>
 				</div>
 			</div>
 		</Section>

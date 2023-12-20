@@ -51,8 +51,8 @@ const className = [
 const Element = rest.href ? 'a' : 'button' as any;
 ---
 
-<Element {...rest} class={className}>
-	{iconLeft && <span class="mr-2"><Icon icon={iconLeft} size={iconSize[size]}></Icon></span>}
-	{text || <slot />}
-	{iconRight && <span class="ml-2"><Icon icon={iconRight} size={iconSize[size]}></Icon></span>}
-</Element>
+	<Element {...rest} class={className}>
+		{iconLeft && <span class="mr-2"><Icon icon={iconLeft} size={iconSize[size]}></Icon></span>}
+		{text || <slot/>}
+		{iconRight && <span class="ml-2"><Icon icon={iconRight} size={iconSize[size]}></Icon></span>}
+	</Element>

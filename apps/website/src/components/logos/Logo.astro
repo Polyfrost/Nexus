@@ -10,19 +10,18 @@ export interface Props extends HTMLAttributes<'svg'> {
 
 const {
 	logo,
-	silent = false,
 	size = undefined,
 	...attr
 } = Astro.props;
 let svg: string | undefined;
 
 try {
-	if (logo == undefined)
+	if (logo === undefined)
 		return;
 	const dir = '../../../public/media';
 	svg = (await import(`${dir}/${logo.replaceAll('.', '/')}.svg?raw` /* @vite-ignore */)).default;
 
-	if (svg == undefined)
+	if (svg === undefined)
 		return;
 
 	if (typeof size == 'number' || Array.isArray(size)) {
@@ -52,4 +51,4 @@ catch (err) {
 
 ---
 
-	<Fragment set:html={svg} />
+	<Fragment set:html={svg}/>

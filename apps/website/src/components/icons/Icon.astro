@@ -1,11 +1,11 @@
 ---
-import { parse } from 'node-html-parser';
 import type { HTMLAttributes } from 'astro/types';
+import { parse } from 'node-html-parser';
 
 export type Icons = 'chevron-down' | 'download' | 'book-open';
 
 interface Props extends HTMLAttributes<'svg'> {
-  	icon: Icons
+	icon: Icons
 	size?: number | [number, number]
 }
 

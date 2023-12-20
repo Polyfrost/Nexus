@@ -2,20 +2,21 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
-	dir?: string;
-	wrapperClass?: string;
+	dir?: string
+	wrapperClass?: string
 }
 
 const {
-	dir = "left",
-	wrapperClass = ""
+	dir = 'left',
+	wrapperClass = '',
 } = Astro.props;
 ---
 
 <div class={
 	`w-full bg-blue-100 flex flex-row gap-2.5 overflow-hidden slider
-	${dir === "right" ? "reverse" : ""}
-	${wrapperClass}`}>
+	${dir === 'right' ? 'reverse' : ''}
+	${wrapperClass}`
+}>
 	<slot />
 </div>
 

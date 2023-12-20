@@ -4,8 +4,8 @@ import Icon from '@components/icons/Icon.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
-	icon: Icons;
-	text?: string;
+	icon: Icons
+	text?: string
 }
 
 const {
@@ -16,7 +16,7 @@ const {
 ---
 
 <!-- pt-1 added temporarily cause for some reason the icon's padding doesn't apply unless I add this. the wonders of CSS. -->
-<div {...rest} class="rounded-xl bg-gray-600 w-64 pt-1 shrink-0">
-	<Icon icon={icon} size={48} class="my-[20px] mx-auto text-white"></Icon>
-	<p class="text-white text-md mx-auto bg-primary-600 rounded-b-xl pl-[12px] pr-[32px]">{text}</p>
-</div>
+	<div {...rest} class="rounded-xl bg-gray-600 w-64 pt-1 shrink-0">
+		<Icon icon={icon} size={48} class="my-[20px] mx-auto text-white"></Icon>
+		<p class="text-white text-md mx-auto bg-primary-600 rounded-b-xl pl-[12px] pr-[32px]">{text}</p>
+	</div>

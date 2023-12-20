@@ -1,6 +1,6 @@
 ---
-import config from 'config';
 import type { Config } from '@webtypes/Config';
+import config from 'config';
 import NavbarElement from './NavbarElement.astro';
 
 ---
@@ -9,12 +9,12 @@ import NavbarElement from './NavbarElement.astro';
 		<nav class="w-full max-w-[1080px] flex flex-col md:flex-row justify-between items-center">
 			<ul class="flex flex-row justify-start gap-4">
 				{(config as Config).navbar.left.map((element, index) => (
-					<NavbarElement {element} {index} />
+					<NavbarElement {element} {index}/>
 				))}
 			</ul>
 			<ul class="flex flex-row justify-end gap-4">
 				{(config as Config).navbar.right.map((element, index) => (
-					<NavbarElement {element} {index} />
+					<NavbarElement {element} {index}/>
 				))}
 			</ul>
 		</nav>
