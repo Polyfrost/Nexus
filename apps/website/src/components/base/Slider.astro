@@ -4,45 +4,67 @@ import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'div'> {
 	dir?: string
 	wrapperClass?: string
+	childrenNum: number
+	childrenSize?: string
+	speed?: string
 }
 
 const {
 	dir = 'left',
 	wrapperClass = '',
+	childrenNum,
+	childrenSize = '256px',
+	speed = '15s',
 } = Astro.props;
+
 ---
 
 <div class={
-	`w-full bg-blue-100 flex flex-row gap-2.5 overflow-hidden slider
+	`w-full bg-blue-100 slider
 	${dir === 'right' ? 'reverse' : ''}
 	${wrapperClass}`
 }>
-	<slot />
+	<div class="wrapper flex flex-row gap-2.5">
+		<slot class="content" />
+		<slot class="content" />
+	</div>
 </div>
 
-<!-- might be cheating a bit using global styles here but at least it lets you use slots -->
-<style is:global lang="scss">
-	$sliderNum: 7; /* TODO: figure out a way to make this either automatic or settable via component var */
-	@for $i from 1 through $sliderNum {
-		.slider > *:nth-child(#{$i}) {
-			animation: #{"slide" + $i} 10s linear infinite;
+<!--
+	credit to modrinth's implementation! here is their CSS code:
+	https://github.com/modrinth/knossos/blob/d6ba3f3adfd8f52b85f83e53660d3d87cd0bc9ea/pages/index.vue#L620-L675
+	oh and since theirs is in AGPL, please note that this codeblock is also AGPL
+-->
+<style lang="scss" define:vars={{ childrenNum, childrenSize, speed }}>
+	.slider {
+		.wrapper {
+			animation: var(--speed) linear infinite slide;
+			@media (prefers-reduced-motion) {
+				animation: none;
+			}
+			@keyframes slide {
+				from {
+					transform: translateX(0);
+				}
+				to {
+					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
+				}
+			}
 		}
-		@keyframes #{"slide" + $i} {
-			0% {
-				transform: translateX(0);
-			}
-			#{calc(99.999% / $sliderNum * $i)} {
-				transform: translateX(calc((-100% - 10px) * $i));
-			}
-			#{calc(99.999% / $sliderNum * $i + 0.001%)} {
-				transform: translateX(calc((100% + 10px) * ($sliderNum - $i)));
-			}
-			100% {
-				transform: translateX(0);
+		&:hover > .wrapper, &.reverse:hover > .wrapper {
+			/* TODO: Possibly add fancy hover card anim? */
+			animation-play-state: paused;
+		}
+		&.reverse > .wrapper {
+			animation: var(--speed) linear infinite slide-reverse;
+			@keyframes slide-reverse {
+				from {
+					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
+				}
+				to {
+					transform: translateX(0);
+				}
 			}
 		}
-	}
-	.slider.reverse > * {
-		animation-direction: reverse;
 	}
 </style>
