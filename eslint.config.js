@@ -2,7 +2,7 @@ import petal from '@flowr/eslint-config';
 
 export default petal({
 	astro: true,
-	react: false,
+	react: true,
 	typescript: true,
 	gitignore: true,
 	toml: false,
@@ -20,13 +20,4 @@ export default petal({
 		'apps/desktop/src/commands.ts',
 		'**/.next/**',
 	],
-	overrides: {
-		astro: {
-			'style/jsx-one-expression-per-line': 'off',
-			'style/jsx-indent': 'off',
-			'style/jsx-closing-bracket-location': 'off',
-			'style/jsx-tag-spacing': 'off',
-			'style/indent': 'off',
-		},
-	},
 });
