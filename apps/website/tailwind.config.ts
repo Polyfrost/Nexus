@@ -78,9 +78,9 @@ const config: Config = {
 		},
 		extend: {
 			zIndex: {
-				"navbar": "9999", // Nothing should be above the navbar or backdrop
-				"navbar-backdrop": "9998"
-			}
+				'navbar': '9999', // Nothing should be above the navbar or backdrop
+				'navbar-backdrop': '9998',
+			},
 		},
 	},
 	plugins: [],

@@ -1,8 +1,8 @@
 ---
-import Icon from "@components/icons/Icon.astro";
-import Logo from "@components/logos/Logo.astro";
-import configConst from "@config";
-import Link from "./Link.astro";
+import Icon from '@components/icons/Icon.astro';
+import Logo from '@components/logos/Logo.astro';
+import configConst from '@config';
+import Link from './Link.astro';
 ---
 
 <footer class="flex justify-center items-center bg-blue-100 mt-4 pt-20 pb-8 px-20">
@@ -10,7 +10,7 @@ import Link from "./Link.astro";
 		<div class="flex flex-col gap-y-20 justify-center items-start md:flex-row md:items-start md:justify-between">
 			<div class="flex-1 flex flex-col gap-y-3 text-blue-gray">
 				<Logo logo="polyfrost.full" />
-				<p>English, USA</p> {/* hardcoded for now */}
+				<p>English, USA</p> {/* hardcoded for now, todo i18n */}
 				<div class="flex flex-row gap-3">
 					<a href="" class="hover:text-[#5865F2]"><Icon icon="discord" /></a>
 					<a href="" class="hover:text-[#ff0000]"><Icon icon="youtube" /></a>
@@ -19,11 +19,11 @@ import Link from "./Link.astro";
 			</div>
 
 			<div class="flex-1 flex flex-col md:flex-row justify-end gap-8">
-				{configConst.footer.map((column) => (
+				{configConst.footer.map(column => (
 					<div class="flex flex-col gap-y-3">
 						<h3 class="text-gray-700 text-md">{column.header}</h3>
 						<ul class="flex flex-col gap-y-1">
-							{column.links.map((link) => (
+							{column.links.map(link => (
 								<li>
 									<Link href={link.url} class="text-blue-gray text-sm text-nowrap">{link.text}</Link>
 								</li>

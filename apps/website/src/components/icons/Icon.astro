@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
-import Test from "./impl/book-open.svg";
 
 type _ModIcons =
 	| 'chatting'
@@ -29,11 +28,11 @@ type _Icons =
 	| 'link-external'
 	| External
 	| ModIcons;
-export type Icons = _Icons;  // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+export type Icons = _Icons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
 
 interface Props extends HTMLAttributes<'svg'> {
-	icon: Icons,
-	path?: string,
+	icon: Icons
+	path?: string
 	size?: number | [number, number]
 }
 

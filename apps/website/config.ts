@@ -26,57 +26,57 @@ export const configConst = {
 	},
 	footer: [
 		{
-			header: "Products",
+			header: 'Products',
 			links: [
 				{
-					text: "OneConfig",
-					url: "/projects/oneconfig",
+					text: 'OneConfig',
+					url: '/projects/oneconfig',
 				},
 				{
-					text: "OneLauncher",
-					url: "/projects/onelauncher",
+					text: 'OneLauncher',
+					url: '/projects/onelauncher',
 				},
-			]
+			],
 		},
 		{
-			header: "Organization",
+			header: 'Organization',
 			links: [
 				{
-					text: "About us",
-					url: "/about",
+					text: 'About us',
+					url: '/about',
 				},
 				{
-					text: "Branding",
-					url: "/branding",
+					text: 'Branding',
+					url: '/branding',
 				},
 				{
-					text: "Contact us",
-					url: "/contact",
+					text: 'Contact us',
+					url: '/contact',
 				},
 				{
-					text: "Documentation",
-					url: "/documentation",
-				}
-			]
+					text: 'Documentation',
+					url: '/documentation',
+				},
+			],
 		},
 		{
-			header: "Legal",
+			header: 'Legal',
 			links: [
 				{
-					text: "Terms of service",
-					url: "/terms",
+					text: 'Terms of service',
+					url: '/terms',
 				},
 				{
-					text: "Privacy policy",
-					url: "/privacy",
+					text: 'Privacy policy',
+					url: '/privacy',
 				},
 				{
-					text: "Licenses",
-					url: "/licenses",
+					text: 'Licenses',
+					url: '/licenses',
 				},
-			]
-		}
-	]
+			],
+		},
+	],
 } satisfies Config;
 
 function getProjects(): Project[] {
