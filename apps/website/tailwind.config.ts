@@ -20,6 +20,7 @@ const config: Config = {
 			},
 			'gray': {
 				50: 'rgba(240, 242, 244, 1)',
+				200: 'rgba(196, 202, 212, 1)',
 				400: 'rgba(138, 150, 168, 1)',
 				600: 'rgba(42, 44, 48, 1)',
 				700: 'rgba(65, 74, 88, 1)',
@@ -50,6 +51,8 @@ const config: Config = {
 			'lg': '8px',
 			'xl': '12px',
 			'2xl': '16px',
+			'3xl': '20px',
+			'4xl': '24px',
 			'full': '100vw',
 		},
 		fontSize: {
@@ -72,7 +75,12 @@ const config: Config = {
 		fontFamily: {
 			mono: ['"Roboto Mono"', 'monospace'],
 		},
-		extend: {},
+		extend: {
+			zIndex: {
+				"navbar": "9999", // Nothing should be above the navbar or backdrop
+				"navbar-backdrop": "9998"
+			}
+		},
 	},
 	plugins: [],
 };

@@ -59,13 +59,16 @@ import { Code } from 'astro:components';
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="md:py-20 gap-4 pr-2">
-			<div slot="left" class="pr-2">
-				<Code
-					code={`public class MyConfig {
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="pt-10 md:py-20 gap-4">
+			<div slot="left">
+				<!-- TODO: FIX Codeblock overflowing on mobile -->
+				<div class="max-sm:hidden">
+					<Code
+						code={
+`public class MyConfig {
 	@Switch(
-	    name = "Sub Switch",
-	    type = OptionType.SWITCH
+		name = "Sub Switch",
+		type = OptionType.SWITCH
 	)
 	public static boolean subSwitch = false;
 
@@ -77,6 +80,7 @@ import { Code } from 'astro:components';
 	}
 }`}
 					lang="java"/>
+				</div>
 			</div>
 
 			<div slot="right" class="flex flex-col gap-2">
@@ -90,7 +94,7 @@ import { Code } from 'astro:components';
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="md:py-20 gap-4 pr-2">
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="py-10 md:py-20 gap-4">
 			<div slot="left" class="flex flex-col gap-2">
 				<Header size="xl" class="text-blue-500">Designed for users</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
@@ -101,35 +105,34 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 			<div slot="right">
-				<!-- TODO: figure out non-arbitrary values -->
-				<img src="/media/oneconfig/page_media_4.png" class="h-[285px] rounded-2xl"/>
+				<img src="/media/oneconfig/page_media_4.png" class="max-h-[285px] rounded-2xl"/>
 			</div>
 		</Section>
 
 		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
-			<img src="/media/oneconfig/page_media_5.png" class="h-[581px] rounded-2xl"/>
+			<img src="/media/oneconfig/page_media_5.png" class="max-h-[581px] rounded-2xl"/>
 			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
 			<Paragraph class="w-96 text-center text-gray-400">
 				Thanks to OneConfig's HUD API, you can customize any OneConfig-powered HUD to your liking, without having to worry about the hassle of finding the right command or keybind.
 			</Paragraph>
 		</Section>
 
-		<Section tabindex="0" wrapperClass="bg-blue-100 -mb-40" class="md:py-20 gap-4 pr-2">
+		<Section wrapperClass="bg-blue-100 -mb-40" class="py-10 md:py-20 gap-4 pr-2">
 			<div slot="left" class="flex flex-col gap-2">
 				<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					Discover a wide range of mods integrated with OneConfig to enhance your experience.
 				</Paragraph>
-				<div class="flex row gap-x-1">
+				<div class="flex items-start flex-col md:flex-row max-sm:gap-y-1 gap-x-1">
 					<!-- TODO: HREF -->
 					<Button iconLeft="link-external" style="secondary" text="Discover mods"/>
-					<Button iconLeft="link-external" style="ghost" text="Download modpacks"/>
+					<Button iconLeft="link-external" style="ghost" text="Download a modpack"/>
 				</div>
 			</div>
 		</Section>
 
 		<!-- TODO: add more 3rd party mods, like DSM PSS and Neu maybe -->
-		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10">
+		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-hidden">
 			<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
 				<Slider wrapperClass="-mb-40 pb-4" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
@@ -154,13 +157,11 @@ import { Code } from 'astro:components';
 			</div>
 		</div>
 
-		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px] mb-[10rem]">
-			<div class="grid grid-rows-[repeat(8,_minmax(0,_1fr))] grid-cols-[repeat(7,_minmax(0,_1fr))]">
-				<!-- TODO: Change placeholder image -->
-				<!-- TODO: Mess around with the sizes to make it look nicer -->
-				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl col-[1_/_7] row-[1_/_8]"/>
-				<div class="rounded-2xl col-[5_/_8] row-[6_/_9] shadow-md bg-white flex flex-col justify-items-start p-8 justify-center">
-					<Logo logo="oneconfig.logo_text" class="min-w-max"></Logo>
+		<Section class="flex-col justify-center items-center md:h-4/5 md:min-h-[600px] mb-[10rem]">
+			<div class="flex relative md:-left-12">
+				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl"/>
+				<div class="border border-gray-200 rounded-3xl md:rounded-4xl shadow-sm bg-gray-50 flex flex-col justify-center items-center md:items-start p-4 md:p-8 absolute max-sm:w-11/12 -bottom-12 translate-x-1/2 right-1/2 md:translate-x-0 md:-right-12">
+					<Logo logo="oneconfig.logo_text" class="w-48 h-12 md:min-w-max md:h-auto"></Logo>
 					<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit"/>
 				</div>
 			</div>
