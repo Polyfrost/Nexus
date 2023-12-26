@@ -40,6 +40,7 @@ const config: Config = {
 			},
 			// Other
 			'navy-peony': 'rgba(32, 55, 91, 1)',
+			'blue-gray': 'rgba(119, 143, 183, 1)',
 			'primary': {
 				600: 'rgba(20, 82, 204, 1)',
 			},

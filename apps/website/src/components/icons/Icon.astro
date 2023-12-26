@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
+import Test from "./impl/book-open.svg";
 
 type _ModIcons =
 	| 'chatting'
@@ -12,21 +13,32 @@ type _ModIcons =
 	| 'polyweather'
 	| 'keystrokes';
 export type ModIcons = _ModIcons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+
+type _External =
+	| 'discord'
+	| 'github'
+	| 'youtube'
+	| 'twitter';
+
+export type External = _External;
+
 type _Icons =
 	| 'chevron-down'
 	| 'download'
 	| 'book-open'
 	| 'link-external'
+	| External
 	| ModIcons;
 export type Icons = _Icons;  // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
 
 interface Props extends HTMLAttributes<'svg'> {
-	icon: Icons
+	icon: Icons,
+	path?: string,
 	size?: number | [number, number]
 }
 
-async function getSVG(name: string) {
-	const file = await import(/* @vite-ignore */ `./impl/${name}.svg?raw`);
+async function getSVG(name: string, path = 'impl') {
+	const file = await import(`./${path}/${name}.svg?raw`);
 
 	if (!file)
 		throw new Error(`${name} not found`);
@@ -49,6 +61,7 @@ async function getSVG(name: string) {
 const {
 	icon,
 	size,
+	path = 'impl',
 	...attributes
 } = Astro.props as Props;
 
@@ -73,7 +86,7 @@ try {
 		};
 	};
 
-	const { attributes: baseAttributes, innerHTML } = await getSVG(icon);
+	const { attributes: baseAttributes, innerHTML } = await getSVG(icon, path);
 	svgAttributes = {
 		...baseAttributes,
 		...attributes,

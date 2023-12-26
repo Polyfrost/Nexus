@@ -24,11 +24,20 @@ export interface NavbarElement {
 	dropdown?: NavbarDropdown[]
 }
 
+export interface FooterColumn {
+	header: string
+	links: {
+		text: string,
+		url: string,
+	}[]
+}
+
 export interface Config {
 	projects: Project[]
 	logos: string[]
 	navbar: {
 		left: NavbarElement[]
 		right: NavbarElement[]
-	}
+	},
+	footer: FooterColumn[]
 }
