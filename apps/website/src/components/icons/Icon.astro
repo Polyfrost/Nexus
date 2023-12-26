@@ -2,7 +2,23 @@
 import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
 
-export type Icons = 'chevron-down' | 'download' | 'book-open';
+type _ModIcons =
+	| 'chatting'
+	| 'polysprint'
+	| 'vanillahud'
+	| 'overflowanimations'
+	| 'crashpatch'
+	| 'polytime'
+	| 'polyweather'
+	| 'keystrokes';
+export type ModIcons = _ModIcons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+type _Icons =
+	| 'chevron-down'
+	| 'download'
+	| 'book-open'
+	| 'link-external'
+	| ModIcons;
+export type Icons = _Icons;  // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
 
 interface Props extends HTMLAttributes<'svg'> {
 	icon: Icons
@@ -10,7 +26,7 @@ interface Props extends HTMLAttributes<'svg'> {
 }
 
 async function getSVG(name: string) {
-	const file = await import(`./impl/${name}.svg?raw` /* @vite-ignore */);
+	const file = await import(/* @vite-ignore */ `./impl/${name}.svg?raw`);
 
 	if (!file)
 		throw new Error(`${name} not found`);

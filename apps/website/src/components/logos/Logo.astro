@@ -19,7 +19,7 @@ try {
 	if (logo === undefined)
 		return;
 	const dir = '../../../public/media';
-	svg = (await import(`${dir}/${logo.replaceAll('.', '/')}.svg?raw` /* @vite-ignore */)).default;
+	svg = (await import(/* @vite-ignore */ `${dir}/${logo.replaceAll('.', '/')}.svg?raw`)).default;
 
 	if (svg === undefined)
 		return;
