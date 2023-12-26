@@ -2,7 +2,7 @@ import petal from '@flowr/eslint-config';
 
 export default petal({
 	astro: true,
-	react: true,
+	react: false,
 	typescript: true,
 	gitignore: true,
 	toml: false,
