@@ -1,4 +1,4 @@
-import * as artifact from '@actions/artifact';
+import artifact from '@actions/artifact';
 import * as core from '@actions/core';
 import * as glob from '@actions/glob';
 import * as io from '@actions/io';
@@ -51,8 +51,6 @@ const ARTIFACTS_DIR = '.artifacts';
 const ARTIFACT_BASE = `Nexus-${OS}-${ARCH}`;
 const UPDATER_ARTIFACT_NAME = `Nexus-Updater-${OS}-${ARCH}`;
 
-const client = artifact.create();
-
 // globby glob globber :3
 async function globFiles(pattern: string) {
 	const globber = await glob.create(pattern);
@@ -71,7 +69,7 @@ async function uploadUpdater({ bundle, ext }: TargetConfig) {
 	await io.cp(updaterPath, artifactPath);
 	await io.cp(`${updaterPath}.sig`, `${artifactPath}.sig`);
 
-	await client.uploadArtifact(
+	await artifact.uploadArtifact(
 		UPDATER_ARTIFACT_NAME,
 		[artifactPath, `${artifactPath}.sig`],
 		ARTIFACTS_DIR,
@@ -89,7 +87,7 @@ async function uploadStandalone({ bundle, ext }: TargetConfig) {
 	const artifactPath = `${ARTIFACTS_DIR}/${artifactName}`;
 
 	await io.cp(standalonePath, artifactPath, { recursive: true });
-	await client.uploadArtifact(artifactName, [artifactPath], ARTIFACTS_DIR);
+	await artifact.uploadArtifact(artifactName, [artifactPath], ARTIFACTS_DIR);
 }
 
 async function run() {
