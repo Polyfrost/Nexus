@@ -97,7 +97,7 @@ import { Code } from 'astro:components';
 					We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
 				</Paragraph>
 				<div class="flex">
-					<Button href="/projects/oneconfig/download" iconLeft="download" style="secondary" text="Download"/>
+					<Button href="/projects/oneconfig/download" style="secondary" iconLeft="download" text="Download"/>
 				</div>
 			</div>
 			<div slot="right">
@@ -120,32 +120,40 @@ import { Code } from 'astro:components';
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					Discover a wide range of mods integrated with OneConfig to enhance your experience.
 				</Paragraph>
-				<div class="flex">
-					<Button iconLeft="link-external" text="Discover mods"/>
+				<div class="flex row gap-x-1">
+					<!-- TODO: HREF -->
+					<Button iconLeft="link-external" style="secondary" text="Discover mods"/>
+					<Button iconLeft="link-external" style="ghost" text="Download modpacks"/>
 				</div>
 			</div>
 		</Section>
+
 		<!-- TODO: add more 3rd party mods, like DSM PSS and Neu maybe -->
-		<Slider wrapperClass="-mb-40 pb-4" childrenNum={8}>
-			<Card text="Chatting" icon="chatting"/>
-			<Card text="PolySprint" icon="polysprint"/>
-			<Card text="VanillaHUD" icon="vanillahud"/>
-			<Card text="OverflowAnimations" icon="overflowanimations"/>
-			<Card text="CrashPatch" icon="crashpatch"/>
-			<Card text="PolyTime" icon="polytime"/>
-			<Card text="PolyWeather" icon="polyweather"/>
-			<Card text="Keystrokes" icon="keystrokes"/>
-		</Slider>
-		<Slider dir="right" wrapperClass="pb-10" childrenNum={8}>
-			<Card text="Chatting" icon="chatting"/>
-			<Card text="PolySprint" icon="polysprint"/>
-			<Card text="VanillaHUD" icon="vanillahud"/>
-			<Card text="OverflowAnimations" icon="overflowanimations"/>
-			<Card text="CrashPatch" icon="crashpatch"/>
-			<Card text="PolyTime" icon="polytime"/>
-			<Card text="PolyWeather" icon="polyweather"/>
-			<Card text="Keystrokes" icon="keystrokes"/>
-		</Slider>
+		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10">
+			<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
+				<Slider wrapperClass="-mb-40 pb-4" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+				<Slider dir="right" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+			</div>
+		</div>
+
 		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px] mb-[10rem]">
 			<div class="grid grid-rows-[repeat(8,_minmax(0,_1fr))] grid-cols-[repeat(7,_minmax(0,_1fr))]">
 				<!-- TODO: Change placeholder image -->
