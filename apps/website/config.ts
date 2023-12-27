@@ -3,6 +3,11 @@ import type { Config, NavbarDropdown, Project } from '@webtypes/Config';
 export const configConst = {
 	projects: getProjects(),
 	logos: ['oneconfig.minimal', 'polyfrost.full', 'polyfrost.minimal', 'polyfrost.minimal_bg'],
+	socials: {
+		youtube: 'https://youtube.com/',
+		discord: 'https://discord.gg/',
+		github: 'https://github.com/Polyfrost',
+	},
 	navbar: {
 		left: [
 			{

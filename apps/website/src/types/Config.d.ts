@@ -33,11 +33,17 @@ export interface FooterColumn {
 }
 
 export interface Config {
-	projects: Project[]
-	logos: string[]
-	navbar: {
-		left: NavbarElement[]
-		right: NavbarElement[]
+	projects: Project[],
+	logos: string[],
+	socials: {
+		youtube: string,
+		// twitter: string,
+		discord: string,
+		github: string,
 	},
-	footer: FooterColumn[]
+	navbar: {
+		left: NavbarElement[],
+		right: NavbarElement[],
+	},
+	footer: FooterColumn[],
 }

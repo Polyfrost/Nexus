@@ -12,9 +12,9 @@ import Link from './Link.astro';
 				<Logo logo="polyfrost.full" />
 				<p>English, USA</p> {/* hardcoded for now, todo i18n */}
 				<div class="flex flex-row gap-3">
-					<a href="" class="hover:text-[#5865F2]"><Icon icon="discord" /></a>
-					<a href="" class="hover:text-[#ff0000]"><Icon icon="youtube" /></a>
-					<a href="" class="hover:text-[#000000]"><Icon icon="github" /></a>
+					<a href={configConst.socials.discord} target="_blank" class="hover:text-[#5865F2]"><Icon icon="discord" /></a>
+					<a href={configConst.socials.youtube} target="_blank" class="hover:text-[#ff0000]"><Icon icon="youtube" /></a>
+					<a href={configConst.socials.github} target="_blank" class="hover:text-[#000000]"><Icon icon="github" /></a>
 				</div>
 			</div>
 
