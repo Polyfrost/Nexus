@@ -21,11 +21,23 @@ export const configConst = {
 				path: '/',
 			},
 			{
+				text: 'Mods',
+				path: '/mods',
+			},
+			{
 				text: 'Projects',
 				dropdown: getProjects().map((project) => {
 					(project as any).path = `/projects/${project.name.toLowerCase()}`;
 					return project;
 				}) as unknown as NavbarDropdown[],
+			},
+			{
+				text: 'About Us',
+				path: '/about',
+			},
+			{
+				text: 'Contact Us',
+				path: '/contact',
 			},
 		],
 	},

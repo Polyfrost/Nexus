@@ -16,28 +16,31 @@ const {
 	element,
 	index,
 } = Astro.props;
+
+function isCurrentPage(url: string): boolean {
+	return Astro.url.pathname === url;
+}
+
 ---
 
 	<li class="sm:relative max-sm:overflow-hidden flex flex-row justify-center items-center text-center">
+		{element.path
+? (
+			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
+				{element.text && element.text}
+				{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
+				{element.dropdown && <Icon icon="chevron-down"/>}
+			</a>
+		)
+: (
 		<label for={`navbar-input-${index}`} class="group">
-
-			{element.path
-				? (
-					<a href={element.path} class="p-2 flex flex-row justify-center items-center text-gray-700 hover:text-blue-500">
-						{element.text && element.text}
-						{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
-						{element.dropdown && <Icon icon="chevron-down"/>}
-					</a>
-				)
-				: (
-					<p class="p-2 flex flex-row justify-center items-center text-gray-700 hover:text-blue-500 cursor-default">
-						{element.text && element.text}
-						{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
-						{element.dropdown && <Icon icon="chevron-down"/>}
-					</p>
-				)}
-
 			{element.dropdown && (
+				<p class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path) ? 'text-blue-400' : 'text-gray-700'}`}>
+					{element.text && element.text}
+					{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
+					{element.dropdown && <Icon icon="chevron-down"/>}
+				</p>
+
 				<ScreenOverlay class="max-sm:group-focus-within:opacity-100 z-navbar-backdrop"/>
 					<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer appearance-none absolute"/>
 					<div class={`
@@ -90,6 +93,8 @@ const {
 							</ul>
 						</ScrollbarOverlayContainer>
 					</div>
-			)}
-		</label>
-	</li>
+				)}
+  </label>
+)}
+ </li>
+{/* WHY IS ESLINT DOING THIS */}
