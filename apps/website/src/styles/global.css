@@ -5,6 +5,7 @@
 
 * {
 	font-family: 'Poppins', sans-serif;
+	-webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
@@ -25,6 +26,10 @@
 	body {
 		@apply text-[14px] md:text-[16px];
 	}
+
+	a {
+		-webkit-user-drag: none;
+	}
 }
 
 /* Codeblocks */
@@ -33,6 +38,7 @@
 	border-radius: 16px;
 	border: 1px solid rgba(65, 74, 88, 1);
 	width: 100%;
+	line-height: 18px;
 }
 
 .astro-code code {

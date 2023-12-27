@@ -35,10 +35,6 @@ export const configConst = {
 				text: 'About Us',
 				path: '/about',
 			},
-			{
-				text: 'Contact Us',
-				path: '/contact',
-			},
 		],
 	},
 	footer: [

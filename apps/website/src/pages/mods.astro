@@ -1,44 +1,141 @@
 ---
+import Button from '@components/base/Button.astro';
 import Card from '@components/base/Card.astro';
 import Header from '@components/base/Header.astro';
+import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import Slider from '@components/base/Slider.astro';
 import Layout from '@layouts/Layout.astro';
+import { Code } from 'astro:components';
 
 ---
 
 <Layout>
 
-	<Section maxWidth="1920px" wFull={true} wrapperClass="h-3/5" class="h-full mt-32 md:mt-28 flex flex-col justify-center items-center px-0">
-		<div class="flex flex-col justify-center items-center max-w-full overflow-hidden">
-			<div class="flex flex-col justify-between items-center overflow-hidden h-auto md:h-[280px] max-w-[1920px] relative">
-				<div class="absolute bottom-0 w-full h-full md:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));" />
-				<Slider wrapperClass="-mb-40 pb-4 max-sm:hidden" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
-				</Slider>
-				<Slider dir="right" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
-				</Slider>
+	<div class="min-h-screen">
+		<Section maxWidth="1920px" wFull={true} wrapperClass="h-3/5" class="h-full mt-32 md:mt-28 flex flex-col justify-center items-center max-sm:px-0">
+			<div class="flex flex-col justify-center items-center max-w-full overflow-hidden">
+				<div class="flex flex-col justify-between items-center overflow-hidden h-auto md:h-[280px] max-w-[1920px] relative">
+					<div class="absolute bottom-0 w-full h-full md:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));" />
+					<Slider wrapperClass="-mb-40 pb-4 max-sm:hidden" childrenNum={8}>
+						<Card text="Chatting" icon="chatting"/>
+						<Card text="PolySprint" icon="polysprint"/>
+						<Card text="VanillaHUD" icon="vanillahud"/>
+						<Card text="OverflowAnimations" icon="overflowanimations"/>
+						<Card text="CrashPatch" icon="crashpatch"/>
+						<Card text="PolyTime" icon="polytime"/>
+						<Card text="PolyWeather" icon="polyweather"/>
+						<Card text="Keystrokes" icon="keystrokes"/>
+					</Slider>
+					<Slider dir="right" childrenNum={8}>
+						<Card text="Chatting" icon="chatting"/>
+						<Card text="PolySprint" icon="polysprint"/>
+						<Card text="VanillaHUD" icon="vanillahud"/>
+						<Card text="OverflowAnimations" icon="overflowanimations"/>
+						<Card text="CrashPatch" icon="crashpatch"/>
+						<Card text="PolyTime" icon="polytime"/>
+						<Card text="PolyWeather" icon="polyweather"/>
+						<Card text="Keystrokes" icon="keystrokes"/>
+					</Slider>
+				</div>
 			</div>
-		</div>
 
-		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10">
-			<Header align="center" size="xxl" class="text-navy-peony max-w-xl">Redefining modding, one mod at a time</Header>
-		</div>
-	</Section>
+			<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10 gap-6 px-4">
+				<Header align="center" size="xxl" class="text-navy-peony max-w-xl">Redefining modding, one mod at a time</Header>
+				<div class="flex flex-row justify-center items-center gap-x-2">
+					<Button style="primary" iconLeft="link-external">Modrinth</Button>
+					<Button style="primary" iconLeft="link-external">GitHub</Button>
+				</div>
+
+				<Paragraph class="text-navy-peony text-xl font-semibold max-w-screen-sm text-center mt-20">
+					10+ mods. Unparalleled new features. OneConfig. We combine our groundbreaking library with mods with no equivalent anywhere else.
+				</Paragraph>
+			</div>
+		</Section>
+	</div>
+
+	<div class="flex flex-col gap-40 my-48">
+		<Section tabindex="0">
+			<div slot="left">
+				<Header size="xl" class="text-navy-peony"><b>13</b> maintained mods</Header>
+				<Paragraph class="text-navy-peony text-xl max-w-screen-sm mt-6">
+					OneConfig is a revolutionary new way to configure mods. It allows you to configure all of your mods in one place, with a beautiful UI.
+				</Paragraph>
+			</div>
+			<div slot="right">
+				<!-- TODO -->
+			</div>
+		</Section>
+
+		<Section tabindex="0">
+			<div slot="right">
+				<Header size="xl" class="text-navy-peony">We <b>listen</b> to community feedback</Header>
+				<Paragraph class="text-navy-peony text-xl max-w-screen-sm mt-6">
+					No more are the days where developers ignore your great new idea. Some of our best mods and ideas are user-suggested, such as BehindYouV3, various Chatting features, and more.
+				</Paragraph>
+			</div>
+		</Section>
+
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="pt-10 md:py-20">
+			<div slot="left">
+				<!-- TODO: FIX Codeblock overflowing on mobile -->
+				<div class="max-sm:hidden">
+					<Code
+						code={
+`public class MyConfig {
+	@Switch(
+		name = "Sub Switch",
+		type = OptionType.SWITCH
+	)
+	public static boolean subSwitch = false;
+
+	public MyConfig() {
+		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+		addDependency("subSwitch", () -> {
+			// Do stuff here
+		});
+	}
+}`
+}
+						lang="java"/>
+				</div>
+			</div>
+
+			<div slot="right" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-500">Open source</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					All of our mods are open source, and will continue to be open source. Anyone can learn, contribute, or take from our code (as long as it follows our license).
+				</Paragraph>
+				<div class="flex">
+					<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
+				</div>
+			</div>
+		</Section>
+
+		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="py-10 md:py-20 gap-4">
+			<div slot="left" class="flex flex-col gap-2">
+				<Header size="xl" class="text-blue-500">Powered by OneConfig</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.
+				</Paragraph>
+				<div class="flex">
+					<Button href="/projects/oneconfig/download" style="secondary" iconLeft="oneconfig" text="See OneConfig"/>
+				</div>
+			</div>
+			<div slot="right">
+				<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
+			</div>
+		</Section>
+
+		<Section class="flex-col justify-center items-center">
+			<div class="flex flex-col gap-y-1 relative md:-left-12">
+				<Header size="xl" class="text-navy-peony text-header-page max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
+				<div class="flex flex-row justify-center items-center gap-x-2">
+					<Button style="primary" iconLeft="link-external">Modrinth</Button>
+					<Button style="primary" iconLeft="link-external">GitHub</Button>
+				</div>
+			</div>
+		</Section>
+	</div>
 
 </Layout>

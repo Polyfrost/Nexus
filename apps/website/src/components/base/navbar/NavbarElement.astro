@@ -28,7 +28,7 @@ function isCurrentPage(url: string): boolean {
 ? (
 			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
 				{element.text && element.text}
-				{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
+				{element.logo && <Logo class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
 				{element.dropdown && <Icon icon="chevron-down"/>}
 			</a>
 		)
@@ -74,7 +74,7 @@ function isCurrentPage(url: string): boolean {
 								{element.dropdown.map(item => (
 									<li>
 										<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
-											<div class="transition-colors text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 hover:bg-blue-50">
+											<div class="transition-colors text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 hover:bg-blue-50 active:bg-blue-100">
 												<div class="w-[36px]">
 													{item.logo && <Logo size={40} logo={item.logo}/>}
 												</div>
