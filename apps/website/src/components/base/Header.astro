@@ -25,16 +25,24 @@ const {
 } = Astro.props;
 const Element = sizes[size] as any; // Unfortunately gotta do this
 
-const className = (align === 'inherit' ? '' : `text-${align} `)
-	+ (size === 'xxl' ? ' page-header' : '')
-	+ (attr.class ? ` ${attr.class}` : '');
+let className: string | string[] = [];
+if (align !== 'inherit')
+	className.push(`text-${align}`);
+
+if (size === 'xxl')
+	className.push('page-header');
+
+if (attr.class)
+	className.push(attr.class);
+
+className = className.join(' ');
 ---
 
-	<Element {...attr} class={className}>
-		<slot/>
-	</Element>
+<Element {...attr} class={className}>
+	<slot/>
+</Element>
 
-		<style>
+<style>
     h1 {
 		font-size: theme("fontSize.header-lg");
 		&.page-header {
@@ -74,4 +82,4 @@ const className = (align === 'inherit' ? '' : `text-${align} `)
 			font-weight: inherit;
 		}
 	}
-		</style>
+</style>

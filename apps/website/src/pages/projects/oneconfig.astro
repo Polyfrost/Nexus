@@ -135,7 +135,7 @@ import { Code } from 'astro:components';
 		<!-- TODO: add more 3rd party mods, like DSM PSS and Neu maybe -->
 		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-hidden">
 			<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
-				<Slider wrapperClass="-mb-40 pb-4" childrenNum={8}>
+				<Slider wrapperClass="-mb-40 pb-4 bg-blue-100" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
 					<Card text="PolySprint" icon="polysprint"/>
 					<Card text="VanillaHUD" icon="vanillahud"/>
@@ -145,7 +145,7 @@ import { Code } from 'astro:components';
 					<Card text="PolyWeather" icon="polyweather"/>
 					<Card text="Keystrokes" icon="keystrokes"/>
 				</Slider>
-				<Slider dir="right" childrenNum={8}>
+				<Slider dir="right" wrapperClass="bg-blue-100" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
 					<Card text="PolySprint" icon="polysprint"/>
 					<Card text="VanillaHUD" icon="vanillahud"/>

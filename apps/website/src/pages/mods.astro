@@ -1,8 +1,44 @@
 ---
+import Card from '@components/base/Card.astro';
+import Header from '@components/base/Header.astro';
+import Section from '@components/base/Section.astro';
+import Slider from '@components/base/Slider.astro';
 import Layout from '@layouts/Layout.astro';
 
 ---
 
 <Layout>
+
+	<Section maxWidth="1920px" wFull={true} wrapperClass="h-3/5" class="h-full mt-32 md:mt-28 flex flex-col justify-center items-center px-0">
+		<div class="flex flex-col justify-center items-center max-w-full overflow-hidden">
+			<div class="flex flex-col justify-between items-center overflow-hidden h-auto md:h-[280px] max-w-[1920px] relative">
+				<div class="absolute bottom-0 w-full h-full md:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));" />
+				<Slider wrapperClass="-mb-40 pb-4 max-sm:hidden" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+				<Slider dir="right" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+			</div>
+		</div>
+
+		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10">
+			<Header align="center" size="xxl" class="text-navy-peony max-w-xl">Redefining modding, one mod at a time</Header>
+		</div>
+	</Section>
 
 </Layout>

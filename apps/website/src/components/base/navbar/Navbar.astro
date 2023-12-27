@@ -4,7 +4,7 @@ import config from 'config';
 import NavbarElement from '../navbar/NavbarElement.astro';
 
 ---
-<div class="absolute w-full flex flex-row justify-center h-screen max-h-[110px] px-3">
+<div class="absolute w-full flex flex-row justify-center h-screen max-h-[110px] px-3 z-navbar">
 	<nav class="w-full max-w-[1080px] flex flex-col md:flex-row justify-between items-center">
 		<ul class="flex flex-row justify-start gap-4 max-sm:mt-4">
 			{(config as Config).navbar.left.map((element, index) => (
