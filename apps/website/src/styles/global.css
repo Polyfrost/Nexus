@@ -24,12 +24,20 @@
 
 	html,
 	body {
-		@apply text-[15px] md:text-[19px];
+		@apply text-[15px] md:text-[19px] overflow-x-hidden;
 	}
 
 	a {
 		-webkit-user-drag: none;
 	}
+}
+
+.fp-overflow:focus-visible {
+	@apply outline-none ring-0 ;
+}
+
+main {
+	@apply overflow-x-hidden;
 }
 
 /* Codeblocks */

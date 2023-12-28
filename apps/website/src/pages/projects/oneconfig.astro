@@ -25,147 +25,145 @@ import { Code } from 'astro:components';
 		</div>
 	</Section>
 
-	<div class="flex flex-col gap-40">
-		<Section tabindex="0" hFull>
-			<div slot="left">
-				<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
-			</div>
-			<div slot="right" class="w-3/4 md:w-auto">
-				<!-- TODO: make proper file names and alt text -->
-				<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
-			</div>
-		</Section>
+	<Section tabindex="0" hFull>
+		<div slot="left">
+			<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
+			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
+		</div>
+		<div slot="right" class="w-3/4 md:w-auto">
+			<!-- TODO: make proper file names and alt text -->
+			<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
+		</div>
+	</Section>
 
-		<Section tabindex="0" colReverse={false} hFull>
-			<div slot="left" class="w-1/2 md:w-auto flex justify-center">
-				<img src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
-			</div>
-
-			<div slot="right">
-				<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
-			</div>
-		</Section>
-
-		<Section tabindex="0" hFull>
-			<div slot="left">
-				<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
-			</div>
-
-			<div slot="right" class="w-3/4 md:w-auto flex justify-center">
-				<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
-			</div>
-		</Section>
-
-		<div class="bg-blue-75 flex flex-col justify-center items-center min-h-screen">
-			<Section maxWidth="1120px" wFull={false} class="pt-10 md:py-20 max-sm:h-screen">
-				<div slot="left">
-					<!-- TODO: FIX Codeblock overflowing on mobile -->
-					<div class="max-sm:hidden">
-						<Code
-							code={
-	`public class MyConfig {
-		@Switch(
-			name = "Sub Switch",
-			type = OptionType.SWITCH
-		)
-		public static boolean subSwitch = false;
-
-		public MyConfig() {
-			super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
-			addDependency("subSwitch", () -> {
-				// Do stuff here
-			});
-		}
-	}`
-	}
-							lang="java"/>
-					</div>
-				</div>
-
-				<div slot="right" class="flex flex-col gap-2 text-left items-start">
-					<Header size="xl" class="text-blue-500">Written for developers</Header>
-					<Paragraph class="text-blue-400 max-w-[500px]">
-						With our simple APIs and documentation, it's easier than ever to integrate your mods with OneConfig.
-					</Paragraph>
-					<div class="flex">
-						<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
-					</div>
-				</div>
-			</Section>
-
-			<Section maxWidth="1120px" wFull={false} class="py-10 md:py-20 gap-4 max-sm:h-screen">
-				<div slot="left" class="flex flex-col gap-2 text-left items-start">
-					<Header size="xl" class="text-blue-500">Designed for users</Header>
-					<Paragraph class="text-blue-400 max-w-[500px]">
-						We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
-					</Paragraph>
-					<div class="flex">
-						<Button href="/projects/oneconfig/download" style="secondary" iconLeft="download" text="Download"/>
-					</div>
-				</div>
-				<div slot="right">
-					<img src="/media/oneconfig/page_media_4.png" class="max-h-[285px] rounded-2xl"/>
-				</div>
-			</Section>
+	<Section tabindex="0" colReverse={false} hFull>
+		<div slot="left" class="w-1/2 md:w-auto flex justify-center">
+			<img src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
 		</div>
 
-		<Section class="flex-col justify-center items-center h-screen md:min-h-[600px]" hFull>
-			<img src="/media/oneconfig/page_media_5.png" class="max-h-[285px] md:max-h-96 lg:max-h-[581px] rounded-2xl"/>
-			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
-			<Paragraph class="w-96 text-center text-gray-400">
-				Thanks to OneConfig's HUD API, you can customize any OneConfig-powered HUD to your liking, without having to worry about the hassle of finding the right command or keybind.
-			</Paragraph>
-		</Section>
+		<div slot="right">
+			<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
+			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
+		</div>
+	</Section>
 
-		<Section wrapperClass="bg-blue-100 -mb-40" wFull maxWidth="none" class="py-10 md:py-20 gap-4 px-0 flex flex-col items-center justify-center" hFull>
-			<div class="max-w-[1024px] w-full flex flex-col gap-2 text-left items-start px-5">
-				<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
+	<Section tabindex="0" hFull>
+		<div slot="left">
+			<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
+			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
+		</div>
+
+		<div slot="right" class="w-3/4 md:w-auto flex justify-center">
+			<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
+		</div>
+	</Section>
+
+	<div class="section bg-blue-75 flex flex-col justify-center items-center min-h-screen">
+		<Section sectionClass={false} maxWidth="1120px" wFull={false} class="pt-10 md:py-20 max-sm:h-screen">
+			<div slot="left">
+				<!-- TODO: FIX Codeblock overflowing on mobile -->
+				<div class="max-sm:hidden">
+					<Code
+						code={
+`public class MyConfig {
+	@Switch(
+		name = "Sub Switch",
+		type = OptionType.SWITCH
+	)
+	public static boolean subSwitch = false;
+
+	public MyConfig() {
+		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+		addDependency("subSwitch", () -> {
+			// Do stuff here
+		});
+	}
+}`
+}
+						lang="java"/>
+				</div>
+			</div>
+
+			<div slot="right" class="flex flex-col gap-2 text-left items-start">
+				<Header size="xl" class="text-blue-500">Written for developers</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
-					Discover a wide range of mods integrated with OneConfig to enhance your experience.
+					With our simple APIs and documentation, it's easier than ever to integrate your mods with OneConfig.
 				</Paragraph>
-				<div class="flex items-start flex-col md:flex-row max-sm:gap-y-1 gap-x-1">
-					<!-- TODO: HREF -->
-					<Button iconLeft="link-external" style="secondary" text="Discover mods"/>
-					<Button iconLeft="link-external" style="ghost" text="Download a modpack"/>
-				</div>
-			</div>
-			<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-hidden">
-				<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
-					<Slider wrapperClass="-mb-40 pb-4 bg-blue-100" childrenNum={8}>
-						<Card text="Chatting" icon="chatting"/>
-						<Card text="PolySprint" icon="polysprint"/>
-						<Card text="VanillaHUD" icon="vanillahud"/>
-						<Card text="OverflowAnimations" icon="overflowanimations"/>
-						<Card text="CrashPatch" icon="crashpatch"/>
-						<Card text="PolyTime" icon="polytime"/>
-						<Card text="PolyWeather" icon="polyweather"/>
-						<Card text="Keystrokes" icon="keystrokes"/>
-					</Slider>
-					<Slider dir="right" wrapperClass="bg-blue-100" childrenNum={8}>
-						<Card text="Chatting" icon="chatting"/>
-						<Card text="PolySprint" icon="polysprint"/>
-						<Card text="VanillaHUD" icon="vanillahud"/>
-						<Card text="OverflowAnimations" icon="overflowanimations"/>
-						<Card text="CrashPatch" icon="crashpatch"/>
-						<Card text="PolyTime" icon="polytime"/>
-						<Card text="PolyWeather" icon="polyweather"/>
-						<Card text="Keystrokes" icon="keystrokes"/>
-					</Slider>
+				<div class="flex">
+					<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
 				</div>
 			</div>
 		</Section>
 
-		<Section class="flex-col justify-center items-center mb-20" hFull>
-			<div class="flex relative md:-left-12">
-				<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl"/>
-				<div class="border border-gray-200 rounded-3xl md:rounded-4xl shadow-sm bg-gray-50 flex flex-col justify-center items-center md:items-start p-4 md:p-8 absolute -bottom-12 translate-x-1/2 right-1/2 md:translate-x-0 md:-right-12 gap-y-2 md:gap-y-8">
-					<Logo logo="oneconfig.logo_text" class="w-48 h-12 md:min-w-72 md:h-auto"></Logo>
-					<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit"/>
+		<Section sectionClass={false} maxWidth="1120px" wFull={false} class="py-10 md:py-20 gap-4 max-sm:h-screen">
+			<div slot="left" class="flex flex-col gap-2 text-left items-start">
+				<Header size="xl" class="text-blue-500">Designed for users</Header>
+				<Paragraph class="text-blue-400 max-w-[500px]">
+					We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
+				</Paragraph>
+				<div class="flex">
+					<Button href="/projects/oneconfig/download" style="secondary" iconLeft="download" text="Download"/>
 				</div>
+			</div>
+			<div slot="right">
+				<img src="/media/oneconfig/page_media_4.png" class="max-h-[285px] rounded-2xl"/>
 			</div>
 		</Section>
 	</div>
+
+	<Section class="flex-col justify-center items-center h-screen md:min-h-[600px]" hFull>
+		<img src="/media/oneconfig/page_media_5.png" class="max-h-[285px] md:max-h-96 lg:max-h-[581px] rounded-2xl"/>
+		<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
+		<Paragraph class="w-96 text-center text-gray-400">
+			Thanks to OneConfig's HUD API, you can customize any OneConfig-powered HUD to your liking, without having to worry about the hassle of finding the right command or keybind.
+		</Paragraph>
+	</Section>
+
+	<Section wrapperClass="bg-blue-100 -mb-40" wFull maxWidth="none" class="py-10 md:py-20 gap-4 px-0 flex flex-col items-center justify-center" hFull>
+		<div class="max-w-[1024px] w-full flex flex-col gap-2 text-left items-start px-5">
+			<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
+			<Paragraph class="text-blue-400 max-w-[500px]">
+				Discover a wide range of mods integrated with OneConfig to enhance your experience.
+			</Paragraph>
+			<div class="flex items-start flex-col md:flex-row max-sm:gap-y-1 gap-x-1">
+				<!-- TODO: HREF -->
+				<Button iconLeft="link-external" style="secondary" text="Discover mods"/>
+				<Button iconLeft="link-external" style="ghost" text="Download a modpack"/>
+			</div>
+		</div>
+		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-hidden">
+			<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
+				<Slider wrapperClass="-mb-40 pb-4 bg-blue-100" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+				<Slider dir="right" wrapperClass="bg-blue-100" childrenNum={8}>
+					<Card text="Chatting" icon="chatting"/>
+					<Card text="PolySprint" icon="polysprint"/>
+					<Card text="VanillaHUD" icon="vanillahud"/>
+					<Card text="OverflowAnimations" icon="overflowanimations"/>
+					<Card text="CrashPatch" icon="crashpatch"/>
+					<Card text="PolyTime" icon="polytime"/>
+					<Card text="PolyWeather" icon="polyweather"/>
+					<Card text="Keystrokes" icon="keystrokes"/>
+				</Slider>
+			</div>
+		</div>
+	</Section>
+
+	<Section class="flex-col justify-center items-center mb-20" hFull>
+		<div class="flex relative md:-left-12">
+			<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl"/>
+			<div class="border border-gray-200 rounded-3xl md:rounded-4xl shadow-sm bg-gray-50 flex flex-col justify-center items-center md:items-start p-4 md:p-8 absolute -bottom-12 translate-x-1/2 right-1/2 md:translate-x-0 md:-right-12 gap-y-2 md:gap-y-8">
+				<Logo logo="oneconfig.logo_text" class="w-48 h-12 md:min-w-72 md:h-auto"></Logo>
+				<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit"/>
+			</div>
+		</div>
+	</Section>
 </Layout>
