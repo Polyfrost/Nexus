@@ -1,8 +1,9 @@
 ---
-import '../styles/global.css';
 import Footer from '@components/base/Footer.astro';
-import Navbar from '../components/base/navbar/Navbar.astro';
 import Favicon from '/media/polyfrost/minimal_bg.svg?url';
+import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/base/navbar/Navbar.astro';
+import '../styles/global.css';
 
 interface Props {
 	title?: string
@@ -32,13 +33,16 @@ const {
 			<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&display=swap" rel="stylesheet"/>
 
 			<title>{title}</title>
+			<ViewTransitions />
 		</head>
 
 		<body class="bg-gray-50 overflow-x-hidden">
 			<Navbar/>
-			<main class="min-h-screen h-auto">
+
+			<main class="min-h-screen h-auto" transition:animate="fade">
 				<slot/>
 			</main>
+
 			<Footer/>
 		</body>
 	</html>

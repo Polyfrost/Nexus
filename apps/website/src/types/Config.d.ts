@@ -2,11 +2,19 @@ import type { configConst } from 'config';
 
 export type LogoType = (typeof configConst.logos)[number];
 
+export interface ProjectDownload {
+	url: string,
+	platform?: "windows" | "mac" | "linux" | "universal",
+	architecture?: "x86" | "x64" | "arm" | "arm64" | "universal",
+}
+
 export interface Project {
 	name: string
-	description: string
+	description: string,
 	logo?: LogoType
 	tag?: string
+	downloads?: ProjectDownload[]
+	descriptionLong?: string,
 }
 
 export interface NavbarDropdown {
