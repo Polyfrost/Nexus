@@ -6,6 +6,7 @@ interface Props extends HTMLAttributes<'section'> {
 	colReverse?: boolean
 	wrapperClass?: string
 	wFull?: boolean
+	hFull?: boolean
 }
 
 const {
@@ -13,14 +14,16 @@ const {
 	colReverse = true,
 	wrapperClass = '',
 	wFull = true,
+	hFull = false,
 	...props
 } = Astro.props;
 
 const twoColumn = Astro.slots.has('left') || Astro.slots.has('right');
 
-const className = `max-w-[${maxWidth}] ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 md:p-0 flex gap-x-20 gap-y-4${
-	twoColumn ? ` ${maxWidth === 'none' ? 'justify-center' : 'justify-between md:justify-evenly lg:justify-between'} ${colReverse ? 'flex-col-reverse' : 'flex-col'} md:flex-row items-center md:flex-row` : ''
-}${props.class ? ` ${props.class}` : ''}`;
+const twoColumnClasses = ` ${maxWidth === 'none' ? 'justify-center' : 'justify-center md:justify-evenly lg:justify-between'}
+	${colReverse ? 'flex-col-reverse' : 'flex-col'} md:flex-row items-center md:flex-row`;
+
+const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 md:p-0 flex gap-x-20 gap-y-4${twoColumn ? twoColumnClasses : ''}${props.class ? ` ${props.class}` : ''}`;
 ---
 
 <section class={`w-full flex justify-center ${wrapperClass ?? ''}`}>

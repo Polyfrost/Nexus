@@ -28,7 +28,7 @@ function isCurrentPage(url: string): boolean {
 ? (
 			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
 				{element.text && element.text}
-				{element.logo && <Logo transition:persist class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
+				{element.logo && <Logo class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
 				{element.dropdown && <Icon icon="chevron-down"/>}
 			</a>
 		)
