@@ -16,6 +16,26 @@ const {
 	description = 'Official website for Polyfrost.',
 	favicon = Favicon,
 } = Astro.props;
+
+const fadeAnimation = {
+	old: {
+		name: 'fadeOut',
+		duration: '0.1s',
+		easing: 'linear',
+		fillMode: 'forwards',
+	},
+	new: {
+		name: 'fadeIn',
+		duration: '0.1s',
+		easing: 'linear',
+		fillMode: 'backwards',
+	},
+};
+
+const fade = {
+	forwards: fadeAnimation,
+	backwards: fadeAnimation,
+};
 ---
 
 <!doctype html>
@@ -36,10 +56,10 @@ const {
 			<ViewTransitions />
 		</head>
 
-		<body class="bg-gray-50 overflow-x-hidden">
-			<Navbar/>
+		<body class="bg-gray-50 overflow-x-hidden" transition:animate={fade}>
+			<Navbar transition:animate="none" transition:persist />
 
-			<main class="min-h-screen h-auto" transition:animate="fade">
+			<main class="min-h-screen h-auto">
 				<slot/>
 			</main>
 
