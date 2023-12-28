@@ -47,18 +47,18 @@ import { Code } from 'astro:components';
 					<Button style="primary" iconLeft="link-external">GitHub</Button>
 				</div>
 
-				<Paragraph class="text-navy-peony text-xl font-semibold max-w-screen-sm text-center mt-20">
+				<Paragraph class="text-navy-peony text-lg font-semibold max-w-screen-sm text-center mt-20">
 					10+ mods. Unparalleled new features. OneConfig. We combine our groundbreaking library with mods with no equivalent anywhere else.
 				</Paragraph>
 			</div>
 		</Section>
 	</div>
 
-	<div class="flex flex-col gap-40 my-48">
+	<div class="flex flex-col gap-40">
 		<Section tabindex="0">
 			<div slot="left">
-				<Header size="xl" class="text-navy-peony"><b>13</b> maintained mods</Header>
-				<Paragraph class="text-navy-peony text-xl max-w-screen-sm mt-6">
+				<Header size="lg" class="text-navy-peony"><b>13</b> maintained mods</Header>
+				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
 					OneConfig is a revolutionary new way to configure mods. It allows you to configure all of your mods in one place, with a beautiful UI.
 				</Paragraph>
 			</div>
@@ -69,14 +69,14 @@ import { Code } from 'astro:components';
 
 		<Section tabindex="0">
 			<div slot="right">
-				<Header size="xl" class="text-navy-peony">We <b>listen</b> to community feedback</Header>
-				<Paragraph class="text-navy-peony text-xl max-w-screen-sm mt-6">
+				<Header size="lg" class="text-navy-peony">We <b>listen</b> to community feedback</Header>
+				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
 					No more are the days where developers ignore your great new idea. Some of our best mods and ideas are user-suggested, such as BehindYouV3, various Chatting features, and more.
 				</Paragraph>
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="pt-10 md:py-20">
+		<Section maxWidth="1120px" wrapperClass="bg-blue-75 -mb-40" wFull={false} class="pt-10 md:py-20">
 			<div slot="left">
 				<!-- TODO: FIX Codeblock overflowing on mobile -->
 				<div class="max-sm:hidden">
@@ -101,8 +101,8 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 
-			<div slot="right" class="flex flex-col gap-2">
-				<Header size="xl" class="text-blue-500">Open source</Header>
+			<div slot="right" class="flex flex-col gap-2 text-left items-start">
+				<Header size="lg" class="text-blue-500">Open source</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					All of our mods are open source, and will continue to be open source. Anyone can learn, contribute, or take from our code (as long as it follows our license).
 				</Paragraph>
@@ -112,9 +112,9 @@ import { Code } from 'astro:components';
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="py-10 md:py-20 gap-4">
-			<div slot="left" class="flex flex-col gap-2">
-				<Header size="xl" class="text-blue-500">Powered by OneConfig</Header>
+		<Section maxWidth="1120px" wrapperClass="bg-blue-75" wFull={false} class="py-10 md:py-20 gap-4">
+			<div slot="left" class="flex flex-col gap-2 text-left items-start">
+				<Header size="lg" class="text-blue-500">Powered by OneConfig</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.
 				</Paragraph>
@@ -123,13 +123,13 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 			<div slot="right">
-				<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
+				<img src="/media/oneconfig/page_media_3.svg" class="max-sm:w-full" alt="stuff"/>
 			</div>
 		</Section>
 
-		<Section class="flex-col justify-center items-center">
-			<div class="flex flex-col gap-y-1 relative md:-left-12">
-				<Header size="xl" class="text-navy-peony text-header-page max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
+		<Section class="flex-col justify-center items-center mb-40">
+			<div class="flex flex-col gap-y-1 relative md:-left-12 justify-center items-center">
+				<Header size="xl" class="text-navy-peony text-header-page w-11/12 md:max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
 				<div class="flex flex-row justify-center items-center gap-x-2">
 					<Button style="primary" iconLeft="link-external">Modrinth</Button>
 					<Button style="primary" iconLeft="link-external">GitHub</Button>

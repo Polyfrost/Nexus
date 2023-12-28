@@ -81,6 +81,11 @@ const config: Config = {
 				'navbar': '9999', // Nothing should be above the navbar or backdrop
 				'navbar-backdrop': '9998',
 			},
+
+			maxHeight: {
+				'3/4-screen': '75vh',
+				'4/5-screen': '80vh',
+			},
 		},
 	},
 	plugins: [],

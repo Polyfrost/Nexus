@@ -29,7 +29,7 @@ let className: string | string[] = [];
 if (align !== 'inherit')
 	className.push(`text-${align}`);
 
-if (size === 'xxl')
+if (size === 'xxl' || size === 'xl')
 	className.push('page-header');
 
 if (attr.class)
@@ -53,6 +53,9 @@ className = className.join(' ');
 
     h2 {
         font-size: theme("fontSize.header");
+		&.page-header {
+			font-size: theme("fontSize.header-page");
+		}
         font-weight: 600;
     }
 

@@ -32,13 +32,13 @@ import { Code } from 'astro:components';
 				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
 			</div>
 			<div slot="right" class="w-3/4 md:w-auto">
-			<!-- TODO: make proper file names and alt text -->
-			<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
+				<!-- TODO: make proper file names and alt text -->
+				<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
 			</div>
 		</Section>
 
 		<Section tabindex="0" colReverse={false}>
-			<div slot="left" class="w-1/2 md:w-auto">
+			<div slot="left" class="w-1/2 md:w-auto flex justify-center">
 				<img src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
 			</div>
 
@@ -54,12 +54,12 @@ import { Code } from 'astro:components';
 				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
 			</div>
 
-			<div slot="right" class="w-3/4 md:w-auto">
+			<div slot="right" class="w-3/4 md:w-auto flex justify-center">
 				<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100 -mb-40" wFull={false} class="pt-10 md:py-20">
+		<Section maxWidth="1120px" wrapperClass="bg-blue-75 -mb-40" wFull={false} class="pt-10 md:py-20">
 			<div slot="left">
 				<!-- TODO: FIX Codeblock overflowing on mobile -->
 				<div class="max-sm:hidden">
@@ -84,7 +84,7 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 
-			<div slot="right" class="flex flex-col gap-2">
+			<div slot="right" class="flex flex-col gap-2 text-left items-start">
 				<Header size="xl" class="text-blue-500">Written for developers</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					With our simple APIs and documentation, it's easier than ever to integrate your mods with OneConfig.
@@ -95,8 +95,8 @@ import { Code } from 'astro:components';
 			</div>
 		</Section>
 
-		<Section maxWidth="1120px" wrapperClass="bg-blue-100" wFull={false} class="py-10 md:py-20 gap-4">
-			<div slot="left" class="flex flex-col gap-2">
+		<Section maxWidth="1120px" wrapperClass="bg-blue-75" wFull={false} class="py-10 md:py-20 gap-4">
+			<div slot="left" class="flex flex-col gap-2 text-left items-start">
 				<Header size="xl" class="text-blue-500">Designed for users</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
@@ -110,8 +110,8 @@ import { Code } from 'astro:components';
 			</div>
 		</Section>
 
-		<Section class="flex-col justify-center items-center h-screen md:h-4/5 md:min-h-[600px]">
-			<img src="/media/oneconfig/page_media_5.png" class="max-h-[581px] rounded-2xl"/>
+		<Section class="flex-col justify-center items-center h-screen max-h-96 md:h-4/5 md:min-h-[600px]">
+			<img src="/media/oneconfig/page_media_5.png" class="max-h-[285px] md:max-h-96 lg:max-h-[581px] rounded-2xl"/>
 			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header>
 			<Paragraph class="w-96 text-center text-gray-400">
 				Thanks to OneConfig's HUD API, you can customize any OneConfig-powered HUD to your liking, without having to worry about the hassle of finding the right command or keybind.
@@ -119,7 +119,7 @@ import { Code } from 'astro:components';
 		</Section>
 
 		<Section wrapperClass="bg-blue-100 -mb-40" class="py-10 md:py-20 gap-4 pr-2">
-			<div slot="left" class="flex flex-col gap-2">
+			<div slot="left" class="flex flex-col gap-2 text-left items-start">
 				<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
 				<Paragraph class="text-blue-400 max-w-[500px]">
 					Discover a wide range of mods integrated with OneConfig to enhance your experience.

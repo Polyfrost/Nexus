@@ -24,7 +24,7 @@
 
 	html,
 	body {
-		@apply text-[14px] md:text-[16px];
+		@apply text-[15px] md:text-[16px];
 	}
 
 	a {
