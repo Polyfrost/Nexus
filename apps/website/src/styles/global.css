@@ -24,7 +24,7 @@
 
 	html,
 	body {
-		@apply text-[15px] md:text-[19px] overflow-x-hidden;
+		@apply text-[15px] md:text-[16px] lg:text-[19px] overflow-x-hidden;
 	}
 
 	a {

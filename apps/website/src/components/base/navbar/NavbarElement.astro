@@ -81,10 +81,10 @@ function isCurrentPage(url: string): boolean {
 
 												<div class="flex flex-col justify-start items-start">
 													<div class="flex flex-row gap-2">
-														<Header size="sm" class="text-gray-800">{item.name}</Header>
-														{item.tag && <Tag>{item.tag}</Tag>}
+														<Header inheritSize size="md" class="text-gray-800 text-md md:text-sm font-medium">{item.name}</Header>
+														{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
 													</div>
-													<p class="text-sm text-gray-400 font-light">{item.description}</p>
+													<p class="text-md md:text-sm text-gray-400 font-light">{item.description}</p>
 												</div>
 											</div>
 										</a>

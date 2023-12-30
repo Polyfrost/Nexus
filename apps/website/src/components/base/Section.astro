@@ -20,10 +20,10 @@ const {
 
 const twoColumn = Astro.slots.has('left') || Astro.slots.has('right');
 
-const twoColumnClasses = ` ${maxWidth === 'none' ? 'justify-center' : 'justify-center md:justify-evenly lg:justify-between'}
-	${colReverse ? 'flex-col-reverse' : 'flex-col'} md:flex-row items-center md:flex-row`;
+const twoColumnClasses = ` ${maxWidth === 'none' ? 'justify-center' : 'justify-center lg:justify-between'}
+	${colReverse ? 'flex-col-reverse' : 'flex-col'} lg:flex-row items-center`;
 
-const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 md:p-0 flex gap-x-20 gap-y-4${twoColumn ? twoColumnClasses : ''}${props.class ? ` ${props.class}` : ''}`;
+const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 xl:px-0 flex gap-x-20 gap-y-4${twoColumn ? twoColumnClasses : ''}${props.class ? ` ${props.class}` : ''}`;
 ---
 
 <section class={`w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>

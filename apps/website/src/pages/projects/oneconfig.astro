@@ -27,39 +27,38 @@ import { Code } from 'astro:components';
 
 	<Section tabindex="0" hFull>
 		<div slot="left">
-			<Header size="lg" class="text-navy-peony">Forge is complicated</Header>
-			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
+			<Header size="xl" class="text-navy-peony">Forge is complicated</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">Modding Minecraft has always been difficult, particularly with their configuration. Remembering all of the keybinds, commands; it just isn't intuitive.</Paragraph>
 		</div>
-		<div slot="right" class="w-3/4 md:w-auto">
-			<!-- TODO: make proper file names and alt text -->
-			<img src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
+		<div slot="right" class="w-3/4 max-w-80 md:max-w-none md:w-auto">
+			<img class="w-full md:w-[20rem]" src="/media/oneconfig/page_media_1.svg" alt="stuff"/>
 		</div>
 	</Section>
 
 	<Section tabindex="0" colReverse={false} hFull>
-		<div slot="left" class="w-1/2 md:w-auto flex justify-center">
-			<img src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
+		<div slot="left" class="w-1/2 max-w-80 md:max-w-none  md:w-auto flex justify-center">
+			<img class="w-full md:w-[20rem]" src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
 		</div>
 
 		<div slot="right">
-			<Header size="lg" class="text-navy-peony">Clients are locked-down</Header>
-			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
+			<Header size="xl" class="text-navy-peony">Clients are locked-down</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">While they improve usability, they're slow to adopt new mods absent from the community and force unwanted features onto users to profit off of them.</Paragraph>
 		</div>
 	</Section>
 
 	<Section tabindex="0" hFull>
 		<div slot="left">
-			<Header size="lg" class="text-navy-peony">Best of both worlds</Header>
-			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
+			<Header size="xl" class="text-navy-peony">Best of both worlds</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">OneConfig brings the simplicity of a client to the everyday user, gives advanced users and developers complete control over everything, while remaining free and open-source.</Paragraph>
 		</div>
 
-		<div slot="right" class="w-3/4 md:w-auto flex justify-center">
-			<img src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
+		<div slot="right" class="w-3/4 max-w-80 md:max-w-none md:w-auto flex justify-center">
+			<img class="w-full md:w-[20rem] lg:w-[30rem]" src="/media/oneconfig/page_media_3.svg" alt="stuff"/>
 		</div>
 	</Section>
 
 	<div class="section bg-blue-75 flex flex-col justify-center items-center min-h-screen">
-		<Section maxWidth="1120px" wFull={false} class="pt-10 md:py-20 max-sm:h-screen">
+		<Section colReverse={false} maxWidth="1120px" wFull={false} class="pt-10 md:py-20 max-sm:h-screen">
 			<div slot="left">
 				<!-- TODO: FIX Codeblock overflowing on mobile -->
 				<div class="max-sm:hidden">
@@ -119,7 +118,7 @@ import { Code } from 'astro:components';
 		</Paragraph>
 	</Section>
 
-	<Section wrapperClass="bg-blue-100 -mb-40" wFull maxWidth="none" class="py-10 md:py-20 gap-4 px-0 flex flex-col items-center justify-center" hFull>
+	<Section wrapperClass="bg-blue-100 -mb-40" wFull maxWidth="none" class="py-10 md:py-20 gap-4 !px-0 flex flex-col items-center justify-center" hFull>
 		<div class="max-w-[1024px] w-full flex flex-col gap-2 text-left items-start px-5">
 			<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
 			<Paragraph class="text-blue-400 max-w-[500px]">

@@ -58,6 +58,7 @@ const config: Config = {
 		},
 		fontSize: {
 			// rem starts at 16px on desktop, 14px on tailwind 'sm' and below
+			'xxs': '0.625rem', // 10px
 			'xs': '0.75rem', // 12px
 			'sm': '0.875rem', // 14px
 			'md': '1rem', // 16px
@@ -85,6 +86,10 @@ const config: Config = {
 			maxHeight: {
 				'3/4-screen': '75vh',
 				'4/5-screen': '80vh',
+			},
+
+			lineHeight: {
+				none: '0',
 			},
 		},
 	},
