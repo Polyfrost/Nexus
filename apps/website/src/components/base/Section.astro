@@ -7,7 +7,6 @@ interface Props extends HTMLAttributes<'section'> {
 	wrapperClass?: string
 	wFull?: boolean
 	hFull?: boolean
-	sectionClass?: boolean
 }
 
 const {
@@ -16,7 +15,6 @@ const {
 	wrapperClass = '',
 	wFull = true,
 	hFull = false,
-	sectionClass = true,
 	...props
 } = Astro.props;
 
@@ -28,7 +26,7 @@ const twoColumnClasses = ` ${maxWidth === 'none' ? 'justify-center' : 'justify-c
 const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 md:p-0 flex gap-x-20 gap-y-4${twoColumn ? twoColumnClasses : ''}${props.class ? ` ${props.class}` : ''}`;
 ---
 
-<section class={`${sectionClass ? 'section ' : ''}w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>
+<section class={`w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>
 	<div class={className} {...props}>
 		{twoColumn
 			? (
