@@ -7,6 +7,7 @@ interface Props extends HTMLAttributes<'section'> {
 	wrapperClass?: string
 	wFull?: boolean
 	hFull?: boolean
+	scrollSection?: boolean
 }
 
 const {
@@ -15,6 +16,7 @@ const {
 	wrapperClass = '',
 	wFull = true,
 	hFull = false,
+	scrollSection = true,
 	...props
 } = Astro.props;
 
@@ -24,9 +26,13 @@ const twoColumnClasses = ` ${maxWidth === 'none' ? 'justify-center' : 'justify-c
 	${colReverse ? 'flex-col-reverse' : 'flex-col'} lg:flex-row items-center`;
 
 const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wFull ? 'w-full' : `w-[${maxWidth}]`} px-5 xl:px-0 flex gap-x-20 gap-y-4${twoColumn ? twoColumnClasses : ''}${props.class ? ` ${props.class}` : ''}`;
+
+const sectionAttr = {
+	...(scrollSection ? { 'data-scroll-section': '' } : {}),
+};
 ---
 
-<section class={`w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>
+<section {...sectionAttr} class={`w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>
 	<div class={className} {...props}>
 		{twoColumn
 			? (

@@ -24,7 +24,7 @@
 
 	html,
 	body {
-		@apply text-[15px] md:text-[16px] lg:text-[19px] overflow-x-hidden;
+		@apply text-[15px] md:text-[16px] lg:text-[19px] overflow-hidden;
 	}
 
 	a {
@@ -32,8 +32,10 @@
 	}
 }
 
-.fp-overflow:focus-visible {
-	@apply outline-none ring-0 ;
+[data-scroll-container], [data-scroll-section] {
+	transform-style: preserve-3d;
+	will-change: transform;
+	perspective: 1px;
 }
 
 main {

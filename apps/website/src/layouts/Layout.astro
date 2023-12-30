@@ -1,6 +1,7 @@
 ---
 import Footer from '@components/base/Footer.astro';
 import Favicon from '/media/polyfrost/minimal_bg.svg?url';
+import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 import Navbar from '../components/base/navbar/Navbar.astro';
 import '../styles/global.css';
 
@@ -35,12 +36,27 @@ const {
 	</head>
 
 	<body class="bg-gray-50 overflow-x-hidden">
-		<Navbar />
 
-		<main class="min-h-screen h-auto flex flex-col gap-40" id="fullpage">
+		<main class="min-h-screen h-auto flex flex-col gap-40" data-scroll-container>
+			<Navbar data-scroll-section />
+
 			<slot/>
+
+			<Footer data-scroll-section />
 		</main>
-		<Footer/>
 
 	</body>
 </html>
+
+<script>
+import LocomotiveScroll from 'locomotive-scroll';
+
+// eslint-disable-next-line unused-imports/no-unused-vars
+const scroll = new LocomotiveScroll({
+	el: document.querySelector('[data-scroll-container]'),
+	smooth: true,
+	lerp: 0.05,
+	touchMultiplier: 0,
+	resetNativeScroll: false,
+});
+</script>
