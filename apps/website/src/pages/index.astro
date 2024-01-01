@@ -29,11 +29,11 @@ import Layout from '@layouts/Layout.astro';
 		</div>
 		<div class="mx-auto max-w-3xl py-36 lg:py-48">
 			<div class="mt-4 mb-8 flex md:justify-center">
-				<div class="font-medium relative rounded-full py-1 px-3 text-sm leading-6 text-navy-peony ring-1 ring-gray-900/10 hover:ring-gray-900/20 transition">
-					Introducing OneConfig 1.0
-					<Link href="/projects/oneconfig" class="font-semibold text-brand-600 ml-1">
-						<span class="absolute inset-0" aria-hidden="true" />
-						Read more
+				<div class="flex flex-row justify-center items-center font-medium relative rounded-full py-1 px-3 text-sm text-gray-600 hover:text-blue-500 ring-1 ring-gray-600 hover:ring-blue-600">
+					Introducing OneConfig
+					<Link href="/projects/oneconfig" class="transition-none">
+						<span class="absolute inset-0" aria-hidden="true"></span>
+						<Icon icon="link-external" size={18} class="ml-1"></Icon>
 					</Link>
 				</div>
 			</div>
@@ -70,10 +70,10 @@ import Layout from '@layouts/Layout.astro';
 	</Section>
 	<Section wFull maxWidth="1024px" class="mt-0 sm:-mt-52 max-sm:!px-0 !px-5 items-center justify-center">
 		<div class="flex flex-col justify-center items-center py-12 px-0 sm:py-12">
-			<div class="relative isolate overflow-hidden bg-blue-75 pt-6 md:shadow sm:rounded-3xl px-6 md:pt-12 lg:flex lg:gap-x-20 lg:px-16 lg:pt-0 z-50 md:ring-gray-400/50 md:ring-1">
+			<div class="flex flex-wrap flex-col-reverse md:flex-row justify-center lg:justify-normal lg:flex-nowrap relative isolate overflow-hidden bg-blue-75 py-6 md:shadow sm:rounded-3xl px-6 gap-6 lg:gap-20 lg:px-8 lg:py-0 z-50 md:ring-gray-400/50 md:ring-1">
 				<svg
 					viewBox="0 0 1024 1024"
-					class="absolute -z-10 h-[64rem] w-[64rem] [mask-image:radial-gradient(closest-side,white,transparent)] translate-x-64"
+					class="pointer-events-none absolute -z-10 h-[64rem] w-[64rem] [mask-image:radial-gradient(closest-side,white,transparent)] translate-x-64"
 					aria-hidden="true">
 					<circle cx={512} cy={512} r={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
 					<defs>
@@ -85,7 +85,7 @@ import Layout from '@layouts/Layout.astro';
 				</svg>
 				<div class="flex flex-col justify-center items-center lg:justify-start lg:items-start max-w-screen-md text-center lg:py-8 lg:text-left">
 					<div class="flex flex-col justify-center items-center">
-						<Icon icon="oneconfig" size={48} class="text-navy-peony mb-4"></Icon>
+						<Icon icon="oneconfig" size={48} class="hidden md:block text-navy-peony mb-4"></Icon>
 						<Header size="lg" class="text-3xl font-semibold tracking-tight text-navy-peony">
 							OneConfig has <br>finally arrived.
 						</Header>
@@ -98,9 +98,9 @@ import Layout from '@layouts/Layout.astro';
 						<Button href="/mods" size="sm" iconLeft="link-external" style="secondary">Discover mods</Button>
 					</div>
 				</div>
-				<div class="relative mt-16 h-40 lg:h-80 lg:mt-8 w-full">
+				<div class="flex flex-col justify-center items-center">
 					<img
-						class="absolute top-0 left-1/2 -translate-x-1/2 lg:top-1/2 lg:-left-12 lg:translate-x-0 max-w-80 rounded-md bg-white/5 ring-1 ring-white/10 pointer-events-none"
+						class="max-w-80 rounded-md bg-white/5 ring-1 ring-white/10 pointer-events-none"
 						src="/media/oneconfig/page_media_3.svg"
 						alt="OneConfig Screenshot"
 						width={912}
