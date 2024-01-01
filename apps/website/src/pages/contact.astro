@@ -1,13 +1,53 @@
 ---
+import Button from '@components/base/Button.astro';
+import Header from '@components/base/Header.astro';
+import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
+import Icon from '@components/icons/Icon.astro';
 import Layout from '@layouts/Layout.astro';
 
 ---
 
 <Layout>
 
-	<Section>
+	<Section wrapperClass="min-h-screen" class="my-40 md:my-40 xl:my-20 2xl:my-20 justify-center items-center flex-col">
+		<Header size="xl" class="text-navy-peony text-center">Feeling social? Come chat with us</Header>
+		<Paragraph class="text-blue-gray max-w-2xl text-center">
+			We primarily connect with our community with Discord, however we regularly check Github as well blah blah blah
+		</Paragraph>
+		<div class="flex flex-row flex-wrap p-5 w-full justify-center items-center gap-8">
+			{/* GitHub */}
+			<div class="bg-blue-75 flex flex-col justify-start items-center p-5 gap-y-0.5 rounded-2xl">
+				<Icon icon="github" size={48} class="text-blue-gray" />
+				<Header size="md" class="text-navy-peony mt-2">GitHub</Header>
+				<div class="flex flex-row items-center justify-center gap-x-1">
+					<span class="w-1.5 h-1.5 bg-green-300 rounded-full"></span>
+					<Paragraph size="sm" class="text-blue-gray">69 commits a week</Paragraph>
+				</div>
 
+				<Paragraph size="sm" class="text-blue-gray max-w-48 text-center my-4">
+					We love open source, so all of our projects are OSS. Anyone is welcome to contribute new features (and bugs) to our mods
+				</Paragraph>
+
+				<Button style="secondary" iconLeft="code" size="sm" class="w-full">Contribute today</Button>
+			</div>
+
+			{/* Discord */}
+			<div class="bg-blue-75 flex flex-col justify-start items-center p-5 gap-y-0.5 rounded-2xl">
+				<Icon icon="discord" size={48} class="text-blue-gray" />
+				<Header size="md" class="text-navy-peony mt-2">Discord</Header>
+				<div class="flex flex-row items-center justify-center gap-x-1">
+					<span class="w-1.5 h-1.5 bg-green-300 rounded-full"></span>
+					<Paragraph size="sm" class="text-blue-gray">69 commits a week</Paragraph>
+				</div>
+
+				<Paragraph size="sm" class="text-blue-gray max-w-48 text-center my-4">
+					Join us today! It's the easiest way to chat with other members, suggest new features, and get support with your mods
+				</Paragraph>
+
+				<Button style="secondary" iconLeft="chat" size="sm" class="w-full">Chat with us</Button>
+			</div>
+		</div>
 	</Section>
 
 </Layout>

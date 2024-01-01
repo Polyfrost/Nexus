@@ -24,7 +24,7 @@
 
 	html,
 	body {
-		@apply text-[15px] md:text-[16px] lg:text-[19px] overflow-hidden;
+		@apply text-[15px] md:text-[16px] lg:text-[19px] /* overflow-hidden */;
 	}
 
 	a {
@@ -32,11 +32,11 @@
 	}
 }
 
-[data-scroll-container], [data-scroll-section] {
+/* [data-scroll-container], [data-scroll-section] {
 	transform-style: preserve-3d;
 	will-change: transform;
 	perspective: 1px;
-}
+} */
 
 main {
 	@apply overflow-x-hidden;

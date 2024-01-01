@@ -1,9 +1,10 @@
 ---
 import Footer from '@components/base/Footer.astro';
 import Favicon from '/media/polyfrost/minimal_bg.svg?url';
-import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 import Navbar from '../components/base/navbar/Navbar.astro';
 import '../styles/global.css';
+
+// import 'locomotive-scroll/dist/locomotive-scroll.min.css';
 
 interface Props {
 	title?: string
@@ -37,18 +38,18 @@ const {
 
 	<body class="bg-gray-50 overflow-x-hidden">
 
-		<main class="min-h-screen h-auto flex flex-col gap-40" data-scroll-container>
-			<Navbar data-scroll-section />
+		<main class="min-h-screen h-auto flex flex-col gap-40" >
+			<Navbar />
 
 			<slot/>
 
-			<Footer data-scroll-section />
+			<Footer />
 		</main>
 
 	</body>
 </html>
 
-<script>
+<!-- <script>
 import LocomotiveScroll from 'locomotive-scroll';
 
 // eslint-disable-next-line unused-imports/no-unused-vars
@@ -59,4 +60,4 @@ const scroll = new LocomotiveScroll({
 	touchMultiplier: 0,
 	resetNativeScroll: false,
 });
-</script>
+</script> -->
