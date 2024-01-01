@@ -7,7 +7,7 @@ interface Props extends HTMLAttributes<'a'> {
 
 const props = Astro.props;
 const className = [
-	'hover:text-blue-500 hover:underline transition-colors',
+	'hover:text-blue-500 underline decoration-[transparent] hover:decoration-blue-500 transition-colors',
 	props.class,
 ].join(' ');
 ---
