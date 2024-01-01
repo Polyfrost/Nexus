@@ -15,14 +15,15 @@ export interface Project {
 	tag?: string
 	downloads?: ProjectDownload[]
 	descriptionLong?: string,
+	hasPage?: boolean,
 }
 
 export interface NavbarDropdown {
 	name: string
 	description: string
-	path: string
+	path?: string
 	logo?: LogoType
-	tag?: string
+	tag?: string,
 }
 
 export interface NavbarElement {

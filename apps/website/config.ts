@@ -28,7 +28,9 @@ export const configConst = {
 			{
 				text: 'Projects',
 				dropdown: getProjects().map((project) => {
-					(project as any).path = `/projects/${project.name.toLowerCase()}`;
+					if (project.hasPage)
+						(project as any).path = `/projects/${project.name.toLowerCase()}`;
+
 					return project;
 				}) as unknown as NavbarDropdown[],
 			},
@@ -41,16 +43,10 @@ export const configConst = {
 	footer: [
 		{
 			header: 'Products',
-			links: [
-				{
-					text: 'OneConfig',
-					url: '/projects/oneconfig',
-				},
-				{
-					text: 'OneLauncher',
-					url: '/projects/onelauncher',
-				},
-			],
+			links: getProjects().filter(project => project.hasPage === true).map(project => ({
+				text: project.name,
+				url: `/projects/${project.name.toLowerCase()}`,
+			})),
 		},
 		{
 			header: 'Organization',
@@ -100,6 +96,7 @@ function getProjects(): Project[] {
 			description: 'The next-generation config library for Forge and Fabric',
 			logo: 'oneconfig.minimal',
 			tag: 'BETA',
+			hasPage: true,
 		},
 		{
 			name: 'OneLauncher',
