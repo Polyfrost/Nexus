@@ -5,6 +5,7 @@ import Header from '@components/base/Header.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import Slider from '@components/base/Slider.astro';
+import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
@@ -41,8 +42,8 @@ import { Code } from 'astro:components';
 		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10 gap-6 px-4">
 			<Header align="center" size="xxl" class="text-navy-peony max-w-xl">Redefining modding, one mod at a time</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="link-external">Modrinth</Button>
-				<Button style="primary" iconLeft="link-external">GitHub</Button>
+				<Button style="primary" iconLeft="link-external" href={configConst.socials.modrinth}>Modrinth</Button>
+				<Button style="primary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
 			</div>
 
 			<Paragraph class="text-navy-peony text-lg font-semibold max-w-screen-sm text-center mt-20">
@@ -127,8 +128,8 @@ public MyConfig() {
 		<div class="flex flex-col gap-y-1 relative md:-left-12 justify-center items-center">
 			<Header size="xl" class="text-navy-peony text-header-page w-11/12 md:max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="link-external">Modrinth</Button>
-				<Button style="primary" iconLeft="link-external">GitHub</Button>
+				<Button style="primary" iconLeft="link-external" href={configConst.socials.modrinth}>Modrinth</Button>
+				<Button style="primary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
 			</div>
 		</div>
 	</Section>

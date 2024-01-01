@@ -48,6 +48,7 @@ export interface Config {
 		// twitter: string,
 		discord: string,
 		github: string,
+		modrinth: string,
 	},
 	navbar: {
 		left: NavbarElement[],
