@@ -46,6 +46,8 @@ const config: Config = {
 			'navy-peony': 'rgba(32, 55, 91, 1)',
 			'blue-gray': 'rgba(119, 143, 183, 1)',
 			'primary': {
+				100: 'rgba(23, 28, 33, 1)',
+				200: 'rgba(50, 74, 245, 1)',
 				600: 'rgba(20, 82, 204, 1)',
 			},
 		},

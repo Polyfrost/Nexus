@@ -9,13 +9,18 @@ import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
+const res = await fetch('https://api.modrinth.com/v2/user/Wyvest/projects');
+const data = await res.json();
+const mods = data.filter((mod: any) => {
+	return mod.slug !== 'oneconfig';
+});
 ---
 
 <Layout>
 	<Section maxWidth="1920px" wFull={true} wrapperClass="h-3/5" class="h-full mt-32 md:mt-28 flex flex-col justify-center items-center max-xl:px-0">
 		<div class="flex flex-col justify-center items-center max-w-full overflow-hidden">
 			<div class="flex flex-col justify-between items-center overflow-hidden h-auto lg:h-[280px] max-w-[1920px] relative">
-				<div class="absolute -bottom-[1px] w-full h-full lg:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));" />
+				<div class="absolute -bottom-[1px] w-full h-full lg:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));"/>
 				<Slider wrapperClass="-mb-40 pb-4 hidden lg:block" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
 					<Card text="PolySprint" icon="polysprint"/>
@@ -47,14 +52,14 @@ import { Code } from 'astro:components';
 			</div>
 
 			<Paragraph class="text-navy-peony text-lg font-semibold max-w-screen-sm text-center mt-20">
-				10+ mods. Unparalleled new features. OneConfig. We combine our groundbreaking library with mods with no equivalent anywhere else.
+				{Math.floor(mods.length / 5) * 5}+ mods. Unparalleled new features. OneConfig. We combine our groundbreaking library with mods with no equivalent anywhere else.
 			</Paragraph>
 		</div>
 	</Section>
 
 	<Section tabindex="0">
 		<div slot="left">
-			<Header size="lg" class="text-navy-peony"><b>13</b> maintained mods</Header>
+			<Header size="lg" class="text-navy-peony"><b>{mods.length}</b> maintained mods</Header>
 			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
 				OneConfig is a revolutionary new way to configure mods. It allows you to configure all of your mods in one place, with a beautiful UI.
 			</Paragraph>
@@ -79,7 +84,7 @@ import { Code } from 'astro:components';
 			<div class="max-sm:hidden">
 				<Code
 					code={
-`public class MyConfig {
+						`public class MyConfig {
 @Switch(
 	name = "Sub Switch",
 	type = OptionType.SWITCH
@@ -93,8 +98,9 @@ public MyConfig() {
 	});
 }
 }`
-}
-					lang="java"/>
+					}
+					lang="java"
+				/>
 			</div>
 		</div>
 
