@@ -12,7 +12,7 @@ import { Code } from 'astro:components';
 const res = await fetch('https://api.modrinth.com/v2/user/Wyvest/projects');
 const data = await res.json();
 const mods = data.filter((mod: any) => {
-	return mod.slug !== 'oneconfig' || mod.slug !== 'easeify';
+	return mod.slug !== 'oneconfig' && mod.slug !== 'easeify';
 });
 ---
 
@@ -65,11 +65,15 @@ const mods = data.filter((mod: any) => {
 			</Paragraph>
 		</div>
 		<div slot="right">
-			<!-- TODO -->
+			<div class="absolute ml-[21rem] w-1/4 h-full z-10" style="background: linear-gradient(90deg, rgba(246, 246, 246, 0.00) 0%, #F0F2F4 49.21%);"/>
+			<img src="/media/mods/page_media_1.svg" class="w-[120%] overflow-x-clip" alt="stuff"/>
 		</div>
 	</Section>
 
 	<Section tabindex="0">
+		<div slot="left">
+			<img src="/media/mods/page_media_2.svg" class="max-sm:w-full" alt="stuff"/>
+		</div>
 		<div slot="right">
 			<Header size="lg" class="text-navy-peony">We <b>listen</b> to community feedback</Header>
 			<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
@@ -85,18 +89,18 @@ const mods = data.filter((mod: any) => {
 				<Code
 					code={
 						`public class MyConfig {
-@Switch(
-	name = "Sub Switch",
-	type = OptionType.SWITCH
-)
-public static boolean subSwitch = false;
+	@Switch(
+		name = "Sub Switch",
+		type = OptionType.SWITCH
+	)
+	public static boolean subSwitch = false;
 
-public MyConfig() {
-	super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
-	addDependency("subSwitch", () -> {
-		// Do stuff here
-	});
-}
+	public MyConfig() {
+		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+		addDependency("subSwitch", () -> {
+			// Do stuff here
+		});
+	}
 }`
 					}
 					lang="java"
