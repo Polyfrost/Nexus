@@ -12,7 +12,7 @@ import { Code } from 'astro:components';
 const res = await fetch('https://api.modrinth.com/v2/user/Wyvest/projects');
 const data = await res.json();
 const mods = data.filter((mod: any) => {
-	return mod.slug !== 'oneconfig';
+	return mod.slug !== 'oneconfig' || mod.slug !== 'easeify';
 });
 ---
 
