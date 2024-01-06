@@ -4,8 +4,8 @@ export const configConst = {
 	projects: getProjects(),
 	logos: ['oneconfig.minimal', 'polyfrost.full', 'polyfrost.minimal', 'polyfrost.minimal_bg'],
 	socials: {
-		youtube: 'https://youtube.com/',
-		discord: 'https://discord.gg/',
+		youtube: 'https://youtube.com/@Polyfrost',
+		discord: '/discord',
 		github: 'https://github.com/Polyfrost',
 		modrinthId: 'a6VEZDKe', // user id of Wyvest
 	},
@@ -46,7 +46,12 @@ export const configConst = {
 			links: getProjects().filter(project => project.hasPage === true).map(project => ({
 				text: project.name,
 				url: `/projects/${project.name.toLowerCase()}`,
-			})),
+			})).concat([
+				{
+					text: 'Mods',
+					url: '/mods',
+				}
+			])
 		},
 		{
 			header: 'Organization',
@@ -65,7 +70,7 @@ export const configConst = {
 				},
 				{
 					text: 'Documentation',
-					url: '/documentation',
+					url: 'https://docs.polyfrost.org',
 				},
 				{
 					text: 'Open source',
@@ -99,7 +104,6 @@ function getProjects(): Project[] {
 			name: 'OneConfig',
 			description: 'The next-generation config library for Forge and Fabric',
 			logo: 'oneconfig.minimal',
-			tag: 'BETA',
 			hasPage: true,
 		},
 		{
