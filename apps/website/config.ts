@@ -89,10 +89,6 @@ export const configConst = {
 					text: 'Privacy policy',
 					url: '/privacy',
 				},
-				{
-					text: 'Licenses',
-					url: '/licenses',
-				},
 			],
 		},
 	],
