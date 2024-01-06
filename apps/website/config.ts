@@ -50,8 +50,8 @@ export const configConst = {
 				{
 					text: 'Mods',
 					url: '/mods',
-				}
-			])
+				},
+			]),
 		},
 		{
 			header: 'Organization',
