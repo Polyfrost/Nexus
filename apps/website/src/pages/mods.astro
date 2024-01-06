@@ -15,9 +15,9 @@ const modrinthId = configConst.socials.modrinthId;
 <Layout>
 	<Section maxWidth="1920px" wFull={true} wrapperClass="h-3/5" class="h-full mt-32 md:mt-28 flex flex-col justify-center items-center max-xl:px-0">
 		<div class="flex flex-col justify-center items-center max-w-full overflow-hidden">
-			<div class="flex flex-col justify-between items-center overflow-hidden h-auto lg:h-[280px] max-w-[1920px] relative">
+			<div class="flex flex-col justify-between items-center overflow-hidden h-auto lg:h-[290px] max-w-[1920px] relative">
 				<div class="absolute -bottom-[1px] w-full h-full lg:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));"/>
-				<Slider wrapperClass="-mb-40 pb-4 hidden lg:block" childrenNum={8}>
+				<Slider wrapperClass="-mb-40 mb-2 hidden lg:block" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
 					<Card text="PolySprint" icon="polysprint"/>
 					<Card text="VanillaHUD" icon="vanillahud"/>
@@ -131,7 +131,7 @@ const modrinthId = configConst.socials.modrinthId;
 	</Section>
 
 	<Section wrapperClass="flex justify-center items-center min-h-screen -mt-40" class="flex-col justify-center items-center">
-		<div class="flex flex-col gap-y-1 relative md:-left-12 justify-center items-center">
+		<div class="flex flex-col gap-y-1 relative justify-center items-center">
 			<Header size="xl" class="text-navy-peony text-header-page w-11/12 md:max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
 				<Button style="primary" iconLeft="link-external" href={`https://modrinth.com/user/${configConst.socials.modrinthId}`}>Modrinth</Button>

@@ -38,8 +38,8 @@ import { Code } from 'astro:components';
 	</Section>
 
 	<Section tabindex="0" colReverse={false}>
-		<div slot="left" class="w-1/2 max-w-80 md:max-w-none  md:w-auto flex justify-center">
-			<img class="w-full md:w-[20rem]" src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
+		<div slot="left" class="flex justify-center">
+			<img class="max-sm:w-full w-64" src="/media/oneconfig/page_media_2.svg" alt="stuff"/>
 		</div>
 
 		<div slot="right">
@@ -134,9 +134,9 @@ import { Code } from 'astro:components';
 				<Button iconLeft="link-external" style="ghost" text="Download a modpack"/>
 			</div>
 		</div>
-		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-hidden">
-			<div class="flex flex-col justify-between items-center overflow-hidden h-[280px] max-w-[1920px]">
-				<Slider wrapperClass="-mb-40 pb-4 bg-blue-100" childrenNum={8}>
+		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-x-hidden">
+			<div class="flex flex-col justify-between items-center overflow-x-hidden h-[290px] max-w-[1920px]">
+				<Slider wrapperClass="-mb-40 mb-2 bg-blue-100" childrenNum={8}>
 					<Card text="Chatting" icon="chatting"/>
 					<Card text="PolySprint" icon="polysprint"/>
 					<Card text="VanillaHUD" icon="vanillahud"/>
