@@ -67,6 +67,10 @@ export const configConst = {
 					text: 'Documentation',
 					url: '/documentation',
 				},
+				{
+					text: 'Open source',
+					url: '/oss',
+				},
 			],
 		},
 		{
