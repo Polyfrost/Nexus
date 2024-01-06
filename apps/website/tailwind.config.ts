@@ -97,6 +97,10 @@ const config: Config = {
 			lineHeight: {
 				none: '0',
 			},
+
+			transitionProperty: {
+				filter: 'filter',
+			},
 		},
 	},
 	plugins: [],

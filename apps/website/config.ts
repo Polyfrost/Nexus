@@ -7,7 +7,7 @@ export const configConst = {
 		youtube: 'https://youtube.com/',
 		discord: 'https://discord.gg/',
 		github: 'https://github.com/Polyfrost',
-		modrinth: 'https://modrinth.com/user/Wyvest',
+		modrinthId: 'a6VEZDKe', // user id of Wyvest
 	},
 	navbar: {
 		left: [

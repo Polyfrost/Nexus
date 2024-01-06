@@ -74,7 +74,7 @@ function isCurrentPage(url: string): boolean {
 								{element.dropdown.map(item => (
 									<li>
 										<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
-											<div class="transition-colors text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 hover:bg-blue-50 active:bg-blue-100">
+											<div class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'hover:grayscale hover:brightness-75'}`}>
 												<div class="w-[36px]">
 													{item.logo && <Logo size={40} logo={item.logo}/>}
 												</div>
