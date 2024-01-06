@@ -50,6 +50,7 @@ export interface Config {
 		discord: string,
 		github: string,
 		modrinthId: string,
+		skyclient: string,
 	},
 	navbar: {
 		left: NavbarElement[],

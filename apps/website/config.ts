@@ -8,6 +8,7 @@ export const configConst = {
 		discord: '/discord',
 		github: 'https://github.com/Polyfrost',
 		modrinthId: 'a6VEZDKe', // user id of Wyvest
+		skyclient: 'https://skyclient.co',
 	},
 	navbar: {
 		left: [
