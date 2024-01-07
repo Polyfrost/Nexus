@@ -84,7 +84,7 @@ export const configConst = {
 			links: [
 				{
 					text: 'Terms of service',
-					url: '/terms',
+					url: '/tos',
 				},
 				{
 					text: 'Privacy policy',
