@@ -1,0 +1,113 @@
+---
+import Header from '@components/base/Header.astro';
+import Paragraph from '@components/base/Paragraph.astro';
+import Section from '@components/base/Section.astro';
+import BrandingImage from '@components/page/branding/BrandingImage.astro';
+import Layout from '@layouts/Layout.astro';
+
+const mods = ['behindyou', 'chatting', 'crashpatch', 'damagetint', 'evergreenhud', 'glintcolorizer', 'keystrokes', 'overflowanimations', 'polyblur', 'polynametag', 'polysprint', 'polytime', 'polyweather', 'vanillahud'];
+---
+
+<Layout>
+	<Section class="justify-center items-start pt-32">
+		<div class="flex flex-col justify-start items-start w-full text-navy-peony">
+			<Header>
+				Polyfrost Branding
+			</Header>
+			<Paragraph>
+				We usually don't mind people mentioning our name or using our logos - in fact, we really appreciate the free promo. All we ask is to use our provided work responsibly, and contact us first.
+			</Paragraph>
+		</div>
+	</Section>
+
+	<Section wrapperClass="bg-blue-75" class="py-12 flex-col">
+		<div class="w-full text-navy-peony text-center flex flex-col justify-center items-center">
+			<Header>
+				Our Brand
+			</Header>
+			<Paragraph class="max-w-[500px]">
+				Introducing... our brand logos in all of their glory. We just ask to not edit, distort, recolor, or reconfigure any assets below.
+			</Paragraph>
+		</div>
+
+		<div class="flex flex-col gap-y-12 mt-8">
+			<div class="flex flex-col">
+				<Header size="sm" class="text-navy-peony">
+					Our Logo, with text
+				</Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
+					Super cool.
+				</Paragraph>
+				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+					<BrandingImage name="logo_1" type="logos" />
+					<BrandingImage name="logo_2" type="logos" />
+				</div>
+			</div>
+			<div class="flex flex-col">
+				<Header size="sm" class="text-navy-peony">
+					Our Logo, when you don't wanna read
+				</Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
+					Even cooler.
+				</Paragraph>
+				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+					<BrandingImage name="logo_3" type="logos" />
+					<BrandingImage name="logo_4" type="logos" />
+				</div>
+			</div>
+			<div class="flex flex-col">
+				<Header size="sm" class="text-navy-peony">
+					OneConfig logo, with text
+				</Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
+					The one and only.
+				</Paragraph>
+				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+					<BrandingImage name="logo_5" type="logos" />
+					<BrandingImage name="logo_6" type="logos" />
+				</div>
+			</div>
+			<div class="flex flex-col">
+				<Header size="sm" class="text-navy-peony">
+					OneConfig logo, when you don't wanna read
+				</Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
+					The one and only.
+				</Paragraph>
+				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+					<BrandingImage name="logo_7" type="logos" />
+					<BrandingImage name="logo_8" type="logos" />
+				</div>
+			</div>
+		</div>
+	</Section>
+
+	<Section wrapperClass="bg-[#11171C]" class="py-12 flex-col text-blue-100 gap-y-8">
+		<div class="flex flex-col items-start justify-start">
+			<Header size="md">
+				OneConfig badges
+			</Header>
+			<Paragraph size="sm" class="text-[#78818D]">
+				When you want to show off OneConfig in your mods. Credits to Devin's Badges for the design.
+			</Paragraph>
+			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
+				{Array.from({ length: 4 }, (_, i) => (
+					<BrandingImage background="transparent" name={`badge_${i + 1}`} type="badges" />
+				))}
+			</div>
+		</div>
+		<div class="flex flex-col items-start justify-start">
+			<Header size="md">
+				All of our mod icons
+			</Header>
+			<Paragraph size="sm" class="text-[#78818D]">
+				We have... a lot of those... (original EvergreenHUD logo by isXander)
+			</Paragraph>
+			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
+				{mods.map(mod => (
+					<BrandingImage background="transparent" name={mod} type="mods" />
+				))}
+			</div>
+		</div>
+	</Section>
+</Layout>

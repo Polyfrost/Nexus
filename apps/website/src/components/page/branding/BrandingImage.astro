@@ -1,0 +1,30 @@
+---
+interface Props {
+	type: 'badges' | 'logos' | 'mods'
+	name: string
+	altText?: string
+	extensions?: ('png' | 'svg')[]
+	maxWidth?: number
+	background?: string
+}
+
+const {
+	name,
+	type,
+	altText,
+	background = 'white',
+	maxWidth = 300,
+	extensions = ['png', 'svg'],
+} = Astro.props;
+
+const path = `/media/branding/${type}/${name}`;
+---
+
+<div class={`relative rounded-md bg-${background} border border-1 border-gray-400 flex flex-col justify-center items-center p-8`}>
+	<div class="absolute top-0 right-0 flex flex-row gap-x-2">
+		{extensions.map(ext => (
+			<a target="_blank" class="text-xs px-0.5 hover:underline" href={`${path}.${ext}`}>.{ext.toUpperCase()}</a>
+		))}
+	</div>
+	<img style={`max-width: ${maxWidth}px;`} src={`${path}.svg`} alt={altText}>
+</div>
