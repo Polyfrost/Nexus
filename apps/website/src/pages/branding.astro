@@ -5,7 +5,11 @@ import Section from '@components/base/Section.astro';
 import BrandingImage from '@components/page/branding/BrandingImage.astro';
 import Layout from '@layouts/Layout.astro';
 
-const mods = ['behindyou', 'chatting', 'crashpatch', 'damagetint', 'evergreenhud', 'glintcolorizer', 'keystrokes', 'overflowanimations', 'polyblur', 'polynametag', 'polysprint', 'polytime', 'polyweather', 'vanillahud'];
+const mods = ['behind_you', 'chatting', 'crash_patch', 'damage_tint', 'evergreen_h_u_d', 'glint_colorizer', 'keystrokes', 'overflow_animations', 'poly_blur', 'poly_nametag', 'poly_sprint', 'poly_time', 'poly_weather', 'vanilla_h_u_d'];
+
+function formatModName(name: string): string {
+	return name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+}
 ---
 
 <Layout>
@@ -105,7 +109,7 @@ const mods = ['behindyou', 'chatting', 'crashpatch', 'damagetint', 'evergreenhud
 			</Paragraph>
 			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
 				{mods.map(mod => (
-					<BrandingImage background="transparent" name={mod} type="mods" />
+					<BrandingImage nameFormatted={formatModName(mod)} background="transparent" name={mod} type="mods" />
 				))}
 			</div>
 		</div>
