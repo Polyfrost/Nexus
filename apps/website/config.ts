@@ -7,7 +7,10 @@ export const configConst = {
 		youtube: 'https://youtube.com/@Polyfrost',
 		discord: '/discord',
 		github: 'https://github.com/Polyfrost',
-		modrinthId: 'polyfrost',
+		modrinth: {
+			id: 'polyfrost',
+			type: 'organization',
+		},
 		skyclient: 'https://skyclient.co',
 	},
 	navbar: {

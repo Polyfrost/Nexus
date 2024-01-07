@@ -9,7 +9,9 @@ import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
-const modrinthId = configConst.socials.modrinthId;
+const modrinthId = configConst.socials.modrinth.id;
+const modrinthType = configConst.socials.modrinth.type;
+const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 ---
 
 <Layout>
@@ -43,7 +45,7 @@ const modrinthId = configConst.socials.modrinthId;
 		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10 gap-6 px-4">
 			<Header align="center" size="xxl" class="text-navy-peony max-w-[500px]">Redefining modding, one mod at a time</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="download" href={`https://modrinth.com/user/${configConst.socials.modrinthId}`}>Download</Button>
+				<Button style="primary" iconLeft="download" href={modrinthUrl}>Download</Button>
 				<Button style="secondary" iconLeft="github" href={configConst.socials.github}>Source</Button>
 			</div>
 
@@ -134,7 +136,7 @@ const modrinthId = configConst.socials.modrinthId;
 		<div class="flex flex-col gap-y-1 relative justify-center items-center">
 			<Header size="xl" class="text-navy-peony text-header-page w-11/12 md:max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="link-external" href={`https://modrinth.com/user/${configConst.socials.modrinthId}`}>Modrinth</Button>
+				<Button style="primary" iconLeft="link-external" href={modrinthUrl}>Modrinth</Button>
 				<Button style="primary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
 			</div>
 		</div>
@@ -142,10 +144,10 @@ const modrinthId = configConst.socials.modrinthId;
 
 </Layout>
 
-<script define:vars={{ modrinthId: modrinthId }}>
+<script define:vars={{ modrinthType: modrinthType, modrinthId: modrinthId }}>
 
 async function getModCount() {
-	const res = await fetch(`https://api.modrinth.com/v2/user/${modrinthId}/projects`);
+	const res = await fetch(`https://api.modrinth.com/v2/${modrinthType}/${modrinthId}/projects`);
 	const data = await res.json();
 	const mods = data.filter((mod) => {
 		return mod.slug !== 'oneconfig' && mod.slug !== 'easeify';

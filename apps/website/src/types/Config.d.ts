@@ -49,7 +49,10 @@ export interface Config {
 		// twitter: string,
 		discord: string,
 		github: string,
-		modrinthId: string,
+		modrinth: {
+			type: "user" | "organization",
+			id: string,
+		},
 		skyclient: string,
 	},
 	navbar: {
