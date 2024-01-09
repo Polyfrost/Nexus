@@ -4,8 +4,6 @@ import Favicon from '/media/polyfrost/minimal_bg.svg?url';
 import Navbar from '../components/base/navbar/Navbar.astro';
 import '../styles/global.css';
 
-// import 'locomotive-scroll/dist/locomotive-scroll.min.css';
-
 interface Props {
 	title?: string
 	description?: string
@@ -47,16 +45,3 @@ const {
 
 	</body>
 </html>
-
-<!-- <script>
-import LocomotiveScroll from 'locomotive-scroll';
-
-// eslint-disable-next-line unused-imports/no-unused-vars
-const scroll = new LocomotiveScroll({
-	el: document.querySelector('[data-scroll-container]'),
-	smooth: true,
-	lerp: 0.05,
-	touchMultiplier: 0,
-	resetNativeScroll: false,
-});
-</script> -->
