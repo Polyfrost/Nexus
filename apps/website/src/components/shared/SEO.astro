@@ -1,0 +1,89 @@
+---
+import smartypants from 'smartypants';
+
+type SEOMetadata = {
+	name?: string
+	title: string
+	description: string
+	image?: { src: string, alt: string }
+	canonicalURL?: URL | null
+	locale?: string
+};
+
+type OpenGraph = Partial<SEOMetadata> & {
+	type?: string
+};
+
+type Twitter = Partial<SEOMetadata> & {
+	handle?: string
+	card?: 'summary' | 'summary_large_image'
+};
+
+export type Props = SEOMetadata & {
+	og?: OpenGraph
+	twitter?: Twitter
+};
+
+const {
+	name,
+	description,
+	image,
+	locale = 'en',
+	canonicalURL = new URL(Astro.url.pathname, Astro.site),
+	og: _og = {},
+	twitter: _twitter = {},
+} = Astro.props;
+
+const title = [Astro.props.title, name].filter(Boolean).join(' | ');
+const og: OpenGraph = { name, title, description, canonicalURL, image, locale, type: 'website', ..._og };
+const twitter: Twitter = { name, title, description, canonicalURL, image, locale, card: 'summary_large_image', ..._twitter };
+const ensureSlash = (url: string | URL) => `${url.toString().replace(/\/$/, '')}/`;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="generator" content={Astro.generator} />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#d2e1f9" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="mask-icon" href="/favicon.svg" color="#d2e1f9" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<title set:html={smartypants(title, 1)} />
+
+<!-- Page Metadata -->
+<meta name="generator" content={Astro.generator} />
+{canonicalURL && <link rel="canonical" href={ensureSlash(canonicalURL)} />}
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={og.title} />
+<meta property="og:type" content={og.type} />
+{og.canonicalURL && <meta property="og:url" content={ensureSlash(og.canonicalURL)} />}
+<meta property="og:locale" content={og.locale} />
+<meta property="og:description" content={og.description} />
+<meta property="og:site_name" content={og.name} />
+{
+	og.image && (
+		<>
+			<meta property="og:image" content={og.image.src} />
+			<meta property="og:image:alt" content={og.image.alt} />
+		</>
+	)
+}
+
+<!-- Twitter Tags -->
+{twitter.card && <meta name="twitter:card" content={twitter.card} />}
+{twitter.handle && <meta name="twitter:site" content={twitter.handle} />}
+<meta name="twitter:title" content={twitter.title} />
+<meta name="twitter:description" content={twitter.description} />
+{
+	twitter.image && (
+		<>
+			<meta name="twitter:image" content={twitter.image.src} />
+			<meta name="twitter:image:alt" content={twitter.image.alt} />
+		</>
+	)
+}

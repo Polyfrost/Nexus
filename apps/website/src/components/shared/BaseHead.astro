@@ -1,0 +1,15 @@
+---
+import smartypants from 'smartypants';
+import SEO from './SEO.astro';
+
+export type Props = {
+	siteName: string
+	title?: string
+	description: string
+	image: { src: string, alt: string }
+	canonicalURL?: URL | null
+	pageType?: 'website' | 'article'
+};
+
+const twitterHandle = 'polyfrost';
+---

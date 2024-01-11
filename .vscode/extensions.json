@@ -6,6 +6,7 @@
 		"EditorConfig.EditorConfig",
 		"prisma.prisma",
 		"bradlc.vscode-tailwindcss",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"astro-build.astro-vscode"
 	]
 }

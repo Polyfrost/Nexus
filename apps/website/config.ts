@@ -87,11 +87,11 @@ export const configConst = {
 			links: [
 				{
 					text: 'Terms of service',
-					url: '/tos',
+					url: '/legal/tos',
 				},
 				{
 					text: 'Privacy policy',
-					url: '/privacy',
+					url: '/legal/privacy',
 				},
 			],
 		},

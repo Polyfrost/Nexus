@@ -17,6 +17,10 @@
 		"typecheck": "tsc -b",
 		"test": "vitest"
 	},
+	"peerDependencies": {
+		"tailwindcss": ">=3",
+		"typescript": ">=5"
+	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.18",
 		"@headlessui/tailwindcss": "^0.2.0",
@@ -39,7 +43,7 @@
 		"@polyfrost/config": "workspace:*",
 		"@storybook/types": "^7.6.7",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/node": "~20.10.7",
+		"@types/node": "~20.10.8",
 		"@types/react": "^18.2.47",
 		"@types/react-dom": "^18.2.18",
 		"autoprefixer": "^10.4.16",
