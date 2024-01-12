@@ -32,7 +32,7 @@
 		"codegen": "cargo test -p nexus-core api::tests::gen -- --exact"
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^2.1.1-alpha.18",
+		"@flowr/eslint-config": "^2.1.1-alpha.21",
 		"@storybook/react-vite": "^7.6.7",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-react": "^7.33.2",

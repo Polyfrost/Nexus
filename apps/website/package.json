@@ -24,9 +24,11 @@
 		"zod-form-data": "^2.0.2"
 	},
 	"devDependencies": {
+		"@iconify/json": "^2.2.167",
 		"@polyfrost/config": "workspace:*",
 		"@types/node": "~20.10.8",
 		"node-html-parser": "^6.1.12",
-		"typescript": "^5.3.3"
+		"typescript": "^5.3.3",
+		"unplugin-icons": "^0.18.2"
 	}
 }

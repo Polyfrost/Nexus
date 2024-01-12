@@ -20,4 +20,4 @@ export default petal({
 		'apps/desktop/src/commands.ts',
 		'**/.next/**',
 	],
-});
+}, { rules: { 'petal/consistent-list-newline': 'off' } });

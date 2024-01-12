@@ -11,6 +11,7 @@
 			"@public/*": ["public/*"],
 			"@config": ["config.ts"],
 			"@styles/*": ["src/styles/*"]
-		}
+		},
+		"types": ["unplugin-icons/types/astro"]
 	}
 }
