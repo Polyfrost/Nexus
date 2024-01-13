@@ -5,19 +5,23 @@ import type { HTMLAttributes } from 'astro/types';
 // To add a new logo, add an import with the path, according to astro.config.json:
 // ~icons/<loader>/<path>.svg
 // Then add an export const so that the rest of the code can use it named.
-import Logo_7 from '~icons/logos/logo_7.svg'
+import Logo_2 from '~icons/logos/logo_2.svg';
+import Logo_7 from '~icons/logos/logo_7.svg';
+
 export const OneConfigSmall = Logo_7;
-import Logo_2 from '~icons/logos/logo_2.svg'
+
 export const PolyfrostFull = Logo_2;
 
+// this needs to be disabled because eslint doesn't play well with astro injecting astroHTML
+// eslint-disable-next-line no-undef
+export type Icons = (props: astroHTML.JSX.SVGAttributes) => astroHTML.JSX.Element;
 
-export type Icons = (props: astroHTML.JSX.SVGAttributes) => astroHTML.JSX.Element
 export interface Props extends HTMLAttributes<'svg'> {
-	size?: number,
-	icon: Icons,
+	size?: number
+	icon: Icons
 }
-const {size, icon} = Astro.props
-const Ico = icon;
+const { size, icon } = Astro.props;
+const IconRaw = icon;
 ---
 
-<Ico width={size} height={size}>
+<IconRaw width={size} height={size}>
