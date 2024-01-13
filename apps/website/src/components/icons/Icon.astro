@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+// Long list of logos! Just re-exports of ~icons.
+// To add a new logo, add an import with the path, according to astro.config.json:
+// ~icons/<loader>/<path>.svg
+// Then add an export const so that the rest of the code can use it named.
+import Logo_7 from '~icons/logos/logo_7.svg'
+export const OneConfigSmall = Logo_7;
+import Logo_2 from '~icons/logos/logo_2.svg'
+export const PolyfrostFull = Logo_2;
+
+
+export type Icons = (props: astroHTML.JSX.SVGAttributes) => astroHTML.JSX.Element
+export interface Props extends HTMLAttributes<'svg'> {
+	size?: number,
+	icon: Icons,
+}
+const {size, icon} = Astro.props
+const Ico = icon;
+---
+
+<Ico width={size} height={size}>
