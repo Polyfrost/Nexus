@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+// Long list of logos! Just re-exports of ~icons.
+// To add a new logo, add an import with the path, according to astro.config.json:
+// ~icons/<loader>/<path>.svg
+// Then add an export const so that the rest of the code can use it named.
+import Logo_1 from '~icons/logos/logo_1.svg'
+export const PolyfrostFullDark = Logo_1;
+import Logo_2 from '~icons/logos/logo_2.svg'
+export const PolyfrostFull = Logo_2;
+import Logo_3 from '~icons/logos/logo_3.svg'
+export const PolyfrostSmall = Logo_3;
+import Logo_4 from '~icons/logos/logo_4.svg'
+export const PolyfrostSmallBlue = Logo_4;
+import Logo_5 from '~icons/logos/logo_5.svg'
+export const OneConfigFull = Logo_5;
+import Logo_6 from '~icons/logos/logo_6.svg'
+export const OneConfigFullDark = Logo_6;
+import Logo_7 from '~icons/logos/logo_7.svg'
+export const OneConfigSmall = Logo_7;
+import Logo_8 from '~icons/logos/logo_8.svg'
+export const OneConfigSmallDark = Logo_8;
+import Badge_1 from '~icons/badges/badge_1.svg'
+export const OneConfigBadge = Badge_1;
+import Badge_2 from '~icons/badges/badge_2.svg'
+export const OneConfigBadgeSmall = Badge_2;
+import Badge_3 from '~icons/badges/badge_3.svg'
+export const OneConfigBadgeCompat = Badge_3;
+import Badge_4 from '~icons/badges/badge_4.svg'
+export const OneConfigBadgeCompatSmall = Badge_4;
+
+
+export type Icons = (props: astroHTML.JSX.SVGAttributes) => astroHTML.JSX.Element
+export interface Props extends HTMLAttributes<'svg'> {
+	size?: number,
+	icon: Icons,
+}
+const {size, icon} = Astro.props
+const Ico = icon;
+---
+
+<Ico width={size} height={size}>
