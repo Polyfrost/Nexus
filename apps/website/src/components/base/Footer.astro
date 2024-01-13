@@ -1,5 +1,5 @@
 ---
-import Icon, { PolyfrostFull } from '@components/icons/Icon.astro';
+import Icon from '@components/icons/Icon.astro';
 import Logo from '@components/logos/Logo.astro';
 import configConst from '@config';
 import type { HTMLAttributes } from 'astro/types';
@@ -14,7 +14,7 @@ const props = Astro.props;
 	<div class="max-w-[1024px] w-full flex flex-col gap-y-24">
 		<div class="flex flex-col gap-y-20 justify-center items-start md:flex-row md:items-start md:justify-between">
 			<div class="flex-1 flex flex-col gap-y-3 text-blue-gray">
-				<Icon icon={PolyfrostFull} />
+				<Logo logo="polyfrost.full" />
 				<p>English, USA</p> {/* hardcoded for now, todo i18n */}
 				<div class="flex flex-row gap-3">
 					<a href={configConst.socials.discord} target="_blank" class="hover:text-[#5865F2]"><Icon icon="discord" /></a>
