@@ -25,9 +25,9 @@
 	},
 	"devDependencies": {
 		"@iconify/json": "^2.2.167",
+		"@iconify/tools": "^4.0.0",
 		"@polyfrost/config": "workspace:*",
 		"@types/node": "~20.10.8",
-		"node-html-parser": "^6.1.12",
 		"typescript": "^5.3.3",
 		"unplugin-icons": "^0.18.2"
 	}

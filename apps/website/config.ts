@@ -2,7 +2,6 @@ import type { Config, NavbarDropdown, Project } from '@webtypes/Config';
 
 export const configConst = {
 	projects: getProjects(),
-	logos: ['oneconfig.minimal', 'polyfrost.full', 'polyfrost.minimal', 'polyfrost.minimal_bg'],
 	socials: {
 		youtube: 'https://youtube.com/@Polyfrost',
 		discord: '/discord',
@@ -16,7 +15,6 @@ export const configConst = {
 	navbar: {
 		left: [
 			{
-				logo: ['polyfrost.full', -1],
 				path: '/',
 			},
 		],
@@ -103,13 +101,11 @@ function getProjects(): Project[] {
 		{
 			name: 'OneConfig',
 			description: 'The next-generation config library for Forge and Fabric',
-			logo: 'oneconfig.minimal',
 			hasPage: true,
 		},
 		{
 			name: 'OneLauncher',
 			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
 			tag: 'SOON',
 		},
 	];

@@ -21,13 +21,23 @@ export default defineConfig({
 			icons({
 				compiler: 'astro',
 				customCollections: {
-					polyicons: FileSystemIconLoader(
-						'./public/media/polyfrost',
-						svg => svg.replaceAll(/(fill|stroke)=\"([^"]*)\"/g, '$1="currentColor"'),
-					),
+					core: FileSystemIconLoader('./assets/core', svg => svg.replaceAll(
+						/(fill|stroke)=\"([^"]*)\"/g, '$1="currentColor"',
+					)),
+					badges: FileSystemIconLoader('./public/branding/badges', svg => svg.replaceAll(
+						/(fill|stroke)=\"([^"]*)\"/g, '$1="currentColor"',
+					)),
+					pages: FileSystemIconLoader('./assets/pages'),
+					logos: FileSystemIconLoader('./public/branding/logos'),
+					mods: FileSystemIconLoader('./public/branding/mods'),
+					oneconfig: FileSystemIconLoader('./public/branding/oneconfig'),
+					polyfrost: FileSystemIconLoader('./public/branding/polyfrost'),
 				},
 			}),
 		],
+		ssr: {
+			noExternal: ['smartypants'],
+		},
 		css: {
 			postcss: {
 				plugins: [postcssNesting()],

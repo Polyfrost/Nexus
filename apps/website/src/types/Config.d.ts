@@ -1,7 +1,5 @@
 import type { configConst } from 'config';
 
-export type LogoType = (typeof configConst.logos)[number];
-
 export interface ProjectDownload {
 	url: string,
 	platform?: "windows" | "mac" | "linux" | "universal",
@@ -11,7 +9,6 @@ export interface ProjectDownload {
 export interface Project {
 	name: string
 	description: string,
-	logo?: LogoType
 	tag?: string
 	downloads?: ProjectDownload[]
 	descriptionLong?: string,
@@ -22,13 +19,11 @@ export interface NavbarDropdown {
 	name: string
 	description: string
 	path?: string
-	logo?: LogoType
 	tag?: string,
 }
 
 export interface NavbarElement {
 	text?: string
-	logo?: [string, number]
 	path?: string
 	dropdown?: NavbarDropdown[]
 }
@@ -43,7 +38,6 @@ export interface FooterColumn {
 
 export interface Config {
 	projects: Project[],
-	logos: string[],
 	socials: {
 		youtube: string,
 		// twitter: string,

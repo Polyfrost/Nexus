@@ -3,13 +3,55 @@ import smartypants from 'smartypants';
 import SEO from './SEO.astro';
 
 export type Props = {
-	siteName: string
 	title?: string
-	description: string
-	image: { src: string, alt: string }
+	description?: string
+	image?: { src: string, alt: string }
 	canonicalURL?: URL | null
 	pageType?: 'website' | 'article'
 };
 
 const twitterHandle = 'polyfrost';
+
+const {
+	description = 'Building UI and UX mods, byte by byte',
+	image = { src: '', alt: 'Polyfrost Logo' },
+	canonicalURL = new URL(Astro.request.url, Astro.site),
+	pageType = 'website',
+} = Astro.props;
+
+const resolvedImage = {
+	src: new URL(image.src, Astro.site).toString(),
+	alt: image.alt,
+};
+
+const title = [Astro.props.title, 'Polyfrost'].filter(Boolean).join(' | ');
 ---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="generator" content={Astro.generator} />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#8D46E7" />
+<title set:html={smartypants(title, 1)} />
+
+<link rel="mask-icon" href="/favicon.svg" color="#8D46E7" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<!-- Lower Priority Metadata -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&display=swap" rel="stylesheet"/>
+
+<SEO
+	name="Polyfrost"
+	title={title}
+	description={description}
+	image={resolvedImage}
+	twitter={{ handle: twitterHandle }}
+	og={{ type: pageType }}
+	canonicalURL={canonicalURL}
+/>
+
+<slot />

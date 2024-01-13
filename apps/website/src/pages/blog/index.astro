@@ -1,11 +1,10 @@
 ---
-/// <reference types="../../env.d.ts" />
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/base/FormattedDate.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+	(a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf(),
 );
 ---
 
@@ -19,7 +18,7 @@ const posts = (await getCollection('blog')).sort(
 							<img width={720} height={360} src={post.data.heroImage} alt=""/>
 							<h4 class="title">{post.data.title}</h4>
 							<p class="date">
-								<FormattedDate date={post.data.pubDate}/>
+								<FormattedDate date={post.data.publishDate}/>
 							</p>
 						</a>
 					</li>
