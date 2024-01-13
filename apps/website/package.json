@@ -15,6 +15,7 @@
 		"@astrojs/rss": "^4.0.2",
 		"@astrojs/sitemap": "^3.0.4",
 		"@astrojs/tailwind": "^5.1.0",
+		"@polyfrost/assets": "workspace:*",
 		"astro": "^4.1.2",
 		"sass": "^1.69.7",
 		"smartypants": "^0.2.2",
