@@ -2,7 +2,33 @@
 	"name": "@polyfrost/assets",
 	"version": "0.0.0",
 	"private": true,
+	"sideEffects": false,
+	"exports": {
+		"./*": "./*",
+		"./svgs": "./raw",
+		"./export": "./export",
+		"./src": "./src"
+	},
 	"scripts": {
-		"gen": "node ./scripts/generate.mjs"
+		"gen": "tsx ./src/generate.ts"
+	},
+	"peerDependencies": {
+		"@iconify/json": "^2.2.168"
+	},
+	"peerDependenciesMeta": {
+		"@iconify/json": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@iconify/json": "^2.2.168",
+		"@iconify/tools": "^4.0.0",
+		"@iconify/types": "^2.0.0",
+		"@iconify/utils": "^2.1.14",
+		"@polyfrost/config": "workspace:*",
+		"@types/node": "^20.11.0",
+		"tsx": "^4.7.0",
+		"typescript": "^5.3.3",
+		"unplugin-icons": "^0.18.2"
 	}
 }

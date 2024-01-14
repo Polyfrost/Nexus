@@ -6,7 +6,11 @@ import { defineConfig } from 'astro/config';
 import postcssNesting from 'tailwindcss/nesting';
 
 import icons from 'unplugin-icons/vite';
-import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import { IconSet } from '@iconify/tools';
+
+import polyiconsRaw from '@polyfrost/assets/export/polyicons.json';
+
+const iconSet = new IconSet(polyiconsRaw);
 
 // https://astro.build/config
 export default defineConfig({
@@ -21,17 +25,9 @@ export default defineConfig({
 			icons({
 				compiler: 'astro',
 				customCollections: {
-					core: FileSystemIconLoader('./assets/core', svg => svg.replaceAll(
-						/(fill|stroke)=\"([^"]*)\"/g, '$1="currentColor"',
-					)),
-					badges: FileSystemIconLoader('./public/branding/badges', svg => svg.replaceAll(
-						/(fill|stroke)=\"([^"]*)\"/g, '$1="currentColor"',
-					)),
-					pages: FileSystemIconLoader('./assets/pages'),
-					logos: FileSystemIconLoader('./public/branding/logos'),
-					mods: FileSystemIconLoader('./public/branding/mods'),
-					oneconfig: FileSystemIconLoader('./public/branding/oneconfig'),
-					polyfrost: FileSystemIconLoader('./public/branding/polyfrost'),
+					polyicons: async (name) => {
+						return iconSet.toString(name) ?? undefined;
+					},
 				},
 			}),
 		],
