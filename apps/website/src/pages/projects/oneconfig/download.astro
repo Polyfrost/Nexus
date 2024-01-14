@@ -5,6 +5,8 @@ import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
+
+import LinkExternal from '~icons/polyicons/link-external.svg';
 ---
 
 <Layout>
@@ -31,7 +33,7 @@ import Layout from '@layouts/Layout.astro';
 				All you need to do is select the mods you want and click install, and OneConfig should be right there!
 			</Paragraph>
 			<div class="flex flex-row max-md:justify-center">
-				<Button size="sm" iconLeft="link-external" style="primary" href={configConst.socials.skyclient}>SkyClient</Button>
+				<Button size="sm" iconLeft={LinkExternal} style="primary" href={configConst.socials.skyclient}>SkyClient</Button>
 			</div>
 		</div>
 		<div slot="right">
@@ -50,7 +52,7 @@ import Layout from '@layouts/Layout.astro';
 				• And more!
 			</Paragraph>
 			<div class="flex flex-row max-md:justify-center">
-				<Button size="sm" iconLeft="link-external" style="primary" href="/mods">Discover Mods</Button>
+				<Button size="sm" iconLeft={LinkExternal} style="primary" href="/mods">Discover Mods</Button>
 			</div>
 		</div>
 		<div slot="right">

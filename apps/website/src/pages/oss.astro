@@ -7,6 +7,8 @@ import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
+import GitHubIcon from '~icons/polyicons/github.svg';
+
 const leftCodeBlock = `public class MyConfig {
 
 	@Switch(
@@ -51,7 +53,7 @@ const rightCodeBlock = leftCodeBlock;
 			<Paragraph class="max-w-[400px] lg:max-w-[600px] text-center text-navy-peony">
 				We believe it is the right of the user and developer to know what code they are trusting to run behind the scenes.
 			</Paragraph>
-			<Button iconLeft="github" href={configConst.socials.github} style="secondary">GitHub</Button>
+			<Button iconLeft={GitHubIcon} href={configConst.socials.github} style="secondary">GitHub</Button>
 		</div>
 		<div class="codeblock_container after:-scale-x-125 -right-12">
 			<Code lang="java" theme="github-light" code={rightCodeBlock}></Code>
@@ -109,7 +111,7 @@ const rightCodeBlock = leftCodeBlock;
 				Contribute to our GitHub!
 			</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="secondary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
+				<Button style="secondary" iconLeft={GitHubIcon} href={configConst.socials.github}>GitHub</Button>
 			</div>
 		</div>
 	</Section>

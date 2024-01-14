@@ -6,6 +6,7 @@ import Section from '@components/base/Section.astro';
 import { OneConfigSmall } from '@components/icons/Icon.astro';
 import Layout from '@layouts/Layout.astro';
 
+import LinkExternalIcon from '~icons/polyicons/link-external.svg';
 ---
 
 <Layout>
@@ -72,7 +73,7 @@ import Layout from '@layouts/Layout.astro';
 					It's been a long journey, with many bugs, hotfixes, mod incompatibilities, support tickets, list goes on. However, after two years of development, we finally announced the complete release of OneConfig. In November 2023, we released all our OneConfig mods out of beta and into the world.
 				</Paragraph>
 				<div class="flex">
-					<Button iconLeft="link-external" style="secondary" href="/mods">Discover Mods</Button>
+					<Button iconLeft={LinkExternalIcon} style="secondary" href="/mods">Discover Mods</Button>
 				</div>
 			</div>
 

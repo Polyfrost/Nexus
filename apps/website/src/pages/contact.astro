@@ -6,6 +6,10 @@ import Section from '@components/base/Section.astro';
 import Icon from '@components/icons/Icon.astro';
 import Layout from '@layouts/Layout.astro';
 
+import DiscordIcon from '~icons/polyicons/chat.svg';
+import CodeIcon from '~icons/polyicons/code.svg';
+import ChatIcon from '~icons/polyicons/discord.svg';
+import GitHubIcon from '~icons/polyicons/github.svg';
 ---
 
 <Layout>
@@ -18,7 +22,7 @@ import Layout from '@layouts/Layout.astro';
 		<div class="flex flex-row flex-wrap p-5 w-full justify-center items-center gap-8">
 			{/* GitHub */}
 			<div class="bg-blue-75 flex flex-col justify-start items-center p-5 gap-y-0.5 rounded-2xl">
-				<Icon icon="github" size={48} class="text-blue-gray" />
+				<Icon icon={GitHubIcon} size={48} class="text-blue-gray" />
 				<Header size="md" class="text-navy-peony mt-2">GitHub</Header>
 				<!-- <div class="flex flex-row items-center justify-center gap-x-1">
 					<span class="w-1.5 h-1.5 bg-green-300 rounded-full"></span>
@@ -29,12 +33,12 @@ import Layout from '@layouts/Layout.astro';
 					We love open source, so all of our projects are OSS. Anyone is welcome to contribute new features (and bugs) to our mods.
 				</Paragraph>
 
-				<Button style="secondary" href="http://github.com/Polyfrost/" iconLeft="code" size="sm" class="w-full">Contribute today</Button>
+				<Button style="secondary" href="http://github.com/Polyfrost/" iconLeft={CodeIcon} size="sm" class="w-full">Contribute today</Button>
 			</div>
 
 			{/* Discord */}
 			<div class="bg-blue-75 flex flex-col justify-start items-center p-5 gap-y-0.5 rounded-2xl">
-				<Icon icon="discord" size={48} class="text-blue-gray" />
+				<Icon icon={DiscordIcon} size={48} class="text-blue-gray" />
 				<Header size="md" class="text-navy-peony mt-2">Discord</Header>
 				<!-- <div class="flex flex-row items-center justify-center gap-x-1">
 					<span class="w-1.5 h-1.5 bg-green-300 rounded-full"></span>
@@ -45,7 +49,7 @@ import Layout from '@layouts/Layout.astro';
 					Join us today! It's the easiest way to chat with other members, suggest new features, and get support with your mods.
 				</Paragraph>
 
-				<Button style="secondary" href="/discord" iconLeft="chat" size="sm" class="w-full">Chat with us</Button>
+				<Button style="secondary" href="/discord" iconLeft={ChatIcon} size="sm" class="w-full">Chat with us</Button>
 			</div>
 		</div>
 	</Section>

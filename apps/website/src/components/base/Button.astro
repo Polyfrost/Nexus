@@ -53,7 +53,7 @@ const Element = rest.href ? 'a' : 'button' as any;
 ---
 
 	<Element {...rest} class={className}>
-		{iconLeft && <span class="mr-2"><Icon icon={iconLeft} size={iconSize[size]}></Icon></span>}
+		{iconLeft && <span class="mr-2"><Icon icon={iconLeft} size={iconSize[size]}/></span>}
 		{text || <slot/>}
-		{iconRight && <span class="ml-2"><Icon icon={iconRight} size={iconSize[size]}></Icon></span>}
+		{iconRight && <span class="ml-2"><Icon icon={iconRight} size={iconSize[size]}/></span>}
 	</Element>

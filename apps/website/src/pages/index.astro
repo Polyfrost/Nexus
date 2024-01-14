@@ -7,6 +7,14 @@ import Section from '@components/base/Section.astro';
 import Icon from '@components/icons/Icon.astro';
 import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
+
+import BookOpenIcon from '~icons/polyicons/book-open.svg';
+import ChatIcon from '~icons/polyicons/chat.svg';
+import GitHubIcon from '~icons/polyicons/github.svg';
+import LinkExternalIcon from '~icons/polyicons/link-external.svg';
+import OneConfigScreenshot3 from '~icons/polyicons/oneconfig-3.svg';
+import OneConfigIcon from '~icons/polyicons/oneconfig.svg';
+import UserIcon from '~icons/polyicons/user.svg';
 ---
 <Layout>
 	<Section wrapperClass="min-h-screen" class="relative isolate px-6 lg:px-8">
@@ -33,7 +41,7 @@ import Layout from '@layouts/Layout.astro';
 					Introducing OneConfig
 					<Link href="/projects/oneconfig" class="transition-none">
 						<span class="absolute inset-0" aria-hidden="true"></span>
-						<Icon icon="link-external" size={18} class="ml-1"></Icon>
+						<Icon icon={LinkExternalIcon} size={18} class="ml-1" />
 					</Link>
 				</div>
 			</div>
@@ -45,8 +53,8 @@ import Layout from '@layouts/Layout.astro';
 					With a dedicated team of developers and a passionate community of players, Polyfrost continues to push the boundaries of what's possible in Minecraft modding.
 				</Paragraph>
 				<div class="mt-7 flex items-center justify-start md:justify-center gap-x-6">
-					<Button style="secondary" href="/about" iconLeft="book-open">About us</Button>
-					<Button style="secondary" href="/contact" iconLeft="chat">Socials</Button>
+					<Button style="secondary" href="/about" iconLeft={BookOpenIcon}>About us</Button>
+					<Button style="secondary" href="/contact" iconLeft={ChatIcon}>Socials</Button>
 				</div>
 			</div>
 		</div>
@@ -73,7 +81,7 @@ import Layout from '@layouts/Layout.astro';
 			<div class="flex flex-wrap flex-col-reverse md:flex-row justify-center lg:justify-normal lg:flex-nowrap relative isolate overflow-hidden bg-blue-75 py-6 md:shadow sm:rounded-3xl px-6 gap-6 lg:gap-20 lg:px-8 lg:py-0 z-50 md:ring-gray-400/50 md:ring-1">
 				<div class="flex flex-col justify-center items-center lg:justify-start lg:items-start max-w-screen-md text-center lg:py-8 lg:text-left">
 					<div class="flex flex-col justify-center items-start">
-						<Icon icon="oneconfig" size={38} class="hidden md:block text-blue-500 mb-4"></Icon>
+						<Icon icon={OneConfigIcon} size={38} class="hidden md:block text-blue-500 mb-4"></Icon>
 						<Header size="lg" class="text-3xl font-semibold tracking-tight text-navy-peony">
 							OneConfig has <br>finally arrived.
 						</Header>
@@ -82,15 +90,13 @@ import Layout from '@layouts/Layout.astro';
 						Learn more about what OneConfig is, and how it's revolutionized modding and user experience.
 					</Paragraph>
 					<div class="mt-10 flex items-center justify-center gap-x-4 lg:justify-start">
-						<Button href="/projects/oneconfig" size="sm" iconLeft="oneconfig" style="secondary">Learn more</Button>
-						<Button href="/mods" size="sm" iconLeft="link-external" style="secondary">Discover mods</Button>
+						<Button href="/projects/oneconfig" size="sm" iconLeft={OneConfigIcon} style="secondary">Learn more</Button>
+						<Button href="/mods" size="sm" iconLeft={LinkExternalIcon} style="secondary">Discover mods</Button>
 					</div>
 				</div>
 				<div class="flex flex-col justify-center items-center">
-					<img
+					<OneConfigScreenshot3
 						class="max-w-80 rounded-md bg-white/5 ring-1 ring-white/10 pointer-events-none"
-						src="/media/oneconfig/page_media_3.svg"
-						alt="OneConfig Screenshot"
 						width={912}
 						height={540}
 					/>
@@ -107,7 +113,7 @@ import Layout from '@layouts/Layout.astro';
 					We're a group of passionate, self-driven designers, developers, and modders creating mods and libraries for the Minecraft community.
 				</Paragraph>
 				<div class="mt-3 flex flex-row gap-y-6 gap-x-8 text-base font-semibold leading-7 text-gray-600 lg:gap-x-10">
-					<Button style="secondary" size="sm" iconLeft="user">Meet the team</Button>
+					<Button style="secondary" size="sm" iconLeft={UserIcon}>Meet the team</Button>
 				</div>
 			</div>
 		</div>
@@ -120,8 +126,8 @@ import Layout from '@layouts/Layout.astro';
 					Above all, we're committed to bringing quality, open sourced tools built <br> around usability, accessibility to the greater modding community.
 				</Paragraph>
 				<div class="flex flex-row justify-end items-end mt-3 gap-y-6 text-base font-semibold leading-7 text-brand-600 gap-x-4">
-					<Button iconLeft="book-open" size="sm" href="/oss">Why open source?</Button>
-					<Button iconLeft="github" style="secondary" size="sm" href={configConst.socials.github}>GitHub</Button>
+					<Button iconLeft={BookOpenIcon} size="sm" href="/oss">Why open source?</Button>
+					<Button iconLeft={GitHubIcon} style="secondary" size="sm" href={configConst.socials.github}>GitHub</Button>
 				</div>
 			</div>
 		</div>

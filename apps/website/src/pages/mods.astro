@@ -10,6 +10,19 @@ import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
+import BookOpenIcon from '~icons/polyicons/book-open.svg';
+import ChattingIcon from '~icons/polyicons/chatting.svg';
+import CrashPatchIcon from '~icons/polyicons/crashpatch.svg';
+import DownloadIcon from '~icons/polyicons/download.svg';
+import GitHubIcon from '~icons/polyicons/github.svg';
+import KeystrokesIcon from '~icons/polyicons/keystrokes.svg';
+import LinkExternalIcon from '~icons/polyicons/link-external.svg';
+import OverflowAnimationsIcon from '~icons/polyicons/overflowanimations.svg';
+import PolySprintIcon from '~icons/polyicons/polysprint.svg';
+import PolyTimeIcon from '~icons/polyicons/polytime.svg';
+import PolyWeatherIcon from '~icons/polyicons/polyweather.svg';
+import VanillaHUDIcon from '~icons/polyicons/vanillahud.svg';
+
 const modrinthId = configConst.socials.modrinth.id;
 const modrinthType = configConst.socials.modrinth.type;
 const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
@@ -21,24 +34,24 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 			<div class="flex flex-col justify-between items-center overflow-hidden h-auto lg:h-[290px] max-w-[1920px] relative">
 				<div class="absolute -bottom-[1px] w-full h-full lg:h-1/2 z-10" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(240, 242, 244));"/>
 				<Slider wrapperClass="-mb-40 mb-2 hidden lg:block" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
+					<Card text="Chatting" icon={ChattingIcon} />
+					<Card text="PolySprint" icon={PolySprintIcon} />
+					<Card text="VanillaHUD" icon={VanillaHUDIcon} />
+					<Card text="OverflowAnimations" icon={OverflowAnimationsIcon} />
+					<Card text="CrashPatch" icon={CrashPatchIcon} />
+					<Card text="PolyTime" icon={PolyTimeIcon} />
+					<Card text="PolyWeather" icon={PolyWeatherIcon} />
+					<Card text="Keystrokes" icon={KeystrokesIcon} />
 				</Slider>
 				<Slider dir="right" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
+					<Card text="Chatting" icon={ChattingIcon} />
+					<Card text="PolySprint" icon={PolySprintIcon} />
+					<Card text="VanillaHUD" icon={VanillaHUDIcon} />
+					<Card text="OverflowAnimations" icon={OverflowAnimationsIcon} />
+					<Card text="CrashPatch" icon={CrashPatchIcon} />
+					<Card text="PolyTime" icon={PolyTimeIcon} />
+					<Card text="PolyWeather" icon={PolyWeatherIcon} />
+					<Card text="Keystrokes" icon={KeystrokesIcon} />
 				</Slider>
 			</div>
 		</div>
@@ -46,8 +59,8 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10 gap-6 px-4">
 			<Header align="center" size="xxl" class="text-navy-peony max-w-[500px]">Redefining modding, one mod at a time</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="download" href={modrinthUrl}>Download</Button>
-				<Button style="secondary" iconLeft="github" href={configConst.socials.github}>Source</Button>
+				<Button style="primary" iconLeft={DownloadIcon} href={modrinthUrl}>Download</Button>
+				<Button style="secondary" iconLeft={GitHubIcon} href={configConst.socials.github}>Source</Button>
 			</div>
 
 			<Paragraph class="text-navy-peony text-lg font-semibold max-w-screen-sm text-center mt-20">
@@ -113,7 +126,7 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 				All of our mods are open source, and will continue to be open source. Anyone can learn, contribute, or take from our code (as long as it follows our license).
 			</Paragraph>
 			<div class="flex">
-				<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
+				<Button href="https://docs.polyfrost.org" iconLeft={BookOpenIcon} style="secondary" text="Documentation"/>
 			</div>
 		</div>
 	</Section>
@@ -137,8 +150,8 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 		<div class="flex flex-col gap-y-1 relative justify-center items-center">
 			<Header size="xl" class="text-navy-peony text-header-page w-11/12 md:max-w-lg text-center">Get our mods, available on Modrinth and GitHub.</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
-				<Button style="primary" iconLeft="link-external" href={modrinthUrl}>Modrinth</Button>
-				<Button style="primary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
+				<Button style="primary" iconLeft={LinkExternalIcon} href={modrinthUrl}>Modrinth</Button>
+				<Button style="primary" iconLeft={GitHubIcon} href={configConst.socials.github}>GitHub</Button>
 			</div>
 		</div>
 	</Section>

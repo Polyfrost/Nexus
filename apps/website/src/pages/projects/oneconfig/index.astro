@@ -5,24 +5,34 @@ import Header from '@components/base/Header.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import Slider from '@components/base/Slider.astro';
-import Logo from '@components/logos/Logo.astro';
-
+import Icon, { OneConfigSmall, OneConfigText } from '@components/icons/Icon.astro';
 import Layout from '@layouts/Layout.astro';
 
 import { Code } from 'astro:components';
 
+import BookOpenIcon from '~icons/polyicons/book-open.svg';
+import ChattingIcon from '~icons/polyicons/chatting.svg';
+import CrashPatchIcon from '~icons/polyicons/crashpatch.svg';
+import DownloadIcon from '~icons/polyicons/download.svg';
+import KeystrokesIcon from '~icons/polyicons/keystrokes.svg';
+import LinkExternalIcon from '~icons/polyicons/link-external.svg';
+import OverflowAnimationsIcon from '~icons/polyicons/overflowanimations.svg';
+import PolySprintIcon from '~icons/polyicons/polysprint.svg';
+import PolyTimeIcon from '~icons/polyicons/polytime.svg';
+import PolyWeatherIcon from '~icons/polyicons/polyweather.svg';
+import VanillaHUDIcon from '~icons/polyicons/vanillahud.svg';
 ---
 
 <Layout>
 	<Section class="flex-col justify-center items-center h-screen md:min-h-[600px]">
 		<div class="flex flex-col justify-center items-center gap-y-4">
-			<Logo size={56} logo="oneconfig.minimal"/>
+			<Icon size={56} icon={OneConfigSmall}/>
 			<Header align="center" size="xxl" class="max-w-[600px]">
 				Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
 			</Header>
 			<div class="flex flex-row justify-center items-center gap-2">
-				<Button href="/projects/oneconfig/download" iconLeft="download" text="Download"/>
-				<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
+				<Button href="/projects/oneconfig/download" iconLeft={DownloadIcon} text="Download"/>
+				<Button href="https://docs.polyfrost.org" iconLeft={BookOpenIcon} style="secondary" text="Documentation"/>
 			</div>
 		</div>
 	</Section>
@@ -91,7 +101,7 @@ import { Code } from 'astro:components';
 					With our simple APIs and documentation, it's easier than ever to integrate your mods with OneConfig.
 				</Paragraph>
 				<div class="flex">
-					<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="Documentation"/>
+					<Button href="https://docs.polyfrost.org" iconLeft={BookOpenIcon} style="secondary" text="Documentation"/>
 				</div>
 			</div>
 		</Section>
@@ -103,7 +113,7 @@ import { Code } from 'astro:components';
 					We take pride in having the cleanest and most intuitive UI of any mod, config library, or client out there.
 				</Paragraph>
 				<div class="flex">
-					<Button href="/projects/oneconfig/download" style="secondary" iconLeft="download" text="Download"/>
+					<Button href="/projects/oneconfig/download" style="secondary" iconLeft={DownloadIcon} text="Download"/>
 				</div>
 			</div>
 			<div data-scroll data-scroll-speed="3" slot="right">
@@ -130,30 +140,30 @@ import { Code } from 'astro:components';
 			</Paragraph>
 			<div class="flex items-start flex-col md:flex-row max-sm:gap-y-1 gap-x-1">
 				<!-- TODO: HREF -->
-				<Button iconLeft="link-external" href="/mods" style="secondary" text="Discover mods"/>
+				<Button iconLeft={LinkExternalIcon} href="/mods" style="secondary" text="Discover mods"/>
 			</div>
 		</div>
 		<div class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-x-hidden">
 			<div class="flex flex-col justify-between items-center overflow-x-hidden h-[290px] max-w-[1920px]">
 				<Slider wrapperClass="-mb-40 mb-2 bg-blue-100" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
+					<Card text="Chatting" icon={ChattingIcon} />
+					<Card text="PolySprint" icon={PolySprintIcon} />
+					<Card text="VanillaHUD" icon={VanillaHUDIcon} />
+					<Card text="OverflowAnimations" icon={OverflowAnimationsIcon} />
+					<Card text="CrashPatch" icon={CrashPatchIcon} />
+					<Card text="PolyTime" icon={PolyTimeIcon} />
+					<Card text="PolyWeather" icon={PolyWeatherIcon} />
+					<Card text="Keystrokes" icon={KeystrokesIcon} />
 				</Slider>
 				<Slider dir="right" wrapperClass="bg-blue-100" childrenNum={8}>
-					<Card text="Chatting" icon="chatting"/>
-					<Card text="PolySprint" icon="polysprint"/>
-					<Card text="VanillaHUD" icon="vanillahud"/>
-					<Card text="OverflowAnimations" icon="overflowanimations"/>
-					<Card text="CrashPatch" icon="crashpatch"/>
-					<Card text="PolyTime" icon="polytime"/>
-					<Card text="PolyWeather" icon="polyweather"/>
-					<Card text="Keystrokes" icon="keystrokes"/>
+					<Card text="Chatting" icon={ChattingIcon} />
+					<Card text="PolySprint" icon={PolySprintIcon} />
+					<Card text="VanillaHUD" icon={VanillaHUDIcon} />
+					<Card text="OverflowAnimations" icon={OverflowAnimationsIcon} />
+					<Card text="CrashPatch" icon={CrashPatchIcon} />
+					<Card text="PolyTime" icon={PolyTimeIcon} />
+					<Card text="PolyWeather" icon={PolyWeatherIcon} />
+					<Card text="Keystrokes" icon={KeystrokesIcon} />
 				</Slider>
 			</div>
 		</div>
@@ -163,8 +173,8 @@ import { Code } from 'astro:components';
 		<div class="flex relative md:-left-12">
 			<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl"/>
 			<div class="border border-gray-200 rounded-3xl md:rounded-4xl shadow-sm bg-gray-50 flex flex-col justify-center items-center md:items-start p-4 md:p-8 absolute -bottom-12 translate-x-1/2 right-1/2 md:translate-x-0 md:-right-12 gap-y-2 md:gap-y-8">
-				<Logo logo="oneconfig.logo_text" class="w-48 h-12 md:min-w-72 md:h-auto"></Logo>
-				<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit"/>
+				<Icon icon={OneConfigText} class="w-48 h-12 md:min-w-72 md:h-auto" />
+				<Button href="/projects/oneconfig/download" iconLeft={DownloadIcon} text="Download now" class="max-w-fit"/>
 			</div>
 		</div>
 	</Section>
