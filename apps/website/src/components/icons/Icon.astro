@@ -16,8 +16,7 @@ export interface Props extends HTMLAttributes<'svg'> {
 	size?: number
 	icon: Icons
 }
-const { size, icon } = Astro.props;
-const RAW = icon;
+const { size, icon: Raw } = Astro.props;
 ---
 
-<ic width={size} height={size} />
+<Raw width={size} height={size} />

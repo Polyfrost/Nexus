@@ -1,25 +1,25 @@
 ---
-import Icon, { type Icons } from '@components/icons/Icon.astro';
+import Icon, { PolyfrostFull, type Icons } from '@components/icons/Icon.astro';
 import type { NavbarElement } from '@webtypes/Config';
 import Header from '../Header.astro';
 import ScreenOverlay from '../ScreenOverlay.astro';
 import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
 import Tag from '../Tag.astro';
 
-import ChevronDownIcon from '~icons/polyicons/chevron-down.svg';
+import ChevronDownIcon from '~icons/mdi/chevron-down.svg';
 
 interface Props {
 	element: NavbarElement
-	icon: Icons
-	iconSize?: number
 	index: number
+	icon?: Icons
+	iconSize?: number
 }
 
 const {
 	element,
+	index,
 	icon,
 	iconSize = 0,
-	index,
 } = Astro.props;
 
 function isCurrentPage(url: string): boolean {
@@ -33,7 +33,8 @@ function isCurrentPage(url: string): boolean {
 ? (
 			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
 				{element.text && element.text}
-				<Icon class="active:scale-95 transition-transform" size={iconSize} icon={icon}/>
+				{icon && <Icon class="active:scale-95 transition-transform" size={iconSize} icon={icon}/>}
+				{element.path === '/' && <Icon class="active:scale-95 transition-transform" size={-1} icon={PolyfrostFull}/>}
 				{element.dropdown && <Icon icon={ChevronDownIcon}/>}
 			</a>
 		)
@@ -42,7 +43,8 @@ function isCurrentPage(url: string): boolean {
 			{element.dropdown && (
 				<p class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}>
 					{element.text && element.text}
-					<Icon size={iconSize} icon={icon}/>
+					{icon && <Icon size={iconSize} icon={icon}/>}
+					{element.path === '/' && <Icon size={-1} icon={PolyfrostFull}/>}
 					{element.dropdown && <Icon icon={ChevronDownIcon}/>}
 				</p>
 
@@ -81,7 +83,7 @@ function isCurrentPage(url: string): boolean {
 										<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
 											<div class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'hover:grayscale hover:brightness-75'}`}>
 												<div class="w-[36px]">
-													<Icon size={40} icon={icon}/>
+													{icon && <Icon size={40} icon={icon}/>}
 												</div>
 
 												<div class="flex flex-col justify-start items-start">
