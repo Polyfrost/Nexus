@@ -4,8 +4,6 @@ import { join } from 'node:path';
 import {
 	cleanupSVG,
 	importDirectorySync,
-	isEmptyColor,
-	parseColors,
 	runSVGO,
 } from '@iconify/tools';
 
@@ -30,17 +28,7 @@ iconSet.forEachSync((name, type) => {
 
 	try {
 		cleanupSVG(svg);
-
-		parseColors(svg, {
-			defaultColor: 'currentColor',
-			callback: (_attr, colorStr, color) => {
-				return !color || isEmptyColor(color)
-					? colorStr
-					: 'currentColor';
-			},
-		});
-
-		runSVGO(svg);
+		runSVGO(svg, { keepShapes: true });
 	}
 	catch (err) {
 		console.error(`error parsing ${name}:`, err);
