@@ -1,4 +1,6 @@
 ---
+import { readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import type { LogoType } from '@webtypes/Config';
 import type { HTMLAttributes } from 'astro/types';
 
@@ -18,8 +20,9 @@ let svg: string | undefined;
 try {
 	if (logo === undefined)
 		return;
-	const dir = '../../../public/media';
-	svg = (await import(/* @vite-ignore */ `${dir}/${logo.replaceAll('.', '/')}.svg?raw`)).default;
+
+	const dir = new URL(join('..', '..', '..', 'public', 'media'), import.meta.url).pathname;
+	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`, { encoding: 'utf8' }));
 
 	if (svg === undefined)
 		return;
