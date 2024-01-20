@@ -5,30 +5,30 @@ const config: StorybookConfig = {
 		{
 			directory: '../../../packages/ui/src/**',
 			titlePrefix: 'UI',
-			files: '*.stories.*'
+			files: '*.stories.*',
 		},
 		{
 			directory: '../../../interface/app/**',
 			titlePrefix: 'Interface',
-			files: '*.stories.*'
-		}
+			files: '*.stories.*',
+		},
 	],
 	addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-styling'
+		'@storybook/addon-styling',
 	],
 	framework: {
 		name: '@storybook/react-vite',
-		options: {}
+		options: {},
 	},
 	docs: {
-		autodocs: 'tag'
+		autodocs: 'tag',
 	},
 	core: {
-		disableTelemetry: true
-	}
+		disableTelemetry: true,
+	},
 };
 
 export default config;

@@ -5,6 +5,8 @@
 		"oscarbeaumont.rspc-vscode",
 		"EditorConfig.EditorConfig",
 		"prisma.prisma",
-		"bradlc.vscode-tailwindcss"
+		"bradlc.vscode-tailwindcss",
+		"dbaeumer.vscode-eslint",
+		"astro-build.astro-vscode"
 	]
 }

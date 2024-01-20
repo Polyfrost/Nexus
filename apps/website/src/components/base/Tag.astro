@@ -1,14 +1,13 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"span"> {}
+interface Props extends HTMLAttributes<'span'> {}
 
 const { ...attr } = Astro.props;
 ---
 
-<div class="transition-colors text-blue-500 hover:bg-blue-500/20 text-xs font-medium bg-blue-500/10 rounded-md flex flex-col justify-center items-center px-2 py-0.5">
-    <span {...attr}>
-        <slot></slot>
-    </span>
+<div class="leading-none transition-colors text-blue-500 hover:bg-blue-500/20 text-xs font-medium bg-blue-500/10 rounded-md flex flex-col justify-center items-center px-2 py-0.5">
+	<span {...attr}>
+		<slot></slot>
+	</span>
 </div>
-

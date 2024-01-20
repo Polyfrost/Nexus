@@ -1,21 +1,21 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"div"> {
+interface Props extends HTMLAttributes<'div'> {
 
 }
 
 const { ...attr } = Astro.props;
 ---
 
-<div {...attr}>
-    <slot></slot>
-</div>
+	<div {...attr}>
+		<slot></slot>
+	</div>
 
-<style>
+		<style>
 @media (hover: hover) {
     div {
-        
+
     }
 
     div::-webkit-scrollbar {
@@ -48,4 +48,4 @@ const { ...attr } = Astro.props;
         background-color: #00000040;
     }
 }
-</style>
+		</style>

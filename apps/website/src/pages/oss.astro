@@ -1,0 +1,147 @@
+---
+import Button from '@components/base/Button.astro';
+import Header from '@components/base/Header.astro';
+import Paragraph from '@components/base/Paragraph.astro';
+import Section from '@components/base/Section.astro';
+import configConst from '@config';
+import Layout from '@layouts/Layout.astro';
+import { Code } from 'astro:components';
+
+const leftCodeBlock = `public class MyConfig {
+
+	@Switch(
+		name = "Sub Switch",
+		category = "General"
+	)
+	public static boolean subSwitch = false;
+
+	@Dropdown(
+		name = "Sub Dropdown",
+		category = "General"
+	)
+	public static int subSwitch = 0;
+
+	@DualOption(
+		name = "Sub Dual Option",
+		category = "General"
+	)
+	public static int subDualOption = 0;
+
+	public MyConfig() {
+		super(new Mod("My Mod", ModType.UTIL_QOL), "config.json");
+		addDependency("subSwitch", () -> {
+			// Do stuff here
+		});
+	}
+}`;
+
+const rightCodeBlock = leftCodeBlock;
+
+---
+
+<Layout>
+	<Section maxWidth="1920px" wFull class="flex-row justify-center items-center h-screen md:min-h-[600px] relative">
+		<div class="codeblock_container -left-12">
+			<Code lang="java" theme="github-light" code={leftCodeBlock}></Code>
+		</div>
+		<div class="flex flex-col justify-center items-center gap-y-4">
+			<Header align="center" size="xxl" class="text-navy-peony max-w-[600px]">
+				Open Source, Forever
+			</Header>
+			<Paragraph class="max-w-[400px] lg:max-w-[600px] text-center text-navy-peony">
+				We believe it is the right of the user and developer to know what code they are trusting to run behind the scenes.
+			</Paragraph>
+			<Button iconLeft="github" href={configConst.socials.github} style="secondary">GitHub</Button>
+		</div>
+		<div class="codeblock_container after:-scale-x-125 -right-12">
+			<Code lang="java" theme="github-light" code={rightCodeBlock}></Code>
+		</div>
+	</Section>
+
+	<Section tabindex="0" colReverse={false}>
+		<div slot="left" class="flex justify-center">
+			<img class="max-sm:w-full w-64" src="/media/oss/page_media_1.svg" alt="stuff"/>
+		</div>
+
+		<div slot="right">
+			<Header size="xl" class="text-navy-peony">
+				Rooted from the developers
+			</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+				Our developers learned and built on open source for years. Many even made their own contributions on our projects before joining our team.
+			</Paragraph>
+		</div>
+	</Section>
+
+	<Section tabindex="0">
+		<div slot="left">
+			<Header size="xl" class="text-navy-peony">
+				Makes development faster
+			</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+				Open source lets us join forces with other developers in our community. This means new features and bug fixes come much faster, and way better.
+			</Paragraph>
+		</div>
+
+		<div slot="right" class="flex justify-center">
+			<img class="max-sm:w-full w-64" src="/media/oss/page_media_2.svg" alt="stuff"/>
+		</div>
+	</Section>
+
+	<Section tabindex="0" colReverse={false}>
+		<div slot="left" class="flex justify-center">
+			<img class="max-sm:w-full w-64" src="/media/oss/page_media_3.svg" alt="stuff"/>
+		</div>
+
+		<div slot="right">
+			<Header size="xl" class="text-navy-peony">
+				Makes our code safer
+			</Header>
+			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+				There's no definite way to prevent anything from becoming malicious. But, open sourcing our code brings extra eyes to catch, and fix exploits before they’re abused.
+			</Paragraph>
+		</div>
+	</Section>
+
+	<Section wrapperClass="flex justify-center items-center mb-40" class="flex-col justify-center items-center">
+		<div class="flex flex-col gap-y-1 relative justify-center items-center">
+			<Header size="xl" class="text-navy-peony text-header-page text-center">
+				Contribute to our GitHub!
+			</Header>
+			<div class="flex flex-row justify-center items-center gap-x-2">
+				<Button style="secondary" iconLeft="github" href={configConst.socials.github}>GitHub</Button>
+			</div>
+		</div>
+	</Section>
+</Layout>
+
+<style>
+	.codeblock_container {
+		position: absolute;
+		max-width: 20vw;
+		@apply max-md:hidden;
+
+		& :global(.astro-code) {
+			background-color: transparent !important;
+			border: none !important;
+			overflow: hidden !important;
+			position: relative;
+			border-radius: 0 !important;
+			opacity: 0.7;
+
+			& :global(.line::before) {
+				content: "";
+				display: none;
+			}
+		}
+
+		&::after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), theme(colors.gray.50 / 75%) 90%, theme(colors.gray.50) 100%);
+		}
+	}
+</style>

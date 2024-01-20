@@ -1,28 +1,57 @@
 ---
-export type Icons = "chevron-down" | "download" | "book-open";
-
+import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
-import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"svg"> {
-  	icon: Icons;
-	size?: number | [number, number];
+type _ModIcons =
+	| 'oneconfig'
+	| 'chatting'
+	| 'polysprint'
+	| 'vanillahud'
+	| 'overflowanimations'
+	| 'crashpatch'
+	| 'polytime'
+	| 'polyweather'
+	| 'keystrokes';
+export type ModIcons = _ModIcons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+
+type _External =
+	| 'discord'
+	| 'github'
+	| 'youtube'
+	| 'twitter';
+
+export type External = _External;
+
+type _Icons =
+	| 'chevron-down'
+	| 'download'
+	| 'book-open'
+	| 'link-external'
+	| 'code'
+	| 'chat'
+	| 'user'
+	| External
+	| ModIcons;
+export type Icons = _Icons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+
+interface Props extends HTMLAttributes<'svg'> {
+	icon: Icons
+	path?: string
+	size?: number | [number, number]
 }
 
 async function getSVG(name: string) {
-	const file = await import(`./impl/${name}.svg?raw` /* @vite-ignore */);
+	const file = (await import(`./impl/${name}.svg?raw`)).default;
 
-	if (!file) {
+	if (!file)
 		throw new Error(`${name} not found`);
-	}
 
-	const content = parse(file.default);
+	const content = parse(file);
 
 	const svg = content.querySelector('svg');
 
-	if (!svg) {
+	if (!svg)
 		throw new Error(`${name} is not a valid SVG`);
-	}
 
 	const { attributes, innerHTML } = svg;
 
@@ -39,13 +68,12 @@ const {
 } = Astro.props as Props;
 
 let svgAttributes = {};
-let html = "";
+let html = '';
 
 try {
 	const sizeAttributes = () => {
-		if (!size) {
+		if (!size)
 			return {};
-		}
 
 		if (Array.isArray(size)) {
 			return {
@@ -58,7 +86,7 @@ try {
 			width: size,
 			height: size,
 		};
-	}
+	};
 
 	const { attributes: baseAttributes, innerHTML } = await getSVG(icon);
 	svgAttributes = {
@@ -69,9 +97,11 @@ try {
 
 	const colorRegex = /(fill|stroke)=\"([^"]*)\"/g;
 	html = innerHTML.replaceAll(colorRegex, '$1="currentColor"');
-} catch (err) {
-
+}
+ catch (err) {
+    console.error(err);
+	// ignored
 }
 ---
 
-<svg {...svgAttributes} set:html={html}></svg>
+	<svg {...svgAttributes} set:html={html}></svg>

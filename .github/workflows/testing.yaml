@@ -1,142 +1,142 @@
 name: CI
 
 on:
-    pull_request:
-    merge_group:
+  # pull_request:
+  merge_group:
 
 # Cancel previous runs of the same workflow on the same branch.
 concurrency:
-    group: ${{ github.workflow }}-${{ github.ref }}
-    cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    typescript:
-        name: TypeScript
-        runs-on: ubuntu-20.04
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+  typescript:
+    name: TypeScript
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Setup Node.js, pnpm and dependencies
-              uses: ./.github/actions/setup-pnpm
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node.js, pnpm and dependencies
+        uses: ./.github/actions/setup-pnpm
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Perform typechecks
-              run: pnpm typecheck
+      - name: Perform builds
+        run: pnpm build
 
-    eslint:
-        name: ESLint
-        runs-on: ubuntu-20.04
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Setup Node.js, pnpm and dependencies
-              uses: ./.github/actions/setup-pnpm
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node.js, pnpm and dependencies
+        uses: ./.github/actions/setup-pnpm
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Perform linting
-              run: pnpm lint
+      - name: Perform linting
+        run: pnpm lint
 
-    rustfmt:
-        name: Rust Formatting
-        runs-on: ubuntu-20.04
-        steps:
-            - name: Maximize build space
-              if: ${{ runner.os == 'Linux' }}
-              uses: easimon/maximize-build-space@master
-              with:
-                  swap-size-mb: 3072
-                  root-reserve-mb: 6144
-                  remove-dotnet: 'true'
-                  remove-codeql: 'true'
-                  remove-haskell: 'true'
-                  remove-docker-images: 'true'
+  rustfmt:
+    name: Rust Formatting
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Maximize build space
+        if: ${{ runner.os == 'Linux' }}
+        uses: easimon/maximize-build-space@master
+        with:
+          swap-size-mb: 3072
+          root-reserve-mb: 6144
+          remove-dotnet: 'true'
+          remove-codeql: 'true'
+          remove-haskell: 'true'
+          remove-docker-images: 'true'
 
-            - name: Checkout repository
-              uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Symlink target to C:\
-              if: ${{ runner.os == 'Windows' }}
-              shell: powershell
-              run: |
-                  New-Item -ItemType Directory -Force -Path C:\nexus_target
-                  New-Item -Path target -ItemType Junction -Value C:\nexus_target
+      - name: Symlink target to C:\
+        if: ${{ runner.os == 'Windows' }}
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path C:\nexus_target
+          New-Item -Path target -ItemType Junction -Value C:\nexus_target
 
-            - uses: dorny/paths-filter@v2
-              id: filter
-              with:
-                  filters: |
-                      changes:
-                        - 'apps/cli/*/**'
-                        - 'apps/desktop/crates/*/**'
-                        - 'apps/desktop/src-tauri/*/**'
-                        - 'core/**'
-                        - 'crates/*/**'
-                        - 'Cargo.toml'
-                        - 'Cargo.lock'
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            changes:
+              - 'apps/cli/*/**'
+              - 'apps/desktop/crates/*/**'
+              - 'apps/desktop/src-tauri/*/**'
+              - 'core/**'
+              - 'crates/*/**'
+              - 'Cargo.toml'
+              - 'Cargo.lock'
 
-            - name: Setup Rust
-              if: steps.filter.outputs.changes == 'true'
-              uses: ./.github/actions/setup-rust
+      - name: Setup Rust
+        if: steps.filter.outputs.changes == 'true'
+        uses: ./.github/actions/setup-rust
 
-            - name: Run rustfmt
-              if: steps.filter.outputs.changes == 'true'
-              run: cargo fmt --all -- --check
+      - name: Run rustfmt
+        if: steps.filter.outputs.changes == 'true'
+        run: cargo fmt --all -- --check
 
-    clippy:
-        name: Clippy (${{ matrix.platform }})
-        runs-on: ${{ matrix.platform }}
-        strategy:
-            matrix:
-                platform: [ubuntu-20.04, macos-latest, windows-latest]
-        steps:
-            - name: Maximize build space
-              if: ${{ runner.os == 'Linux' }}
-              uses: easimon/maximize-build-space@master
-              with:
-                  swap-size-mb: 3072
-                  root-reserve-mb: 6144
-                  remove-dotnet: 'true'
-                  remove-codeql: 'true'
-                  remove-haskell: 'true'
-                  remove-docker-images: 'true'
+  clippy:
+    name: Clippy (${{ matrix.platform }})
+    runs-on: ${{ matrix.platform }}
+    strategy:
+      matrix:
+        platform: [ubuntu-20.04, macos-latest, windows-latest]
+    steps:
+      - name: Maximize build space
+        if: ${{ runner.os == 'Linux' }}
+        uses: easimon/maximize-build-space@master
+        with:
+          swap-size-mb: 3072
+          root-reserve-mb: 6144
+          remove-dotnet: 'true'
+          remove-codeql: 'true'
+          remove-haskell: 'true'
+          remove-docker-images: 'true'
 
-            - name: Checkout repository
-              uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Symlink target to C:\
-              if: ${{ runner.os == 'Windows' }}
-              shell: powershell
-              run: |
-                  New-Item -ItemType Directory -Force -Path C:\nexus_target
-                  New-Item -Path target -ItemType Junction -Value C:\nexus_target
+      - name: Symlink target to C:\
+        if: ${{ runner.os == 'Windows' }}
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path C:\nexus_target
+          New-Item -Path target -ItemType Junction -Value C:\nexus_target
 
-            - uses: dorny/paths-filter@v2
-              id: filter
-              with:
-                  # this is also designing ahead for tauri
-                  filters: |
-                      changes:
-                        - 'apps/cli/*/**'
-                        - 'apps/desktop/crates/*/**'
-                        - 'apps/desktop/src-tauri/*/**'
-                        - 'core/**'
-                        - 'crates/*/**'
-                        - 'Cargo.toml'
-                        - 'Cargo.lock'
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          # this is also designing ahead for tauri
+          filters: |
+            changes:
+              - 'apps/cli/*/**'
+              - 'apps/desktop/crates/*/**'
+              - 'apps/desktop/src-tauri/*/**'
+              - 'core/**'
+              - 'crates/*/**'
+              - 'Cargo.toml'
+              - 'Cargo.lock'
 
-            - name: Setup System and Rust
-              if: steps.filter.outputs.changes == 'true'
-              uses: ./.github/actions/setup-system
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup System and Rust
+        if: steps.filter.outputs.changes == 'true'
+        uses: ./.github/actions/setup-system
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Run Clippy
-              if: steps.filter.outputs.changes == 'true'
-              uses: actions-rs/clippy-check@v1
-              with:
-                  args: --workspace --all-features
-                  token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Clippy
+        if: steps.filter.outputs.changes == 'true'
+        uses: actions-rs/clippy-check@v1
+        with:
+          args: --workspace --all-features
+          token: ${{ secrets.GITHUB_TOKEN }}

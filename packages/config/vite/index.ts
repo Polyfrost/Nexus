@@ -10,18 +10,18 @@ export default defineConfig({
 		react(),
 		svg({ svgrOptions: { icon: true } }),
 		createHtmlPlugin({
-			minify: true
-		})
+			minify: true,
+		}),
 	],
 	css: {
 		modules: {
-			localsConvention: 'camelCaseOnly'
-		}
+			localsConvention: 'camelCaseOnly',
+		},
 	},
 	root: 'src',
 	build: {
 		sourcemap: true,
 		outDir: '../dist',
-		assetsDir: '.'
-	}
+		assetsDir: '.',
+	},
 });

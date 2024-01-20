@@ -1,11 +1,6 @@
 [workspace]
 resolver = "2"
-members = [
-	"core",
-	"crates/*",
-	"apps/cli",
-	"apps/desktop/src-tauri"
-]
+members = ["core", "crates/*", "apps/cli", "apps/desktop/src-tauri"]
 
 [workspace.package]
 license = "AGPL-3.0-only"
@@ -44,7 +39,9 @@ serde = { version = "1.0" }
 serde_json = { version = "1.0" }
 
 tracing = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e" }
-tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e", features = ["env-filter"] }
+tracing-subscriber = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e", features = [
+	"env-filter",
+] }
 tracing-appender = { git = "https://github.com/tokio-rs/tracing", rev = "29146260fb4615d271d2e899ad95a753bb42915e" }
 
 [patch.crates-io]

@@ -1,4 +1,6 @@
-# Example: Allow all bots to scan and index your site.
-# Full syntax: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+# I, for one, welcome our new robotic overlords
+
 User-agent: *
 Allow: /
+
+Sitemap: https://polyfrost.org/sitemap-index.xml
