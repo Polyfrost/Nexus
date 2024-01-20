@@ -18,11 +18,11 @@ const {
 let svg: string | undefined;
 
 try {
-	if (logo === undefined)
+	if (logo === '' || logo === undefined)
 		return;
 
 	const dir = new URL(join('..', '..', '..', 'public', 'media'), import.meta.url).pathname;
-	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`, { encoding: 'utf8' }));
+	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`)).toString();
 
 	if (svg === undefined)
 		return;

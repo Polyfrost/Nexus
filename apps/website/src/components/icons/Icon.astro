@@ -1,5 +1,4 @@
 ---
-import { readFile } from 'node:fs/promises';
 import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
 
@@ -41,9 +40,8 @@ interface Props extends HTMLAttributes<'svg'> {
 	size?: number | [number, number]
 }
 
-async function getSVG(name: string, path = 'impl') {
-	const dir = new URL(`${path}`, import.meta.url).pathname;
-	const file = await readFile(`${dir}/${name}.svg`, { encoding: 'utf-8' });
+async function getSVG(name: string) {
+	const file = (await import(`./impl/${name}.svg?raw`)).default;
 
 	if (!file)
 		throw new Error(`${name} not found`);
@@ -66,7 +64,6 @@ async function getSVG(name: string, path = 'impl') {
 const {
 	icon,
 	size,
-	path = 'impl',
 	...attributes
 } = Astro.props as Props;
 
@@ -91,7 +88,7 @@ try {
 		};
 	};
 
-	const { attributes: baseAttributes, innerHTML } = await getSVG(icon, path);
+	const { attributes: baseAttributes, innerHTML } = await getSVG(icon);
 	svgAttributes = {
 		...baseAttributes,
 		...attributes,
@@ -101,7 +98,8 @@ try {
 	const colorRegex = /(fill|stroke)=\"([^"]*)\"/g;
 	html = innerHTML.replaceAll(colorRegex, '$1="currentColor"');
 }
-catch (err) {
+ catch (err) {
+    console.error(err);
 	// ignored
 }
 ---
