@@ -30,6 +30,7 @@ export interface NavbarElement {
 	text?: string
 	logo?: [string, number]
 	path?: string
+	alt?: string
 	dropdown?: NavbarDropdown[]
 }
 

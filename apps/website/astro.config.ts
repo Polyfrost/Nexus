@@ -19,5 +19,8 @@ export default defineConfig({
 				plugins: [postcssNesting()],
 			},
 		},
+		ssr: {
+			noExternal: ['smartypants'],
+		},
 	},
 });
