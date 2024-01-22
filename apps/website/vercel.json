@@ -1,3 +1,9 @@
 {
-
+	"trailingSlash": true,
+	"redirects": [
+		{
+			"source": "/discord/",
+			"destination": "https://discord.gg/dsjhfsjd"
+		}
+	]
 }
