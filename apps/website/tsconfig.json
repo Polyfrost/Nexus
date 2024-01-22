@@ -2,6 +2,7 @@
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
 		"composite": false,
+		"jsx": "preserve",
 		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],
@@ -12,5 +13,6 @@
 			"@config": ["config.ts"],
 			"@styles/*": ["src/styles/*"]
 		}
-	}
+	},
+	"exclude": ["node_modules", "dist", ".vercel", "public"]
 }

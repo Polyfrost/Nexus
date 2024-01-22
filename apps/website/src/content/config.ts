@@ -1,12 +1,15 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'zod';
 
 const blog = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
+		publishDate: z.string().or(z.date()).transform(val => new Date(val)),
+		updatedDate: z.string().or(z.date()).transform(val => new Date(val)).optional(),
+		socialImage: z.string().optional(),
+		coverImage: z.string().optional(),
+		lang: z.enum(['en']).default('en'),
 	}),
 });
 
