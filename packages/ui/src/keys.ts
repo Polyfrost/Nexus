@@ -34,7 +34,7 @@ export type OSforKeys = 'macOS' | 'Windows' | 'Other';
 
 export const modifierSymbols: Record<
 	ModifierKeys | EditingKeys | UIKeys | NavigationKeys,
-	{ macOS?: string, Windows?: string, Other: string }
+	{ macOS?: string; Windows?: string; Other: string }
 > = {
 	Alt: { macOS: '⌥', Other: 'Alt' },
 	AltGraph: { macOS: '⌥', Other: 'Alt' },
@@ -57,7 +57,7 @@ export const modifierSymbols: Record<
 	ArrowRight: { Other: '→' },
 };
 
-export const keySymbols: Record<string, { macOS?: string, Windows?: string, Other: string }> = {
+export const keySymbols: Record<string, { macOS?: string; Windows?: string; Other: string }> = {
 	' ': { Other: '␣' },
 	'Tab': { macOS: '⇥', Other: '⭾' },
 	'Enter': { macOS: '↩', Other: '↵' },

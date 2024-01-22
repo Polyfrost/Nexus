@@ -2,11 +2,11 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'section'> {
-	maxWidth?: 'none' | String
-	colReverse?: boolean
-	wrapperClass?: string
-	wFull?: boolean
-	hFull?: boolean
+	maxWidth?: 'none' | String;
+	colReverse?: boolean;
+	wrapperClass?: string;
+	wFull?: boolean;
+	hFull?: boolean;
 }
 
 const {
@@ -30,6 +30,7 @@ const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wF
 	<div class={className} {...props}>
 		{twoColumn
 			? (
+				<>
 				<div class="flex flex-col items-center text-center w-full md:w-auto md:items-start md:text-left relative">
 					<slot name="left"></slot>
 				</div>
@@ -37,6 +38,7 @@ const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wF
 				<div class="flex flex-col items-center text-center w-full md:w-auto md:items-start md:text-left relative">
 					<slot name="right"></slot>
 				</div>
+				</>
 			)
 			: (
 				<slot></slot>

@@ -8,8 +8,8 @@ import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
 import Tag from '../Tag.astro';
 
 interface Props {
-	element: NavbarElement
-	index: number
+	element: NavbarElement;
+	index: number;
 }
 
 const {
@@ -35,6 +35,7 @@ function isCurrentPage(url: string): boolean {
 : (
 		<label for={`navbar-input-${index}`} class="group">
 			{element.dropdown && (
+				<>
 				<p class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}>
 					{element.text && element.text}
 					{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
@@ -93,8 +94,8 @@ function isCurrentPage(url: string): boolean {
 							</ul>
 						</ScrollbarOverlayContainer>
 					</div>
+    </>
 				)}
   </label>
 )}
  </li>
-{/* WHY IS ESLINT DOING THIS */}

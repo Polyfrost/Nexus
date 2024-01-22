@@ -19,7 +19,7 @@ type TailwindFactory = {
 		React.ForwardRefExoticComponent<JSX.IntrinsicElements[K]>
 	>;
 } & {
-	<T>(c: T): ClassnameFactory<T>
+	<T>(c: T): ClassnameFactory<T>;
 };
 
 export const tw = new Proxy((() => {}) as unknown as TailwindFactory, {

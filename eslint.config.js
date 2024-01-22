@@ -5,7 +5,7 @@ export default petal({
 	react: false,
 	typescript: true,
 	gitignore: true,
-	toml: false,
+	toml: true,
 	ignores: [
 		'**/target',
 		'**/dist',

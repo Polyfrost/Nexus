@@ -32,8 +32,8 @@
 		"codegen": "cargo test -p nexus-core api::tests::gen -- --exact"
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^2.1.1-alpha.18",
-		"@storybook/react-vite": "^7.6.7",
+		"@flowr/eslint-config": "^2.1.1-alpha.22",
+		"@storybook/react-vite": "^7.6.10",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-react": "^7.33.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
@@ -41,6 +41,6 @@
 		"turbo": "^1.11.3",
 		"turbo-ignore": "^1.11.3",
 		"typescript": "^5.3.3",
-		"vite": "^5.0.11"
+		"vite": "^5.0.12"
 	}
 }
