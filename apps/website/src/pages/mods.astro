@@ -42,7 +42,7 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 			</div>
 		</div>
 
-		<div class="flex flex-col justify-start items-center max-w-full mt-6 md:mt-10 gap-6 px-4">
+		<div class="flex flex-col justify-start items-center max-w-full mt-6 gap-6 px-4">
 			<Header align="center" size="xxl" class="text-navy-peony max-w-[500px]">Redefining modding, one mod at a time</Header>
 			<div class="flex flex-row justify-center items-center gap-x-2">
 				<Button style="primary" iconLeft="download" href={modrinthUrl}>Download</Button>
@@ -68,9 +68,9 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 		</div>
 	</Section>
 
-	<Section tabindex="0">
-		<div slot="left">
-			<img src="/media/mods/page_media_2.svg" class="max-sm:w-full" alt="stuff"/>
+	<Section tabindex="0" colReverse={false}>
+		<div slot="left" class="min-w-40 w-1/2 md:w-auto">
+			<img src="/media/mods/page_media_2.svg" class="mx-auto max-sm:w-full" alt="stuff"/>
 		</div>
 		<div slot="right">
 			<Header size="lg" class="text-navy-peony">We <b>listen</b> to community feedback</Header>
@@ -147,7 +147,7 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 <script define:vars={{ modrinthType: modrinthType, modrinthId: modrinthId }}>
 
 async function getModCount() {
-	const res = await fetch(`https://api.modrinth.com/v2/${modrinthType}/${modrinthId}/projects`);
+	const res = await fetch(`https://api.modrinth.com/v3/${modrinthType}/${modrinthId}/projects`);
 	const data = await res.json();
 	const mods = data.filter((mod) => {
 		return mod.slug !== 'oneconfig' && mod.slug !== 'easeify';

@@ -35,9 +35,9 @@ type _Icons =
 export type Icons = _Icons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
 
 interface Props extends HTMLAttributes<'svg'> {
-	icon: Icons;
-	path?: string;
-	size?: number | [number, number];
+	icon: Icons
+	path?: string
+	size?: number | [number, number]
 }
 
 async function getSVG(name: string) {
