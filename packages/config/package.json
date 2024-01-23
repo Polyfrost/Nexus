@@ -10,6 +10,9 @@
 	},
 	"main": "index.ts",
 	"types": "index.ts",
+	"peerDependencies": {
+		"vitest": "^1.2.1"
+	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.2.1",
 		"regexpp": "^3.2.0",

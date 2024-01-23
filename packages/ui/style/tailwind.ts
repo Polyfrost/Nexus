@@ -18,6 +18,38 @@ export default async (app: string, options?: Config): Promise<Config> => {
 		],
 		darkMode: 'class',
 		theme: {
+			borderRadius: {
+				'none': '0',
+				'sm': '3px',
+				'md': '5px',
+				'lg': '8px',
+				'xl': '12px',
+				'2xl': '16px',
+				'3xl': '20px',
+				'4xl': '24px',
+				'full': '100vw',
+			},
+			fontSize: {
+				// rem starts at 16px on desktop, 14px on tailwind 'sm' and below
+				'xxs': '0.625rem', // 10px
+				'xs': '0.75rem', // 12px
+				'sm': '0.875rem', // 14px
+				'md': '1rem', // 16px
+				'lg': '1.125rem', // 18px
+				'xl': '1.25rem', // 20px
+
+				'header-sm': '1.5rem', // 24px
+				'header': '1.75rem', // 28px
+				'header-lg': '2rem', // 32px
+				'header-page': '2.25rem', // 36px
+
+				'body-sm': '0.938rem', // 15px
+				'body': '1rem', // 16px
+				'body-lg': '1.063rem', // 17px
+			},
+			fontFamily: {
+				mono: ['"Roboto Mono"', 'monospace'],
+			},
 			screens: {
 				xs: '475px',
 				sm: '650px',
@@ -25,49 +57,71 @@ export default async (app: string, options?: Config): Promise<Config> => {
 				lg: '1024px',
 				xl: '1280px',
 			},
-			fontSize: {
-				'xs': '12px',
-				'sm': '14px',
-				'md': '16px',
-				'lg': '18px',
-				'header-sm': '24px',
-				'header': '28px',
-				'header-lg': '32px',
-				'body-sm': '15px',
-				'body': '16px',
-				'body-lg': '17px',
-			},
-			borderRadius: {
-				none: '0',
-				sm: '3px',
-				md: '5px',
-				lg: '8px',
-				xl: '12px',
-				full: '100vw',
-			},
 			extend: {
 				colors: {
-					blue: {
+					'blue': {
+						20: 'rgba(223, 236, 253, 1)',
+						30: 'rgba(183, 208, 251, 1)',
+						50: 'rgba(231, 235, 252, 1)',
+						60: 'rgba(0, 72, 197, 1)',
+						75: 'rgba(227, 236, 245, 1)',
+						100: 'rgba(210, 225, 249, 1)',
+						200: 'rgba(189, 215, 249, 1)',
+						300: 'rgba(166, 200, 249, 1)',
+						400: 'rgba(56, 132, 255, 1)',
+						450: 'rgba(37,99,235, 1)',
 						500: 'rgba(31, 101, 214, 1)',
+						600: 'rgba(9, 84, 165, 1)',
+						800: 'rgba(19, 43, 83, 1)',
 					},
-					gray: {
+					'green': {
+						300: 'rgba(35, 154, 96, 0.5)',
+					},
+					'gray': {
 						50: 'rgba(240, 242, 244, 1)',
+						200: 'rgba(196, 202, 212, 1)',
 						400: 'rgba(138, 150, 168, 1)',
+						600: 'rgba(42, 44, 48, 1)',
 						700: 'rgba(65, 74, 88, 1)',
 						800: 'rgba(42, 47, 55, 1)',
 					},
-					white: {
-						DEFAULT: 'rgba(255, 255, 255, 1)',
-						secondary: 'rgba(238, 241, 254, 1)',
-						hover: 'rgba(231, 235, 252, 1)',
+					'white': {
+						'DEFAULT': 'rgba(255, 255, 255, 1)',
+						'1/4': 'rgba(255, 255, 255, 0.25)',
+						'light': 'rgba(235, 245, 254, 1)',
 					},
-					black: {
+					'black': {
 						DEFAULT: 'rgba(0, 0, 0, 1)',
 					},
-					text: {
+					'text': {
 						DEFAULT: 'rgba(2, 3, 7, 1)',
 						primary: 'rgba(2, 3, 7, 1)',
 					},
+					// Other
+					'navy-peony': 'rgba(32, 55, 91, 1)',
+					'blue-gray': 'rgba(119, 143, 183, 1)',
+					'primary': {
+						100: 'rgba(23, 28, 33, 1)',
+						200: 'rgba(50, 74, 245, 1)',
+						600: 'rgba(20, 82, 204, 1)',
+					},
+				},
+				zIndex: {
+					'navbar': '9999', // Nothing should be above the navbar or backdrop
+					'navbar-backdrop': '9998',
+				},
+
+				maxHeight: {
+					'3/4-screen': '75vh',
+					'4/5-screen': '80vh',
+				},
+
+				lineHeight: {
+					none: '0',
+				},
+
+				transitionProperty: {
+					filter: 'filter',
 				},
 				extend: {
 					transitionTimingFunction: {
