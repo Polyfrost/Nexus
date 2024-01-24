@@ -61,9 +61,8 @@ import { Code } from 'astro:components';
 
 	<div class="section bg-blue-75 flex flex-col justify-center items-center min-h-screen">
 		<Section colReverse={false} maxWidth="1120px" wFull={false} class="pt-10 md:py-20 max-sm:h-screen">
-			<div slot="left">
-				<!-- TODO: FIX Codeblock overflowing on mobile -->
-				<div class="max-sm:hidden">
+			<div slot="left" class="w-full">
+				<div class="overflow-x-auto grid lg:block">
 					<Code
 						code={
 `public class MyConfig extends Config {
@@ -169,3 +168,9 @@ import { Code } from 'astro:components';
 		</div>
 	</Section>
 </Layout>
+
+<style>
+	:global(.astro-code) {
+		@apply w-full;
+	}
+</style>
