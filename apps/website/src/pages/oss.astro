@@ -7,6 +7,7 @@ import configConst from '@config';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 
+// Left will be the only visible code block on small screens
 const leftCodeBlock = `public class MyConfig extends Config {
 
 	@Switch(
@@ -41,7 +42,7 @@ const rightCodeBlock = leftCodeBlock;
 
 <Layout title="Open Source" description="Our unwavering commitment to open source">
 	<Section maxWidth="1920px" wFull class="flex-row justify-center items-center h-screen md:min-h-[600px] relative">
-		<div class="codeblock_container -left-12">
+		<div class="codeblock_container codeblock_left -left-12">
 			<Code lang="java" theme="github-light" code={leftCodeBlock}></Code>
 		</div>
 		<div class="flex flex-col justify-center items-center gap-y-4">
@@ -120,6 +121,17 @@ const rightCodeBlock = leftCodeBlock;
 		position: absolute;
 		max-width: 20vw;
 		@apply max-md:hidden;
+
+		&.codeblock_left {
+			@media not all and (min-width: 768px) {
+				display: block;
+				left: 50%;
+				transform: translate(-50%, 0);
+				max-width: none;
+				z-index: -1;
+				filter: blur(2.5px);
+			}
+		}
 
 		& :global(.astro-code) {
 			background-color: transparent !important;
