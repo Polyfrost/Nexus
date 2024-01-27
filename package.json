@@ -14,7 +14,7 @@
 		"test": "turbo run test",
 		"typecheck": "pnpm -r typecheck",
 		"lint": "eslint --cache .",
-		"lint:fix": "pnpm lint --fix",
+		"format": "pnpm lint --fix",
 		"clean": "git clean -qfX .",
 		"prisma": "cd core && cargo prisma",
 		"tauri": "pnpm desktop tauri",

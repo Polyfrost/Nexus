@@ -3,14 +3,13 @@ import smartypants from 'smartypants';
 import siteInfo from '../../data/site-info';
 import FontPreload from './FontPreload.astro';
 import SEO from './SEO.astro';
-import Favicon from '/media/polyfrost/minimal_bg.svg?url';
 
 export type Props = {
-	title?: string
-	description?: string
-	image?: { src: string, alt: string }
-	canonicalURL?: URL | null
-	pageType?: 'website' | 'article'
+	title?: string;
+	description?: string;
+	image?: { src: string; alt: string };
+	canonicalURL?: URL | null;
+	pageType?: 'website' | 'article';
 };
 
 const twitterHandle = 'polyfrost';
@@ -39,10 +38,15 @@ const resolvedImage = {
 <FontPreload />
 
 <!-- Low Priority Global Metadata -->
-<link rel="icon" type="image/svg+xml" href={Favicon}/>
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="mask-icon" href="/media/polyfrost/minimal_bg.svg" />
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+
+<!-- Low Priority Global Favicon Metadata -->
+<link rel="icon" href="/favicon.ico" sizes="48x48" >
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2567d8">
+<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest" />
 
 <SEO
 	name={siteInfo.name}
