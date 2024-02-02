@@ -93,6 +93,10 @@ export const configConst = {
 					text: 'Privacy policy',
 					url: '/legal/privacy',
 				},
+				{
+					text: 'Analytics Opt-out / in',
+					url: '/legal/analytics',
+				}
 			],
 		},
 	],

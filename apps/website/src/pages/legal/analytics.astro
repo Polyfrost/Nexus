@@ -1,0 +1,54 @@
+---
+import Button from '@components/base/Button.astro';
+import Header from '@components/base/Header.astro';
+import Paragraph from '@components/base/Paragraph.astro';
+import Section from '@components/base/Section.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="Analytics Opt-in / out">
+	<Section hFull class="justify-center items-start pt-32">
+		<div class="flex flex-col justify-start items-start w-full text-navy-peony">
+			<Header>
+				Analytics Opt-in / out
+			</Header>
+			<Paragraph class="whitespace-pre-line">Click the button below to toggle your exclusion in analytics for this site.</Paragraph>
+			<div class="mt-7 flex items-center justify-start md:justify-center gap-x-6">
+				<Button style="primary" iconLeft="code" id="plausible_not">Opt-out</Button>
+				<Button style="primary" iconLeft="code" id="plausible_yes">Opt-in</Button>
+			</div>
+		</div>
+	</Section>
+</Layout>
+
+<script>
+	var exclusionState = window.localStorage.plausible_ignore == "true"
+
+	if (exclusionState) {
+		document.getElementById("plausible_not").style.display = "none"
+		document.getElementById("plausible_yes").style.display = ""
+	} else {
+		document.getElementById("plausible_yes").style.display = "none"
+		document.getElementById("plausible_not").style.display = ""
+	}
+
+	// Find all buttons with the `plausible_not` and `plausible_yes` id.
+	const buttons = document.querySelectorAll('#plausible_not, #plausible_yes');
+
+	// Handle clicks on each button.
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => {
+			var exclusionState = window.localStorage.plausible_ignore == "true"
+
+			if (exclusionState) {
+				delete window.localStorage.plausible_ignore
+				document.getElementById("plausible_yes").style.display = "none"
+				document.getElementById("plausible_not").style.display = ""
+			} else {
+				window.localStorage.plausible_ignore = "true"
+				document.getElementById("plausible_not").style.display = "none"
+				document.getElementById("plausible_yes").style.display = ""
+			}
+		});
+	});
+</script>
