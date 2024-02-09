@@ -1,0 +1,66 @@
+---
+import Layout from '@layouts/Layout.astro';
+import type { IncludedLibrary, TeamMember } from 'src/data/thanks-data';
+
+export interface Props {
+	size?: 'small' | 'medium';
+	members: TeamMember[];
+	libraries?: IncludedLibrary[];
+}
+
+const {
+	size = 'medium',
+	members,
+	libraries,
+} = Astro.props;
+---
+
+<Layout title="Thank You" description="attributions for all the amazing projects and people who help us <3" />
+	<div class=`thanks_team thanks_${size}_count-${members.length}`>
+		<div class='thanks_container'>
+			{members.map(tm => (
+				<div></div>
+			))}
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.thanks_small .thanks_container {
+		grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+	}
+
+	.thanks_small_count-1 .thanks_container {
+		max-width: 276px;
+	}
+	.thanks_small_count-2 .thanks_container {
+		max-width: calc(276px * 2 + 24px);
+	}
+	.thanks_small_count-3 .thanks_container {
+		max-width: calc(276px * 3 + 24px * 2);
+	}
+
+	.thanks_medium .thanks_container {
+		grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+	}
+
+	@media (min-width: 375px) {
+		.thanks_medium .thanks_container {
+			grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+		}
+	}
+
+	.thanks_medium_count-1 .thanks_container {
+		max-width: : 368px;
+	}
+	.thanks_medium_count-2 .thanks_container {
+		max-width: calc(368px * 2 + 24px);
+	}
+
+	.thanks_container {
+		display: grid;
+		gap: 24pxx;
+		margin: 0 auto;
+		max-width: 1152px;
+	}
+</style>
