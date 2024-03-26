@@ -1,0 +1,9 @@
+{
+	"name": "@polyfrost/ctjs",
+	"private": true,
+	"scripts": {},
+	"devDependencies": {
+		"@polyfrost/config": "workspace:*",
+		"typescript": "^5.3.3"
+	}
+}

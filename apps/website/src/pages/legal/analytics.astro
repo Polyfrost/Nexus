@@ -22,14 +22,15 @@ import Layout from '@layouts/Layout.astro';
 </Layout>
 
 <script>
-	var exclusionState = window.localStorage.plausible_ignore == "true"
+	const exclusionState = window.localStorage.plausible_ignore === 'true';
 
 	if (exclusionState) {
-		document.getElementById("plausible_not").style.display = "none"
-		document.getElementById("plausible_yes").style.display = ""
-	} else {
-		document.getElementById("plausible_yes").style.display = "none"
-		document.getElementById("plausible_not").style.display = ""
+		document.getElementById('plausible_not')!.style.display = 'none';
+		document.getElementById('plausible_yes')!.style.display = '';
+	}
+ else {
+		document.getElementById('plausible_yes')!.style.display = 'none';
+		document.getElementById('plausible_not')!.style.display = '';
 	}
 
 	// Find all buttons with the `plausible_not` and `plausible_yes` id.
@@ -38,16 +39,17 @@ import Layout from '@layouts/Layout.astro';
 	// Handle clicks on each button.
 	buttons.forEach((button) => {
 		button.addEventListener('click', () => {
-			var exclusionState = window.localStorage.plausible_ignore == "true"
+			const exclusionState = window.localStorage.plausible_ignore === 'true';
 
 			if (exclusionState) {
-				delete window.localStorage.plausible_ignore
-				document.getElementById("plausible_yes").style.display = "none"
-				document.getElementById("plausible_not").style.display = ""
-			} else {
-				window.localStorage.plausible_ignore = "true"
-				document.getElementById("plausible_not").style.display = "none"
-				document.getElementById("plausible_yes").style.display = ""
+				delete window.localStorage.plausible_ignore;
+				document.getElementById('plausible_yes')!.style.display = 'none';
+				document.getElementById('plausible_not')!.style.display = '';
+			}
+			else {
+				window.localStorage.plausible_ignore = 'true';
+				document.getElementById('plausible_not')!.style.display = 'none';
+				document.getElementById('plausible_yes')!.style.display = '';
 			}
 		});
 	});

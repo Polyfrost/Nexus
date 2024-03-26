@@ -96,7 +96,7 @@ export const configConst = {
 				{
 					text: 'Analytics Opt-out / in',
 					url: '/legal/analytics',
-				}
+				},
 			],
 		},
 	],
