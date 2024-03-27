@@ -1,0 +1,19 @@
+{
+	"name": "@polyfrost/blockbench",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite dev"
+	},
+	"dependencies": {
+		"events": "^3.3.0"
+	},
+	"devDependencies": {
+		"@polyfrost/config": "workspace:*",
+		"@types/node": "^20.11.30",
+		"blockbench-types": "^4.9.0",
+		"typescript": "^5.4.3",
+		"vite": "^5.2.6"
+	}
+}
