@@ -1,0 +1,28 @@
+:root {
+	--sl-color-accent-low: rgba(223, 236, 253, 1);
+	--sl-color-accent: rgba(37, 99, 235, 1);
+	--sl-color-accent-high: rgba(37, 99, 235, 1);
+	--sl-color-white: rgba(255, 255, 255, 1);
+	--sl-color-gray-1: rgba(240, 242, 244, 1);
+	--sl-color-gray-2: rgba(196, 202, 212, 1);
+	--sl-color-gray-3: rgba(138, 150, 168, 1);
+	--sl-color-gray-4: rgba(42, 44, 48, 1);
+	--sl-color-gray-5: rgba(65, 74, 88, 1);
+	--sl-color-gray-6: rgba(42, 47, 55, 1);
+	--sl-color-black: rgba(23, 28, 33, 1);
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: rgba(37, 99, 235, 1);
+	--sl-color-accent: rgba(37, 99, 235, 1);
+	--sl-color-accent-high: rgba(166, 200, 249, 1);
+	--sl-color-white: rgba(23, 28, 33, 1);
+	--sl-color-gray-1: rgba(42, 47, 55, 1);
+	--sl-color-gray-2: rgba(65, 74, 88, 1);
+	--sl-color-gray-3: rgba(42, 44, 48, 1);
+	--sl-color-gray-4: rgba(138, 150, 168, 1);
+	--sl-color-gray-5: rgba(196, 202, 212, 1);
+	--sl-color-gray-6: rgba(196, 202, 212, 1);
+	--sl-color-gray-7: rgba(240, 242, 244, 1);
+	--sl-color-black: rgba(255, 255, 255, 1);
+}

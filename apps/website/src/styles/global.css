@@ -55,7 +55,7 @@ main {
 	white-space: pre-wrap;
 	padding: 10px;
 	padding-bottom: 0;
-	color: #546E7A;
+	color: #546e7a;
 }
 
 .astro-code code::before {
@@ -76,7 +76,7 @@ main {
 }
 
 .astro-code code span.line::before {
-	content: counter(listing) " ";
+	content: counter(listing) ' ';
 	display: inline-block;
 	float: left;
 	width: 2em;

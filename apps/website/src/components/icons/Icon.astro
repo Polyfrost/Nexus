@@ -14,11 +14,7 @@ type _ModIcons =
 	| 'keystrokes';
 export type ModIcons = _ModIcons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
 
-type _External =
-	| 'discord'
-	| 'github'
-	| 'youtube'
-	| 'twitter';
+type _External = 'discord' | 'github' | 'youtube' | 'twitter';
 
 export type External = _External;
 
@@ -44,14 +40,14 @@ async function getSVG(name: string) {
 	const file = (await import(`./impl/${name}.svg?raw`)).default;
 
 	if (!file)
-		throw new Error(`${name} not found`);
+throw new Error(`${name} not found`);
 
 	const content = parse(file);
 
 	const svg = content.querySelector('svg');
 
 	if (!svg)
-		throw new Error(`${name} is not a valid SVG`);
+throw new Error(`${name} is not a valid SVG`);
 
 	const { attributes, innerHTML } = svg;
 
@@ -61,11 +57,7 @@ async function getSVG(name: string) {
 	};
 }
 
-const {
-	icon,
-	size,
-	...attributes
-} = Astro.props as Props;
+const { icon, size, ...attributes } = Astro.props as Props;
 
 let svgAttributes = {};
 let html = '';
@@ -73,7 +65,7 @@ let html = '';
 try {
 	const sizeAttributes = () => {
 		if (!size)
-			return {};
+return {};
 
 		if (Array.isArray(size)) {
 			return {
@@ -99,9 +91,9 @@ try {
 	html = innerHTML.replaceAll(colorRegex, '$1="currentColor"');
 }
  catch (err) {
-    console.error(err);
+	console.error(err);
 	// ignored
 }
 ---
 
-	<svg {...svgAttributes} set:html={html}></svg>
+<svg {...svgAttributes} set:html={html} />

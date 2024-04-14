@@ -9,13 +9,11 @@ import Layout from '@layouts/Layout.astro';
 <Layout title="Analytics Opt-in / out">
 	<Section hFull class="justify-center items-start pt-32">
 		<div class="flex flex-col justify-start items-start w-full text-navy-peony">
-			<Header>
-				Analytics Opt-in / out
-			</Header>
+			<Header>Analytics Opt-in / out</Header>
 			<Paragraph class="whitespace-pre-line">Click the button below to toggle your exclusion in analytics for this site.</Paragraph>
 			<div class="mt-7 flex items-center justify-start md:justify-center gap-x-6">
-				<Button style="primary" iconLeft="code" id="plausible_not">Opt-out</Button>
-				<Button style="primary" iconLeft="code" id="plausible_yes">Opt-in</Button>
+				<Button style="primary" iconLeft="code" id="plausible_not">Opt-out </Button>
+				<Button style="primary" iconLeft="code" id="plausible_yes">Opt-in </Button>
 			</div>
 		</div>
 	</Section>
@@ -45,8 +43,8 @@ import Layout from '@layouts/Layout.astro';
 				delete window.localStorage.plausible_ignore;
 				document.getElementById('plausible_yes')!.style.display = 'none';
 				document.getElementById('plausible_not')!.style.display = '';
-			}
-			else {
+			// eslint-disable-next-line style/brace-style
+			} else {
 				window.localStorage.plausible_ignore = 'true';
 				document.getElementById('plausible_not')!.style.display = 'none';
 				document.getElementById('plausible_yes')!.style.display = '';

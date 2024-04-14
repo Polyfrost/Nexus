@@ -12,39 +12,39 @@ interface Props {
 	index: number;
 }
 
-const {
-	element,
-	index,
-} = Astro.props;
+const { element, index } = Astro.props;
 
 function isCurrentPage(url: string): boolean {
 	return Astro.url.pathname === url;
 }
-
 ---
 
-	<li class="sm:relative max-sm:overflow-hidden flex flex-row justify-center items-center text-center">
-		{element.path
+<li class="sm:relative max-sm:overflow-hidden flex flex-row justify-center items-center text-center">
+	{
+		element.path
 ? (
 			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
 				{element.text && element.text}
-				{element.logo && <Logo class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
-				{element.dropdown && <Icon icon="chevron-down"/>}
+				{element.logo && <Logo class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+				{element.dropdown && <Icon icon="chevron-down" />}
 			</a>
 		)
 : (
-		<label for={`navbar-input-${index}`} class="group">
-			{element.dropdown && (
-				<>
-				<p class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}>
-					{element.text && element.text}
-					{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType}/>}
-					{element.dropdown && <Icon icon="chevron-down"/>}
-				</p>
+			<label for={`navbar-input-${index}`} class="group">
+				{element.dropdown && (
+					<>
+						<p
+							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
+						>
+							{element.text && element.text}
+							{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+							{element.dropdown && <Icon icon="chevron-down" />}
+						</p>
 
-				<ScreenOverlay class="max-sm:group-focus-within:opacity-100 z-navbar-backdrop"/>
-					<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer appearance-none absolute"/>
-					<div class={`
+						<ScreenOverlay class="max-sm:group-focus-within:opacity-100 z-navbar-backdrop" />
+						<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer appearance-none absolute" />
+						<div
+							class={`
 						transition-opacity
                 		fixed md:absolute right-0 max-sm:bottom-0
                			max-sm:overflow-hidden
@@ -58,10 +58,11 @@ function isCurrentPage(url: string): boolean {
 						md:group-hover:pointer-events-auto md:group-hover:opacity-100
                 		focus-within:pointer-events-auto focus-within:opacity-100
                 		md:hover:pointer-events-auto md:hover:opacity-100
-            		`}>
-						<ScrollbarOverlayContainer
-							tabindex="-1"
-							class={`
+            		`}
+						>
+							<ScrollbarOverlayContainer
+								tabindex="-1"
+								class={`
                     			bg-gray-50
 								border border-gray-100
                     			rounded-t-lg md:rounded-lg
@@ -70,32 +71,36 @@ function isCurrentPage(url: string): boolean {
                     			group-focus-within:translate-y-0
                     			max-h-full md:max-h-96 overflow-y-auto min-h-full
 								md:shadow-lg
-                			`}>
-							<ul class="p-4">
-								{element.dropdown.map(item => (
-									<li>
-										<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
-											<div class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'grayscale hover:brightness-75'}`}>
-												<div class="w-[36px]">
-													{item.logo && <Logo size={40} logo={item.logo}/>}
-												</div>
+                			`}
+							>
+								<ul class="p-4">
+									{element.dropdown.map(item => (
+										<li>
+											<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
+												<div
+													class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'grayscale hover:brightness-75'}`}
+												>
+													<div class="w-[36px]">{item.logo && <Logo size={40} logo={item.logo} />}</div>
 
-												<div class="flex flex-col justify-start items-start">
-													<div class="flex flex-row gap-2">
-														<Header inheritSize size="md" class="text-gray-800 text-md md:text-sm font-medium">{item.name}</Header>
-														{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
+													<div class="flex flex-col justify-start items-start">
+														<div class="flex flex-row gap-2">
+															<Header inheritSize size="md" class="text-gray-800 text-md md:text-sm font-medium">
+																{item.name}
+															</Header>
+															{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
+														</div>
+														<p class="text-md md:text-sm text-gray-400 font-light">{item.description}</p>
 													</div>
-													<p class="text-md md:text-sm text-gray-400 font-light">{item.description}</p>
 												</div>
-											</div>
-										</a>
-									</li>
-								))}
-							</ul>
-						</ScrollbarOverlayContainer>
-					</div>
-    </>
+											</a>
+										</li>
+									))}
+								</ul>
+							</ScrollbarOverlayContainer>
+						</div>
+					</>
 				)}
-  </label>
-)}
- </li>
+			</label>
+		)
+	}
+</li>

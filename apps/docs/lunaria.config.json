@@ -1,0 +1,73 @@
+{
+	"$schema": "https://raw.githubusercontent.com/yanthomasdev/lunaria/main/packages/core/config.schema.json",
+	"repository": {
+		"name": "polyfrost/nexus",
+		"branch": "main",
+		"hosting": "github",
+		"rootDir": "apps/docs"
+	},
+	"files": [
+		{
+			"location": "src/i18n/**/(ui|docsearch).ts",
+			"pattern": "src/i18n/@lang/@path",
+			"type": "dictionary"
+		},
+		{
+			"location": "src/i18n/**/nav.ts",
+			"pattern": "src/i18n/@lang/@path",
+			"type": "universal"
+		},
+		{
+			"location": "src/content/docs/**/*.{mdx,md}",
+			"pattern": "src/content/docs/@lang/@path",
+			"type": "universal"
+		}
+	],
+	"defaultLocale": {
+		"label": "English",
+		"lang": "en"
+	},
+	"locales": [
+		{
+			"label": "한국어",
+			"lang": "ko"
+		}
+	],
+	"dashboard": {
+		"site": "https://i18n.docs.polyfrost.org/",
+		"title": "Polyfrost Docs Translator",
+		"description": "Translation progress tracker for Polyfrost docs.",
+		"favicon": {
+			"external": [
+				{
+					"link": "https://docs.polyfrost.org/favicon.ico",
+					"type": "image/x-icon"
+				},
+				{
+					"link": "https://docs.polyfrost.org/favicon.svg",
+					"type": "image/svg+xml"
+				}
+			]
+		},
+		"customCss": ["./lunaria/styles.css"],
+		"basesToHide": ["src/content/docs", "src/i18n"],
+		"ui": {
+			"statusByLocale.heading": "Translation progress by locale",
+			"statusByLocale.incompleteLocalizationLink": "incomplete translation",
+			"statusByLocale.outdatedLocalizationLink": "outdated translation",
+			"statusByLocale.completeLocalization": "This translation is complete! 🎉",
+			"statusByFile.heading": "Translation status by file"
+		}
+	},
+	"ignoreKeywords": [
+		"lunaria-ignore",
+		"fix typo",
+		"typo",
+		"en-only",
+		"broken link",
+		"i18nReady",
+		"i18nIgnore"
+	],
+	"localizableProperty": "i18nReady",
+	"renderer": "./lunaria/renderer.config.ts"
+}

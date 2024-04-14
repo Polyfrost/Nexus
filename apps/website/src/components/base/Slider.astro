@@ -16,14 +16,13 @@ const {
 	childrenSize = '256px',
 	speed = '25s',
 } = Astro.props;
-
 ---
 
-<div class={
-	`w-full slider
+<div
+	class={`w-full slider
 	${dir === 'right' ? 'reverse' : ''}
-	${wrapperClass}`
-}>
+	${wrapperClass}`}
+>
 	<div class="wrapper flex flex-row gap-2.5">
 		<slot class="content" />
 		<slot class="content" />
@@ -47,7 +46,9 @@ const {
 					transform: translateX(0);
 				}
 				to {
-					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
+					transform: translateX(
+						calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum))
+					);
 				}
 			}
 		}
@@ -62,7 +63,9 @@ const {
 			animation: var(--speed) linear infinite slide-reverse;
 			@keyframes slide-reverse {
 				from {
-					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
+					transform: translateX(
+						calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum))
+					);
 				}
 				to {
 					transform: translateX(0);

@@ -1,7 +1,7 @@
 ---
 import Footer from '@components/base/Footer.astro';
 import Navbar from '../components/base/navbar/Navbar.astro';
-import BaseHead, { type Props as HeadProps } from '../components/shared/BaseHead.astro';
+import BaseHead, {	type Props as HeadProps } from '../components/shared/BaseHead.astro';
 import '../styles/global.css';
 
 export type Props = HeadProps;
@@ -16,13 +16,11 @@ const { ...head } = Astro.props;
 	</head>
 
 	<body class="bg-gray-50 overflow-x-hidden">
-
 		<Navbar />
 
-		<main class="min-h-screen h-auto flex flex-col gap-40" >
-			<slot/>
+		<main class="min-h-screen h-auto flex flex-col gap-40">
+			<slot />
 			<Footer />
 		</main>
-
 	</body>
 </html>

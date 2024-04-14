@@ -1,5 +1,7 @@
+/* eslint-disable eslint-comments/no-unlimited-disable */
 /// <reference types="../types" />
 /// <reference lib="es2015" />
+/* eslint-disable */
 
 import { JFile } from './classes.js';
 

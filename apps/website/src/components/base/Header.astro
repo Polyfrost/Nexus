@@ -29,62 +29,67 @@ const Element = sizes[size] as any; // Unfortunately gotta do this
 
 let className: string | string[] = [];
 if (!inheritSize)
-	className.push('header');
+className.push('header');
 
 if (align !== 'inherit')
-	className.push(`text-${align}`);
+className.push(`text-${align}`);
 
 if (size === 'xxl' || size === 'xl')
-	className.push('page-header');
+className.push('page-header');
 
 if (attr.class)
-	className.push(attr.class);
+className.push(attr.class);
 
 className = className.join(' ');
 ---
 
 <Element {...attr} class={className}>
-	<slot/>
+	<slot />
 </Element>
 
 <style>
-    h1.header {
-		font-size: theme("fontSize.header-lg");
+	h1.header {
+		font-size: theme('fontSize.header-lg');
 		&.page-header {
-			font-size: theme("fontSize.header-page");
+			font-size: theme('fontSize.header-page');
 		}
-        font-weight: 600;
-    }
+		font-weight: 600;
+	}
 
-    h2.header {
-        font-size: theme("fontSize.header");
+	h2.header {
+		font-size: theme('fontSize.header');
 		&.page-header {
-			font-size: theme("fontSize.header-page");
+			font-size: theme('fontSize.header-page');
 		}
-        font-weight: 600;
-    }
+		font-weight: 600;
+	}
 
-    h3.header {
-        font-size: theme("fontSize.header-sm");
-        font-weight: 600;
-    }
+	h3.header {
+		font-size: theme('fontSize.header-sm');
+		font-weight: 600;
+	}
 
-    h4.header {
-        font-size: theme("fontSize.body-lg");
-        font-weight: 500;
-    }
+	h4.header {
+		font-size: theme('fontSize.body-lg');
+		font-weight: 500;
+	}
 
-    h5.header {
-        font-size: theme("fontSize.body");
-        font-weight: 500;
-    }
+	h5.header {
+		font-size: theme('fontSize.body');
+		font-weight: 500;
+	}
 
-    h6.header {
-        font-size: theme("fontSize.body-sm");
-        font-weight: 500;
-    }
+	h6.header {
+		font-size: theme('fontSize.body-sm');
+		font-weight: 500;
+	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		& :global(b) {
 			@apply text-blue-500;
 			font-weight: inherit;

@@ -62,19 +62,26 @@ function formatCanonicalURL(url: string | URL) {
 	const path = url.toString();
 	const hasQueryParams = path.includes('?');
 	if (hasQueryParams)
-		path.replace(/\/?$/, '');
+path.replace(/\/?$/, '');
 	return path.replace(/\/?$/, hasQueryParams ? '' : '');
 }
 ---
 
-<!-- Page Metadata -->
-{canonicalURL && <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />}
+<!-- Page Metadata -->{
+	canonicalURL && (
+		<link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
+	)
+}
 <meta name="description" content={description} />
 
 <!-- OpenGraph Tags -->
 <meta property="og:title" content={og.title} />
 <meta property="og:type" content={og.type} />
-{og.canonicalURL && <meta property="og:url" content={formatCanonicalURL(og.canonicalURL)} />}
+{
+	og.canonicalURL && (
+		<meta property="og:url" content={formatCanonicalURL(og.canonicalURL)} />
+	)
+}
 <meta property="og:locale" content={og.locale} />
 <meta property="og:description" content={og.description} />
 <meta property="og:site_name" content={og.name} />

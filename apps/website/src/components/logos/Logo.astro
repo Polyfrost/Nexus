@@ -10,23 +10,19 @@ export interface Props extends HTMLAttributes<'svg'> {
 	silent?: boolean;
 }
 
-const {
-	logo,
-	size = undefined,
-	...attr
-} = Astro.props;
+const { logo, size = undefined, ...attr } = Astro.props;
 let svg: string | undefined;
 
 try {
 	if (logo === '' || logo === undefined)
-		return;
+return;
 
 	const mediaDir = join('..', '..', 'public', 'media');
 	const dir = new URL(mediaDir, import.meta.url).pathname;
 	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`)).toString();
 
 	if (svg === undefined)
-		return;
+return;
 
 	if (typeof size == 'number' || Array.isArray(size)) {
 		// SVG main element regex
@@ -38,7 +34,7 @@ try {
 				newMatch = newMatch.replace(/width="[^"]*"/, `width="${size}"`);
 				newMatch = newMatch.replace(/height="[^"]*"/, `height="${size}"`);
 			}
-			else if (Array.isArray(size)) {
+ else if (Array.isArray(size)) {
 				newMatch = newMatch.replace(/width="[^"]*"/, `width="${size[0]}"`);
 				newMatch = newMatch.replace(/height="[^"]*"/, `height="${size[1]}"`);
 			}
@@ -46,13 +42,17 @@ try {
 		});
 	}
 
-	svg = svg.replace(/<svg/, `<svg ${Object.entries(attr).map(([key, value]) => `${key}="${value}"`).join(' ')}`);
+	svg = svg.replace(
+		/<svg/,
+		`<svg ${Object.entries(attr)
+			.map(([key, value]) => `${key}="${value}"`)
+			.join(' ')}`,
+	);
 }
-catch (err) {
+ catch (err) {
 	console.error(`Error occurred while loading SVG. Logo name is ${logo}.`);
 	console.error(err);
 }
-
 ---
 
-<Fragment set:html={svg}/>
+<Fragment set:html={svg} />

@@ -3,4 +3,9 @@
 User-agent: *
 Allow: /
 
+# Except for this stuff
+User-agent: GPTBot
+Disallow: /
+
+
 Sitemap: https://polyfrost.org/sitemap-index.xml

@@ -5,44 +5,63 @@ import Section from '@components/base/Section.astro';
 import BrandingImage from '@components/page/branding/BrandingImage.astro';
 import Layout from '@layouts/Layout.astro';
 
-const mods = ['behind_you', 'chatting', 'crash_patch', 'damage_tint', 'evergreen_h_u_d', 'glint_colorizer', 'keystrokes', 'overflow_animations', 'poly_blur', 'poly_nametag', 'poly_sprint', 'poly_time', 'poly_weather', 'vanilla_h_u_d'];
+const mods = [
+	'behind_you',
+	'chatting',
+	'crash_patch',
+	'damage_tint',
+	'evergreen_h_u_d',
+	'glint_colorizer',
+	'keystrokes',
+	'overflow_animations',
+	'poly_blur',
+	'poly_nametag',
+	'poly_sprint',
+	'poly_time',
+	'poly_weather',
+	'vanilla_h_u_d',
+];
 
 function formatModName(name: string): string {
-	return name.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+	return name
+		.split('_')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join('');
 }
 ---
 
 <Layout title="Polyfrost Branding" description="Read about our branding policy">
 	<Section class="justify-center items-start pt-32">
 		<div class="flex flex-col justify-start items-start w-full text-navy-peony">
-			<Header>
-				Polyfrost Branding
-			</Header>
+			<Header> Polyfrost Branding </Header>
 			<Paragraph>
-				We usually don't mind people mentioning our name or using our logos - in fact, we really appreciate the free promo. All we ask is to use our provided work responsibly, and contact us first.
+				We usually don't mind people mentioning our name or using our logos - in
+				fact, we really appreciate the free promo. All we ask is to use our
+				provided work responsibly, and contact us first.
 			</Paragraph>
 		</div>
 	</Section>
 
 	<Section wrapperClass="bg-blue-75" class="py-12 flex-col">
-		<div class="w-full text-navy-peony text-center flex flex-col justify-center items-center">
-			<Header>
-				Our Brand
-			</Header>
+		<div
+			class="w-full text-navy-peony text-center flex flex-col justify-center items-center"
+		>
+			<Header> Our Brand </Header>
 			<Paragraph class="max-w-[500px]">
-				Introducing... our brand logos in all of their glory. We just ask to not edit, distort, recolor, or reconfigure any assets below.
+				Introducing... our brand logos in all of their glory. We just ask to not
+				edit, distort, recolor, or reconfigure any assets below.
 			</Paragraph>
 		</div>
 
 		<div class="flex flex-col gap-y-12 mt-8">
 			<div class="flex flex-col">
-				<Header size="sm" class="text-navy-peony">
-					Our Logo, with text
-				</Header>
+				<Header size="sm" class="text-navy-peony"> Our Logo, with text </Header>
 				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
 					Super cool.
 				</Paragraph>
-				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+				<div
+					class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2"
+				>
 					<BrandingImage name="logo_1" type="logos" />
 					<BrandingImage name="logo_2" type="logos" />
 				</div>
@@ -54,7 +73,9 @@ function formatModName(name: string): string {
 				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
 					Even cooler.
 				</Paragraph>
-				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+				<div
+					class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2"
+				>
 					<BrandingImage name="logo_3" type="logos" />
 					<BrandingImage name="logo_4" type="logos" />
 				</div>
@@ -66,7 +87,9 @@ function formatModName(name: string): string {
 				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
 					The one and only.
 				</Paragraph>
-				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+				<div
+					class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2"
+				>
 					<BrandingImage name="logo_5" type="logos" />
 					<BrandingImage name="logo_6" type="logos" />
 				</div>
@@ -78,7 +101,9 @@ function formatModName(name: string): string {
 				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
 					Nevermind there's two more
 				</Paragraph>
-				<div class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2">
+				<div
+					class="flex flex-row justify-evenly items-center flex-wrap my-8 gap-2"
+				>
 					<BrandingImage name="logo_7" type="logos" />
 					<BrandingImage name="logo_8" type="logos" />
 				</div>
@@ -86,31 +111,44 @@ function formatModName(name: string): string {
 		</div>
 	</Section>
 
-	<Section wrapperClass="-mt-40 bg-[#11171C]" class="py-12 flex-col text-blue-100 gap-y-8">
+	<Section
+		wrapperClass="-mt-40 bg-[#11171C]"
+		class="py-12 flex-col text-blue-100 gap-y-8"
+	>
 		<div class="flex flex-col items-start justify-start">
-			<Header size="md">
-				OneConfig badges
-			</Header>
+			<Header size="md"> OneConfig badges </Header>
 			<Paragraph size="sm" class="text-[#78818D]">
-				When you want to show off OneConfig in your mods. Credits to Devin's Badges for the design.
+				When you want to show off OneConfig in your mods. Credits to Devin's
+				Badges for the design.
 			</Paragraph>
 			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
-				{Array.from({ length: 4 }, (_, i) => (
-					<BrandingImage background="transparent" name={`badge_${i + 1}`} type="badges" />
-				))}
+				{
+					Array.from({ length: 4 }, (_, i) => (
+						<BrandingImage
+							background="transparent"
+							name={`badge_${i + 1}`}
+							type="badges"
+						/>
+					))
+				}
 			</div>
 		</div>
 		<div class="flex flex-col items-start justify-start">
-			<Header size="md">
-				All of our mod icons
-			</Header>
+			<Header size="md"> All of our mod icons </Header>
 			<Paragraph size="sm" class="text-[#78818D]">
 				We have... a lot of those... (original EvergreenHUD logo by isXander)
 			</Paragraph>
 			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
-				{mods.map(mod => (
-					<BrandingImage nameFormatted={formatModName(mod)} background="transparent" name={mod} type="mods" />
-				))}
+				{
+					mods.map(mod => (
+						<BrandingImage
+							nameFormatted={formatModName(mod)}
+							background="transparent"
+							name={mod}
+							type="mods"
+						/>
+					))
+				}
 			</div>
 		</div>
 	</Section>

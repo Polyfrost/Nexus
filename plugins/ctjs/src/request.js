@@ -20,22 +20,23 @@ import socketFactory from './factory.js';
 
 /**
  * @typedef {object} Options
- * @property {string} url
+ * @property {string} url The url to fetch
  * @property {string=} method defaults to 'GET'
  * @property {number=} timeout in ms, defaults to infinity
  * @property {number=} connectTimeout in ms, defaults to infinity
  * @property {number=} readTimeout in ms, defaults to infinity
- * @property {Record<string, string>=} headers
+ * @property {Record<string, string>=} headers List of headers to be used while fetching
  * @property {Record<string, string>=} qs escaped and appended to url
  * @property {any=} body Represents JSON POST data. Automatically sets 'Content-Type' header to 'application/json; charset=UTF-8' Body takes presedence over 'form'
  * @property {Record<string, string>=} form Represents form data. Automatically sets 'Content-Type' header to 'x-www-form-urlencoded'
  * @property {boolean=} followRedirect default to true
  * @property {boolean=} json automatically parse the output
+ * @returns nothing this is an object
  */
 
 /**
  * @param {Options | string} o
- * @returns {Promise<any>}
+ * @returns {Promise<any>} the request object
  */
 export default function request(o) {
 	let options = {};

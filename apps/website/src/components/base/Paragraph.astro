@@ -14,18 +14,11 @@ interface Props extends HTMLAttributes<'p'> {
 	size?: keyof typeof sizes;
 }
 
-const {
-	text = '',
-	size = 'md',
-	...props
-} = Astro.props;
+const { text = '', size = 'md', ...props } = Astro.props;
 
-const className = [
-	sizes[size],
-	props.class,
-].join(' ');
+const className = [sizes[size], props.class].join(' ');
 ---
 
 <p class={className} {...props}>
-	{text || <slot/>}
+	{text || <slot />}
 </p>

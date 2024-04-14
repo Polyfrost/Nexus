@@ -9,6 +9,11 @@ export default petal({
 	stylistic: {
 		semi: true,
 	},
+	formatters: {
+		css: true,
+		astro: false,
+		markdown: true,
+	},
 	ignores: [
 		'**/target',
 		'**/dist',

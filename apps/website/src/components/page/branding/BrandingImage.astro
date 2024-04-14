@@ -22,12 +22,28 @@ const {
 const path = `/media/branding/${type}/${name}`;
 ---
 
-<div class={`relative rounded-md bg-${background} border border-1 border-gray-400 flex flex-col justify-center items-center p-8`}>
+<div
+	class={`relative rounded-md bg-${background} border border-1 border-gray-400 flex flex-col justify-center items-center p-8`}
+>
 	<div class="absolute top-0 right-0 flex flex-row gap-x-2">
-		{extensions.map(ext => (
-			<a target="_blank" class="text-xs px-0.5 hover:underline" href={`${path}.${ext}`}>.{ext.toUpperCase()}</a>
-		))}
+		{
+			extensions.map(ext => (
+				<a
+					target="_blank"
+					class="text-xs px-0.5 hover:underline"
+					href={`${path}.${ext}`}
+				>
+					.{ext.toUpperCase()}
+				</a>
+			))
+		}
 	</div>
-	<img style={`max-width: ${maxWidth}px;`} src={`${path}.svg`} alt={altText}>
-	{nameFormatted && <span class="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-50 text-xxs">{nameFormatted}</span>}
+	<img style={`max-width: ${maxWidth}px;`} src={`${path}.svg`} alt={altText} />
+	{
+		nameFormatted && (
+			<span class="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-50 text-xxs">
+				{nameFormatted}
+			</span>
+		)
+	}
 </div>
