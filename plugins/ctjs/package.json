@@ -1,5 +1,14 @@
 {
 	"name": "@polyfrost/ctjs",
 	"private": true,
-	"scripts": {}
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite dev"
+	},
+	"devDependencies": {
+		"@polyfrost/config": "workspace:*",
+		"@types/node": "^20.12.7",
+		"typescript": "^5.4.5",
+		"vite": "^5.2.10"
+	}
 }

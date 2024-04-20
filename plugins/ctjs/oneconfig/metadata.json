@@ -1,0 +1,8 @@
+{
+	"$schema": "https://raw.githubusercontent.com/glasss13/CTAutocomplete/master/schema.json",
+	"creator": "Polyfrost",
+	"name": "OneConfig",
+	"description": "OneConfig Library",
+	"entry": "oneconfig.iife.js",
+	"version": "1.0.0"
+}

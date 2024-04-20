@@ -10685,6 +10685,7 @@ declare class Reference {
   readonly MODID: string;
   readonly MODNAME: string;
   readonly MODVERSION: string;
+  readonly MODULES_FOLDER: string;
 
   isLoaded: boolean;
 

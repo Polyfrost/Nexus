@@ -1,6 +1,3 @@
-/// <reference types="../types" />
-/// <reference lib="es2015" />
-
 import {
 	JByteArrayInputStream,
 	JCertificateFactory,
@@ -13,7 +10,7 @@ import {
 	JTrustManagerFactory,
 } from './classes';
 
-const certificates = [];
+const certificates: string[] = [];
 const keyStore = JKeyStore.getInstance(JKeyStore.getDefaultType());
 const keyStorePath = JPaths.get(JSystem.getProperty('java.home'), 'lib', 'security', 'cacerts');
 keyStore.load(JFiles.newInputStream(keyStorePath), new JString('keyStoreOneConfig').toCharArray());
@@ -30,7 +27,7 @@ for (const cert of certificates) {
 const trustManagerFactory = JTrustManagerFactory.getInstance(JTrustManagerFactory.getDefaultAlgorithm());
 trustManagerFactory.init(keyStore);
 const sslContext = JSSLContext.getInstance('TLS');
-sslContext.init(null, tmf.getTrustManagers(), null);
+sslContext.init(null, trustManagerFactory.getTrustManagers(), null);
 JSSLContext.setDefault(sslContext);
 const socketFactory = sslContext.getSocketFactory();
 

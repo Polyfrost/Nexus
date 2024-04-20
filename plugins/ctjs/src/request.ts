@@ -1,6 +1,3 @@
-/// <reference types="../types" />
-/// <reference lib="es2015" />
-
 // copied from https://www.chattriggers.com/modules/v/requestV2
 // so we dont have to depend on anything :3
 
@@ -18,33 +15,60 @@ import {
 
 import socketFactory from './factory.js';
 
-/**
- * @typedef {object} Options
- * @property {string} url The url to fetch
- * @property {string=} method defaults to 'GET'
- * @property {number=} timeout in ms, defaults to infinity
- * @property {number=} connectTimeout in ms, defaults to infinity
- * @property {number=} readTimeout in ms, defaults to infinity
- * @property {Record<string, string>=} headers List of headers to be used while fetching
- * @property {Record<string, string>=} qs escaped and appended to url
- * @property {any=} body Represents JSON POST data. Automatically sets 'Content-Type' header to 'application/json; charset=UTF-8' Body takes presedence over 'form'
- * @property {Record<string, string>=} form Represents form data. Automatically sets 'Content-Type' header to 'x-www-form-urlencoded'
- * @property {boolean=} followRedirect default to true
- * @property {boolean=} json automatically parse the output
- * @returns nothing this is an object
- */
+export interface Options<B = any> {
+	/** The url to fetch */
+	url: string;
+	/**
+	 * The HTTP request method.
+	 * @default "GET"
+	 */
+	method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | string;
+	/**
+	 * The default timeout
+	 * @default Infinity
+	 */
+	timeout?: number;
+	/**
+	 * The connection timeout
+	 * @default Infinity
+	 */
+	connectTimeout?: number;
+	/**
+	 * The read timeout
+	 * @default Infinity
+	 */
+	readTimeout?: number;
+	/**
+	 * List of headers to be used while fetching
+	 */
+	headers?: Record<string, string>;
+	/**
+	 * QueryString Escaped and appended to URL
+	 */
+	qs?: Record<string, string>;
+	/**
+	 * Represents JSON POST data. Automatically sets `Content-Type` header to `application/json; charset=UTF-8` Body takes presedence over `Options#form`
+	 */
+	body?: B;
+	/**
+	 * Represents form data. Automatically sets `Content-Type` header to `x-www-form-urlencoded`
+	 */
+	form?: Record<string, string>;
+	/**
+	 * Follow any redirects
+	 * @default true
+	 */
+	followRedirect?: boolean;
+	/**
+	 * Automatically parse the output as JSON
+	 * @default true
+	 */
+	json?: boolean;
+	resolveWithFullResponse?: boolean;
+};
 
-/**
- * @param {Options | string} o
- * @returns {Promise<any>} the request object
- */
-export default function request(o) {
-	let options = {};
-
-	if (typeof o === 'string')
-		options.url = o;
-	else
-		options = o;
+export default function request<B = any, T = any>(o: Options<B> | string): Promise<T> {
+	const options: Options<B> = typeof o === 'string' ? { url: o } : o;
 
 	options.method = options.method?.toUpperCase()?.trim() ?? 'GET';
 	options.timeout = options.timeout ?? 0;
@@ -55,11 +79,11 @@ export default function request(o) {
 	options.followRedirect = options.followRedirect ?? true;
 	options.json = options.json ?? false;
 
-	return new Promise((resolve, reject) => RequestObject(options, resolve, reject));
+	return new Promise<T>((resolve, reject) => RequestObject<T>(options, resolve, reject));
 }
 
-function RequestObject(options, resolve, reject) {
-	const getQueryString = (obj) => {
+function RequestObject<T extends string | any>(options: Options, resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) {
+	const getQueryString = (obj: Record<string, string>) => {
 		let queryString = '';
 
 		Object.keys(obj).forEach((qs) => {
@@ -71,9 +95,11 @@ function RequestObject(options, resolve, reject) {
 
 	new Thread(() => {
 		try {
-			const queryString = `?${getQueryString(options.qs)}`;
-			if (queryString.length > 1)
-				options.url += queryString;
+			if (options.qs) {
+				const queryString = `?${getQueryString(options.qs)}`;
+				if (queryString.length > 1)
+					options.url += queryString;
+			}
 
 			const url = new JURL(options.url);
 			const conn = url.openConnection();
@@ -88,7 +114,8 @@ function RequestObject(options, resolve, reject) {
 			conn.setInstanceFollowRedirects(options.followRedirect);
 			conn.setRequestProperty('Accept-Encoding', 'gzip');
 
-			Object.keys(options.headers).forEach(h => conn.setRequestProperty(h, options.headers[h]));
+			if (options.headers)
+				Object.keys(options.headers).forEach(h => conn.setRequestProperty(h, options.headers![h]));
 
 			if (options.method === 'POST') {
 				if (typeof options.body === 'object') {
@@ -109,8 +136,8 @@ function RequestObject(options, resolve, reject) {
 					}
 				}
 				else if (typeof options.form === 'object') {
-					const params = getQueryString(options.form);
-					const bytes = new JString(params).getBytes('UTF-8');
+					const params: string = getQueryString(options.form);
+					const bytes: Uint8Array = new JString(params).getBytes('UTF-8');
 					conn.setRequestProperty('Content-Type', 'application/x-www-form-urlencoded');
 					conn.setRequestProperty('Content-Length', bytes.length.toString());
 					let streamWriter;
@@ -128,8 +155,8 @@ function RequestObject(options, resolve, reject) {
 				}
 			}
 
-			const status = conn.getResponseCode();
-			let content = '';
+			const status: number = conn.getResponseCode();
+			let content: string = '';
 			let stream = conn[status > 299 ? 'getErrorStream' : 'getInputStream']();
 			stream = conn.getContentEncoding() === 'gzip' ? new JGZIPInputStream(stream) : stream;
 			const reader = new JBufferedReader(new JInputStreamReader(stream));
@@ -144,29 +171,12 @@ function RequestObject(options, resolve, reject) {
 			reader.close();
 			conn.disconnect();
 
-			if (options.json)
-				content = JSON.parse(content);
+			const filteredContent = options.json ? (JSON.parse(content) as T) : content as T;
 
-			if (status > 299) {
-				reject(content);
-			}
-			else if (options.resolveWithFullResponse) {
-				const headers = {};
-				const headerFields = conn.getHeaderFields();
-				headerFields.keySet().forEach((key) => {
-					headers[key] = headerFields.get(key)[0];
-				});
-
-				resolve({
-					statusCode: status,
-					statusMessage: conn.getResponseMessage(),
-					headers,
-					body: content,
-				});
-			}
-			else {
-				resolve(content);
-			}
+			if (status > 299)
+				reject(filteredContent);
+			else
+				resolve(filteredContent);
 		}
 		catch (err) {
 			reject(err);

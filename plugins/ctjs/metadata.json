@@ -1,8 +1,0 @@
-{
-	"$schema": "./types/schema.json",
-	"creator": "Polyfrost",
-	"name": "OneConfig",
-	"description": "OneConfig Library",
-	"entry": "src/index.js",
-	"version": "1.0.0"
-}

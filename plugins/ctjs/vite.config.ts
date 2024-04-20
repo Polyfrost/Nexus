@@ -7,10 +7,10 @@ export default defineConfig({
 		sourcemap: process.env.NODE_ENV === 'dev' ?? false,
 		lib: {
 			entry: './src/index.ts',
-			name: 'polyfrost',
-			fileName: 'polyfrost',
+			name: 'oneconfig',
+			fileName: 'oneconfig',
 			formats: ['iife'],
 		},
-		minify: 'terser',
+		minify: 'esbuild',
 	},
 });

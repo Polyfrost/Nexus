@@ -1,6 +1,3 @@
-/// <reference types="../types" />
-/// <reference lib="es2015" />
-
 export const JKeyStore = Java.type('java.security.KeyStore');
 export const JPaths = Java.type('java.nio.file.Paths');
 export const JSystem = Java.type('java.lang.System');
@@ -19,3 +16,5 @@ export const JInputStreamReader = Java.type('java.io.InputStreamReader');
 export const JOutputStreamWriter = Java.type('java.io.OutputStreamWriter');
 export const JGZIPInputStream = Java.type('java.util.zip.GZIPInputStream');
 export const JHttpsUrlConnection = Java.type('javax.net.ssl.HttpsURLConnection');
+export const JFloat = Java.type('java.lang.Float');
+export const JInteger = Java.type('java.lang.Integer');

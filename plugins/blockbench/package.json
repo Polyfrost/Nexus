@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"build": "vite build",
-		"dev": "vite dev"
+		"dev": "vite dev",
+		"rel": "pnpm build && mv dist/polyfrost.iife.js polyfrost"
 	},
 	"dependencies": {
 		"events": "^3.3.0"
@@ -14,6 +15,6 @@
 		"@types/node": "^20.12.7",
 		"blockbench-types": "^4.9.0",
 		"typescript": "^5.4.5",
-		"vite": "^5.2.8"
+		"vite": "^5.2.10"
 	}
 }
