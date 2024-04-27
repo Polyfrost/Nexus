@@ -3,11 +3,11 @@
 	"type": "module",
 	"version": "0.0.0",
 	"private": true,
+	"packageManager": "pnpm@9.0.6",
 	"engines": {
-		"pnpm": ">=8.0.0",
 		"npm": "pnpm",
 		"yarn": "pnpm",
-		"node": ">=18.17 <19 || >=20.1"
+		"node": ">=20"
 	},
 	"scripts": {
 		"typecheck": "pnpm -r typecheck",
@@ -24,14 +24,14 @@
 		"ui": "pnpm --filter @polyfrost/ui -- "
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^2.4.0",
-		"@storybook/react-vite": "^8.0.8",
-		"eslint": "^9.1.0",
-		"eslint-plugin-astro": "^0.34.0",
+		"@flowr/eslint-config": "^3.0.0",
+		"@storybook/react-vite": "^8.0.9",
+		"eslint": "^9.1.1",
+		"eslint-plugin-astro": "^1.0.3",
 		"eslint-plugin-format": "^0.1.1",
 		"eslint-plugin-jsx-a11y": "^6.8.0",
 		"eslint-plugin-react": "^7.34.1",
-		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.6",
 		"typescript": "^5.4.5",
 		"vite": "^5.2.10"
