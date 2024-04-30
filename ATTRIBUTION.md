@@ -1,6 +1,6 @@
 # Attribution
 
-The source code of this repository is licensed under the GNU Affero General Public License, Version 3 only, which is provided in the file [LICENSE](./LICENSE), with a header provided below. [Certain files in our library wrappers](./core/wrapper/) may be under a different license or [require credit](#additional-libraries), with their specific headers outlined in the below non-exhaustive list.
+The source code of this repository is licensed under the GNU Affero General Public License, Version 3 only, which is provided in the file [LICENSE](./LICENSE), with a header provided below. Certain files/libraries may be under a different license or [require credit](#additional-libraries), with their specific headers outlined in the below non-exhaustive list.
 
 ## Nexus
 
