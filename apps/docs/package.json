@@ -36,11 +36,11 @@
 		"unocss": "^0.59.4"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.24.4",
-		"@babel/generator": "^7.24.4",
-		"@babel/parser": "^7.24.4",
-		"@babel/traverse": "^7.24.1",
-		"@babel/types": "^7.24.0",
+		"@babel/core": "^7.24.5",
+		"@babel/generator": "^7.24.5",
+		"@babel/parser": "^7.24.5",
+		"@babel/traverse": "^7.24.5",
+		"@babel/types": "^7.24.5",
 		"@docsearch/css": "^3.6.0",
 		"@polyfrost/config": "workspace:*",
 		"@types/babel__core": "^7.20.5",

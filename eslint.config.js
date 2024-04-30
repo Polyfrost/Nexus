@@ -2,17 +2,11 @@ import petal from '@flowr/eslint-config';
 
 export default petal({
 	astro: true,
-	react: false,
 	typescript: true,
 	gitignore: true,
 	toml: true,
 	stylistic: {
 		semi: true,
-	},
-	formatters: {
-		css: true,
-		astro: false,
-		markdown: true,
 	},
 	ignores: [
 		'**/target',

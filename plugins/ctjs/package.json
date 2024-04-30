@@ -1,6 +1,7 @@
 {
 	"name": "@polyfrost/ctjs",
 	"private": true,
+	"license": "AGPL-3.0-only",
 	"scripts": {
 		"build": "vite build",
 		"dev": "vite dev"
