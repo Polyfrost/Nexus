@@ -3,7 +3,7 @@
 	"type": "module",
 	"version": "0.0.0",
 	"private": true,
-	"packageManager": "pnpm@9.0.6",
+	"packageManager": "pnpm@9.1.0",
 	"description": "Monorepo containing Polyfrost's TypeScript-based infrastructure",
 	"license": "AGPL-3.0-only",
 	"engines": {
@@ -26,11 +26,11 @@
 		"ui": "pnpm --filter @polyfrost/ui -- "
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^3.0.1",
-		"@storybook/react-vite": "^8.0.9",
-		"eslint": "^9.1.1",
-		"eslint-plugin-astro": "^1.1.0",
+		"@flowr/eslint-config": "^3.1.0",
+		"@storybook/react-vite": "^8.0.10",
+		"eslint": "^9.2.0",
+		"eslint-plugin-astro": "^1.1.2",
 		"typescript": "^5.4.5",
-		"vite": "^5.2.10"
+		"vite": "^5.2.11"
 	}
 }

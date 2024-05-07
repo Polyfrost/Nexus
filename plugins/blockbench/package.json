@@ -13,9 +13,9 @@
 	},
 	"devDependencies": {
 		"@polyfrost/config": "workspace:*",
-		"@types/node": "^20.12.7",
+		"@types/node": "^20.12.10",
 		"blockbench-types": "^4.9.0",
 		"typescript": "^5.4.5",
-		"vite": "^5.2.10"
+		"vite": "^5.2.11"
 	}
 }
