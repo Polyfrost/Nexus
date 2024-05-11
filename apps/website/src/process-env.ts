@@ -1,7 +1,12 @@
 import process from 'node:process';
 import { z } from 'zod';
 
-const schema = z.object({});
+const schema = z.object({
+	NODE_ENV: z.enum(['development', 'production', 'test']),
+	GITHUB_ORG: z.string().optional(),
+	GITHUB_REPO: z.string().optional(),
+	GITHUB_PAT: z.string().optional(),
+});
 
 export function env() {
 	const result = schema.safeParse(process.env);

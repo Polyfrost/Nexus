@@ -85,7 +85,8 @@ export default defineConfig({
 	markdown: {
 		smartypants: false,
 		remarkPlugins: [
-			[remarkSmartypants, { dashes: false }],
+			// @ts-expect-error broken types
+			remarkSmartypants({ dashes: false }),
 			remarkFallbackLang(),
 		],
 		rehypePlugins: [

@@ -5,6 +5,7 @@ export default petal({
 	typescript: true,
 	gitignore: true,
 	toml: true,
+	unocss: false,
 	stylistic: {
 		semi: true,
 	},

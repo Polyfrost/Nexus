@@ -1,7 +1,17 @@
-import type { Config } from 'tailwindcss';
+import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss';
 
-const config: Config = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+export default defineConfig({
+	rules: [],
+	shortcuts: {},
+	presets: [
+		presetUno(),
+		presetAttributify(),
+		presetIcons(),
+	],
+	transformers: [
+		transformerVariantGroup(),
+		transformerDirectives(),
+	],
 	theme: {
 		colors: {
 			'blue': {
@@ -84,26 +94,23 @@ const config: Config = {
 			mono: ['"Roboto Mono"', 'monospace'],
 		},
 		extend: {
-			zIndex: {
-				'navbar': '9999', // Nothing should be above the navbar or backdrop
-				'navbar-backdrop': '9998',
-			},
+			// zIndex: {
+			// 	'navbar': '9999', // Nothing should be above the navbar or backdrop
+			// 	'navbar-backdrop': '9998',
+			// },
 
-			maxHeight: {
-				'3/4-screen': '75vh',
-				'4/5-screen': '80vh',
-			},
+			// maxHeight: {
+			// 	'3/4-screen': '75vh',
+			// 	'4/5-screen': '80vh',
+			// },
 
-			lineHeight: {
-				none: '0',
-			},
+			// lineHeight: {
+			// 	none: '0',
+			// },
 
-			transitionProperty: {
-				filter: 'filter',
-			},
+			// transitionProperty: {
+			// 	filter: 'filter',
+			// },
 		},
 	},
-	plugins: [],
-};
-
-export default config;
+});

@@ -20,14 +20,12 @@
 		"website": "pnpm --filter @polyfrost/website -- ",
 		"interface": "pnpm --filter @polyfrost/interface -- ",
 		"assets": "pnpm --filter @polyfrost/assets -- ",
-		"storybook": "pnpm --filter @polyfrost/storybook -- ",
 		"doc": "pnpm --filter @polyfrost/docs -- ",
-		"contrib": "pnpm --filter @polyfrost/docs-contrib -- ",
-		"ui": "pnpm --filter @polyfrost/ui -- "
+		"contrib": "pnpm --filter @polyfrost/docs-contrib -- "
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^3.1.0",
-		"@storybook/react-vite": "^8.0.10",
+		"@flowr/eslint-config": "^3.2.1",
+		"astro-eslint-parser": "^1.0.2",
 		"eslint": "^9.2.0",
 		"eslint-plugin-astro": "^1.1.2",
 		"typescript": "^5.4.5",

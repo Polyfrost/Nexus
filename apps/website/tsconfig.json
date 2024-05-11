@@ -14,5 +14,5 @@
 			"@styles/*": ["src/styles/*"]
 		}
 	},
-	"exclude": ["node_modules", "dist", ".vercel", "public"]
+	"exclude": ["node_modules", "dist", "public"]
 }

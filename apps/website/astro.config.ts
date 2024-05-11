@@ -1,24 +1,23 @@
-import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 import { defineConfig } from 'astro/config';
-import postcssNesting from 'tailwindcss/nesting';
+import unocss from 'unocss/astro';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://polyfrost.org',
+	adapter: cloudflare(),
+	output: 'server',
 	integrations: [
-		tailwind(),
+		unocss({
+			injectReset: true,
+		}),
 		mdx(),
 		sitemap(),
 	],
 	vite: {
-		css: {
-			postcss: {
-				plugins: [postcssNesting()],
-			},
-		},
 		ssr: {
 			noExternal: ['smartypants'],
 		},
