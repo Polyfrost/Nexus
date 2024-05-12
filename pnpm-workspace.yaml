@@ -2,5 +2,3 @@ packages:
   - 'apps/*'
   - 'packages/*'
   - 'plugins/*'
-  - interface
-  - '.github/actions/*'

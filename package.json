@@ -16,9 +16,7 @@
 		"lint": "eslint --cache .",
 		"format": "eslint --fix --cache .",
 		"clean": "git clean -qfX .",
-		"desktop": "pnpm --filter @polyfrost/desktop -- ",
 		"website": "pnpm --filter @polyfrost/website -- ",
-		"interface": "pnpm --filter @polyfrost/interface -- ",
 		"assets": "pnpm --filter @polyfrost/assets -- ",
 		"doc": "pnpm --filter @polyfrost/docs -- ",
 		"contrib": "pnpm --filter @polyfrost/docs-contrib -- "
