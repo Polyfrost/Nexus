@@ -4,7 +4,7 @@ import type { Transformer } from 'unified';
 import { walk } from 'unist-util-walker';
 
 type Node = any;
-const headingRe = /h([0-6])/;
+const headingRe = /h[0-6]/;
 
 export function rehypeOptimizeStatic(): Transformer<Root, Root> {
 	return (tree: Node) => {
@@ -36,16 +36,16 @@ export function rehypeOptimizeStatic(): Transformer<Root, Root> {
 		});
 
 		for (const el of elements) {
-			if (el.type === 'mdxJsxFlowElement') {
+			if (el.type === 'mdxJsxFlowElement')
 				el.attributes.push({
 					type: 'mdxJsxAttribute',
 					name: 'set:html',
 					value: toHtml(el.children),
 				});
-			}
-			else {
+
+			else
 				el.properties['set:html'] = toHtml(el.children);
-			}
+
 			el.children = [];
 		}
 	};

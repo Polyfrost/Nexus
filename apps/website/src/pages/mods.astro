@@ -251,7 +251,7 @@ const modrinthUrl = `https://modrinth.com/${modrinthType}/${modrinthId}`;
 	</Section>
 </Layout>
 
-<script define:vars={{ modrinthType: modrinthType, modrinthId: modrinthId }}>
+<script define:vars={{ modrinthType, modrinthId }}>
 async function getModCount() {
 	const res = await fetch(
 			`https://api.modrinth.com/v3/${modrinthType}/${modrinthId}/projects`,

@@ -51,7 +51,7 @@ function rehypei18nAutolinkHeadings() {
 		const englishText = useTranslationsForLang('en')('a11y.sectionLink');
 
 		visit(tree, 'element', (node) => {
-			if (node.tagName === 'a' && node.properties?.class === 'anchor-link') {
+			if (node.tagName === 'a' && node.properties?.class === 'anchor-link')
 				visit(node, 'text', (text) => {
 					const heading = text.value.replace(englishText!, '');
 					const t = useTranslationsForLang(pageLang as UILanguageKeys);
@@ -59,7 +59,6 @@ function rehypei18nAutolinkHeadings() {
 
 					text.value = title + heading;
 				});
-			}
 		});
 	};
 

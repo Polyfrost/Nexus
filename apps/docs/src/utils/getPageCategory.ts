@@ -8,10 +8,9 @@ const categories = [
 
 export function getPageCategory(url: { pathname: string }) {
 	const langAgnosticPath = url.pathname.replace(/\/\w\w(-\w\w)?\//, '');
-	for (const [path, label] of categories) {
+	for (const [path, label] of categories)
 		if (langAgnosticPath.startsWith(path))
 			return label;
-	}
 
 	return defaultCategory;
 }

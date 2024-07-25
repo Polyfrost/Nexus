@@ -67,12 +67,12 @@ try {
 		if (!size)
 return {};
 
-		if (Array.isArray(size)) {
+		if (Array.isArray(size))
 			return {
 				width: size[0],
 				height: size[1],
 			};
-		}
+
 
 		return {
 			width: size,
@@ -87,7 +87,7 @@ return {};
 		...sizeAttributes(),
 	};
 
-	const colorRegex = /(fill|stroke)=\"([^"]*)\"/g;
+	const colorRegex = /(fill|stroke)="([^"]*)"/g;
 	html = innerHTML.replaceAll(colorRegex, '$1="currentColor"');
 }
  catch (err) {

@@ -6,9 +6,6 @@ export default petal({
 	gitignore: true,
 	toml: true,
 	unocss: false,
-	stylistic: {
-		semi: true,
-	},
 	ignores: [
 		'**/target',
 		'**/dist',

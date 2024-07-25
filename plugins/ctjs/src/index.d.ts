@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable -- dts file */
 
 // Type definitions for Chattriggers
 // Definitions by: Maxssho13, also a lot of credit to Matt for inspiration and reference

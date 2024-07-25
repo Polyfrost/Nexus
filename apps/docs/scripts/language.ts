@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import fs from 'node:fs';
 import process from 'node:process';
 import generator from '@babel/generator';

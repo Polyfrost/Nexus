@@ -34,7 +34,7 @@ const resolver: Alias = {
 
 				let hasPkgJson = pkgJsonCache.get(parent);
 
-				if (hasPkgJson === undefined) {
+				if (hasPkgJson === undefined)
 					try {
 						await fs.stat(path.join(parent, 'package.json'));
 						pkgJsonCache.set(parent, (hasPkgJson = true));
@@ -42,7 +42,6 @@ const resolver: Alias = {
 					catch {
 						pkgJsonCache.set(parent, (hasPkgJson = false));
 					}
-				}
 
 				if (hasPkgJson) {
 					root = parent;

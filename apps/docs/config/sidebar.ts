@@ -30,13 +30,12 @@ export function makeSidebar(): StarlightSidebarConfig {
 		}
 		else {
 			const group = sidebar.at(-1);
-			if (group && 'items' in group) {
+			if (group && 'items' in group)
 				group.items.push({
 					label: item.text,
 					link: item.slug,
 					translations: getTranslations(item),
 				});
-			}
 		}
 		return sidebar;
 	}, [] as StarlightSidebarConfig);

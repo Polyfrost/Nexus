@@ -1,5 +1,5 @@
-/* eslint-disable eslint-comments/no-unlimited-disable */
-/* eslint-disable */
+/* eslint-disable eslint-comments/no-unlimited-disable -- ctjs */
+/* eslint-disable -- ctjs */
 import { JFile, JFloat, JInteger } from './classes.js';
 import request from './request.js';
 

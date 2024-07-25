@@ -117,7 +117,7 @@ function RequestObject<T extends string | any>(options: Options, resolve: (value
 			if (options.headers)
 				Object.keys(options.headers).forEach(h => conn.setRequestProperty(h, options.headers![h]));
 
-			if (options.method === 'POST') {
+			if (options.method === 'POST')
 				if (typeof options.body === 'object') {
 					conn.setRequestProperty('Content-Type', 'application/json; charset=UTF-8');
 
@@ -153,7 +153,6 @@ function RequestObject<T extends string | any>(options: Options, resolve: (value
 						streamWriter.close();
 					}
 				}
-			}
 
 			const status: number = conn.getResponseCode();
 			let content: string = '';

@@ -9,6 +9,6 @@ export function groupPagesByLang<T extends CollectionEntry<'docs'>>(pages: T[]) 
 			pages[lang].push(page);
 			return pages;
 		},
-		{} as { [lang: string]: T[] },
+		{} as Record<string, T[]>,
 	);
 }

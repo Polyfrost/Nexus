@@ -11,18 +11,18 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.6.0",
-		"@astrojs/starlight": "^0.22.2",
-		"@iconify-json/logos": "^1.1.42",
-		"@unocss/reset": "^0.60.0",
-		"astro": "^4.8.2",
-		"astro-og-canvas": "^0.5.0",
-		"sharp": "^0.33.3",
-		"starlight-links-validator": "^0.8.0",
-		"unocss": "^0.60.0"
+		"@astrojs/check": "^0.8.2",
+		"@astrojs/starlight": "^0.25.2",
+		"@iconify-json/logos": "^1.1.43",
+		"@unocss/reset": "^0.61.5",
+		"astro": "^4.12.2",
+		"astro-og-canvas": "^0.5.3",
+		"sharp": "^0.33.4",
+		"starlight-links-validator": "^0.9.1",
+		"unocss": "^0.61.5"
 	},
 	"devDependencies": {
-		"@types/node": "~20.12.11",
-		"typescript": "^5.4.5"
+		"@types/node": "~20.14.12",
+		"typescript": "^5.5.4"
 	}
 }
