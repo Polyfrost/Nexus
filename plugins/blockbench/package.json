@@ -12,10 +12,6 @@
 		"events": "^3.3.0"
 	},
 	"devDependencies": {
-		"@polyfrost/config": "workspace:*",
-		"@types/node": "^22.0.2",
-		"blockbench-types": "^4.10.0",
-		"typescript": "^5.5.4",
-		"vite": "^5.3.5"
+		"blockbench-types": "^4.10.0"
 	}
 }

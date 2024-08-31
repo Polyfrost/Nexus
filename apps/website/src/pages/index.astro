@@ -12,10 +12,10 @@ import Layout from '@layouts/Layout.astro';
 <Layout title="Main Page">
 	<Section wrapperClass="min-h-screen" class="relative isolate px-6 lg:px-8">
 		<div
-			class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 opacity-50"
+			class="absolute inset-x-0 transform-gpu overflow-hidden opacity-50 blur-3xl -top-40 -z-10 sm:-top-80"
 		>
 			<svg
-				class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+				class="relative left-[calc(50%-11rem)] h-[21.1875rem] max-w-none rotate-[30deg] sm:left-[calc(50%-30rem)] -z-10 sm:h-[42.375rem] -translate-x-1/2"
 				viewBox="0 0 1155 678"
 			>
 				<path
@@ -40,9 +40,9 @@ import Layout from '@layouts/Layout.astro';
 			</svg>
 		</div>
 		<div class="mx-auto max-w-3xl py-36 lg:py-48">
-			<div class="mt-4 mb-8 flex md:justify-center">
+			<div class="mb-8 mt-4 flex md:justify-center">
 				<div
-					class="flex flex-row justify-center items-center font-medium relative rounded-full py-1 px-3 text-sm text-blue-450 hover:text-blue-600 border border-1 border-gray-800/20 hover:border-blue-600"
+					class="relative flex flex-row items-center justify-center border border-1 border-gray-800/20 rounded-full px-3 py-1 text-sm text-blue-450 font-medium hover:border-blue-600 hover:text-blue-600"
 				>
 					Introducing OneConfig
 					<Link href="/projects/oneconfig" class="transition-none">
@@ -54,17 +54,17 @@ import Layout from '@layouts/Layout.astro';
 			<div class="text-left md:text-center">
 				<Header
 					size="xxl"
-					class="tracking-tight text-navy-peony max-sm:!text-header"
+					class="text-navy-peony tracking-tight max-sm:!text-header"
 				>
 					Passionate creators redefining the modding community
 				</Header>
-				<Paragraph class="mt-6 text-lg leading-8 text-navy-peony">
+				<Paragraph class="mt-6 text-lg text-navy-peony leading-8">
 					With a dedicated team of developers and a passionate community of
 					players, Polyfrost continues to push the boundaries of what's possible
 					in Minecraft modding.
 				</Paragraph>
 				<div
-					class="mt-7 flex items-center justify-start md:justify-center gap-x-6"
+					class="mt-7 flex items-center justify-start gap-x-6 md:justify-center"
 				>
 					<Button
 						style="secondary"
@@ -84,10 +84,10 @@ import Layout from '@layouts/Layout.astro';
 			</div>
 		</div>
 		<div
-			class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-35rem)] opacity-50"
+			class="absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden opacity-50 blur-3xl sm:top-[calc(100%-35rem)] -z-10"
 		>
 			<svg
-				class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
+				class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none sm:left-[calc(50%+36rem)] sm:h-[42.375rem] -translate-x-1/2"
 				viewBox="0 0 1155 678"
 			>
 				<path
@@ -115,29 +115,29 @@ import Layout from '@layouts/Layout.astro';
 	<Section
 		wFull
 		maxWidth="1024px"
-		class="mt-0 sm:-mt-52 max-sm:!px-0 !px-5 items-center justify-center"
+		class="mt-0 items-center justify-center !px-5 sm:-mt-52 max-sm:!px-0"
 	>
-		<div class="flex flex-col justify-center items-center py-12 px-0 sm:py-12">
+		<div class="flex flex-col items-center justify-center px-0 py-12 sm:py-12">
 			<div
-				class="flex flex-wrap flex-col-reverse md:flex-row justify-center lg:justify-normal lg:flex-nowrap relative isolate overflow-hidden bg-blue-75 py-6 md:shadow sm:rounded-3xl px-6 gap-6 lg:gap-20 lg:px-8 lg:py-0 z-50 md:ring-gray-400/50 md:ring-1"
+				class="lg:justify-normal relative isolate z-50 flex flex-col-reverse flex-wrap justify-center gap-6 overflow-hidden bg-blue-75 px-6 py-6 md:flex-row lg:flex-nowrap lg:gap-20 sm:rounded-3xl lg:px-8 lg:py-0 md:shadow md:ring-1 md:ring-gray-400/50"
 			>
 				<div
-					class="flex flex-col justify-center items-center lg:justify-start lg:items-start max-w-screen-md text-center lg:py-8 lg:text-left"
+					class="max-w-screen-md flex flex-col items-center justify-center text-center lg:items-start lg:justify-start lg:py-8 lg:text-left"
 				>
-					<div class="flex flex-col justify-center items-start">
+					<div class="flex flex-col items-start justify-center">
 						<Icon
 							icon="oneconfig"
 							size={38}
-							class="hidden md:block text-blue-500 mb-4"
+							class="mb-4 hidden text-blue-500 md:block"
 						/>
 						<Header
 							size="lg"
-							class="text-3xl font-semibold tracking-tight text-navy-peony"
+							class="text-3xl text-navy-peony font-semibold tracking-tight"
 						>
 							OneConfig has <br />finally arrived.
 						</Header>
 					</div>
-					<Paragraph class="mt-6 text-lg leading-8 text-gray-700">
+					<Paragraph class="mt-6 text-lg text-gray-700 leading-8">
 						Learn more about what OneConfig is, and how it's revolutionized
 						modding and user experience.
 					</Paragraph>
@@ -162,9 +162,9 @@ import Layout from '@layouts/Layout.astro';
 						>
 					</div>
 				</div>
-				<div class="flex flex-col justify-center items-center">
+				<div class="flex flex-col items-center justify-center">
 					<img
-						class="max-w-80 rounded-md bg-white/5 ring-1 ring-white/10 pointer-events-none"
+						class="pointer-events-none max-w-80 rounded-md bg-white/5 ring-1 ring-white/10"
 						src="/media/oneconfig/page_media_3.svg"
 						alt="OneConfig Screenshot"
 						width={912}
@@ -179,19 +179,19 @@ import Layout from '@layouts/Layout.astro';
 		wFull
 		maxWidth="1024px"
 		wrapperClass="bg-blue-100 mb-10"
-		class="-mt-20 flex flex-col"
+		class="flex flex-col -mt-20"
 	>
-		<div class="relative isolate overflow-hidden pt-24 mt-10 lg:-ml-10">
+		<div class="relative isolate mt-10 overflow-hidden pt-24 lg:-ml-10">
 			<div class="mx-auto max-w-7xl">
-				<Header class="text-5xl font-bold tracking-tight text-navy-peony mt-8">Who we are
+				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight">Who we are
     </Header
 				>
-				<Paragraph class="mt-3 text-md leading-8 text-navy-peony">
+				<Paragraph class="mt-3 text-md text-navy-peony leading-8">
 					We're a group of passionate, self-driven designers, developers, and
 					modders creating mods and libraries for the Minecraft community.
 				</Paragraph>
 				<div
-					class="mt-3 flex flex-row gap-y-6 gap-x-8 text-base font-semibold leading-7 text-gray-600 lg:gap-x-10"
+					class="mt-3 flex flex-row gap-x-8 gap-y-6 text-base text-gray-600 font-semibold leading-7 lg:gap-x-10"
 				>
 					<Button
 						style="secondary"
@@ -204,17 +204,17 @@ import Layout from '@layouts/Layout.astro';
 				</div>
 			</div>
 		</div>
-		<div class="flex justify-start md:justify-end mb-20 lg:-mr-10">
+		<div class="mb-20 flex justify-start md:justify-end lg:-mr-10">
 			<div class="flex flex-col text-right">
-				<Header class="text-5xl font-bold tracking-tight text-navy-peony mt-8">
+				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight">
 					Our commitment
 				</Header>
-				<Paragraph class="mt-3 text-md leading-8 text-navy-peony">
+				<Paragraph class="mt-3 text-md text-navy-peony leading-8">
 					Above all, we're committed to bringing quality, open sourced tools
 					built <br /> around usability, accessibility to the greater modding community.
 				</Paragraph>
 				<div
-					class="flex flex-row justify-end items-end mt-3 gap-y-6 text-base font-semibold leading-7 text-brand-600 gap-x-4"
+					class="text-brand-600 mt-3 flex flex-row items-end justify-end gap-x-4 gap-y-6 text-base font-semibold leading-7"
 				>
 					<Button
 						iconLeft="book-open"

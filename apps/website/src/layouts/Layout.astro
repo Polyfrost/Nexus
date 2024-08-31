@@ -15,10 +15,10 @@ const { ...head } = Astro.props;
 		<BaseHead {...head} />
 	</head>
 
-	<body class="bg-gray-50 overflow-x-hidden">
+	<body class="overflow-x-hidden bg-gray-50">
 		<Navbar />
 
-		<main class="min-h-screen h-auto flex flex-col gap-40">
+		<main class="h-auto min-h-screen flex flex-col gap-40">
 			<slot />
 			<Footer />
 		</main>

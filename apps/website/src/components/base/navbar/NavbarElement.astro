@@ -19,13 +19,13 @@ function isCurrentPage(url: string): boolean {
 }
 ---
 
-<li class="sm:relative max-sm:overflow-hidden flex flex-row justify-center items-center text-center">
+<li class="flex flex-row items-center justify-center text-center sm:relative max-sm:overflow-hidden">
 	{
 		element.path
 ? (
 			<a href={element.path} class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
 				{element.text && element.text}
-				{element.logo && <Logo class="active:scale-95 transition-transform" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+				{element.logo && <Logo class="transition-transform active:scale-95" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
 				{element.dropdown && <Icon icon="chevron-down" />}
 			</a>
 		)
@@ -41,8 +41,8 @@ function isCurrentPage(url: string): boolean {
 							{element.dropdown && <Icon icon="chevron-down" />}
 						</p>
 
-						<ScreenOverlay class="max-sm:group-focus-within:opacity-100 z-navbar-backdrop" />
-						<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer appearance-none absolute" />
+						<ScreenOverlay class="z-navbar-backdrop max-sm:group-focus-within:opacity-100" />
+						<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer absolute appearance-none" />
 						<div
 							class={`
 						transition-opacity
@@ -76,20 +76,20 @@ function isCurrentPage(url: string): boolean {
 								<ul class="p-4">
 									{element.dropdown.map(item => (
 										<li>
-											<a href={item.path} class="flex sm:min-w-[400px] sm:max-w-[400px]">
+											<a href={item.path} class="flex sm:max-w-[400px] sm:min-w-[400px]">
 												<div
 													class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'grayscale hover:brightness-75'}`}
 												>
 													<div class="w-[36px]">{item.logo && <Logo size={40} logo={item.logo} />}</div>
 
-													<div class="flex flex-col justify-start items-start">
+													<div class="flex flex-col items-start justify-start">
 														<div class="flex flex-row gap-2">
-															<Header inheritSize size="md" class="text-gray-800 text-md md:text-sm font-medium">
+															<Header inheritSize size="md" class="text-md text-gray-800 font-medium md:text-sm">
 																{item.name}
 															</Header>
 															{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
 														</div>
-														<p class="text-md md:text-sm text-gray-400 font-light">{item.description}</p>
+														<p class="text-md text-gray-400 font-light md:text-sm">{item.description}</p>
 													</div>
 												</div>
 											</a>

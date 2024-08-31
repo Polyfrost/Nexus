@@ -82,17 +82,17 @@ export default function request<B = any, T = any>(o: Options<B> | string): Promi
 	return new Promise<T>((resolve, reject) => RequestObject<T>(options, resolve, reject));
 }
 
+function getQueryString(obj: Record<string, string>) {
+	let queryString = '';
+
+	Object.keys(obj).forEach((qs) => {
+		queryString += `${JURLEncoder.encode(qs, 'UTF-8')}=${JURLEncoder.encode(obj[qs], 'UTF-8')}&`;
+	});
+
+	return queryString.length > 0 ? queryString.substr(0, queryString.length - 1) : queryString;
+}
+
 function RequestObject<T extends string | any>(options: Options, resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) {
-	const getQueryString = (obj: Record<string, string>) => {
-		let queryString = '';
-
-		Object.keys(obj).forEach((qs) => {
-			queryString += `${JURLEncoder.encode(qs, 'UTF-8')}=${JURLEncoder.encode(obj[qs], 'UTF-8')}&`;
-		});
-
-		return queryString.length > 0 ? queryString.substr(0, queryString.length - 1) : queryString;
-	};
-
 	new Thread(() => {
 		try {
 			if (options.qs) {

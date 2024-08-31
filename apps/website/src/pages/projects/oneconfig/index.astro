@@ -17,14 +17,14 @@ import { Code } from 'astro:components';
 	description="Simple universal Minecraft modding configuration."
 >
 	<Section
-		class="flex-col justify-center items-center h-screen md:min-h-[600px]"
+		class="h-screen flex-col items-center justify-center md:min-h-[600px]"
 	>
-		<div class="flex flex-col justify-center items-center gap-y-4">
+		<div class="flex flex-col items-center justify-center gap-y-4">
 			<Logo size={56} logo="oneconfig.minimal" />
 			<Header align="center" size="xxl" class="max-w-[600px]">
 				Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
 			</Header>
-			<div class="flex flex-row justify-center items-center gap-2">
+			<div class="flex flex-row items-center justify-center gap-2">
 				<Button
 					href="/projects/oneconfig/download"
 					iconLeft="download"
@@ -45,14 +45,14 @@ import { Code } from 'astro:components';
 			<Header size="xl" class="text-navy-peony">Forge is complicated</Header>
 			<Paragraph
 				size="md"
-				class="text-gray-400 max-w-[500px]"
+				class="max-w-[500px] text-gray-400"
 			>Modding Minecraft has always been difficult, particularly with their
 				configuration. Remembering all of the keybinds, commands; it just isn't
 				intuitive.
    </Paragraph
 			>
 		</div>
-		<div slot="right" class="w-3/4 max-w-80 md:max-w-none md:w-auto">
+		<div slot="right" class="max-w-80 w-3/4 md:max-w-none md:w-auto">
 			<img
 				class="w-full md:w-[20rem]"
 				src="/media/oneconfig/page_media_1.svg"
@@ -64,7 +64,7 @@ import { Code } from 'astro:components';
 	<Section tabindex="0" colReverse={false}>
 		<div slot="left" class="flex justify-center">
 			<img
-				class="max-sm:w-full w-64"
+				class="w-64 max-sm:w-full"
 				src="/media/oneconfig/page_media_2.svg"
 				alt="stuff"
 			/>
@@ -74,7 +74,7 @@ import { Code } from 'astro:components';
 			<Header size="xl" class="text-navy-peony">Clients are locked-down</Header>
 			<Paragraph
 				size="md"
-				class="text-gray-400 max-w-[500px]"
+				class="max-w-[500px] text-gray-400"
 			>While they improve usability, they're slow to adopt new mods absent
 				from the community and force unwanted features onto users to profit off
 				of them.
@@ -88,7 +88,7 @@ import { Code } from 'astro:components';
 			<Header size="xl" class="text-navy-peony">Best of both worlds</Header>
 			<Paragraph
 				size="md"
-				class="text-gray-400 max-w-[500px]"
+				class="max-w-[500px] text-gray-400"
 			>OneConfig brings the simplicity of a client to the everyday user, gives
 				advanced users and developers complete control over everything, while
 				remaining free and open-source.
@@ -98,10 +98,10 @@ import { Code } from 'astro:components';
 
 		<div
 			slot="right"
-			class="w-3/4 max-w-80 md:max-w-none md:w-auto flex justify-center"
+			class="max-w-80 w-3/4 flex justify-center md:max-w-none md:w-auto"
 		>
 			<img
-				class="w-full md:w-[20rem] lg:w-[30rem]"
+				class="w-full lg:w-[30rem] md:w-[20rem]"
 				src="/media/oneconfig/page_media_3.svg"
 				alt="stuff"
 			/>
@@ -109,16 +109,16 @@ import { Code } from 'astro:components';
 	</Section>
 
 	<div
-		class="section bg-blue-75 flex flex-col justify-center items-center min-h-screen"
+		class="section min-h-screen flex flex-col items-center justify-center bg-blue-75"
 	>
 		<Section
 			colReverse={false}
 			maxWidth="1120px"
 			wFull={false}
-			class="pt-10 md:py-20 max-sm:h-screen"
+			class="pt-10 max-sm:h-screen md:py-20"
 		>
 			<div slot="left" class="w-full">
-				<div class="overflow-x-auto grid lg:block">
+				<div class="grid overflow-x-auto lg:block">
 					<Code
 						code={`public class MyConfig extends Config {
 	@Switch(
@@ -139,9 +139,9 @@ import { Code } from 'astro:components';
 				</div>
 			</div>
 
-			<div slot="right" class="flex flex-col gap-2 text-left items-start">
+			<div slot="right" class="flex flex-col items-start gap-2 text-left">
 				<Header size="xl" class="text-blue-500">Written for developers</Header>
-				<Paragraph class="text-blue-400 max-w-[500px]">
+				<Paragraph class="max-w-[500px] text-blue-400">
 					With our simple APIs and documentation, it's easier than ever to
 					integrate your mods with OneConfig.
 				</Paragraph>
@@ -159,11 +159,11 @@ import { Code } from 'astro:components';
 		<Section
 			maxWidth="1120px"
 			wFull={false}
-			class="py-10 md:py-20 gap-4 max-sm:h-screen"
+			class="gap-4 py-10 max-sm:h-screen md:py-20"
 		>
-			<div slot="left" class="flex flex-col gap-2 text-left items-start">
+			<div slot="left" class="flex flex-col items-start gap-2 text-left">
 				<Header size="xl" class="text-blue-500">Designed for users</Header>
-				<Paragraph class="text-blue-400 max-w-[500px]">
+				<Paragraph class="max-w-[500px] text-blue-400">
 					We take pride in having the cleanest and most intuitive UI of any mod,
 					config library, or client out there.
 				</Paragraph>
@@ -187,7 +187,7 @@ import { Code } from 'astro:components';
 
 	<Section
 		id="unified_hud_editor"
-		class="flex-col justify-center items-center md:min-h-[600px] -my-32 md:-my-24 lg:-my-12"
+		class="flex-col items-center justify-center -my-32 md:min-h-[600px] lg:-my-12 md:-my-24"
 	>
 		<img
 			data-scroll
@@ -195,12 +195,12 @@ import { Code } from 'astro:components';
 			data-scroll-target="#unified_hud_editor"
 			data-scroll-direction="horizontal"
 			src="/media/oneconfig/page_media_5.png"
-			class="max-h-[285px] md:max-h-96 lg:max-h-[581px] rounded-2xl"
+			class="max-h-[285px] rounded-2xl lg:max-h-[581px] md:max-h-96"
 		/>
 		<div
 			data-scroll
 			data-scroll-speed="2"
-			class="flex flex-col justify-center items-center gap-y-4"
+			class="flex flex-col items-center justify-center gap-y-4"
 		>
 			<Header size="xl" align="center" class="w-96">A unified HUD editor</Header
 			>
@@ -216,17 +216,17 @@ import { Code } from 'astro:components';
 		wrapperClass="bg-blue-100 -mb-40"
 		wFull
 		maxWidth="none"
-		class="py-10 md:py-20 gap-4 !px-0 flex flex-col items-center justify-center"
+		class="flex flex-col items-center justify-center gap-4 py-10 !px-0 md:py-20"
 	>
 		<div
-			class="max-w-[1024px] w-full flex flex-col gap-2 text-left items-start px-5"
+			class="max-w-[1024px] w-full flex flex-col items-start gap-2 px-5 text-left"
 		>
 			<Header size="xl" class="text-blue-500">With many fabulous mods</Header>
-			<Paragraph class="text-blue-400 max-w-[500px]">
+			<Paragraph class="max-w-[500px] text-blue-400">
 				Discover a wide range of mods integrated with OneConfig to enhance your
 				experience.
 			</Paragraph>
-			<div class="flex items-start flex-col md:flex-row max-sm:gap-y-1 gap-x-1">
+			<div class="flex flex-col items-start gap-x-1 md:flex-row max-sm:gap-y-1">
 				<!-- TODO: HREF -->
 				<Button
 					iconLeft="link-external"
@@ -237,10 +237,10 @@ import { Code } from 'astro:components';
 			</div>
 		</div>
 		<div
-			class="flex flex-col justify-center items-center bg-blue-100 pb-10 max-w-full overflow-x-hidden"
+			class="max-w-full flex flex-col items-center justify-center overflow-x-hidden bg-blue-100 pb-10"
 		>
 			<div
-				class="flex flex-col justify-between items-center overflow-x-hidden h-[290px] max-w-[1920px]"
+				class="h-[290px] max-w-[1920px] flex flex-col items-center justify-between overflow-x-hidden"
 			>
 				<Slider wrapperClass="-mb-40 mb-2 bg-blue-100" childrenNum={8}>
 					<Card text="Chatting" icon="chatting" />
@@ -266,15 +266,15 @@ import { Code } from 'astro:components';
 		</div>
 	</Section>
 
-	<Section class="flex-col justify-center items-center max-sm:mt-16 my-32">
-		<div class="flex relative md:-left-12">
+	<Section class="my-32 flex-col items-center justify-center max-sm:mt-16">
+		<div class="relative flex md:-left-12">
 			<img src="/media/oneconfig/page_media_4.png" class="rounded-2xl" />
 			<div
-				class="border border-gray-200 rounded-3xl md:rounded-4xl shadow-sm bg-gray-50 flex flex-col justify-center items-center md:items-start p-4 md:p-8 absolute -bottom-16 md:-bottom-12 translate-x-1/2 right-1/2 md:translate-x-0 md:-right-12 gap-y-2 md:gap-y-8"
+				class="absolute right-1/2 flex flex-col translate-x-1/2 items-center justify-center gap-y-2 border border-gray-200 rounded-3xl bg-gray-50 p-4 shadow-sm -bottom-16 md:translate-x-0 md:items-start md:gap-y-8 md:rounded-4xl md:p-8 md:-bottom-12 md:-right-12"
 			>
 				<Logo
 					logo="oneconfig.logo_text"
-					class="w-48 h-12 md:min-w-72 md:h-auto"
+					class="h-12 w-48 md:h-auto md:min-w-72"
 				/>
 				<Button
 					href="/projects/oneconfig/download"

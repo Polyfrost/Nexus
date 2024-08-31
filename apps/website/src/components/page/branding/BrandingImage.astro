@@ -25,12 +25,12 @@ const path = `/media/branding/${type}/${name}`;
 <div
 	class={`relative rounded-md bg-${background} border border-1 border-gray-400 flex flex-col justify-center items-center p-8`}
 >
-	<div class="absolute top-0 right-0 flex flex-row gap-x-2">
+	<div class="absolute right-0 top-0 flex flex-row gap-x-2">
 		{
 			extensions.map(ext => (
 				<a
 					target="_blank"
-					class="text-xs px-0.5 hover:underline"
+					class="px-0.5 text-xs hover:underline"
 					href={`${path}.${ext}`}
 				>
 					.{ext.toUpperCase()}
@@ -41,7 +41,7 @@ const path = `/media/branding/${type}/${name}`;
 	<img style={`max-width: ${maxWidth}px;`} src={`${path}.svg`} alt={altText} />
 	{
 		nameFormatted && (
-			<span class="absolute bottom-0 left-1/2 -translate-x-1/2 opacity-50 text-xxs">
+			<span class="absolute bottom-0 left-1/2 text-xxs opacity-50 -translate-x-1/2">
 				{nameFormatted}
 			</span>
 		)

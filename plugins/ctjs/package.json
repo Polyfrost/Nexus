@@ -5,11 +5,5 @@
 	"scripts": {
 		"build": "vite build",
 		"dev": "vite dev"
-	},
-	"devDependencies": {
-		"@polyfrost/config": "workspace:*",
-		"@types/node": "^22.0.2",
-		"typescript": "^5.5.4",
-		"vite": "^5.3.5"
 	}
 }

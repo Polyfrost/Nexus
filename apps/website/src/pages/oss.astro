@@ -46,17 +46,17 @@ const rightCodeBlock = leftCodeBlock;
 	<Section
 		maxWidth="1920px"
 		wFull
-		class="flex-row justify-center items-center h-screen md:min-h-[600px] relative"
+		class="relative h-screen flex-row items-center justify-center md:min-h-[600px]"
 	>
 		<div class="codeblock_container codeblock_left -left-12">
 			<Code lang="java" theme="github-light" code={leftCodeBlock} />
 		</div>
-		<div class="flex flex-col justify-center items-center gap-y-4">
-			<Header align="center" size="xxl" class="text-navy-peony max-w-[600px]">
+		<div class="flex flex-col items-center justify-center gap-y-4">
+			<Header align="center" size="xxl" class="max-w-[600px] text-navy-peony">
 				Open Source, Forever
 			</Header>
 			<Paragraph
-				class="max-w-[400px] lg:max-w-[600px] text-center text-navy-peony"
+				class="max-w-[400px] text-center text-navy-peony lg:max-w-[600px]"
 			>
 				We believe it is the right of the user and developer to know what code
 				they are trusting to run behind the scenes.
@@ -69,7 +69,7 @@ const rightCodeBlock = leftCodeBlock;
    </Button
 			>
 		</div>
-		<div class="codeblock_container after:-scale-x-125 -right-12">
+		<div class="codeblock_container -right-12 after:-scale-x-125">
 			<Code lang="java" theme="github-light" code={rightCodeBlock} />
 		</div>
 	</Section>
@@ -77,7 +77,7 @@ const rightCodeBlock = leftCodeBlock;
 	<Section tabindex="0" colReverse={false}>
 		<div slot="left" class="flex justify-center">
 			<img
-				class="max-sm:w-full w-64"
+				class="w-64 max-sm:w-full"
 				src="/media/oss/page_media_1.svg"
 				alt="stuff"
 			/>
@@ -87,7 +87,7 @@ const rightCodeBlock = leftCodeBlock;
 			<Header size="xl" class="text-navy-peony">
 				Rooted from the developers
 			</Header>
-			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+			<Paragraph size="md" class="max-w-[500px] text-gray-400">
 				Our developers learned and built on open source for years. Many even
 				made their own contributions on our projects before joining our team.
 			</Paragraph>
@@ -99,7 +99,7 @@ const rightCodeBlock = leftCodeBlock;
 			<Header size="xl" class="text-navy-peony">
 				Makes development faster
 			</Header>
-			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+			<Paragraph size="md" class="max-w-[500px] text-gray-400">
 				Open source lets us join forces with other developers in our community.
 				This means new features and bug fixes come much faster, and way better.
 			</Paragraph>
@@ -107,7 +107,7 @@ const rightCodeBlock = leftCodeBlock;
 
 		<div slot="right" class="flex justify-center">
 			<img
-				class="max-sm:w-full w-64"
+				class="w-64 max-sm:w-full"
 				src="/media/oss/page_media_2.svg"
 				alt="stuff"
 			/>
@@ -117,7 +117,7 @@ const rightCodeBlock = leftCodeBlock;
 	<Section tabindex="0" colReverse={false}>
 		<div slot="left" class="flex justify-center">
 			<img
-				class="max-sm:w-full w-64"
+				class="w-64 max-sm:w-full"
 				src="/media/oss/page_media_3.svg"
 				alt="stuff"
 			/>
@@ -125,7 +125,7 @@ const rightCodeBlock = leftCodeBlock;
 
 		<div slot="right">
 			<Header size="xl" class="text-navy-peony"> Makes our code safer </Header>
-			<Paragraph size="md" class="text-gray-400 max-w-[500px]">
+			<Paragraph size="md" class="max-w-[500px] text-gray-400">
 				There's no definite way to prevent anything from becoming malicious.
 				But, open sourcing our code brings extra eyes to catch, and fix exploits
 				before they’re abused.
@@ -135,13 +135,13 @@ const rightCodeBlock = leftCodeBlock;
 
 	<Section
 		wrapperClass="flex justify-center items-center mb-40"
-		class="flex-col justify-center items-center"
+		class="flex-col items-center justify-center"
 	>
-		<div class="flex flex-col gap-y-1 relative justify-center items-center">
-			<Header size="xl" class="text-navy-peony text-header-page text-center">
+		<div class="relative flex flex-col items-center justify-center gap-y-1">
+			<Header size="xl" class="text-center text-header-page text-navy-peony">
 				Contribute to our GitHub!
 			</Header>
-			<div class="flex flex-row justify-center items-center gap-x-2">
+			<div class="flex flex-row items-center justify-center gap-x-2">
 				<Button
 					style="secondary"
 					iconLeft="github"

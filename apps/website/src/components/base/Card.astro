@@ -12,10 +12,10 @@ const { icon, text = 'Hiiii', ...rest } = Astro.props;
 ---
 
 <!-- pt-1 added temporarily cause for some reason the icon's padding doesn't apply unless I add this. the wonders of CSS. -->
-<div {...rest} class="rounded-xl bg-primary-100 w-[256px] shrink-0">
-	<Icon icon={icon} size={48} class="my-[28px] mx-auto text-white" />
+<div {...rest} class="w-[256px] shrink-0 rounded-xl bg-primary-100">
+	<Icon icon={icon} size={48} class="mx-auto my-[28px] text-white" />
 	<p
-		class="text-white mx-auto bg-primary-200 rounded-b-xl text-[14px] py-[7px] pl-[12px] pr-[32px]"
+		class="mx-auto rounded-b-xl bg-primary-200 py-[7px] pl-[12px] pr-[32px] text-[14px] text-white"
 	>
 		{text}
 	</p>

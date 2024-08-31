@@ -8,10 +8,10 @@ import Layout from '@layouts/Layout.astro';
 
 <Layout title="About us" description="Learn about the team!">
 	<Section
-		class="flex-col justify-center items-center h-screen max-h-4/5-screen md:max-h-[600px] md:min-h-[400px]"
+		class="h-screen max-h-4/5-screen flex-col items-center justify-center md:max-h-[600px] md:min-h-[400px]"
 	>
 		<div
-			class="max-w-[600px] flex flex-col text-center justify-center items-center gap-y-2"
+			class="max-w-[600px] flex flex-col items-center justify-center gap-y-2 text-center"
 		>
 			<Header
 				align="center"
@@ -37,7 +37,7 @@ import Layout from '@layouts/Layout.astro';
 			</div>
 			<div slot="right" class="max-lg:!text-center">
 				<Header size="lg" class="text-navy-peony"> October, 2021 </Header>
-				<Paragraph size="sm" class="text-blue-gray max-w-[500px]">
+				<Paragraph size="sm" class="max-w-[500px] text-blue-gray">
 					We began as a small development team trying to build ambitious
 					projects beyond us. Joining forces with W-OVERFLOW (a modding
 					organization formerly owned by one of the current owners), Polyfrost
@@ -52,7 +52,7 @@ import Layout from '@layouts/Layout.astro';
 				<Header size="lg" class="text-navy-peony">
 					A year of development
 				</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
+				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
 					Our first alpha build of OneConfig released in June to a limited
 					audience. By October of 2022, nearly a year after our first
 					announcement, OneConfig finally became available to the whole world in
@@ -76,7 +76,7 @@ import Layout from '@layouts/Layout.astro';
 				<Header size="lg" class="text-navy-peony">
 					Hey look, OneConfig's a hit!
 				</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
+				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
 					In the coming months, our little baby would independently surpass
 					200,000 views on YouTube and our community grew by around 300%.
 					Shortly after, our first major update releases, bringing substantial
@@ -99,7 +99,7 @@ import Layout from '@layouts/Layout.astro';
 				<Header size="lg" class="text-navy-peony">
 					Finally, it's ready for release
 				</Header>
-				<Paragraph size="sm" class="text-gray-400 max-w-[500px]">
+				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
 					It's been a long journey, with many bugs, hotfixes, mod
 					incompatibilities, support tickets, list goes on. However, after two
 					years of development, we finally announced the complete release of
@@ -125,7 +125,7 @@ import Layout from '@layouts/Layout.astro';
 		<Section
 			class="mb-40 flex-col items-center justify-center text-center text-navy-peony"
 		>
-			<div class="flex flex-col gap-y-10 max-w-xl text-lg">
+			<div class="max-w-xl flex flex-col gap-y-10 text-lg">
 				<Paragraph>
 					Since the inception of OneConfig and since the people that became
 					Polyfrost first met, we have always been known for our attention and
