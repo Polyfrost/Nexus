@@ -7,6 +7,7 @@ import Section from '@components/base/Section.astro';
 import Icon from '@components/icons/Icon.astro';
 import configConst from 'config';
 import Layout from '@layouts/Layout.astro';
+import Image from 'astro/components/Image.astro';
 ---
 
 <Layout title="Main Page">
@@ -163,7 +164,7 @@ import Layout from '@layouts/Layout.astro';
 					</div>
 				</div>
 				<div class="flex flex-col items-center justify-center">
-					<img
+					<Image
 						class="pointer-events-none max-w-80 rounded-md bg-white/5 ring-1 ring-white/10"
 						src="/media/oneconfig/page_media_3.svg"
 						alt="OneConfig Screenshot"

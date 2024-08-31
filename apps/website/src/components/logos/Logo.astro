@@ -17,7 +17,7 @@ try {
 	if (logo === '' || logo === undefined)
 return;
 
-	const mediaDir = join('..', '..', 'public', 'media');
+	const mediaDir = join('..', '..', '..', 'public', 'media');
 	const dir = new URL(mediaDir, import.meta.url).pathname;
 	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`)).toString();
 

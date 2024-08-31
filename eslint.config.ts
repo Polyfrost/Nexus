@@ -1,7 +1,9 @@
 import petal from '@flowr/eslint-config';
 
 export default petal({
-	astro: true,
+	astro: {
+		accessibility: true,
+	},
 	typescript: true,
 	unocss: true,
 	ignores: [
