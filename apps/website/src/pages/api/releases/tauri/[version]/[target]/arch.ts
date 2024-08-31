@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { getLatestRelease, getRecentReleases, getRelease, gitHubFetch } from 'src/data/github';
+import { getLatestRelease, getRecentReleases, getRelease, gitHubFetch } from 'src/utils/github';
 import { z } from 'zod';
 
 const version = z.union([z.literal('stable'), z.literal('alpha')]);

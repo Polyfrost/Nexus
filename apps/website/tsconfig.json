@@ -7,10 +7,6 @@
 		"paths": {
 			"@components/*": ["src/components/*"],
 			"@layouts/*": ["src/layouts/*"],
-			"@webtypes/*": ["src/types/*"],
-			"@lib/*": ["src/lib/*"],
-			"@public/*": ["public/*"],
-			"@config": ["config.ts"],
 			"@styles/*": ["src/styles/*"]
 		}
 	},

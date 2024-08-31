@@ -1,4 +1,4 @@
-import type { Config, NavbarDropdown, Project } from '@webtypes/Config';
+import type { Config, NavbarDropdown, Project } from 'src/types/index';
 
 export const configConst = {
 	projects: getProjects(),

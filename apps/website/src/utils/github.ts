@@ -1,4 +1,4 @@
-import { env } from 'src/process-env';
+import { env } from 'src/utils/env';
 import type { components } from '@octokit/openapi-types';
 
 type Release = components['schemas']['release'];
