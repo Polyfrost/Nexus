@@ -1,4 +1,6 @@
-export type LogoType = (typeof configConst.logos)[number];
+import OneConfigMinimal from '@components/logos/OneConfigMinimal.astro';
+import PolyfrostFull from '@components/logos/PolyfrostFull.astro';
+import PolyfrostMinimal from '@components/logos/PolyfrostMinimal.astro';
 
 export interface ProjectDownload {
 	url: string;
@@ -9,7 +11,7 @@ export interface ProjectDownload {
 export interface Project {
 	name: string;
 	description: string;
-	logo?: LogoType;
+	logo?: any;
 	tag?: string;
 	downloads?: ProjectDownload[];
 	descriptionLong?: string;
@@ -20,13 +22,13 @@ export interface NavbarDropdown {
 	name: string;
 	description: string;
 	path?: string;
-	logo?: LogoType;
+	logo?: any;
 	tag?: string;
 }
 
 export interface NavbarElement {
 	text?: string;
-	logo?: [string, number];
+	logo?: [any, number];
 	path?: string;
 	alt?: string;
 	dropdown?: NavbarDropdown[];
@@ -68,7 +70,7 @@ export interface Config {
 	footer: FooterColumn[];
 }
 
-export const configConst = {
+export const configConst: Config = {
 	name: 'Polyfrost',
 	title: 'Polyfrost',
 	description: 'Building beautiful mods and tools, byte by byte',
@@ -91,7 +93,7 @@ export const configConst = {
 	navbar: {
 		left: [
 			{
-				logo: ['polyfrost.full', -1],
+				logo: [PolyfrostFull, -1],
 				path: '/',
 			},
 		],
@@ -111,7 +113,7 @@ export const configConst = {
 						(project as any).path = `/projects/${project.name.toLowerCase()}`;
 
 					return project;
-				}) as unknown as NavbarDropdown[],
+				}),
 			},
 			{
 				text: 'About Us',
@@ -175,23 +177,23 @@ export const configConst = {
 			],
 		},
 	],
-} satisfies Config;
+};
 
 function getProjects(): Project[] {
 	return [
 		{
 			name: 'OneConfig',
 			description: 'The next-generation config library for Forge and Fabric',
-			logo: 'oneconfig.minimal',
+			logo: OneConfigMinimal,
 			hasPage: true,
 		},
 		{
 			name: 'OneLauncher',
 			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
+			logo: PolyfrostMinimal,
 			tag: 'SOON',
 		},
 	];
 }
 
-export default configConst as Config;
+export default configConst;

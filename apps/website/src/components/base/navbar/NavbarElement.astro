@@ -1,7 +1,6 @@
 ---
 import Icon from '@components/icons/Icon.astro';
-import Logo from '@components/logos/Logo.astro';
-import type { LogoType, NavbarElement } from '@utils/site-info';
+import type { NavbarElement } from '@utils/site-info';
 import Header from '../Header.astro';
 import ScreenOverlay from '../ScreenOverlay.astro';
 import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
@@ -17,6 +16,8 @@ const { element, index } = Astro.props;
 function isCurrentPage(url: string): boolean {
 	return Astro.url.pathname === url;
 }
+
+const Logo = element.logo ? element.logo[0] : null;
 ---
 
 <li class="flex flex-row items-center justify-center text-center sm:relative max-sm:overflow-hidden">
@@ -29,7 +30,7 @@ function isCurrentPage(url: string): boolean {
 				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}
 			>
 				{element.text && element.text}
-				{element.logo && <Logo class="transition-transform active:scale-95" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+				{element.logo && <Logo class="transition-transform active:scale-95" height={element.logo[1] < 0 ? undefined : element.logo[1]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
 				{element.dropdown && <Icon icon="chevron-down" />}
 			</a>
 		)
@@ -41,7 +42,7 @@ function isCurrentPage(url: string): boolean {
 							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
 						>
 							{element.text && element.text}
-							{element.logo && <Logo size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
+							{element.logo && <Logo height={element.logo[1] < 0 ? undefined : element.logo[1]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
 							{element.dropdown && <Icon icon="chevron-down" />}
 						</p>
 

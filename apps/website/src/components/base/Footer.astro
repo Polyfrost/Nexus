@@ -1,8 +1,8 @@
 ---
 import Icon from '@components/icons/Icon.astro';
-import Logo from '@components/logos/Logo.astro';
 import type { HTMLAttributes } from 'astro/types';
 import configConst from '@utils/site-info';
+import PolyfrostFull from '@components/logos/PolyfrostFull.astro';
 import Link from './Link.astro';
 
 interface Props extends HTMLAttributes<'footer'> {}
@@ -14,7 +14,7 @@ const props = Astro.props;
 	<div class="max-w-[1024px] w-full flex flex-col gap-y-24">
 		<div class="flex flex-col items-start justify-center gap-y-20 md:flex-row md:items-start md:justify-between">
 			<div class="flex flex-1 flex-col gap-y-3 text-blue-gray">
-				<Logo logo="polyfrost.full" />
+				<PolyfrostFull />
 				<p>English (US)</p>
 				{/* hardcoded for now, todo i18n */}
 				<div class="flex flex-row gap-3">

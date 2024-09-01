@@ -42,7 +42,7 @@ const className = [
 	rest.class,
 ].join(' ');
 
-const Element = rest.href ? 'a' : ('button' as any);
+const Element = rest.href ? 'a' : 'button';
 ---
 
 <Element {...rest} class={className}>

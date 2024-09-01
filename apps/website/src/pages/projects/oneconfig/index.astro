@@ -5,7 +5,8 @@ import Header from '@components/base/Header.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import Slider from '@components/base/Slider.astro';
-import Logo from '@components/logos/Logo.astro';
+import OneConfigMinimal from '@components/logos/OneConfigMinimal.astro';
+import OneConfigText from '@components/logos/OneConfigText.astro';
 import Layout from '@layouts/Layout.astro';
 import { Code } from 'astro:components';
 ---
@@ -13,7 +14,7 @@ import { Code } from 'astro:components';
 <Layout title="OneConfig" description="Simple universal Minecraft modding configuration.">
 	<Section class="h-screen flex-col items-center justify-center md:min-h-[600px]">
 		<div class="flex flex-col items-center justify-center gap-y-4">
-			<Logo size={56} logo="oneconfig.minimal" />
+			<OneConfigMinimal height={56} width={56} />
 			<Header align="center" size="xxl" class="max-w-[600px]">
 				Meet <b>OneConfig</b>, the library designed for <b>everyone</b>.
 			</Header>
@@ -160,7 +161,7 @@ import { Code } from 'astro:components';
 			<div
 				class="absolute right-1/2 flex flex-col translate-x-1/2 items-center justify-center gap-y-2 border border-gray-200 rounded-3xl bg-gray-50 p-4 shadow-sm -bottom-16 md:translate-x-0 md:items-start md:gap-y-8 md:rounded-4xl md:p-8 md:-bottom-12 md:-right-12"
 			>
-				<Logo logo="oneconfig.logo_text" class="h-12 w-48 md:h-auto md:min-w-72" />
+				<OneConfigText class="h-12 w-48 md:h-auto md:min-w-72" />
 				<Button href="/projects/oneconfig/download" iconLeft="download" text="Download now" class="max-w-fit" />
 			</div>
 		</div>
