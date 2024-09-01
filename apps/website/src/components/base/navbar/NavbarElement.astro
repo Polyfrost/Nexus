@@ -1,7 +1,7 @@
 ---
 import Icon from '@components/icons/Icon.astro';
 import Logo from '@components/logos/Logo.astro';
-import type { LogoType, NavbarElement } from 'src/types';
+import type { LogoType, NavbarElement } from '@utils/site-info';
 import Header from '../Header.astro';
 import ScreenOverlay from '../ScreenOverlay.astro';
 import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
@@ -23,7 +23,11 @@ function isCurrentPage(url: string): boolean {
 	{
 		element.path
 ? (
-			<a href={element.path} aria-label="polyfrost logo" class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}>
+			<a
+				href={element.path}
+				aria-label="polyfrost logo"
+				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}
+			>
 				{element.text && element.text}
 				{element.logo && <Logo class="transition-transform active:scale-95" size={element.logo[1] < 0 ? undefined : element.logo[1]} logo={element.logo[0] as LogoType} />}
 				{element.dropdown && <Icon icon="chevron-down" />}

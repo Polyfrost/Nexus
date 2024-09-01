@@ -3,22 +3,15 @@ import Button from '@components/base/Button.astro';
 import Header from '@components/base/Header.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
-import configConst from 'config';
 import Layout from '@layouts/Layout.astro';
+import configConst from '~/utils/site-info';
 ---
 
-<Layout
-	title="Download OneConfig"
-	description="Download OneConfig, our configuration library for Minecraft"
->
+<Layout title="Download OneConfig" description="Download OneConfig, our configuration library for Minecraft">
 	<Section wrapperClass="mt-36 -mb-28">
 		<div class="flex flex-col gap-y-2 text-navy-peony">
 			<Header> OneConfig Download </Header>
-			<Paragraph>
-				Thank you for your interest in OneConfig! As OneConfig is primarily a
-				library for other mods, installing OneConfig can be done in multiple
-				ways.
-			</Paragraph>
+			<Paragraph> Thank you for your interest in OneConfig! As OneConfig is primarily a library for other mods, installing OneConfig can be done in multiple ways. </Paragraph>
 		</div>
 	</Section>
 
@@ -26,56 +19,30 @@ import Layout from '@layouts/Layout.astro';
 		<div slot="left" class="flex flex-col gap-y-2">
 			<Header class="text-blue-500">SkyClient</Header>
 			<Paragraph class="whitespace-pre-line text-navy-peony">
-				<b>This is the easiest way</b> for installing OneConfig with no experience
-				in Forge or modding. SkyClient is an open-source Forge mod installer which
-				installs various mods that include OneConfig for you. All you need to do
-				is select the mods you want and click install, and OneConfig should be right
-				there!
+				<b>This is the easiest way</b> for installing OneConfig with no experience in Forge or modding. SkyClient is an open-source Forge mod installer which installs various mods that include
+				OneConfig for you. All you need to do is select the mods you want and click install, and OneConfig should be right there!
 			</Paragraph>
 			<div class="flex flex-row max-md:justify-center">
-				<Button
-					size="sm"
-					iconLeft="link-external"
-					style="primary"
-					href={configConst.socials.skyclient}
-				>SkyClient
-    </Button
-				>
+				<Button size="sm" iconLeft="link-external" style="primary" href={configConst.socials.skyclient}>SkyClient </Button>
 			</div>
 		</div>
 		<div slot="right">
-			<img
-				class="w-full rounded-lg lg:max-w-none lg:w-[480px] max-md:max-w-screen-sm"
-				src="/media/oneconfig/skyclient.png"
-				alt="A screenshot of skyclient"
-			/>
+			<img class="w-full rounded-lg lg:max-w-none lg:w-[480px] max-md:max-w-screen-sm" src="/media/oneconfig/skyclient.png" alt="A screenshot of skyclient" />
 		</div>
 	</Section>
 
 	<Section wFull maxWidth="1024px" wrapperClass="-mt-32 mb-12" class="py-8">
 		<div slot="left" class="flex flex-col gap-y-2">
 			<Header class="text-blue-500">Mods</Header>
-			<Paragraph class="whitespace-pre-line text-navy-peony">If you already have a Forge installation, you can simply download any
-				mod that includes OneConfig. Such mods include: • Hytils Reborn •
-				Chatting • Any Poly-Series mod (e.g PolyTime, PolyBlur) • And more!
+			<Paragraph class="whitespace-pre-line text-navy-peony">If you already have a Forge installation, you can simply download any mod that includes OneConfig. Such mods include: • Hytils Reborn • Chatting • Any Poly-Series mod (e.g PolyTime,
+				PolyBlur) • And more!
 			</Paragraph>
 			<div class="flex flex-row max-md:justify-center">
-				<Button
-					size="sm"
-					iconLeft="link-external"
-					style="primary"
-					href="/mods"
-				>Discover Mods
-    </Button
-				>
+				<Button size="sm" iconLeft="link-external" style="primary" href="/mods">Discover Mods </Button>
 			</div>
 		</div>
 		<div slot="right">
-			<img
-				class="w-full rounded-lg lg:max-w-none lg:w-[480px] max-md:max-w-screen-sm"
-				src="/media/oneconfig/page_media_4.png"
-				alt="A screenshot of skyclient"
-			/>
+			<img class="w-full rounded-lg lg:max-w-none lg:w-[480px] max-md:max-w-screen-sm" src="/media/oneconfig/page_media_4.png" alt="A screenshot of skyclient" />
 		</div>
 	</Section>
 </Layout>

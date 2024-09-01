@@ -5,35 +5,23 @@ import Link from '@components/base/Link.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
 import Icon from '@components/icons/Icon.astro';
-import configConst from 'config';
 import Layout from '@layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
+import configConst from '@utils/site-info';
 ---
 
 <Layout title="Main Page">
 	<Section wrapperClass="min-h-screen" class="relative isolate px-6 lg:px-8">
-		<div
-			class="absolute inset-x-0 transform-gpu overflow-hidden opacity-50 blur-3xl -top-40 -z-10 sm:-top-80"
-		>
-			<svg
-				class="relative left-[calc(50%-11rem)] h-[21.1875rem] max-w-none rotate-[30deg] sm:left-[calc(50%-30rem)] -z-10 sm:h-[42.375rem] -translate-x-1/2"
-				viewBox="0 0 1155 678"
-			>
+		<div class="absolute inset-x-0 transform-gpu overflow-hidden opacity-50 blur-3xl -top-40 -z-10 sm:-top-80">
+			<svg class="relative left-[calc(50%-11rem)] h-[21.1875rem] max-w-none rotate-[30deg] sm:left-[calc(50%-30rem)] -z-10 sm:h-[42.375rem] -translate-x-1/2" viewBox="0 0 1155 678">
 				<path
 					fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
 					fill-opacity="0.3"
 					d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
 				>
-    </path>
+				</path>
 				<defs>
-					<linearGradient
-						id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
-						x1="1155.49"
-						x2="-78.208"
-						y1=".177"
-						y2="474.645"
-						gradientUnits="userSpaceOnUse"
-					>
+					<linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
 						<stop stop-color="#2463EB"></stop>
 						<stop offset={1} stop-color="#0080B5"></stop>
 					</linearGradient>
@@ -42,9 +30,7 @@ import Image from 'astro/components/Image.astro';
 		</div>
 		<div class="mx-auto max-w-3xl py-36 lg:py-48">
 			<div class="mb-8 mt-4 flex md:justify-center">
-				<div
-					class="relative flex flex-row items-center justify-center border border-1 border-gray-800/20 rounded-full px-3 py-1 text-sm text-blue-450 font-medium hover:border-blue-600 hover:text-blue-600"
-				>
+				<div class="relative flex flex-row items-center justify-center border border-1 border-gray-800/20 rounded-full px-3 py-1 text-sm text-blue-450 font-medium hover:border-blue-600 hover:text-blue-600">
 					Introducing OneConfig
 					<Link href="/projects/oneconfig" class="transition-none">
 						<span class="absolute inset-0" aria-hidden="true"></span>
@@ -53,59 +39,26 @@ import Image from 'astro/components/Image.astro';
 				</div>
 			</div>
 			<div class="text-left md:text-center">
-				<Header
-					size="xxl"
-					class="text-navy-peony tracking-tight max-sm:!text-header"
-				>
-					Passionate creators redefining the modding community
-				</Header>
+				<Header size="xxl" class="text-navy-peony tracking-tight max-sm:!text-header"> Passionate creators redefining the modding community </Header>
 				<Paragraph class="mt-6 text-lg text-navy-peony leading-8">
-					With a dedicated team of developers and a passionate community of
-					players, Polyfrost continues to push the boundaries of what's possible
-					in Minecraft modding.
+					With a dedicated team of developers and a passionate community of players, Polyfrost continues to push the boundaries of what's possible in Minecraft modding.
 				</Paragraph>
-				<div
-					class="mt-7 flex items-center justify-start gap-x-6 md:justify-center"
-				>
-					<Button
-						style="secondary"
-						href="/about"
-						iconLeft="book-open"
-					>About us
-     </Button
-					>
-					<Button
-						style="secondary"
-						href="/contact"
-						iconLeft="chat"
-					>Socials
-     </Button
-					>
+				<div class="mt-7 flex items-center justify-start gap-x-6 md:justify-center">
+					<Button style="secondary" href="/about" iconLeft="book-open">About us </Button>
+					<Button style="secondary" href="/contact" iconLeft="chat">Socials </Button>
 				</div>
 			</div>
 		</div>
-		<div
-			class="absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden opacity-50 blur-3xl sm:top-[calc(100%-35rem)] -z-10"
-		>
-			<svg
-				class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none sm:left-[calc(50%+36rem)] sm:h-[42.375rem] -translate-x-1/2"
-				viewBox="0 0 1155 678"
-			>
+		<div class="absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden opacity-50 blur-3xl sm:top-[calc(100%-35rem)] -z-10">
+			<svg class="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none sm:left-[calc(50%+36rem)] sm:h-[42.375rem] -translate-x-1/2" viewBox="0 0 1155 678">
 				<path
 					fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
 					fill-opacity=".3"
 					d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
 				>
-    </path>
+				</path>
 				<defs>
-					<linearGradient
-						id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
-						x1="1155.49"
-						x2="-78.208"
-						y1=".177"
-						y2="474.645"
-						gradientUnits="userSpaceOnUse"
-					>
+					<linearGradient id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientUnits="userSpaceOnUse">
 						<stop stop-color="#2463EB"></stop>
 						<stop offset={1} stop-color="#0080B5"></stop>
 					</linearGradient>
@@ -113,54 +66,20 @@ import Image from 'astro/components/Image.astro';
 			</svg>
 		</div>
 	</Section>
-	<Section
-		wFull
-		maxWidth="1024px"
-		class="mt-0 items-center justify-center !px-5 sm:-mt-52 max-sm:!px-0"
-	>
+	<Section wFull maxWidth="1024px" class="mt-0 items-center justify-center !px-5 sm:-mt-52 max-sm:!px-0">
 		<div class="flex flex-col items-center justify-center px-0 py-12 sm:py-12">
-			<div
-				class="lg:justify-normal relative isolate z-50 flex flex-col-reverse flex-wrap justify-center gap-6 overflow-hidden bg-blue-75 px-6 py-6 md:flex-row lg:flex-nowrap lg:gap-20 sm:rounded-3xl lg:px-8 lg:py-0 md:shadow md:ring-1 md:ring-gray-400/50"
-			>
-				<div
-					class="max-w-screen-md flex flex-col items-center justify-center text-center lg:items-start lg:justify-start lg:py-8 lg:text-left"
-				>
+			<div class="lg:justify-normal relative isolate z-50 flex flex-col-reverse flex-wrap justify-center gap-6 overflow-hidden bg-blue-75 px-6 py-6 md:flex-row lg:flex-nowrap lg:gap-20 sm:rounded-3xl lg:px-8 lg:py-0 md:shadow md:ring-1 md:ring-gray-400/50">
+				<div class="max-w-screen-md flex flex-col items-center justify-center text-center lg:items-start lg:justify-start lg:py-8 lg:text-left">
 					<div class="flex flex-col items-start justify-center">
-						<Icon
-							icon="oneconfig"
-							size={38}
-							class="mb-4 hidden text-blue-500 md:block"
-						/>
-						<Header
-							size="lg"
-							class="text-3xl text-navy-peony font-semibold tracking-tight"
-						>
+						<Icon icon="oneconfig" size={38} class="mb-4 hidden text-blue-500 md:block" />
+						<Header size="lg" class="text-3xl text-navy-peony font-semibold tracking-tight">
 							OneConfig has <br />finally arrived.
 						</Header>
 					</div>
-					<Paragraph class="mt-6 text-lg text-gray-700 leading-8">
-						Learn more about what OneConfig is, and how it's revolutionized
-						modding and user experience.
-					</Paragraph>
-					<div
-						class="mt-10 flex items-center justify-center gap-x-4 lg:justify-start"
-					>
-						<Button
-							href="/projects/oneconfig"
-							size="sm"
-							iconLeft="oneconfig"
-							style="secondary"
-						>Learn more
-      </Button
-						>
-						<Button
-							href="/mods"
-							size="sm"
-							iconLeft="link-external"
-							style="secondary"
-						>Discover mods
-      </Button
-						>
+					<Paragraph class="mt-6 text-lg text-gray-700 leading-8"> Learn more about what OneConfig is, and how it's revolutionized modding and user experience. </Paragraph>
+					<div class="mt-10 flex items-center justify-center gap-x-4 lg:justify-start">
+						<Button href="/projects/oneconfig" size="sm" iconLeft="oneconfig" style="secondary">Learn more </Button>
+						<Button href="/mods" size="sm" iconLeft="link-external" style="secondary">Discover mods </Button>
 					</div>
 				</div>
 				<div class="flex flex-col items-center justify-center">
@@ -176,62 +95,27 @@ import Image from 'astro/components/Image.astro';
 		</div>
 	</Section>
 
-	<Section
-		wFull
-		maxWidth="1024px"
-		wrapperClass="bg-blue-100 mb-10"
-		class="flex flex-col -mt-20"
-	>
+	<Section wFull maxWidth="1024px" wrapperClass="bg-blue-100 mb-10" class="flex flex-col -mt-20">
 		<div class="relative isolate mt-10 overflow-hidden pt-24 lg:-ml-10">
 			<div class="mx-auto max-w-7xl">
-				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight">Who we are
-    </Header
-				>
+				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight">Who we are </Header>
 				<Paragraph class="mt-3 text-md text-navy-peony leading-8">
-					We're a group of passionate, self-driven designers, developers, and
-					modders creating mods and libraries for the Minecraft community.
+					We're a group of passionate, self-driven designers, developers, and modders creating mods and libraries for the Minecraft community.
 				</Paragraph>
-				<div
-					class="mt-3 flex flex-row gap-x-8 gap-y-6 text-base text-gray-600 font-semibold leading-7 lg:gap-x-10"
-				>
-					<Button
-						style="secondary"
-						href="/about"
-						size="sm"
-						iconLeft="user"
-					>About us
-     </Button
-					>
+				<div class="mt-3 flex flex-row gap-x-8 gap-y-6 text-base text-gray-600 font-semibold leading-7 lg:gap-x-10">
+					<Button style="secondary" href="/about" size="sm" iconLeft="user">About us </Button>
 				</div>
 			</div>
 		</div>
 		<div class="mb-20 flex justify-start md:justify-end lg:-mr-10">
 			<div class="flex flex-col text-right">
-				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight">
-					Our commitment
-				</Header>
+				<Header class="mt-8 text-5xl text-navy-peony font-bold tracking-tight"> Our commitment </Header>
 				<Paragraph class="mt-3 text-md text-navy-peony leading-8">
-					Above all, we're committed to bringing quality, open sourced tools
-					built <br /> around usability, accessibility to the greater modding community.
+					Above all, we're committed to bringing quality, open sourced tools built <br /> around usability, accessibility to the greater modding community.
 				</Paragraph>
-				<div
-					class="text-brand-600 mt-3 flex flex-row items-end justify-end gap-x-4 gap-y-6 text-base font-semibold leading-7"
-				>
-					<Button
-						iconLeft="book-open"
-						size="sm"
-						href="/oss"
-					>Why open source?
-     </Button
-					>
-					<Button
-						iconLeft="github"
-						style="secondary"
-						size="sm"
-						href={configConst.socials.github}
-					>GitHub
-     </Button
-					>
+				<div class="text-brand-600 mt-3 flex flex-row items-end justify-end gap-x-4 gap-y-6 text-base font-semibold leading-7">
+					<Button iconLeft="book-open" size="sm" href="/oss">Why open source? </Button>
+					<Button iconLeft="github" style="secondary" size="sm" href={configConst.socials.github}>GitHub </Button>
 				</div>
 			</div>
 		</div>

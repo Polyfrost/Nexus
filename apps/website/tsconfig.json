@@ -5,9 +5,11 @@
 		"jsx": "preserve",
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["src/components/*"],
-			"@layouts/*": ["src/layouts/*"],
-			"@styles/*": ["src/styles/*"]
+			"@components/*": ["./src/components/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@utils/*": ["./src/utils/*"],
+			"~/*": ["./src/*"]
 		}
 	},
 	"exclude": ["node_modules", "dist", "public"]

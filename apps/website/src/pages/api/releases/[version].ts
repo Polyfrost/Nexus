@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
-import { getRelease, getReleaseFrontmatter, gitHubFetch } from 'src/utils/github';
+import { getRelease, getReleaseFrontmatter, gitHubFetch } from '@utils/github';
 
+export const prerender = false;
 export const GET: APIRoute = async ({ params }) => {
 	const { version } = params;
 	const release = await gitHubFetch(getRelease(version!));

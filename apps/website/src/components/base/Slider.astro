@@ -9,13 +9,7 @@ interface Props extends HTMLAttributes<'div'> {
 	speed?: string;
 }
 
-const {
-	dir = 'left',
-	wrapperClass = '',
-	childrenNum,
-	childrenSize = '256px',
-	speed = '25s',
-} = Astro.props;
+const { dir = 'left', wrapperClass = '', childrenNum, childrenSize = '256px', speed = '25s' } = Astro.props;
 ---
 
 <div
@@ -46,9 +40,7 @@ const {
 					transform: translateX(0);
 				}
 				to {
-					transform: translateX(
-						calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum))
-					);
+					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
 				}
 			}
 		}
@@ -63,9 +55,7 @@ const {
 			animation: var(--speed) linear infinite slide-reverse;
 			@keyframes slide-reverse {
 				from {
-					transform: translateX(
-						calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum))
-					);
+					transform: translateX(calc((var(--childrenSize) + 10px) * -1 * var(--childrenNum)));
 				}
 				to {
 					transform: translateX(0);

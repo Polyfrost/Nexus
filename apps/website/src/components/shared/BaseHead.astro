@@ -1,6 +1,6 @@
 ---
 import smartypants from 'smartypants';
-import siteInfo from 'src/utils/site-info';
+import siteInfo from '@utils/site-info';
 import FontPreload from './FontPreload.astro';
 import SEO from './SEO.astro';
 
@@ -14,12 +14,7 @@ export type Props = {
 
 const twitterHandle = 'polyfrost';
 
-const {
-	description = siteInfo.description,
-	image = siteInfo.image,
-	canonicalURL = new URL(Astro.request.url, Astro.site),
-	pageType = 'website',
-} = Astro.props;
+const { description = siteInfo.description, image = siteInfo.image, canonicalURL = new URL(Astro.request.url, Astro.site), pageType = 'website' } = Astro.props;
 
 const title = [Astro.props.title, siteInfo.name].filter(Boolean).join(' | ');
 const resolvedImage = {
@@ -40,7 +35,7 @@ const resolvedImage = {
 
 <!-- Low Priority Global Metadata -->
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+<link rel="alternate" type="application/rss+xml" href={new URL('/rss.xml', Astro.site)} title="Polyfrost Feed" />
 
 <!-- Low Priority Global Favicon Metadata -->
 <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -49,19 +44,6 @@ const resolvedImage = {
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
-<SEO
-	name={siteInfo.name}
-	title={title}
-	description={description}
-	image={resolvedImage}
-	twitter={{ handle: twitterHandle }}
-	og={{ type: pageType }}
-	canonicalURL={canonicalURL}
-/>
+<SEO name={siteInfo.name} title={title} description={description} image={resolvedImage} twitter={{ handle: twitterHandle }} og={{ type: pageType }} canonicalURL={canonicalURL} />
 
-<script
-	defer
-	data-domain="polyfrost.org"
-	src="https://analytics.polyfrost.org/js/script.js"
->
-</script>
+<script type="text/partytown" async data-domain="polyfrost.org" src="https://analytics.polyfrost.org/js/script.js"></script>

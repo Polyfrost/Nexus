@@ -1,7 +1,7 @@
 ---
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { LogoType } from 'src/types';
+import type { LogoType } from '@utils/site-info';
 import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'svg'> {
@@ -15,14 +15,14 @@ let svg: string | undefined;
 
 try {
 	if (logo === '' || logo === undefined)
-return;
+		return;
 
 	const mediaDir = join('..', '..', '..', 'public', 'media');
 	const dir = new URL(mediaDir, import.meta.url).pathname;
 	svg = (await readFile(`${dir}/${logo.replaceAll('.', '/')}.svg`)).toString();
 
 	if (svg === undefined)
-return;
+		return;
 
 	if (typeof size == 'number' || Array.isArray(size)) {
 		// SVG main element regex

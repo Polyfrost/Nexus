@@ -1,7 +1,8 @@
 import type { APIRoute } from 'astro';
-import { getLatestRelease, getRecentReleases, getRelease, gitHubFetch } from 'src/utils/github';
-import { z } from 'zod';
+import { getLatestRelease, getRecentReleases, getRelease, gitHubFetch } from '@utils/github';
+import { z } from 'astro/zod';
 
+export const prerender = false;
 const version = z.union([z.literal('stable'), z.literal('alpha')]);
 const tauriTarget = z.union([z.literal('linux'), z.literal('windows'), z.literal('darwin')]);
 const tauriArch = z.union([z.literal('x86_64'), z.literal('aarch64')]);

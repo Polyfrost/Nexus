@@ -6,18 +6,13 @@ import Layout from './Layout.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, publishDate, updatedDate, coverImage }
-	= Astro.props;
+const { title, description, publishDate, updatedDate, coverImage } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
 	<article>
 		<div class="hero-image">
-			{
-				coverImage && (
-					<img width={1020} height={510} src={coverImage} alt="Hero Image" />
-				)
-			}
+			{coverImage && <img width={1020} height={510} src={coverImage} alt="Hero Image" />}
 		</div>
 		<div class="prose">
 			<div class="title">

@@ -1,4 +1,6 @@
 {
+	"astro.content-intellisense": true,
+
 	"search.exclude": {
 		"**/node_modules": true,
 		"**/bower_components": true,

@@ -35,75 +35,47 @@ function formatModName(name: string): string {
 		<div class="w-full flex flex-col items-start justify-start text-navy-peony">
 			<Header> Polyfrost Branding </Header>
 			<Paragraph>
-				We usually don't mind people mentioning our name or using our logos - in
-				fact, we really appreciate the free promo. All we ask is to use our
-				provided work responsibly, and contact us first.
+				We usually don't mind people mentioning our name or using our logos - in fact, we really appreciate the free promo. All we ask is to use our provided work responsibly, and contact us
+				first.
 			</Paragraph>
 		</div>
 	</Section>
 
 	<Section wrapperClass="bg-blue-75" class="flex-col py-12">
-		<div
-			class="w-full flex flex-col items-center justify-center text-center text-navy-peony"
-		>
+		<div class="w-full flex flex-col items-center justify-center text-center text-navy-peony">
 			<Header> Our Brand </Header>
-			<Paragraph class="max-w-[500px]">
-				Introducing... our brand logos in all of their glory. We just ask to not
-				edit, distort, recolor, or reconfigure any assets below.
-			</Paragraph>
+			<Paragraph class="max-w-[500px]"> Introducing... our brand logos in all of their glory. We just ask to not edit, distort, recolor, or reconfigure any assets below. </Paragraph>
 		</div>
 
 		<div class="mt-8 flex flex-col gap-y-12">
 			<div class="flex flex-col">
 				<Header size="sm" class="text-navy-peony"> Our Logo, with text </Header>
-				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
-					Super cool.
-				</Paragraph>
-				<div
-					class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2"
-				>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs"> Super cool. </Paragraph>
+				<div class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2">
 					<BrandingImage name="logo_1" type="logos" />
 					<BrandingImage name="logo_2" type="logos" />
 				</div>
 			</div>
 			<div class="flex flex-col">
-				<Header size="sm" class="text-navy-peony">
-					Our Logo, when you don't wanna read
-				</Header>
-				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
-					Even cooler.
-				</Paragraph>
-				<div
-					class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2"
-				>
+				<Header size="sm" class="text-navy-peony"> Our Logo, when you don't wanna read </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs"> Even cooler. </Paragraph>
+				<div class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2">
 					<BrandingImage name="logo_3" type="logos" />
 					<BrandingImage name="logo_4" type="logos" />
 				</div>
 			</div>
 			<div class="flex flex-col">
-				<Header size="sm" class="text-navy-peony">
-					OneConfig logo, with text
-				</Header>
-				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
-					The one and only.
-				</Paragraph>
-				<div
-					class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2"
-				>
+				<Header size="sm" class="text-navy-peony"> OneConfig logo, with text </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs"> The one and only. </Paragraph>
+				<div class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2">
 					<BrandingImage name="logo_5" type="logos" />
 					<BrandingImage name="logo_6" type="logos" />
 				</div>
 			</div>
 			<div class="flex flex-col">
-				<Header size="sm" class="text-navy-peony">
-					OneConfig logo, when you don't wanna read
-				</Header>
-				<Paragraph class="max-w-[500px] text-gray-400" size="xs">
-					Nevermind there's two more
-				</Paragraph>
-				<div
-					class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2"
-				>
+				<Header size="sm" class="text-navy-peony"> OneConfig logo, when you don't wanna read </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="xs"> Nevermind there's two more </Paragraph>
+				<div class="my-8 flex flex-row flex-wrap items-center justify-evenly gap-2">
 					<BrandingImage name="logo_7" type="logos" />
 					<BrandingImage name="logo_8" type="logos" />
 				</div>
@@ -111,44 +83,19 @@ function formatModName(name: string): string {
 		</div>
 	</Section>
 
-	<Section
-		wrapperClass="-mt-40 bg-[#11171C]"
-		class="flex-col gap-y-8 py-12 text-blue-100"
-	>
+	<Section wrapperClass="-mt-40 bg-[#11171C]" class="flex-col gap-y-8 py-12 text-blue-100">
 		<div class="flex flex-col items-start justify-start">
 			<Header size="md"> OneConfig badges </Header>
-			<Paragraph size="sm" class="text-[#78818D]">
-				When you want to show off OneConfig in your mods. Credits to Devin's
-				Badges for the design.
-			</Paragraph>
+			<Paragraph size="sm" class="text-[#78818D]"> When you want to show off OneConfig in your mods. Credits to Devin's Badges for the design. </Paragraph>
 			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
-				{
-					Array.from({ length: 4 }, (_, i) => (
-						<BrandingImage
-							background="transparent"
-							name={`badge_${i + 1}`}
-							type="badges"
-						/>
-					))
-				}
+				{Array.from({ length: 4 }, (_, i) => <BrandingImage background="transparent" name={`badge_${i + 1}`} type="badges" />)}
 			</div>
 		</div>
 		<div class="flex flex-col items-start justify-start">
 			<Header size="md"> All of our mod icons </Header>
-			<Paragraph size="sm" class="text-[#78818D]">
-				We have... a lot of those... (original EvergreenHUD logo by isXander)
-			</Paragraph>
+			<Paragraph size="sm" class="text-[#78818D]"> We have... a lot of those... (original EvergreenHUD logo by isXander) </Paragraph>
 			<div class="my-4 flex flex-row flex-wrap gap-2 text-white">
-				{
-					mods.map(mod => (
-						<BrandingImage
-							nameFormatted={formatModName(mod)}
-							background="transparent"
-							name={mod}
-							type="mods"
-						/>
-					))
-				}
+				{mods.map(mod => <BrandingImage nameFormatted={formatModName(mod)} background="transparent" name={mod} type="mods" />)}
 			</div>
 		</div>
 	</Section>

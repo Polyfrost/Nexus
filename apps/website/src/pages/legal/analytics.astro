@@ -26,7 +26,7 @@ import Layout from '@layouts/Layout.astro';
 		document.getElementById('plausible_not')!.style.display = 'none';
 		document.getElementById('plausible_yes')!.style.display = '';
 	}
- else {
+	else {
 		document.getElementById('plausible_yes')!.style.display = 'none';
 		document.getElementById('plausible_not')!.style.display = '';
 	}
@@ -43,8 +43,8 @@ import Layout from '@layouts/Layout.astro';
 				delete window.localStorage.plausible_ignore;
 				document.getElementById('plausible_yes')!.style.display = 'none';
 				document.getElementById('plausible_not')!.style.display = '';
-			// eslint-disable-next-line style/brace-style -- astro is weird
-			} else {
+			}
+			else {
 				window.localStorage.plausible_ignore = 'true';
 				document.getElementById('plausible_not')!.style.display = 'none';
 				document.getElementById('plausible_yes')!.style.display = '';

@@ -1,4 +1,4 @@
-import { env } from 'src/utils/env';
+import { GITHUB_PAT } from 'astro:env/server';
 import type { components } from '@octokit/openapi-types';
 
 type Release = components['schemas']['release'];
@@ -10,8 +10,8 @@ const FETCH_META = {
 	}),
 };
 
-if (env().GITHUB_PAT)
-	FETCH_META.headers.set('Authorization', `Bearer ${env().GITHUB_PAT}`);
+if (GITHUB_PAT)
+	FETCH_META.headers.set('Authorization', `Bearer ${GITHUB_PAT}`);
 
 export const RELEASES_PATH = `/repos/pulseflow/petal/releases`;
 

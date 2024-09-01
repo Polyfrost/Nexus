@@ -2,33 +2,9 @@
 import type { HTMLAttributes } from 'astro/types';
 import { parse } from 'node-html-parser';
 
-type _ModIcons =
-	| 'oneconfig'
-	| 'chatting'
-	| 'polysprint'
-	| 'vanillahud'
-	| 'overflowanimations'
-	| 'crashpatch'
-	| 'polytime'
-	| 'polyweather'
-	| 'keystrokes';
-export type ModIcons = _ModIcons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
-
-type _External = 'discord' | 'github' | 'youtube' | 'twitter';
-
-export type External = _External;
-
-type _Icons =
-	| 'chevron-down'
-	| 'download'
-	| 'book-open'
-	| 'link-external'
-	| 'code'
-	| 'chat'
-	| 'user'
-	| External
-	| ModIcons;
-export type Icons = _Icons; // bypass for Astro compiler issue https://github.com/withastro/compiler/issues/554#issuecomment-1741702411
+export type ModIcons = 'oneconfig' | 'chatting' | 'polysprint' | 'vanillahud' | 'overflowanimations' | 'crashpatch' | 'polytime' | 'polyweather' | 'keystrokes';
+export type External = 'discord' | 'github' | 'youtube' | 'twitter';
+export type Icons = 'chevron-down' | 'download' | 'book-open' | 'link-external' | 'code' | 'chat' | 'user' | External | ModIcons;
 
 interface Props extends HTMLAttributes<'svg'> {
 	icon: Icons;
@@ -40,21 +16,18 @@ async function getSVG(name: string) {
 	const file = (await import(`./impl/${name}.svg?raw`)).default;
 
 	if (!file)
-throw new Error(`${name} not found`);
+		throw new Error(`${name} not found`);
 
 	const content = parse(file);
 
 	const svg = content.querySelector('svg');
 
 	if (!svg)
-throw new Error(`${name} is not a valid SVG`);
+		throw new Error(`${name} is not a valid SVG`);
 
 	const { attributes, innerHTML } = svg;
 
-	return {
-		attributes,
-		innerHTML,
-	};
+	return { attributes, innerHTML };
 }
 
 const { icon, size, ...attributes } = Astro.props as Props;
@@ -65,14 +38,13 @@ let html = '';
 try {
 	const sizeAttributes = () => {
 		if (!size)
-return {};
+			return {};
 
 		if (Array.isArray(size))
 			return {
 				width: size[0],
 				height: size[1],
 			};
-
 
 		return {
 			width: size,
@@ -92,7 +64,6 @@ return {};
 }
  catch (err) {
 	console.error(err);
-	// ignored
 }
 ---
 

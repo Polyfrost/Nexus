@@ -1,33 +1,19 @@
 ---
-import type { Config } from 'src/types';
+import config from '@utils/site-info';
 import type { HTMLAttributes } from 'astro/types';
-import config from 'config';
 import NavbarElement from '../navbar/NavbarElement.astro';
 
 interface Props extends HTMLAttributes<'div'> {}
 const props = Astro.props;
 ---
 
-<div
-	{...props}
-	class="z-navbar absolute h-screen max-h-[110px] w-full flex flex-row justify-center px-3 text-[16px]"
->
-	<nav
-		class="max-w-[1024px] w-full flex flex-col items-center justify-between md:flex-row"
-	>
+<div {...props} class="z-navbar absolute h-screen max-h-[110px] w-full flex flex-row justify-center px-3 text-[16px]">
+	<nav class="max-w-[1024px] w-full flex flex-col items-center justify-between md:flex-row">
 		<ul class="flex flex-row justify-start gap-4 max-md:mt-4">
-			{
-				(config as Config).navbar.left.map((element, index) => (
-					<NavbarElement {element} {index} />
-				))
-			}
+			{config.navbar.left.map((element, index) => <NavbarElement {element} {index} />)}
 		</ul>
 		<ul class="flex flex-row flex-wrap justify-center gap-4 md:justify-end">
-			{
-				(config as Config).navbar.right.map((element, index) => (
-					<NavbarElement {element} {index} />
-				))
-			}
+			{config.navbar.right.map((element, index) => <NavbarElement {element} {index} />)}
 		</ul>
 	</nav>
 </div>
