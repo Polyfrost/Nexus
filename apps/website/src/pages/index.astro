@@ -4,10 +4,11 @@ import Header from '@components/base/Header.astro';
 import Link from '@components/base/Link.astro';
 import Paragraph from '@components/base/Paragraph.astro';
 import Section from '@components/base/Section.astro';
-import Icon from '@components/icons/Icon.astro';
 import Layout from '@layouts/Layout.astro';
 import Image from 'astro/components/Image.astro';
 import configConst from '@utils/site-info';
+import { Icon } from 'astro-icon/components';
+import Something from '~icons/logos/astro';
 ---
 
 <Layout title="Main Page">
@@ -34,7 +35,7 @@ import configConst from '@utils/site-info';
 					Introducing OneConfig
 					<Link href="/projects/oneconfig" class="transition-none">
 						<span class="absolute inset-0" aria-hidden="true"></span>
-						<Icon icon="link-external" size={18} class="ml-1" />
+						<Icon name="link-external" size={18} class="ml-1" />
 					</Link>
 				</div>
 			</div>
@@ -71,7 +72,7 @@ import configConst from '@utils/site-info';
 			<div class="lg:justify-normal relative isolate z-50 flex flex-col-reverse flex-wrap justify-center gap-6 overflow-hidden bg-blue-75 px-6 py-6 md:flex-row lg:flex-nowrap lg:gap-20 sm:rounded-3xl lg:px-8 lg:py-0 md:shadow md:ring-1 md:ring-gray-400/50">
 				<div class="max-w-screen-md flex flex-col items-center justify-center text-center lg:items-start lg:justify-start lg:py-8 lg:text-left">
 					<div class="flex flex-col items-start justify-center">
-						<Icon icon="oneconfig" size={38} class="mb-4 hidden text-blue-500 md:block" />
+						<Icon name="oneconfig" size={38} class="mb-4 hidden text-blue-500 md:block" />
 						<Header size="lg" class="text-3xl text-navy-peony font-semibold tracking-tight">
 							OneConfig has <br />finally arrived.
 						</Header>

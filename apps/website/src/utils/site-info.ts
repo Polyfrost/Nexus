@@ -1,6 +1,4 @@
-import OneConfigMinimal from '@components/logos/OneConfigMinimal.astro';
-import PolyfrostFull from '@components/logos/PolyfrostFull.astro';
-import PolyfrostMinimal from '@components/logos/PolyfrostMinimal.astro';
+export type LogoType = (typeof configConst.logos)[number];
 
 export interface ProjectDownload {
 	url: string;
@@ -11,7 +9,7 @@ export interface ProjectDownload {
 export interface Project {
 	name: string;
 	description: string;
-	logo?: any;
+	logo?: LogoType;
 	tag?: string;
 	downloads?: ProjectDownload[];
 	descriptionLong?: string;
@@ -22,13 +20,13 @@ export interface NavbarDropdown {
 	name: string;
 	description: string;
 	path?: string;
-	logo?: any;
+	logo?: LogoType;
 	tag?: string;
 }
 
 export interface NavbarElement {
 	text?: string;
-	logo?: [any, number];
+	logo?: [string, number];
 	path?: string;
 	alt?: string;
 	dropdown?: NavbarDropdown[];
@@ -70,7 +68,7 @@ export interface Config {
 	footer: FooterColumn[];
 }
 
-export const configConst: Config = {
+export const configConst = {
 	name: 'Polyfrost',
 	title: 'Polyfrost',
 	description: 'Building beautiful mods and tools, byte by byte',
@@ -93,7 +91,7 @@ export const configConst: Config = {
 	navbar: {
 		left: [
 			{
-				logo: [PolyfrostFull, -1],
+				logo: ['polyfrost.full', -1],
 				path: '/',
 			},
 		],
@@ -113,7 +111,7 @@ export const configConst: Config = {
 						(project as any).path = `/projects/${project.name.toLowerCase()}`;
 
 					return project;
-				}),
+				}) as unknown as NavbarDropdown[],
 			},
 			{
 				text: 'About Us',
@@ -177,20 +175,20 @@ export const configConst: Config = {
 			],
 		},
 	],
-};
+} satisfies Config;
 
 function getProjects(): Project[] {
 	return [
 		{
 			name: 'OneConfig',
 			description: 'The next-generation config library for Forge and Fabric',
-			logo: OneConfigMinimal,
+			logo: 'oneconfig.minimal',
 			hasPage: true,
 		},
 		{
 			name: 'OneLauncher',
 			description: 'The next-generation launcher for Forge and Fabric',
-			logo: PolyfrostMinimal,
+			logo: 'polyfrost.minimal',
 			tag: 'SOON',
 		},
 	];

@@ -1,6 +1,5 @@
 ---
-import type { Icons } from '@components/icons/Icon.astro';
-import Icon from '@components/icons/Icon.astro';
+import { Icon } from 'astro-icon/components';
 import type { HTMLAttributes } from 'astro/types';
 
 const styles = {
@@ -26,8 +25,8 @@ interface Props extends HTMLAttributes<'button'> {
 	style?: keyof typeof styles;
 	size?: keyof typeof sizes;
 	text?: string;
-	iconLeft?: Icons;
-	iconRight?: Icons;
+	iconLeft?: string;
+	iconRight?: string;
 	href?: string;
 }
 
@@ -49,7 +48,7 @@ const Element = rest.href ? 'a' : 'button';
 	{
 		iconLeft && (
 			<span class="mr-2">
-				<Icon icon={iconLeft} size={iconSize[size]} />
+				<Icon name={iconLeft} size={iconSize[size]} />
 			</span>
 		)
 	}
@@ -57,7 +56,7 @@ const Element = rest.href ? 'a' : 'button';
 	{
 		iconRight && (
 			<span class="ml-2">
-				<Icon icon={iconRight} size={iconSize[size]} />
+				<Icon name={iconRight} size={iconSize[size]} />
 			</span>
 		)
 	}
