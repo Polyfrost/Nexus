@@ -3,11 +3,11 @@
 	"type": "module",
 	"version": "0.0.0",
 	"private": true,
-	"packageManager": "pnpm@9.9.0",
+	"packageManager": "pnpm@9.10.0",
 	"description": "Monorepo containing Polyfrost's TypeScript-based infrastructure",
 	"license": "AGPL-3.0-only",
 	"engines": {
-		"pnpm": "9.9.0",
+		"pnpm": ">=9",
 		"npm": "pnpm",
 		"yarn": "pnpm",
 		"node": ">=18"
@@ -22,14 +22,13 @@
 		"contrib": "pnpm --filter @polyfrost/docs-contrib -- "
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^4.0.0",
-		"@types/node": "~22.5.1",
-		"astro-eslint-parser": "^1.0.2",
-
-		"eslint": "^9.9.1",
-		"eslint-plugin-astro": "^1.2.3",
-		"eslint-plugin-jsx-a11y": "^6.9.0",
-		"vite": "^5.4.2",
-		"vitest": "^2.0.5"
+		"@flowr/eslint-config": "^4.3.1",
+		"@types/node": "~22.5.5",
+		"astro-eslint-parser": "^1.0.3",
+		"eslint": "^9.10.0",
+		"eslint-plugin-astro": "^1.2.4",
+		"eslint-plugin-jsx-a11y": "^6.10.0",
+		"vite": "^5.4.5",
+		"vitest": "^2.1.1"
 	}
 }
