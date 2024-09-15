@@ -28,7 +28,6 @@
 	},
 	"devDependencies": {
 		"@octokit/openapi-types": "^22.2.0",
-		"node-html-parser": "^6.1.13",
 		"unplugin-icons": "^0.19.2"
 	}
 }
