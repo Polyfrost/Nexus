@@ -26,7 +26,7 @@ export interface NavbarDropdown {
 
 export interface NavbarElement {
 	text?: string;
-	logo?: [Icon, number];
+	logo?: [Icon, number, number];
 	path?: string;
 	alt?: string;
 	dropdown?: NavbarDropdown[];
@@ -89,7 +89,7 @@ export const configConst = {
 	navbar: {
 		left: [
 			{
-				logo: ['polyfrost.full', -1],
+				logo: ['polyfrost.full', 174, 30],
 				path: '/',
 			},
 		],

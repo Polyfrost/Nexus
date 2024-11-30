@@ -12,8 +12,8 @@ const props = Astro.props;
 <footer {...props} class="section flex items-center justify-center bg-blue-100 px-20 pb-8 pt-20 -mt-40">
 	<div class="max-w-[1024px] w-full flex flex-col gap-y-24">
 		<div class="flex flex-col items-start justify-center gap-y-20 md:flex-row md:items-start md:justify-between">
-			<div class="flex flex-1 flex-col gap-y-3 text-blue-gray">
-				<Icon name="polyfrost.full" />
+			<div class="text-lightslategray flex flex-1 flex-col gap-y-3">
+				<Icon height="30" name="polyfrost.full" width="174" />
 				<p>English (US)</p>
 				{/* hardcoded for now, todo i18n */}
 				<div class="flex flex-row gap-3">
@@ -31,7 +31,7 @@ const props = Astro.props;
 							<ul class="flex flex-col gap-y-1">
 								{column.links.map(link => (
 									<li>
-										<Link class="text-nowrap text-sm text-blue-gray" href={link.url}>
+										<Link class="text-lightslategray! text-nowrap text-sm" href={link.url}>
 											{link.text}
 										</Link>
 									</li>
@@ -44,10 +44,10 @@ const props = Astro.props;
 		</div>
 
 		<div class="flex flex-col items-center md:flex-row md:items-start md:justify-between">
-			<p class="text-sm text-blue-gray">
-				© {new Date().getFullYear()} Polyfrost. <Link class="text-sm text-blue-gray" href="https://github.com/Polyfrost/Nexus">Licensed under AGPL-3.0. </Link>
+			<p class="text-lightslategray text-sm">
+				© {new Date().getFullYear()} Polyfrost. <Link class="text-lightslategray text-sm" href="https://github.com/Polyfrost/Nexus">Licensed under AGPL-3.0. </Link>
 			</p>
-			<p class="text-sm text-blue-gray">Not affiliated with Mojang or Microsoft.</p>
+			<p class="text-lightslategray text-sm">Not affiliated with Mojang or Microsoft.</p>
 		</div>
 	</div>
 </footer>

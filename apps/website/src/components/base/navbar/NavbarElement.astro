@@ -40,11 +40,11 @@ function isCurrentPage(url: string): boolean {
 							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
 						>
 							{element.text && element.text}
-							{element.logo && <Icon height={element.logo[1] < 0 ? undefined : element.logo[1]} name={element.logo[0]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
+							{element.logo && <Icon height={element.logo[2] < 0 ? 'auto' : element.logo[2]} name={element.logo[0]} width={element.logo[1] < 0 ? 'auto' : element.logo[1]} />}
 							{element.dropdown && <Icon name="chevron-down" />}
 						</p>
 
-						<ScreenOverlay class="z-navbar-backdrop max-sm:group-focus-within:opacity-100" />
+						<ScreenOverlay class="z-[9998] max-sm:group-focus-within:opacity-100" />
 						<input class="peer absolute appearance-none" id={`navbar-input-${index}`} tabindex="-1" type="checkbox" />
 						<div
 							class={`
@@ -53,7 +53,7 @@ function isCurrentPage(url: string): boolean {
                			max-sm:overflow-hidden
                 		max-sm:max-h-[70vh] max-sm:h-screen max-sm:w-screen
                 		pointer-events-none opacity-0
-						z-navbar
+						z-[9999]
 
                 		md:top-full md:right-0
 

@@ -1,11 +1,10 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss';
+import { defineConfig, presetIcons, presetUno, transformerDirectives, transformerVariantGroup } from 'unocss';
 
 export default defineConfig({
 	rules: [],
 	shortcuts: {},
 	presets: [
 		presetUno(),
-		presetAttributify(),
 		presetIcons(),
 	],
 	transformers: [
@@ -15,50 +14,51 @@ export default defineConfig({
 	theme: {
 		colors: {
 			'blue': {
-				20: 'rgba(223, 236, 253, 1)',
-				30: 'rgba(183, 208, 251, 1)',
-				50: 'rgba(231, 235, 252, 1)',
-				60: 'rgba(0, 72, 197, 1)',
-				75: 'rgba(227, 236, 245, 1)',
-				100: 'rgba(210, 225, 249, 1)',
-				200: 'rgba(189, 215, 249, 1)',
-				300: 'rgba(166, 200, 249, 1)',
-				400: 'rgba(56, 132, 255, 1)',
-				450: 'rgba(37,99,235, 1)',
-				500: 'rgba(31, 101, 214, 1)',
-				600: 'rgba(9, 84, 165, 1)',
-				800: 'rgba(19, 43, 83, 1)',
+				20: 'rgba(223, 236, 253)',
+				30: 'rgba(183, 208, 251)',
+				50: 'rgba(231, 235, 252)',
+				60: 'rgba(0, 72, 197)',
+				75: 'rgba(227, 236, 245)',
+				100: 'rgba(210, 225, 249)',
+				200: 'rgba(189, 215, 249)',
+				300: 'rgba(166, 200, 249)',
+				400: 'rgba(56, 132, 255)',
+				450: 'rgba(37,99,235)',
+				500: 'rgba(31, 101, 214)',
+				600: 'rgba(9, 84, 165)',
+				800: 'rgba(19, 43, 83)',
 			},
 			'green': {
 				300: 'rgba(35, 154, 96, 0.5)',
 			},
 			'gray': {
-				50: 'rgba(240, 242, 244, 1)',
-				200: 'rgba(196, 202, 212, 1)',
-				400: 'rgba(138, 150, 168, 1)',
-				600: 'rgba(42, 44, 48, 1)',
-				700: 'rgba(65, 74, 88, 1)',
-				800: 'rgba(42, 47, 55, 1)',
+				50: 'rgba(240, 242, 244)',
+				100: 'rgba(196, 202, 212)',
+				200: 'rgba(196, 202, 212)',
+				400: 'rgba(138, 150, 168)',
+				600: 'rgba(42, 44, 48)',
+				700: 'rgba(65, 74, 88)',
+				800: 'rgba(42, 47, 55)',
 			},
 			'white': {
-				'DEFAULT': 'rgba(255, 255, 255, 1)',
+				'DEFAULT': 'rgba(255, 255, 255)',
 				'1/4': 'rgba(255, 255, 255, 0.25)',
-				'light': 'rgba(235, 245, 254, 1)',
+				'light': 'rgba(235, 245, 254)',
 			},
 			'black': {
-				DEFAULT: 'rgba(0, 0, 0, 1)',
+				DEFAULT: 'rgba(0, 0, 0)',
 			},
 			'text': {
-				DEFAULT: 'rgba(2, 3, 7, 1)',
-				primary: 'rgba(2, 3, 7, 1)',
+				DEFAULT: 'rgba(2, 3, 7)',
+				primary: 'rgba(2, 3, 7)',
 			},
 			// Other
-			'navy-peony': 'rgba(32, 55, 91, 1)',
-			'blue-gray': 'rgba(119, 143, 183, 1)',
+			'navy-peony': 'rgba(32, 55, 91)',
+			'lightslategray': 'rgba(119, 143, 183)',
 			'primary': {
-				100: 'rgba(23, 28, 33, 1)',
-				200: 'rgba(50, 74, 245, 1)',
-				600: 'rgba(20, 82, 204, 1)',
+				100: 'rgba(23, 28, 33)',
+				200: 'rgba(50, 74, 245)',
+				600: 'rgba(20, 82, 204)',
 			},
 		},
 		borderRadius: {
@@ -74,12 +74,12 @@ export default defineConfig({
 		},
 		fontSize: {
 			// rem starts at 16px on desktop, 14px on tailwind 'sm' and below
-			'xxs': '0.625rem', // 10px
-			'xs': '0.75rem', // 12px
-			'sm': '0.875rem', // 14px
-			'md': '1rem', // 16px
-			'lg': '1.125rem', // 18px
-			'xl': '1.25rem', // 20px
+			'xxs': ['0.625rem', '1rem'], // 10px
+			'xs': ['0.75rem', '1rem'], // 12px
+			'sm': ['0.875rem', 'inherit'], // 14px
+			'md': ['1rem', 'inherit'], // 16px
+			'lg': ['1.125rem', 'inherit'], // 18px
+			'xl': ['1.25rem', 'inherit'], // 20px
 
 			'header-sm': '1.5rem', // 24px
 			'header': '1.75rem', // 28px

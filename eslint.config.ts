@@ -10,4 +10,7 @@ export default petal({
 		'packages/client/src/core.ts',
 		'apps/desktop/src/commands.ts',
 	],
+	rules: {
+		'astro/no-unused-css-selector': 'off',
+	},
 });
