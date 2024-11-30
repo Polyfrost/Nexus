@@ -1,5 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
+import type { Icon as IconType } from 'virtual:astro-icon';
 import { Icon } from 'astro-icon/components';
 
 const styles = {
@@ -25,8 +26,8 @@ interface Props extends HTMLAttributes<'button'> {
 	style?: keyof typeof styles;
 	size?: keyof typeof sizes;
 	text?: string;
-	iconLeft?: string;
-	iconRight?: string;
+	iconLeft?: IconType;
+	iconRight?: IconType;
 	href?: string;
 }
 

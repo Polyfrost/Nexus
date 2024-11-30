@@ -10,8 +10,7 @@
 			"@styles/*": ["./src/styles/*"],
 			"@utils/*": ["./src/utils/*"],
 			"~/*": ["./src/*"]
-		},
-		"types": ["unplugin-icons/types/astro"]
+		}
 	},
 	"exclude": ["node_modules", "dist", "public"]
 }

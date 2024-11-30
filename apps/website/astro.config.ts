@@ -4,8 +4,8 @@ import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, envField } from 'astro/config';
 
+import icons from 'astro-icon';
 import unocss from 'unocss/astro';
-import icons from 'unplugin-icons/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,10 +19,10 @@ export default defineConfig({
 		mdx(),
 		sitemap(),
 		partytown(),
+		icons(),
 	],
 	vite: {
 		ssr: { noExternal: ['smartypants'] },
-		plugins: [icons({ compiler: 'astro' })],
 	},
 	experimental: {
 		contentIntellisense: true,

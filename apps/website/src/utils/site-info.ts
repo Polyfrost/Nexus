@@ -1,4 +1,4 @@
-export type LogoType = (typeof configConst.logos)[number];
+import type { Icon } from 'virtual:astro-icon';
 
 export interface ProjectDownload {
 	url: string;
@@ -9,7 +9,7 @@ export interface ProjectDownload {
 export interface Project {
 	name: string;
 	description: string;
-	logo?: LogoType;
+	logo?: Icon;
 	tag?: string;
 	downloads?: ProjectDownload[];
 	descriptionLong?: string;
@@ -20,13 +20,13 @@ export interface NavbarDropdown {
 	name: string;
 	description: string;
 	path?: string;
-	logo?: LogoType;
+	logo?: Icon;
 	tag?: string;
 }
 
 export interface NavbarElement {
 	text?: string;
-	logo?: [string, number];
+	logo?: [Icon, number];
 	path?: string;
 	alt?: string;
 	dropdown?: NavbarDropdown[];
@@ -49,7 +49,6 @@ export interface Config {
 		alt: string;
 	};
 	projects: Project[];
-	logos: string[];
 	socials: {
 		youtube: string;
 		// twitter: string,
@@ -77,7 +76,6 @@ export const configConst = {
 		alt: 'Polyfrost Logo',
 	},
 	projects: getProjects(),
-	logos: ['oneconfig.minimal', 'polyfrost.full', 'polyfrost.minimal', 'polyfrost.minimal_bg'],
 	socials: {
 		youtube: 'https://youtube.com/@Polyfrost',
 		discord: '/discord',

@@ -10,7 +10,7 @@ const posts = await getCollection('blog');
 	<section>
 		<ul>
 			{
-				posts.map(post => (
+				posts.map((post: { slug: any; data: { coverImage: string | null | undefined; title: unknown; publishDate: Date; }; }) => (
 					<li>
 						<a href={`blog/${post.slug}/`}>
 							<img alt="" height={360} src={post.data.coverImage} width={720} />
