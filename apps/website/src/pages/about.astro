@@ -6,22 +6,22 @@ import Section from '@components/base/Section.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
-<Layout title="About us" description="Learn about the team!">
+<Layout description="Learn about the team!" title="About us">
 	<Section class="h-screen max-h-4/5-screen flex-col items-center justify-center md:max-h-[600px] md:min-h-[400px]">
 		<div class="max-w-[600px] flex flex-col items-center justify-center gap-y-2 text-center">
-			<Header align="center" size="xxl" class="text-navy-peony">Our journey </Header>
-			<Paragraph size="lg" class="text-blue-gray">From an aspiring team just trying to make a cool thing, to what we now call Polyfrost, we've made a lot of progress. </Paragraph>
+			<Header align="center" class="text-navy-peony" size="xxl">Our journey </Header>
+			<Paragraph class="text-blue-gray" size="lg">From an aspiring team just trying to make a cool thing, to what we now call Polyfrost, we've made a lot of progress. </Paragraph>
 		</div>
 	</Section>
 
 	<div class="flex flex-col gap-y-40">
-		<Section tabindex="0" colReverse={false}>
-			<div slot="left" class="min-w-1/2 md:w-auto">
-				<img src="/media/about/page_media_1.svg" alt="image of a calendar" />
+		<Section colReverse={false} tabindex="0">
+			<div class="min-w-1/2 md:w-auto" slot="left">
+				<img alt="image of a calendar" src="/media/about/page_media_1.svg" />
 			</div>
-			<div slot="right" class="max-lg:!text-center">
-				<Header size="lg" class="text-navy-peony"> October, 2021 </Header>
-				<Paragraph size="sm" class="max-w-[500px] text-blue-gray">
+			<div class="max-lg:!text-center" slot="right">
+				<Header class="text-navy-peony" size="lg"> October, 2021 </Header>
+				<Paragraph class="max-w-[500px] text-blue-gray" size="sm">
 					We began as a small development team trying to build ambitious projects beyond us. Joining forces with W-OVERFLOW (a modding organization formerly owned by one of the current
 					owners), Polyfrost finally had the resources to achieve our dream of a unified config for all mods.
 				</Paragraph>
@@ -29,49 +29,49 @@ import Layout from '@layouts/Layout.astro';
 		</Section>
 
 		<Section tabindex="0">
-			<div slot="left" class="max-lg:!text-center">
-				<Header size="lg" class="text-navy-peony"> A year of development </Header>
-				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
+			<div class="max-lg:!text-center" slot="left">
+				<Header class="text-navy-peony" size="lg"> A year of development </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="sm">
 					Our first alpha build of OneConfig released in June to a limited audience. By October of 2022, nearly a year after our first announcement, OneConfig finally became available to the
 					whole world in open beta.
 				</Paragraph>
 			</div>
 
-			<div slot="right" class="min-w-1/2 md:w-auto">
-				<img src="/media/about/page_media_2.svg" alt="image of a code block" />
+			<div class="min-w-1/2 md:w-auto" slot="right">
+				<img alt="image of a code block" src="/media/about/page_media_2.svg" />
 			</div>
 		</Section>
 
-		<Section tabindex="0" colReverse={false}>
-			<div slot="left" class="min-w-1/2 md:w-auto">
-				<img src="/media/about/page_media_3.svg" alt="image indicating a celebration" />
+		<Section colReverse={false} tabindex="0">
+			<div class="min-w-1/2 md:w-auto" slot="left">
+				<img alt="image indicating a celebration" src="/media/about/page_media_3.svg" />
 			</div>
-			<div slot="right" class="flex flex-col gap-y-2 max-lg:!text-center">
-				<Header size="lg" class="text-navy-peony"> Hey look, OneConfig's a hit! </Header>
-				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
+			<div class="flex flex-col gap-y-2 max-lg:!text-center" slot="right">
+				<Header class="text-navy-peony" size="lg"> Hey look, OneConfig's a hit! </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="sm">
 					In the coming months, our little baby would independently surpass 200,000 views on YouTube and our community grew by around 300%. Shortly after, our first major update releases,
 					bringing substantial customization, new animations, design overhauls, and many bug fixes.
 				</Paragraph>
 				<div class="flex max-lg:justify-center">
-					<Button style="secondary" iconLeft="oneconfig" href="/projects/oneconfig">OneConfig </Button>
+					<Button href="/projects/oneconfig" iconLeft="oneconfig" style="secondary">OneConfig </Button>
 				</div>
 			</div>
 		</Section>
 
 		<Section tabindex="0">
-			<div slot="left" class="flex flex-col gap-y-2 max-lg:!text-center">
-				<Header size="lg" class="text-navy-peony"> Finally, it's ready for release </Header>
-				<Paragraph size="sm" class="max-w-[500px] text-gray-400">
+			<div class="flex flex-col gap-y-2 max-lg:!text-center" slot="left">
+				<Header class="text-navy-peony" size="lg"> Finally, it's ready for release </Header>
+				<Paragraph class="max-w-[500px] text-gray-400" size="sm">
 					It's been a long journey, with many bugs, hotfixes, mod incompatibilities, support tickets, list goes on. However, after two years of development, we finally announced the complete
 					release of OneConfig. In November 2023, we released all our OneConfig mods out of beta and into the world.
 				</Paragraph>
 				<div class="flex max-lg:justify-center">
-					<Button iconLeft="link-external" style="secondary" href="/mods">Discover Mods </Button>
+					<Button href="/mods" iconLeft="link-external" style="secondary">Discover Mods </Button>
 				</div>
 			</div>
 
-			<div slot="right" class="min-w-1/2 md:w-auto">
-				<img src="/media/about/page_media_4.svg" alt="oneconfig logo" />
+			<div class="min-w-1/2 md:w-auto" slot="right">
+				<img alt="oneconfig logo" src="/media/about/page_media_4.svg" />
 			</div>
 		</Section>
 

@@ -1,6 +1,6 @@
+import type { APIRoute } from 'astro';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import type { APIRoute } from 'astro';
 
 function sortPosts(a: { data: { publishDate: Date } }, b: { data: { publishDate: Date } }) {
 	return Number(b.data.publishDate) - Number(a.data.publishDate);

@@ -11,6 +11,6 @@ const { icon, text = 'Hiiii', ...rest } = Astro.props;
 ---
 
 <div {...rest} class="w-[256px] shrink-0 rounded-xl bg-primary-100">
-	<Icon name={icon} size={48} class="mx-auto my-[28px] text-white" />
+	<Icon class="mx-auto my-[28px] text-white" name={icon} size={48} />
 	<p class="mx-auto rounded-b-xl bg-primary-200 py-[7px] pl-[12px] pr-[32px] text-[14px] text-white">{text}</p>
 </div>

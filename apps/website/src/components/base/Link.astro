@@ -7,6 +7,6 @@ const props = Astro.props;
 const className = ['text-current hover:text-blue-500 underline decoration-[transparent] hover:decoration-blue-500 transition-colors', props.class].join(' ');
 ---
 
-<a class={className} aria-label="link" {...props}>
+<a aria-label="link" class={className} {...props}>
 	<slot />
 </a>

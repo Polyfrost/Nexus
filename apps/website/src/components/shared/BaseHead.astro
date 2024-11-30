@@ -1,6 +1,6 @@
 ---
-import smartypants from 'smartypants';
 import siteInfo from '@utils/site-info';
+import smartypants from 'smartypants';
 import FontPreload from './FontPreload.astro';
 import SEO from './SEO.astro';
 
@@ -25,25 +25,25 @@ const resolvedImage = {
 
 <!-- High Priority Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width" />
+<meta content="width=device-width" name="viewport" />
 {/* eslint-disable-next-line astro/no-set-html-directive -- h */}
 <title set:html={smartypants(title, 1)} />
-<meta name="generator" content={Astro.generator} />
+<meta content={Astro.generator} name="generator" />
 
 <!-- Font Preloads -->
 <FontPreload />
 
 <!-- Low Priority Global Metadata -->
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href={new URL('/rss.xml', Astro.site)} title="Polyfrost Feed" />
+<link href="/sitemap-index.xml" rel="sitemap" />
+<link href={new URL('/rss.xml', Astro.site)} rel="alternate" title="Polyfrost Feed" type="application/rss+xml" />
 
 <!-- Low Priority Global Favicon Metadata -->
-<link rel="icon" href="/favicon.ico" sizes="48x48" />
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2567d8" />
-<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="manifest" href="/site.webmanifest" />
+<link href="/favicon.ico" rel="icon" sizes="48x48" />
+<link color="#2567d8" href="/safari-pinned-tab.svg" rel="mask-icon" />
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+<link href="/site.webmanifest" rel="manifest" />
 
-<SEO name={siteInfo.name} title={title} description={description} image={resolvedImage} twitter={{ handle: twitterHandle }} og={{ type: pageType }} canonicalURL={canonicalURL} />
+<SEO canonicalURL={canonicalURL} description={description} image={resolvedImage} name={siteInfo.name} og={{ type: pageType }} title={title} twitter={{ handle: twitterHandle }} />
 
-<script type="text/partytown" async data-domain="polyfrost.org" src="https://analytics.polyfrost.org/js/script.js"></script>
+<script async data-domain="polyfrost.org" src="https://analytics.polyfrost.org/js/script.js" type="text/partytown"></script>

@@ -1,5 +1,5 @@
-import { GITHUB_PAT } from 'astro:env/server';
 import type { components } from '@octokit/openapi-types';
+import { GITHUB_PAT } from 'astro:env/server';
 
 type Release = components['schemas']['release'];
 

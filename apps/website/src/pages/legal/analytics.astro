@@ -7,13 +7,13 @@ import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="Analytics Opt-in / out">
-	<Section hFull class="items-start justify-center pt-32">
+	<Section class="items-start justify-center pt-32" hFull>
 		<div class="w-full flex flex-col items-start justify-start text-navy-peony">
 			<Header>Analytics Opt-in / out</Header>
 			<Paragraph class="whitespace-pre-line">Click the button below to toggle your exclusion in analytics for this site.</Paragraph>
 			<div class="mt-7 flex items-center justify-start gap-x-6 md:justify-center">
-				<Button style="primary" iconLeft="code" id="plausible_not">Opt-out </Button>
-				<Button style="primary" iconLeft="code" id="plausible_yes">Opt-in </Button>
+				<Button iconLeft="code" id="plausible_not" style="primary">Opt-out </Button>
+				<Button iconLeft="code" id="plausible_yes" style="primary">Opt-in </Button>
 			</div>
 		</div>
 	</Section>

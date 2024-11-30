@@ -1,18 +1,18 @@
 ---
-import FormattedDate from '@components/base/FormattedDate.astro';
-import '@styles/blog.css';
 import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '@components/base/FormattedDate.astro';
 import Layout from './Layout.astro';
+import '@styles/blog.css';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, publishDate, updatedDate, coverImage } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout description={description} title={title}>
 	<article>
 		<div class="hero-image">
-			{coverImage && <img width={1020} height={510} src={coverImage} alt="Hero Image" />}
+			{coverImage && <img alt="Hero Image" height={510} src={coverImage} width={1020} />}
 		</div>
 		<div class="prose">
 			<div class="title">

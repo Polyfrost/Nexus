@@ -1,11 +1,11 @@
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import partytown from '@astrojs/partytown';
-import icons from 'unplugin-icons/vite';
 import cloudflare from '@astrojs/cloudflare';
-
+import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
+import sitemap from '@astrojs/sitemap';
 import { defineConfig, envField } from 'astro/config';
+
 import unocss from 'unocss/astro';
+import icons from 'unplugin-icons/vite';
 
 // https://astro.build/config
 export default defineConfig({

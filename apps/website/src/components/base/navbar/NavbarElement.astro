@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
 import type { NavbarElement } from '@utils/site-info';
+import { Icon } from 'astro-icon/components';
 import Header from '../Header.astro';
 import ScreenOverlay from '../ScreenOverlay.astro';
 import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
@@ -23,29 +23,29 @@ function isCurrentPage(url: string): boolean {
 		element.path
 ? (
 			<a
-				href={element.path}
 				aria-label="polyfrost logo"
 				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}
+				href={element.path}
 			>
 				{element.text && element.text}
-				{element.logo && <Icon name={element.logo[0]} class="transition-transform active:scale-95" height={element.logo[1] < 0 ? undefined : element.logo[1]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
+				{element.logo && <Icon class="transition-transform active:scale-95" height={element.logo[1] < 0 ? undefined : element.logo[1]} name={element.logo[0]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
 				{element.dropdown && <Icon name="chevron-down" />}
 			</a>
 		)
 : (
-			<label for={`navbar-input-${index}`} class="group">
+			<label class="group" for={`navbar-input-${index}`}>
 				{element.dropdown && (
 					<>
 						<p
 							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
 						>
 							{element.text && element.text}
-							{element.logo && <Icon name={element.logo[0]} height={element.logo[1] < 0 ? undefined : element.logo[1]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
+							{element.logo && <Icon height={element.logo[1] < 0 ? undefined : element.logo[1]} name={element.logo[0]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
 							{element.dropdown && <Icon name="chevron-down" />}
 						</p>
 
 						<ScreenOverlay class="z-navbar-backdrop max-sm:group-focus-within:opacity-100" />
-						<input tabindex="-1" type="checkbox" id={`navbar-input-${index}`} class="peer absolute appearance-none" />
+						<input class="peer absolute appearance-none" id={`navbar-input-${index}`} tabindex="-1" type="checkbox" />
 						<div
 							class={`
 						transition-opacity
@@ -64,7 +64,6 @@ function isCurrentPage(url: string): boolean {
             		`}
 						>
 							<ScrollbarOverlayContainer
-								tabindex="-1"
 								class={`
                     			bg-gray-50
 								border border-gray-100
@@ -75,19 +74,20 @@ function isCurrentPage(url: string): boolean {
                     			max-h-full md:max-h-96 overflow-y-auto min-h-full
 								md:shadow-lg
                 			`}
+								tabindex="-1"
 							>
 								<ul class="p-4">
 									{element.dropdown.map(item => (
 										<li>
-											<a href={item.path} class="flex sm:max-w-[400px] sm:min-w-[400px]">
+											<a class="flex sm:max-w-[400px] sm:min-w-[400px]" href={item.path}>
 												<div
 													class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'grayscale hover:brightness-75'}`}
 												>
-													<div class="w-[36px]">{item.logo && <Icon size={40} name={item.logo} />}</div>
+													<div class="w-[36px]">{item.logo && <Icon name={item.logo} size={40} />}</div>
 
 													<div class="flex flex-col items-start justify-start">
 														<div class="flex flex-row gap-2">
-															<Header inheritSize size="md" class="text-md text-gray-800 font-medium md:text-sm">
+															<Header class="text-md text-gray-800 font-medium md:text-sm" inheritSize size="md">
 																{item.name}
 															</Header>
 															{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
