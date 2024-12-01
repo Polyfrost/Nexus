@@ -81,14 +81,14 @@ export default defineConfig({
 			'lg': ['1.125rem', 'inherit'], // 18px
 			'xl': ['1.25rem', 'inherit'], // 20px
 
-			'header-sm': '1.5rem', // 24px
-			'header': '1.75rem', // 28px
-			'header-lg': '2rem', // 32px
-			'header-page': '2.25rem', // 36px
+			'header-sm': ['1.5rem', 'inherit'], // 24px
+			'header': ['1.75rem', 'inherit'], // 28px
+			'header-lg': ['2rem', 'inherit'], // 32px
+			'header-page': ['2.25rem', 'inherit'], // 36px
 
-			'body-sm': '0.938rem', // 15px
-			'body': '1rem', // 16px
-			'body-lg': '1.063rem', // 17px
+			'body-sm': ['0.938rem', 'inherit'], // 15px
+			'body': ['1rem', 'inherit'], // 16px
+			'body-lg': ['1.063rem', 'inherit'], // 17px
 		},
 		fontFamily: {
 			mono: ['"Roboto Mono"', 'monospace'],
