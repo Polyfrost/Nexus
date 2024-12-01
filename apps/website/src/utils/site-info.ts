@@ -78,7 +78,7 @@ export const configConst = {
 	projects: getProjects(),
 	socials: {
 		youtube: 'https://youtube.com/@Polyfrost',
-		discord: '/discord',
+		discord: 'https://discord.gg/N4qW7TW3dv',
 		github: 'https://github.com/Polyfrost',
 		modrinth: {
 			id: 'polyfrost',
