@@ -19,68 +19,55 @@ interface Props extends HTMLAttributes<Headers> {
 	inheritSize?: boolean;
 }
 
-const { size = 'lg', align = 'inherit', inheritSize = false, ...attr } = Astro.props;
+const { size = 'lg', align = 'inherit', inheritSize = false, class: className, ...attr } = Astro.props;
 const Element = sizes[size] as any;
-
-let className: string | string[] = [];
-if (!inheritSize)
-className.push('header');
-
-if (align !== 'inherit')
-className.push(`text-${align}`);
-
-if (size === 'xxl' || size === 'xl')
-className.push('page-header');
-
-if (attr.class)
-className.push(attr.class);
-
-className = className.join(' ');
 ---
 
 <Element
 	{...attr}
-	class={className}
+	class:list={[
+		className,
+		{
+			'header': !inheritSize,
+			[`text-${align}`]: align !== 'inherit',
+			'page-header': size === 'xxl' || size === 'xl',
+		},
+	]}
 >
 	<slot />
 </Element>
 
-<style>
+<style lang="scss">
 	h1.header {
-		font-size: theme('fontSize.header-lg');
-		&.page-header {
-			font-size: theme('fontSize.header-page');
-		}
-		font-weight: 600;
+		@apply text-header-lg font-semibold;
 	}
 
 	h2.header {
-		font-size: theme('fontSize.header');
-		&.page-header {
-			font-size: theme('fontSize.header-page');
-		}
-		font-weight: 600;
+		@apply text-header font-semibold;
 	}
 
 	h3.header {
-		font-size: theme('fontSize.header-sm');
-		font-weight: 600;
+		@apply text-header-sm font-semibold;
 	}
 
 	h4.header {
-		font-size: theme('fontSize.body-lg');
-		font-weight: 500;
+		@apply text-body-lg font-medium;
 	}
 
 	h5.header {
-		font-size: theme('fontSize.body');
-		font-weight: 500;
+		@apply text-body font-medium;
 	}
 
 	h6.header {
-		font-size: theme('fontSize.body-sm');
-		font-weight: 500;
+		@apply text-body-sm font-medium;
 	}
+
+	h1, h2 {
+		&.page-header {
+			@apply text-header-page;
+		}
+	}
+
 	h1,
 	h2,
 	h3,
