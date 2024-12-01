@@ -28,10 +28,10 @@ const props = Astro.props;
 					configConst.footer.map(column => (
 						<div class="flex flex-col gap-y-3">
 							<h3 class="text-md text-gray-700">{column.header}</h3>
-							<ul class="flex flex-col gap-y-1">
+							<ul class="flex flex-col gap-y-1 text-lightslategray">
 								{column.links.map(link => (
 									<li>
-										<Link class="text-nowrap text-sm text-lightslategray!" href={link.url}>
+										<Link class="text-nowrap text-sm" href={link.url}>
 											{link.text}
 										</Link>
 									</li>
