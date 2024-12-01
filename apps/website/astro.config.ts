@@ -19,7 +19,11 @@ export default defineConfig({
 		mdx(),
 		sitemap(),
 		partytown(),
-		icons(),
+		icons({
+			svgoOptions: {
+				plugins: [],
+			},
+		}),
 	],
 	vite: {
 		ssr: { noExternal: ['smartypants'] },
