@@ -185,8 +185,8 @@ function getProjects(): Project[] {
 		},
 		{
 			name: 'OneLauncher',
-			description: 'The next-generation launcher for Forge and Fabric',
-			logo: 'polyfrost.minimal',
+			description: 'The next-generation launcher for all your Minecraft needs',
+			logo: 'onelauncher.minimal',
 			tag: 'SOON',
 		},
 	];
