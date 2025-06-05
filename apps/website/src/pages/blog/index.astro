@@ -2,26 +2,34 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/base/FormattedDate.astro';
 import Layout from '../../layouts/Layout.astro';
+import Section from '@components/base/Section.astro';
 
 const posts = await getCollection('blog');
 ---
 
 <Layout description="Recieve Polyfrost updates here" title="Polyfrost Blog">
-	<section>
-		<ul>
+	<Section class="mt-96 md:mt-32 mb-12">
+		<div class="grid md:grid-cols-2 gap-3 content-center md:w-full mx-auto">
 			{
-				posts.map((post: { slug: any; data: { coverImage: string | null | undefined; title: unknown; publishDate: Date; }; }) => (
-					<li>
-						<a href={`blog/${post.slug}/`}>
-							<img alt="" height={360} src={post.data.coverImage} width={720} />
-							<h4 class="title">{post.data.title}</h4>
-							<p class="date">
-								<FormattedDate date={post.data.publishDate} />
-							</p>
-						</a>
-					</li>
+				posts.map((post) => (
+					<a href={`/blog/${post.slug}/`}>
+						<div class="bg-blue-75/80 p-2 ring-1 ring-gray-400/10 rounded-3xl">
+							<img alt="" height={240} src={post.data.coverImage} width={480} class="w-full rounded-xl ring-1 ring-gray-400/50 bg-gray-400/40 object-cover aspect-video" />
+							<div class="p-1">
+								<div class="flex justify-between">
+									<h3 class="text-lg font-semibold text-navy-peony">{post.data.title}</h3>
+									<p class="date text-xs font-light text-right text-nowrap">
+										<FormattedDate date={post.data.publishDate} />
+									</p>
+								</div>
+								<p class="text-sm font-light">
+									{post.data.description}
+								</p>
+							</div>
+						</div>
+					</a>
 				))
 			}
-		</ul>
-	</section>
+		</div>
+	</Section>
 </Layout>
