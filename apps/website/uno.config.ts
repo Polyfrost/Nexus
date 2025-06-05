@@ -16,10 +16,14 @@ export default defineConfig({
 		presetTypography({
 			cssExtend: {
 				blockquote: {
-					"border-left": "3px solid rgba(138, 150, 168)",
+					"border-left": "4px solid rgba(138, 150, 168)",
+					"border-radius": "12px",
 				},
 				img: {
 					"border-radius": "12px",
+				},
+				"p:first-child": {
+					"margin-top": "0",
 				},
 			},
 		}),

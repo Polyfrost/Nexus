@@ -14,7 +14,7 @@ const posts = await getCollection('blog');
 				posts.toSorted((p1,p2)=>p2.data.publishDate.valueOf()-p1.data.publishDate.valueOf()).map((post) => (
 					<a href={`/blog/${post.slug}/`}>
 						<div class="flex gap-2 flex-col md:flex-row">
-							<img alt="" height={240} src={post.data.coverImage} width={480} class="w-full md:w-100 rounded-xl ring-1 ring-gray-400/50 bg-gray-400/40 object-cover aspect-video" />
+							<img alt="" height={225} src={post.data.coverImage} width={400} class="w-full md:w-100 rounded-xl ring-1 ring-gray-400/50 bg-gray-400/40 object-cover aspect-video" />
 							<div class="p-1">
 								<p class="date text-xs font-light text-nowrap">
 									<FormattedDate date={post.data.publishDate} />
