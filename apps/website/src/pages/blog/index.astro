@@ -9,18 +9,18 @@ const posts = await getCollection('blog');
 
 <Layout description="Recieve Polyfrost updates here" title="Polyfrost Blog">
 	<Section class="mt-96 md:mt-32 mb-12">
-		<div class="grid md:grid-cols-2 gap-3 content-center md:w-full mx-auto">
+		<div class="flex flex-col gap-5 content-center mx-auto">
 			{
-				posts.map((post) => (
+				posts.toSorted((p1,p2)=>p2.data.publishDate.valueOf()-p1.data.publishDate.valueOf()).map((post) => (
 					<a href={`/blog/${post.slug}/`}>
-						<div class="bg-blue-75/80 p-2 ring-1 ring-gray-400/10 rounded-3xl">
-							<img alt="" height={240} src={post.data.coverImage} width={480} class="w-full rounded-xl ring-1 ring-gray-400/50 bg-gray-400/40 object-cover aspect-video" />
+						<div class="flex gap-2 flex-col md:flex-row">
+							<img alt="" height={240} src={post.data.coverImage} width={480} class="w-full md:w-100 rounded-xl ring-1 ring-gray-400/50 bg-gray-400/40 object-cover aspect-video" />
 							<div class="p-1">
+								<p class="date text-xs font-light text-nowrap">
+									<FormattedDate date={post.data.publishDate} />
+								</p>
 								<div class="flex justify-between">
 									<h3 class="text-lg font-semibold text-navy-peony">{post.data.title}</h3>
-									<p class="date text-xs font-light text-right text-nowrap">
-										<FormattedDate date={post.data.publishDate} />
-									</p>
 								</div>
 								<p class="text-sm font-light">
 									{post.data.description}
