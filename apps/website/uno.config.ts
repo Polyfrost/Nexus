@@ -8,7 +8,15 @@ import {
 } from "unocss";
 
 export default defineConfig({
-	rules: [],
+	rules: [
+		["parallax-container", { perspective: "10px" }],
+		[
+			/^parallax-(\d+)$/,
+			([, d]) => ({
+				transform: `translateZ(-${d}px) scale(${parseInt(d) / 10 + 1})`,
+			}),
+		],
+	],
 	shortcuts: {},
 	presets: [
 		presetUno(),
