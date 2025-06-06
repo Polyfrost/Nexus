@@ -115,6 +115,10 @@ export const configConst = {
 				text: 'About Us',
 				path: '/about',
 			},
+			{
+				text: 'Blog',
+				path: "/blog",
+			}
 		],
 	},
 	footer: [
