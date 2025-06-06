@@ -33,6 +33,9 @@ export default defineConfig({
 				"p:first-child": {
 					"margin-top": "0",
 				},
+				"h1, h2, h3": {
+					color: "rgba(32, 55, 91)",
+				},
 			},
 		}),
 	],
