@@ -89,6 +89,11 @@ export default defineConfig({
 				200: "rgba(50, 74, 245)",
 				600: "rgba(20, 82, 204)",
 			},
+			dark: {
+				background: "rgba(17, 23, 28)",
+				primary: "rgba(213, 219, 255)",
+				secondary: "rgba(120, 129, 141)",
+			},
 		},
 		borderRadius: {
 			none: "0",

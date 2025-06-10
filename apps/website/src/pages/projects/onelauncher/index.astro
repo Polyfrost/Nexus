@@ -1,0 +1,24 @@
+---
+import Button from "@components/base/Button.astro";
+import Header from "@components/base/Header.astro";
+import Section from "@components/base/Section.astro";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="w-screen h-screen absolute bg-dark-background -z-1"/>
+<Layout title="OneLauncher" dark>
+	<Section class="h-screen flex-col items-center justify-center md:min-h-[600px] ">
+		<video src="" class="w-full max-w-2xl bg-gray-50"></video>
+		<div class="flex flex-col items-center justify-center gap-y-4">
+			<Header align="center" class="max-w-[600px] text-dark-primary" size="lg">
+				A modern launcher, for a modern world.
+			</Header>
+			<div class="flex flex-row items-center justify-center gap-2">
+				<Button href="/projects/onelauncher/download" iconLeft="download" iconRight="chevron-down" text="Download"/>
+				<Button href="https://docs.polyfrost.org" iconLeft="book-open" style="secondary" text="FAQ" />
+				<Button href="https://docs.polyfrost.org" iconLeft="user" style="secondary" text="Support" />
+			</div>
+		</div>
+	</Section>
+</Layout>

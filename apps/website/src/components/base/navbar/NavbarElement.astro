@@ -9,13 +9,16 @@ import Tag from '../Tag.astro';
 interface Props {
 	element: NavbarElement;
 	index: number;
+	dark?: boolean;
 }
 
-const { element, index } = Astro.props;
+const { element, index, dark } = Astro.props;
 
 function isCurrentPage(url: string): boolean {
 	return Astro.url.pathname === url;
 }
+
+const color = dark ? 'text-dark-secondary' : 'text-gray-700'
 ---
 
 <li class="flex flex-row items-center justify-center text-center sm:relative max-sm:overflow-hidden">
@@ -24,7 +27,7 @@ function isCurrentPage(url: string): boolean {
 ? (
 			<a
 				aria-label="polyfrost logo"
-				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}
+				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : color}`}
 				href={element.path}
 			>
 				{element.text && element.text}
@@ -37,7 +40,7 @@ function isCurrentPage(url: string): boolean {
 				{element.dropdown && (
 					<>
 						<p
-							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
+							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${element.dropdown.filter(element=>isCurrentPage(element.path ?? '')).length > 0  ? 'text-blue-400' : color}`}
 						>
 							{element.text && element.text}
 							{element.logo && <Icon height={element.logo[2] < 0 ? 'auto' : element.logo[2]} name={element.logo[0]} width={element.logo[1] < 0 ? 'auto' : element.logo[1]} />}
