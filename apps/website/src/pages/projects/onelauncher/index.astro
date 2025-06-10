@@ -2,21 +2,81 @@
 import Button from "@components/base/Button.astro";
 import Header from "@components/base/Header.astro";
 import Section from "@components/base/Section.astro";
+import Dropdown from "@components/base/Dropdown.astro";
 import Layout from "@layouts/Layout.astro";
+import DownloadVersion from "@components/base/DownloadVersion.astro";
+import type { Icon as IconType } from 'virtual:astro-icon';
+
+
+export const prerender = false
+
+type OS = "Windows"|"MacOS"|"Linux"
+type Architecture = "x86"|"Arm"
+
+type Platform = `${OS} ${Architecture}`
+
+function getPlatform():Platform|undefined{
+	const agent = Astro.request.headers.get("User-Agent")
+
+	const osString = (agent?.match(/\(([^\)]*)\)/) ?? ["",""])[1];
+	if(osString.startsWith("Windows")){
+		return "Windows x86"
+	}else if(osString.startsWith("Macintosh")){
+		return "MacOS Arm"
+	}else if(osString.startsWith("X11") || osString.startsWith("Linux")){
+		return "Linux x86"
+	}
+}
+
+const icons: Record<Platform, IconType> = {
+	"Windows Arm": "windows",
+	"Windows x86": "windows",
+	"MacOS Arm": "apple",
+	"MacOS x86": "apple",
+	"Linux Arm": "linux",
+	"Linux x86": "linux"
+}
+
+const versions: {platform: Platform, url: string}[] = [
+	{
+		platform: "Windows x86",
+		url: "/"
+	},
+	{
+		platform: "Linux x86",
+		url: "/"
+	},
+	{
+		platform: "MacOS Arm",
+		url: "/"
+	},
+]
+
+const platform = getPlatform()
+const version = versions.find(version=>version.platform == platform)
+
 ---
 
-<div class="w-screen h-screen absolute bg-dark-background -z-1"/>
+<div class="w-screen h-screen fixed bg-dark-background -z-1"/>
 <Layout title="OneLauncher" dark>
-	<Section class="h-screen flex-col items-center justify-center md:min-h-[600px] ">
+	<Section class="h-screen flex-col items-center justify-center md:min-h-[600px] mt-12 md:mt-0 mb-12">
 		<video src="" class="w-full max-w-2xl bg-gray-50"></video>
 		<div class="flex flex-col items-center justify-center gap-y-4">
 			<Header align="center" class="max-w-[600px] text-dark-primary" size="lg">
 				A modern launcher, for a modern world.
 			</Header>
-			<div class="flex flex-row items-center justify-center gap-2">
-				<Button href="" iconLeft="download" iconRight="chevron-down" text="Download"/>
+			<div class="flex flex-row flex-wrap items-center justify-center gap-2">
+				<Dropdown iconLeft="download" text={version ? `Download for ${platform}` :"Download"} href={version?.url}>
+					<div class="flex flex-col gap-1">
+						<div class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col">
+							{versions.map(version=>
+								<DownloadVersion name={version.platform} url={version.url} icon={icons[version.platform]}/>
+							)}
+						</div>
+					</div>
+				</Dropdown>
 				<Button href="" iconLeft="book-open" style="secondary" text="FAQ" />
-				<Button href="" iconLeft="user" style="secondary" text="Support" />
+				<Button href="https://polyfrost.org/discord" iconLeft="user" style="secondary" text="Support" />
 			</div>
 		</div>
 	</Section>
