@@ -9,7 +9,8 @@ const posts = await getCollection('blog');
 
 <Layout description="Recieve Polyfrost updates here" title="Polyfrost Blog">
 	<Section class="mt-96 md:mt-32 mb-12">
-		<div class="flex flex-col gap-5 content-center mx-auto">
+		<div class="flex flex-col gap-5 content-center mx-auto min-h-100">
+			{posts.length == 0 && <p class="italic text-gray-500">No posts yet</p>}
 			{
 				posts.toSorted((p1,p2)=>p2.data.publishDate.valueOf()-p1.data.publishDate.valueOf()).map((post) => (
 					<a href={`/blog/${post.slug}/`}>
