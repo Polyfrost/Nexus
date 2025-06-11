@@ -9,7 +9,7 @@ const { title, description, publishDate, updatedDate, coverImage } = Astro.props
 ---
 
 <div class="parallax-container overflow-x-clip overflow-y-auto max-h-screen">
-	<div class="flex justify-center parallax-3 absolute w-full mt-80 md:mt-24">
+	<div class="flex justify-center parallax-4 absolute w-full mt-80 md:mt-24">
 		{coverImage && <img alt="Hero Image" class="object-cover  object-c rounded-t-2xl md:rounded-2xl ring-1 ring-gray-400/50 -z-1 aspect-[3/2]" height={510} src={coverImage} width={1020} />}
 	</div>
 	<Layout description={description} title={title}>
