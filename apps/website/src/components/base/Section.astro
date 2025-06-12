@@ -21,7 +21,7 @@ const className = `max-w-[${maxWidth}] ${hFull ? 'min-h-screen' : 'h-auto'} ${wF
 const childClassName = 'flex flex-col items-center text-center w-full md:w-auto md:items-start md:text-left relative';
 ---
 
-<section class={`w-full outline-none flex justify-center ${wrapperClass ?? ''}`}>
+<section class={`w-full outline-none flex justify-center first:max-md:mt-48 ${wrapperClass ?? ''}`}>
 	<div class={className} {...props}>
 		{
 			twoColumn

@@ -17,7 +17,7 @@ const { dark, ...head } = Astro.props;
 		<BaseHead {...head} />
 	</head>
 
-	<body class="overflow-x-hidden bg-gray-50">
+	<body class={`overflow-x-hidden ${dark ? "bg-dark-background" : "bg-gray-50"}`}>
 		<Navbar {dark} />
 
 		<main class="h-auto min-h-screen flex flex-col gap-40">
