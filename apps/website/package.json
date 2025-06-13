@@ -24,6 +24,7 @@
 		"sass": "^1.78.0",
 		"sharp": "^0.33.5",
 		"smartypants": "^0.2.2",
+		"ua-parser-js": "^2.0.3",
 		"unocss": "^0.62.3"
 	},
 	"devDependencies": {

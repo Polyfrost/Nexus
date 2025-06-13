@@ -5,80 +5,121 @@ import Section from "@components/base/Section.astro";
 import Dropdown from "@components/base/Dropdown.astro";
 import Layout from "@layouts/Layout.astro";
 import DownloadVersion from "@components/base/DownloadVersion.astro";
-import type { Icon as IconType } from 'virtual:astro-icon';
+import type { Icon as IconType } from "virtual:astro-icon";
+import { ostring } from "astro:schema";
+import { UAParser } from "ua-parser-js";
+import { isAppleSilicon } from "ua-parser-js/helpers";
 
+export const prerender = false;
 
-export const prerender = false
+type OS = "Windows" | "MacOS" | "Linux";
+type Architecture = "x64" | "x86" | "Arm";
 
-type OS = "Windows"|"MacOS"|"Linux"
-type Architecture = "x86"|"Arm"
+type Platform = `${OS} ${Architecture}`;
 
-type Platform = `${OS} ${Architecture}`
+function getPlatform(): Platform | undefined {
+	const agent = Astro.request.headers.get("User-Agent");
+	if (!agent) return;
+	const { browser, cpu, device, os } = UAParser(agent);
 
-function getPlatform():Platform|undefined{
-	const agent = Astro.request.headers.get("User-Agent")
+	let arch: Architecture;
+	if (isAppleSilicon(agent) || cpu.is("ARM")) arch = "Arm";
+	else if (cpu.architecture == "amd64") arch = "x64";
+	else arch = "x86";
 
-	const osString = (agent?.match(/\(([^\)]*)\)/) ?? ["",""])[1];
-	if(osString.startsWith("Windows")){
-		return "Windows x86"
-	}else if(osString.startsWith("Macintosh")){
-		return "MacOS Arm"
-	}else if(osString.startsWith("X11") || osString.startsWith("Linux")){
-		return "Linux x86"
-	}
+	if (os.is("Windows")) return `Windows ${arch}`;
+	else if (os.is("Mac OS")) return `MacOS ${arch}`;
+	else return `Linux ${arch}`;
 }
 
-const icons: Record<Platform, IconType> = {
+const icons: Record<Platform | (string & {}), IconType> = {
 	"Windows Arm": "windows",
 	"Windows x86": "windows",
+	"Windows x64": "windows",
 	"MacOS Arm": "apple",
 	"MacOS x86": "apple",
+	"MacOS x64": "apple",
 	"Linux Arm": "linux",
-	"Linux x86": "linux"
-}
+	"Linux x86": "linux",
+	"Linux x64": "linux",
+};
 
-const versions: {platform: Platform, url: string}[] = [
+const versions: { name: Platform | (string & {}); url: string }[] = [
 	{
-		platform: "Windows x86",
-		url: "/"
+		name: "Windows x64",
+		url: "/",
 	},
 	{
-		platform: "Linux x86",
-		url: "/"
+		name: "Linux x86",
+		url: "/",
 	},
 	{
-		platform: "MacOS Arm",
-		url: "/"
+		name: "MacOS Arm",
+		url: "/",
 	},
-]
+];
 
-const platform = getPlatform()
-const version = versions.find(version=>version.platform == platform)
-
+const platform = getPlatform();
+const version = versions.find((version) => version.name == platform);
 ---
 
-<div class="w-screen h-screen fixed bg-dark-background -z-1"/>
+<div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
 <Layout title="OneLauncher" dark>
-	<Section class="h-screen flex-col items-center justify-center md:min-h-[600px] mt-12 md:mt-0 mb-12">
+	<Section
+		class="h-screen flex-col items-center justify-center md:min-h-[600px] mt-12 md:mt-0 mb-12"
+	>
 		<div class="w-full max-w-2xl bg-gray-50 h-auto aspect-video">
-			<iframe src="https://www.youtube.com/embed/Qz8u00pX738?playlist=Qz8u00pX738&color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen class="w-full h-full"/>
+			<iframe
+				src="https://www.youtube.com/embed/Qz8u00pX738?playlist=Qz8u00pX738&color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+				class="w-full h-full"></iframe>
 		</div>
 		<div class="flex flex-col items-center justify-center gap-y-4">
-			<Header align="center" class="max-w-[600px] text-dark-primary" size="lg">
+			<Header
+				align="center"
+				class="max-w-[600px] text-dark-primary"
+				size="lg"
+			>
 				A modern launcher, for a modern world.
 			</Header>
-			<div class="flex flex-row flex-wrap items-center justify-center gap-2">
-				<Dropdown iconLeft="download" text={version ? `Download for ${platform}` :"Download"} href={version?.url}>
+			<div
+				class="flex flex-row flex-wrap items-center justify-center gap-2"
+			>
+				<Dropdown
+					iconLeft="download"
+					text={version ? `Download for ${platform}` : "Download"}
+					href={version?.url}
+				>
 					<div class="flex flex-col gap-1">
-						<div class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col">
-							{versions.map(version=>
-								<DownloadVersion name={version.platform} url={version.url} icon={icons[version.platform]}/>
-							)}
+						<div
+							class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col"
+						>
+							{
+								versions.map((version) => (
+									<DownloadVersion
+										{...version}
+										icon={icons[version.name] ?? "download"}
+									/>
+								))
+							}
 						</div>
 					</div>
 				</Dropdown>
-				<Button href="" iconLeft="book-open" style="secondary" text="FAQ" />
-				<Button href="https://polyfrost.org/discord" iconLeft="user" style="secondary" text="Support" />
+				<Button
+					href=""
+					iconLeft="book-open"
+					style="secondary"
+					text="FAQ"
+				/>
+				<Button
+					href="https://polyfrost.org/discord"
+					iconLeft="user"
+					style="secondary"
+					text="Support"
+				/>
 			</div>
 		</div>
 	</Section>
