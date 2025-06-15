@@ -23,12 +23,12 @@ function getPlatform(): Platform | undefined {
 	const { browser, cpu, device, os } = UAParser(agent);
 
 	let arch: Architecture;
-	if (isAppleSilicon(agent) || cpu.is("ARM")) arch = "Arm";
+	if (cpu.is("ARM")) arch = "Arm";
 	else if (cpu.architecture == "amd64") arch = "x64";
 	else arch = "x86";
 
 	if (os.is("Windows")) return `Windows ${arch}`;
-	else if (os.is("Mac OS")) return `MacOS ${arch}`;
+	else if (os.is("Mac OS")) return `MacOS Arm`;
 	else return `Linux ${arch}`;
 }
 
@@ -44,7 +44,11 @@ const icons: Record<Platform | (string & {}), IconType> = {
 	"Linux x64": "linux",
 };
 
-const versions: { name: Platform | (string & {}); url: string }[] = [
+const versions: {
+	name: Platform | (string & {});
+	url: string;
+	icon?: IconType;
+}[] = [
 	{
 		name: "Windows x64",
 		url: "/",
@@ -57,6 +61,11 @@ const versions: { name: Platform | (string & {}); url: string }[] = [
 		name: "MacOS Arm",
 		url: "/",
 	},
+	{
+		name: "Appimage",
+		url: "/",
+		icon: "linux",
+	},
 ];
 
 const platform = getPlatform();
@@ -66,7 +75,7 @@ const version = versions.find((version) => version.name == platform);
 <div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
 <Layout title="OneLauncher" dark>
 	<Section
-		class="h-screen flex-col items-center justify-center md:min-h-[600px] mb-12"
+		class="h-screen flex-col items-center justify-center md:min-h-[600px] mb-12 mt-12"
 	>
 		<div class="w-full max-w-2xl bg-gray-50 h-auto aspect-video">
 			<iframe
@@ -101,7 +110,11 @@ const version = versions.find((version) => version.name == platform);
 								versions.map((version) => (
 									<DownloadVersion
 										{...version}
-										icon={icons[version.name] ?? "download"}
+										icon={
+											version.icon ??
+											icons[version.name] ??
+											"download"
+										}
 									/>
 								))
 							}
