@@ -23,7 +23,9 @@ const props = Astro.props;
 				))
 			}
 		</ul>
-		<ul class="flex flex-row flex-wrap justify-center gap-4 md:justify-end">
+		<ul
+			class="flex flex-row flex-wrap justify-evenly max-sm:w-full sm:gap-4 md:justify-end"
+		>
 			{
 				config.navbar.right.map((element, index) => (
 					<NavbarElement {element} {index} dark={props.dark} />
