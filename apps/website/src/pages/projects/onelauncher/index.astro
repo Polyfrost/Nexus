@@ -110,7 +110,9 @@ const version =
 				<Dropdown
 					iconLeft="download"
 					text={version
-						? `Download for ${version.os} ${version.architecture}`
+						? version.name
+							? `Download ${version.name}`
+							: `Download for ${version.os} ${version.architecture}`
 						: "Download"}
 					href={version?.url}
 				>
