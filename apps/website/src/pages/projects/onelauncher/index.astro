@@ -4,72 +4,82 @@ import Header from "@components/base/Header.astro";
 import Section from "@components/base/Section.astro";
 import Dropdown from "@components/base/Dropdown.astro";
 import Layout from "@layouts/Layout.astro";
-import DownloadVersion from "@components/base/DownloadVersion.astro";
 import type { Icon as IconType } from "virtual:astro-icon";
-import { ostring } from "astro:schema";
 import { UAParser } from "ua-parser-js";
-import { isAppleSilicon } from "ua-parser-js/helpers";
+import { Icon } from "astro-icon/components";
 
 export const prerender = false;
 
 type OS = "Windows" | "MacOS" | "Linux";
 type Architecture = "x64" | "x86" | "Arm";
 
-type Platform = `${OS} ${Architecture}`;
+type Platform = {
+	os: OS;
+	architecture?: Architecture;
+};
 
 function getPlatform(): Platform | undefined {
 	const agent = Astro.request.headers.get("User-Agent");
 	if (!agent) return;
 	const { browser, cpu, device, os } = UAParser(agent);
 
-	let arch: Architecture;
-	if (cpu.is("ARM")) arch = "Arm";
-	else if (cpu.architecture == "amd64") arch = "x64";
-	else arch = "x86";
+	let architecture: Architecture | undefined;
+	if (cpu.is("ARM")) architecture = "Arm";
+	else if (cpu.architecture == "amd64") architecture = "x64";
+	else if (cpu.architecture == "ia32") architecture = "x86";
 
-	if (os.is("Windows")) return `Windows ${arch}`;
-	else if (os.is("Mac OS")) return `MacOS Arm`;
-	else return `Linux ${arch}`;
+	if (os.is("Windows")) return { os: "Windows", architecture };
+	else if (os.is("Mac OS")) return { os: "MacOS" };
+	else return { os: "Linux", architecture };
 }
 
-const icons: Record<Platform | (string & {}), IconType> = {
-	"Windows Arm": "windows",
-	"Windows x86": "windows",
-	"Windows x64": "windows",
-	"MacOS Arm": "apple",
-	"MacOS x86": "apple",
-	"MacOS x64": "apple",
-	"Linux Arm": "linux",
-	"Linux x86": "linux",
-	"Linux x64": "linux",
+const icons: Record<OS | (string & {}), IconType> = {
+	Windows: "windows",
+	MacOS: "apple",
+	Linux: "linux",
 };
 
 const versions: {
-	name: Platform | (string & {});
+	os: OS;
+	architecture: Architecture | "Universal";
+	name?: string;
 	url: string;
 	icon?: IconType;
 }[] = [
 	{
-		name: "Windows x64",
+		os: "Windows",
+		architecture: "x64",
 		url: "/",
 	},
 	{
-		name: "Linux x86",
+		os: "Linux",
+		architecture: "x86",
 		url: "/",
 	},
 	{
-		name: "MacOS Arm",
+		os: "MacOS",
+		architecture: "Universal",
 		url: "/",
 	},
 	{
+		os: "Linux",
+		architecture: "Universal",
 		name: "Appimage",
 		url: "/",
-		icon: "linux",
 	},
 ];
 
 const platform = getPlatform();
-const version = versions.find((version) => version.name == platform);
+const version =
+	versions.find(
+		(version) =>
+			version.os == platform?.os &&
+			version.architecture == platform.architecture
+	) ||
+	versions.find(
+		(version) =>
+			version.os == platform?.os && version.architecture == "Universal"
+	);
 ---
 
 <div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
@@ -99,7 +109,9 @@ const version = versions.find((version) => version.name == platform);
 			>
 				<Dropdown
 					iconLeft="download"
-					text={version ? `Download for ${platform}` : "Download"}
+					text={version
+						? `Download for ${version.os} ${version.architecture}`
+						: "Download"}
 					href={version?.url}
 				>
 					<div class="flex flex-col gap-1">
@@ -108,14 +120,23 @@ const version = versions.find((version) => version.name == platform);
 						>
 							{
 								versions.map((version) => (
-									<DownloadVersion
-										{...version}
-										icon={
-											version.icon ??
-											icons[version.name] ??
-											"download"
-										}
-									/>
+									<a
+										href={version.url}
+										class="flex items-center gap-1 border-1 border-gray-700 rounded-lg p-2 hover:bg-blue-600/5"
+									>
+										<Icon
+											name={
+												version.icon ??
+												icons[version.os] ??
+												"download"
+											}
+											size={18}
+										/>
+										<h3>
+											{version.name ??
+												`${version.os} ${version.architecture}`}
+										</h3>
+									</a>
 								))
 							}
 						</div>
