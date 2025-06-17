@@ -146,6 +146,10 @@ export const configConst = {
 					url: "/about",
 				},
 				{
+					text: "Blog",
+					url: "/blog",
+				},
+				{
 					text: "Branding",
 					url: "/branding",
 				},
