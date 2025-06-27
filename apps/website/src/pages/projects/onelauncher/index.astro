@@ -1,0 +1,162 @@
+---
+import Button from "@components/base/Button.astro";
+import Header from "@components/base/Header.astro";
+import Section from "@components/base/Section.astro";
+import Dropdown from "@components/base/Dropdown.astro";
+import Layout from "@layouts/Layout.astro";
+import type { Icon as IconType } from "virtual:astro-icon";
+import { UAParser } from "ua-parser-js";
+import { Icon } from "astro-icon/components";
+
+export const prerender = false;
+
+type OS = "Windows" | "MacOS" | "Linux";
+type Architecture = "x64" | "x86" | "Arm";
+
+type Platform = {
+	os: OS;
+	architecture?: Architecture;
+};
+
+function getPlatform(): Platform | undefined {
+	const agent = Astro.request.headers.get("User-Agent");
+	if (!agent) return;
+	const { browser, cpu, device, os } = UAParser(agent);
+
+	let architecture: Architecture | undefined;
+	if (cpu.is("ARM")) architecture = "Arm";
+	else if (cpu.architecture == "amd64") architecture = "x64";
+	else if (cpu.architecture == "ia32") architecture = "x86";
+
+	if (os.is("Windows")) return { os: "Windows", architecture };
+	else if (os.is("Mac OS")) return { os: "MacOS" };
+	else return { os: "Linux", architecture };
+}
+
+const icons: Record<OS | (string & {}), IconType> = {
+	Windows: "windows",
+	MacOS: "apple",
+	Linux: "linux",
+};
+
+const versions: {
+	os: OS;
+	architecture: Architecture | "Universal";
+	name?: string;
+	url: string;
+	icon?: IconType;
+}[] = [
+	{
+		os: "Windows",
+		architecture: "x64",
+		url: "/",
+	},
+	{
+		os: "Linux",
+		architecture: "x86",
+		url: "/",
+	},
+	{
+		os: "MacOS",
+		architecture: "Universal",
+		url: "/",
+	},
+	{
+		os: "Linux",
+		architecture: "Universal",
+		name: "Appimage",
+		url: "/",
+	},
+];
+
+const platform = getPlatform();
+const version =
+	versions.find(
+		(version) =>
+			version.os == platform?.os &&
+			version.architecture == platform.architecture
+	) ||
+	versions.find(
+		(version) =>
+			version.os == platform?.os && version.architecture == "Universal"
+	);
+---
+
+<div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
+<Layout title="OneLauncher" dark>
+	<Section
+		class="h-screen flex-col items-center justify-center md:min-h-[600px] mb-12 mt-12"
+	>
+		<div class="w-full max-w-2xl bg-gray-50 h-auto aspect-video">
+			<iframe
+				src="https://www.youtube.com/embed/Qz8u00pX738?playlist=Qz8u00pX738&color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+				class="w-full h-full"></iframe>
+		</div>
+		<div class="flex flex-col items-center justify-center gap-y-4">
+			<Header
+				align="center"
+				class="max-w-[600px] text-dark-primary"
+				size="lg"
+			>
+				A modern launcher, for a modern world.
+			</Header>
+			<div
+				class="flex flex-row flex-wrap items-center justify-center gap-2"
+			>
+				<Dropdown
+					iconLeft="download"
+					text={version
+						? version.name
+							? `Download ${version.name}`
+							: `Download for ${version.os} ${version.architecture}`
+						: "Download"}
+					href={version?.url}
+				>
+					<div class="flex flex-col gap-1">
+						<div
+							class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col"
+						>
+							{
+								versions.map((version) => (
+									<a
+										href={version.url}
+										class="flex items-center gap-1 border-1 border-gray-700 rounded-lg p-2 hover:bg-blue-600/5"
+									>
+										<Icon
+											name={
+												version.icon ??
+												icons[version.os] ??
+												"download"
+											}
+											size={18}
+										/>
+										<h3>
+											{version.name ??
+												`${version.os} ${version.architecture}`}
+										</h3>
+									</a>
+								))
+							}
+						</div>
+					</div>
+				</Dropdown>
+				<Button
+					href=""
+					iconLeft="book-open"
+					style="secondary"
+					text="FAQ"
+				/>
+				<Button
+					href="https://polyfrost.org/discord"
+					iconLeft="user"
+					style="secondary"
+					text="Support"
+				/>
+			</div>
+		</div>
+	</Section>
+</Layout>

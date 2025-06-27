@@ -1,51 +1,82 @@
 ---
-import type { NavbarElement } from '@utils/site-info';
-import { Icon } from 'astro-icon/components';
-import Header from '../Header.astro';
-import ScreenOverlay from '../ScreenOverlay.astro';
-import ScrollbarOverlayContainer from '../ScrollbarOverlayContainer.astro';
-import Tag from '../Tag.astro';
+import type { NavbarElement } from "@utils/site-info";
+import { Icon } from "astro-icon/components";
+import Header from "../Header.astro";
+import ScreenOverlay from "../ScreenOverlay.astro";
+import ScrollbarOverlayContainer from "../ScrollbarOverlayContainer.astro";
+import Tag from "../Tag.astro";
 
 interface Props {
 	element: NavbarElement;
 	index: number;
+	dark?: boolean;
 }
 
-const { element, index } = Astro.props;
+const { element, index, dark } = Astro.props;
 
 function isCurrentPage(url: string): boolean {
 	return Astro.url.pathname === url;
 }
+
+const color = dark ? "text-dark-secondary" : "text-gray-700";
 ---
 
-<li class="flex flex-row items-center justify-center text-center sm:relative max-sm:overflow-hidden">
+<li
+	class="flex flex-row items-center justify-center text-center sm:relative max-sm:overflow-hidden"
+>
 	{
-		element.path
-? (
+		element.path ? (
 			<a
 				aria-label="polyfrost logo"
-				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? 'text-blue-400' : 'text-gray-700'}`}
+				class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 ${isCurrentPage(element.path) ? "text-blue-400" : color}`}
 				href={element.path}
 			>
 				{element.text && element.text}
-				{element.logo && <Icon class="transition-transform active:scale-95" height={element.logo[1] < 0 ? undefined : element.logo[1]} name={element.logo[0]} width={element.logo[1] < 0 ? undefined : element.logo[1]} />}
+				{element.logo && (
+					<Icon
+						class="transition-transform active:scale-95"
+						height={70}
+						name={element.logo[0]}
+						width={
+							element.logo[1] < 0 ? undefined : element.logo[1]
+						}
+					/>
+				)}
 				{element.dropdown && <Icon name="chevron-down" />}
 			</a>
-		)
-: (
+		) : (
 			<label class="group" for={`navbar-input-${index}`}>
 				{element.dropdown && (
 					<>
 						<p
-							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${isCurrentPage(element.dropdown[0].path ?? '') ? 'text-blue-400' : 'text-gray-700'}`}
+							class={`p-2 flex flex-row justify-center items-center hover:text-blue-500 cursor-default ${element.dropdown.filter((element) => isCurrentPage(element.path ?? "")).length > 0 ? "text-blue-400" : color}`}
 						>
 							{element.text && element.text}
-							{element.logo && <Icon height={element.logo[2] < 0 ? 'auto' : element.logo[2]} name={element.logo[0]} width={element.logo[1] < 0 ? 'auto' : element.logo[1]} />}
+							{element.logo && (
+								<Icon
+									height={
+										element.logo[2] < 0
+											? "auto"
+											: element.logo[2]
+									}
+									name={element.logo[0]}
+									width={
+										element.logo[1] < 0
+											? "auto"
+											: element.logo[1]
+									}
+								/>
+							)}
 							{element.dropdown && <Icon name="chevron-down" />}
 						</p>
 
 						<ScreenOverlay class="z-[9998] max-sm:group-focus-within:opacity-100" />
-						<input class="peer absolute appearance-none" id={`navbar-input-${index}`} tabindex="-1" type="checkbox" />
+						<input
+							class="peer absolute appearance-none"
+							id={`navbar-input-${index}`}
+							tabindex="-1"
+							type="checkbox"
+						/>
 						<div
 							class={`
 						transition-opacity
@@ -77,22 +108,42 @@ function isCurrentPage(url: string): boolean {
 								tabindex="-1"
 							>
 								<ul class="p-4">
-									{element.dropdown.map(item => (
+									{element.dropdown.map((item) => (
 										<li>
-											<a class="flex sm:max-w-[400px] sm:min-w-[400px]" href={item.path}>
+											<a
+												class="flex sm:max-w-[400px] sm:min-w-[400px]"
+												href={item.path}
+											>
 												<div
-													class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? 'hover:bg-blue-50 active:bg-blue-100' : 'grayscale hover:brightness-75'}`}
+													class={`transition-[color,background-color,filter] text-left w-full flex flex-row justify-start rounded-md items-center px-6 py-4 gap-6 ${item.path ? "hover:bg-blue-50 active:bg-blue-100" : "grayscale hover:brightness-75"}`}
 												>
-													<div class="w-[36px]">{item.logo && <Icon name={item.logo} size={40} />}</div>
+													<div class="w-[36px]">
+														{item.logo && (
+															<Icon
+																name={item.logo}
+																size={40}
+															/>
+														)}
+													</div>
 
 													<div class="flex flex-col items-start justify-start">
 														<div class="flex flex-row gap-2">
-															<Header class="text-md text-gray-800 font-medium md:text-sm" inheritSize size="md">
+															<Header
+																class="text-md text-gray-800 font-medium md:text-sm"
+																inheritSize
+																size="md"
+															>
 																{item.name}
 															</Header>
-															{item.tag && <Tag class="text-sm md:text-xxs">{item.tag}</Tag>}
+															{item.tag && (
+																<Tag class="text-sm md:text-xxs">
+																	{item.tag}
+																</Tag>
+															)}
 														</div>
-														<p class="text-md text-gray-400 font-light md:text-sm">{item.description}</p>
+														<p class="text-md text-gray-400 font-light md:text-sm">
+															{item.description}
+														</p>
 													</div>
 												</div>
 											</a>
