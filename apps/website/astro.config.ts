@@ -1,4 +1,4 @@
-import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
@@ -10,8 +10,10 @@ import unocss from 'unocss/astro';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://polyfrost.org',
-	adapter: cloudflare(),
-	output: 'hybrid',
+	adapter: node({
+		mode: "standalone"
+	}),
+	output: 'static',
 	integrations: [
 		unocss({
 			injectReset: true,
@@ -29,11 +31,6 @@ export default defineConfig({
 		ssr: { noExternal: ['smartypants'] },
 	},
 	experimental: {
-		contentIntellisense: true,
-		env: {
-			schema: {
-				GITHUB_PAT: envField.string({ context: 'server', access: 'public', optional: true }),
-			},
-		},
+		contentIntellisense: true
 	},
 });
