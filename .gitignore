@@ -731,3 +731,5 @@ gradle-app.setting
 .cargo/config.toml
 .cargo/config
 .github/scripts/deps
+.direnv
+result
