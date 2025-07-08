@@ -1,8 +1,6 @@
 {
     stdenv,
     nodejs,
-    corepack,
-    pnpm,
     lib,
     callPackage,
     corepackHooks ? (callPackage ./corepack-hooks.nix {})
@@ -52,7 +50,7 @@ stdenv.mkDerivation (final: {
         # Make a wrapper command to start the server
         cat << EOF > "$out"/bin/start-server
         #!/usr/bin/env bash
-        node "$out"/lib/server/entry.mjs
+        ${lib.getExe nodejs} "$out"/lib/server/entry.mjs
         EOF
         chmod +x "$out"/bin/start-server
 
