@@ -27,7 +27,7 @@ stdenv.mkDerivation (final: {
 
     pnpmWorkspaces = [ "@polyfrost/website" ];
     pnpmDeps = corepackHooks.pnpm.fetchDeps {
-        hash = "sha256-gnqYCuNup/MvVAlJP8p0pReZnd3cyEtPVJVtW25tucE=";
+        hash = "sha256-Zw6eqxESFJe7jVK0afVoLnx1f5A3DfhdQowbG9Jlmsw=";
         inherit (final) pname version src pnpmWorkspaces;
     };
 
