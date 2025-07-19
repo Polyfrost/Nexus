@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components";
 
 export const prerender = false;
 
-type OS = "Windows" | "MacOS" | "Linux";
+type OS = "Windows" | "macOS" | "Linux";
 type Architecture = "x64" | "x86" | "Arm";
 
 type Platform = {
@@ -29,13 +29,13 @@ function getPlatform(): Platform | undefined {
 	else if (cpu.architecture == "ia32") architecture = "x86";
 
 	if (os.is("Windows")) return { os: "Windows", architecture };
-	else if (os.is("Mac OS")) return { os: "MacOS" };
+	else if (os.is("Mac OS")) return { os: "macOS" };
 	else return { os: "Linux", architecture };
 }
 
 const icons: Record<OS | (string & {}), IconType> = {
 	Windows: "windows",
-	MacOS: "apple",
+	macOS: "apple",
 	Linux: "linux",
 };
 
@@ -57,7 +57,7 @@ const versions: {
 		url: "/",
 	},
 	{
-		os: "MacOS",
+		os: "macOS",
 		architecture: "Universal",
 		url: "/",
 	},
@@ -83,13 +83,13 @@ const version =
 ---
 
 <div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
-<Layout title="OneLauncher" dark>
+<Layout title="OneClient" dark>
 	<Section
 		class="h-screen flex-col items-center justify-center md:min-h-[600px] mb-12 mt-12"
 	>
 		<div class="w-full max-w-2xl bg-gray-50 h-auto aspect-video">
 			<iframe
-				src="https://www.youtube.com/embed/Qz8u00pX738?playlist=Qz8u00pX738&color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1"
+				src="https://www.youtube.com/embed/al-59UpjjLw?playlist=al-59UpjjLw&color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1"
 				title="YouTube video player"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				referrerpolicy="strict-origin-when-cross-origin"
@@ -102,7 +102,7 @@ const version =
 				class="max-w-[600px] text-dark-primary"
 				size="lg"
 			>
-				A modern launcher, for a modern world.
+				A new client, for a new world.
 			</Header>
 			<div
 				class="flex flex-row flex-wrap items-center justify-center gap-2"
@@ -114,8 +114,10 @@ const version =
 							? `Download ${version.name}`
 							: `Download for ${version.os} ${version.architecture}`
 						: "Download"}
-					href={version?.url}
+					disabled="true"
+					class="cursor-not-allowed"
 				>
+					<!--
 					<div class="flex flex-col gap-1">
 						<div
 							class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col"
@@ -143,15 +145,16 @@ const version =
 							}
 						</div>
 					</div>
+					-->
 				</Dropdown>
 				<Button
-					href=""
+					href="/blog/oneclient-announcement"
 					iconLeft="book-open"
 					style="secondary"
 					text="FAQ"
 				/>
 				<Button
-					href="https://polyfrost.org/discord"
+					href="/discord"
 					iconLeft="user"
 					style="secondary"
 					text="Support"

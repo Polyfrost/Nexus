@@ -197,10 +197,11 @@ function getProjects(): Project[] {
 			hasPage: true,
 		},
 		{
-			name: "OneLauncher",
+			name: "OneClient",
 			description:
-				"The next-generation launcher for all your Minecraft needs",
-			logo: "onelauncher.minimal",
+				"The anti-client.",
+			logo: "oneclient.minimal",
+			hasPage: true,
 			tag: "SOON",
 		},
 		{
@@ -208,7 +209,7 @@ function getProjects(): Project[] {
 			description:
 				"The next-generation launcher for all your Minecraft needs",
 			logo: "onelauncher.minimal",
-			hasPage: true,
+			tag: "SOON",
 		},
 	];
 }
