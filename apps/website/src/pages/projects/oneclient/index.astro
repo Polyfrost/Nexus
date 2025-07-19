@@ -4,82 +4,6 @@ import Header from "@components/base/Header.astro";
 import Section from "@components/base/Section.astro";
 import Dropdown from "@components/base/Dropdown.astro";
 import Layout from "@layouts/Layout.astro";
-import type { Icon as IconType } from "virtual:astro-icon";
-import { UAParser } from "ua-parser-js";
-import { Icon } from "astro-icon/components";
-
-export const prerender = false;
-
-type OS = "Windows" | "macOS" | "Linux";
-type Architecture = "x64" | "x86" | "Arm";
-
-type Platform = {
-	os: OS;
-	architecture?: Architecture;
-};
-
-function getPlatform(): Platform | undefined {
-	const agent = Astro.request.headers.get("User-Agent");
-	if (!agent) return;
-	const { browser, cpu, device, os } = UAParser(agent);
-
-	let architecture: Architecture | undefined;
-	if (cpu.is("ARM")) architecture = "Arm";
-	else if (cpu.architecture == "amd64") architecture = "x64";
-	else if (cpu.architecture == "ia32") architecture = "x86";
-
-	if (os.is("Windows")) return { os: "Windows", architecture };
-	else if (os.is("Mac OS")) return { os: "macOS" };
-	else return { os: "Linux", architecture };
-}
-
-const icons: Record<OS | (string & {}), IconType> = {
-	Windows: "windows",
-	macOS: "apple",
-	Linux: "linux",
-};
-
-const versions: {
-	os: OS;
-	architecture: Architecture | "Universal";
-	name?: string;
-	url: string;
-	icon?: IconType;
-}[] = [
-	{
-		os: "Windows",
-		architecture: "x64",
-		url: "/",
-	},
-	{
-		os: "Linux",
-		architecture: "x86",
-		url: "/",
-	},
-	{
-		os: "macOS",
-		architecture: "Universal",
-		url: "/",
-	},
-	{
-		os: "Linux",
-		architecture: "Universal",
-		name: "Appimage",
-		url: "/",
-	},
-];
-
-const platform = getPlatform();
-const version =
-	versions.find(
-		(version) =>
-			version.os == platform?.os &&
-			version.architecture == platform.architecture
-	) ||
-	versions.find(
-		(version) =>
-			version.os == platform?.os && version.architecture == "Universal"
-	);
 ---
 
 <div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
@@ -109,43 +33,10 @@ const version =
 			>
 				<Dropdown
 					iconLeft="download"
-					text={version
-						? version.name
-							? `Download ${version.name}`
-							: `Download for ${version.os} ${version.architecture}`
-						: "Download"}
+					text="Download"
 					disabled="true"
 					class="cursor-not-allowed"
 				>
-					<!--
-					<div class="flex flex-col gap-1">
-						<div
-							class="bg-dark-background border border-gray-700 text-dark-secondary rounded-xl p-2 gap-1 flex flex-col"
-						>
-							{
-								versions.map((version) => (
-									<a
-										href={version.url}
-										class="flex items-center gap-1 border-1 border-gray-700 rounded-lg p-2 hover:bg-blue-600/5"
-									>
-										<Icon
-											name={
-												version.icon ??
-												icons[version.os] ??
-												"download"
-											}
-											size={18}
-										/>
-										<h3>
-											{version.name ??
-												`${version.os} ${version.architecture}`}
-										</h3>
-									</a>
-								))
-							}
-						</div>
-					</div>
-					-->
 				</Dropdown>
 				<Button
 					href="/blog/oneclient-announcement"
