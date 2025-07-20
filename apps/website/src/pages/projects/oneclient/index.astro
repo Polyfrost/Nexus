@@ -1,0 +1,56 @@
+---
+import Button from "@components/base/Button.astro";
+import Header from "@components/base/Header.astro";
+import Section from "@components/base/Section.astro";
+import Dropdown from "@components/base/Dropdown.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<div class="w-screen h-screen fixed bg-dark-background -z-1"></div>
+<Layout title="OneClient" dark>
+	<Section
+		class="h-screen flex-col items-center justify-center md:min-h-[600px] mb-12 mt-12"
+	>
+		<div class="w-full max-w-2xl bg-gray-50 h-auto aspect-video">
+			<iframe
+				src="https://www.youtube.com/embed/al-59UpjjLw?color=white&autoplay=1&disablekb=1&cc_load_policy=0&loop=1&playsinline=1"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+				class="w-full h-full"></iframe>
+		</div>
+		<div class="flex flex-col items-center justify-center gap-y-4">
+			<Header
+				align="center"
+				class="max-w-[600px] text-dark-primary"
+				size="lg"
+			>
+				A new client, for a new world.
+			</Header>
+			<div
+				class="flex flex-row flex-wrap items-center justify-center gap-2"
+			>
+				<Dropdown
+					iconLeft="download"
+					text="Download"
+					disabled="true"
+					class="cursor-not-allowed"
+				>
+				</Dropdown>
+				<Button
+					href="/blog/oneclient-announcement"
+					iconLeft="book-open"
+					style="secondary"
+					text="FAQ"
+				/>
+				<Button
+					href="/discord"
+					iconLeft="user"
+					style="secondary"
+					text="Support"
+				/>
+			</div>
+		</div>
+	</Section>
+</Layout>

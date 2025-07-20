@@ -5,9 +5,9 @@ import { Icon } from 'astro-icon/components';
 
 const styles = {
 	// TODO: adjust active / disabled colors
-	primary: 'bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-600 disabled:bg-blue-800 disabled:text-white-1/4',
+	primary: 'bg-blue-500 text-white hover:bg-blue-400 active:bg-blue-600 disabled:bg-blue-800 disabled:text-opacity-20',
 	secondary: 'bg-blue-20 text-blue-60 border-[1px] border-blue-30 hover:bg-blue-200 active:bg-blue-300 disabled:bg-blue-50 disabled:text-blue-200',
-	ghost: 'bg-transparent text-blue-500 hover:bg-blue-20 active:bg-blue-30 disabled:bg-transparent disabled:text-blue-200'
+	ghost: 'bg-transparent text-blue-500 hover:bg-blue-20 active:bg-blue-30 disabled:bg-transparent disabled:text-blue-200',
 };
 
 const sizes = {
@@ -27,11 +27,10 @@ interface Props extends HTMLAttributes<'button'> {
 	size?: keyof typeof sizes;
 	text?: string;
 	iconLeft?: IconType;
-	iconRight?: IconType;
-	href?: string;
+	href?: string
 }
 
-const { style = 'primary', size = 'md', text = '', iconLeft = '', iconRight = '', ...rest } = Astro.props;
+const { style = 'primary', size = 'md', text = '', iconLeft = '', href, ...rest } = Astro.props;
 
 const className = [
 	'flex flex-row justify-center items-center text-center focus-visible:ring-offset-4 focus-visible:outline-offset-4',
@@ -42,23 +41,27 @@ const className = [
 	rest.class,
 ].join(' ');
 
-const Element = rest.href ? 'a' : 'button';
+const Element = href ? "a" : "button"
+
 ---
 
-<Element {...rest} class={className}>
-	{
-		iconLeft && (
-			<span class="mr-2">
-				<Icon name={iconLeft} size={iconSize[size]} />
-			</span>
-		)
-	}
-	{text || <slot />}
-	{
-		iconRight && (
+<div class="overflow-hidden flex relative hover:overflow-visible">
+	<Element {...rest} class={className} {href}>
+		{
+			iconLeft && (
+				<span class="mr-2">
+					<Icon name={iconLeft} size={iconSize[size]} />
+				</span>
+			)
+		}
+		{text || <slot />}
+		{
 			<span class="ml-2">
-				<Icon name={iconRight} size={iconSize[size]} />
+				<Icon name="chevron-down" size={24} />
 			</span>
-		)
-	}
-</Element>
+		}
+	</Element>
+	<div class="absolute bottom-0 left-0 right-0 translate-y-[100%] pt-1 z-10">
+		<slot/>
+	</div>
+</div>
