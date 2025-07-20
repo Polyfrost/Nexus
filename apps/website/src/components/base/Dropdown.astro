@@ -26,11 +26,12 @@ interface Props extends HTMLAttributes<'button'> {
 	style?: keyof typeof styles;
 	size?: keyof typeof sizes;
 	text?: string;
+	tooltip?: string;
 	iconLeft?: IconType;
 	href?: string
 }
 
-const { style = 'primary', size = 'md', text = '', iconLeft = '', href, ...rest } = Astro.props;
+const { style = 'primary', size = 'md', text = '', iconLeft = '', tooltip, href, ...rest } = Astro.props;
 
 const className = [
 	'flex flex-row justify-center items-center text-center focus-visible:ring-offset-4 focus-visible:outline-offset-4',
@@ -45,7 +46,7 @@ const Element = href ? "a" : "button"
 
 ---
 
-<div class="overflow-hidden flex relative hover:overflow-visible">
+<div class="overflow-hidden flex relative hover:overflow-visible group">
 	<Element {...rest} class={className} {href}>
 		{
 			iconLeft && (
@@ -61,6 +62,14 @@ const Element = href ? "a" : "button"
 			</span>
 		}
 	</Element>
+
+	{tooltip && (
+		<div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap z-20 pointer-events-none">
+			{tooltip}
+			<div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+		</div>
+	)}
+
 	<div class="absolute bottom-0 left-0 right-0 translate-y-[100%] pt-1 z-10">
 		<slot/>
 	</div>
