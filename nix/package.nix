@@ -3,7 +3,11 @@
     nodejs,
     lib,
     callPackage,
-    corepackHooks ? (callPackage ./corepack-hooks.nix {})
+    corepackHooks ? (callPackage ./corepack-hooks.nix {}),
+
+    # Overridables
+    corepackCacheHash ? "sha256-gEIS3bFYznzZJsyPdZjJ+3lULPoJ9owe05OrEHvgWkM=",
+    pnpmDepsHash ? "sha256-Lsq7eh6HTcz8awlIrLJ3ZQx0Wftu+wJNYHXXR2XfwGk=",
 }:
 stdenv.mkDerivation (final: {
     pname = "polyfrost-website";
@@ -18,14 +22,14 @@ stdenv.mkDerivation (final: {
     ];
 
     corepackCache = corepackHooks.corepackCache {
-        hash = "sha256-gEIS3bFYznzZJsyPdZjJ+3lULPoJ9owe05OrEHvgWkM=";
+        hash = corepackCacheHash;
         inherit (final) pname src;
         inherit nodejs;
     };
 
     pnpmWorkspaces = [ "@polyfrost/website" ];
     pnpmDeps = corepackHooks.pnpm.fetchDeps {
-        hash = "sha256-Zw6eqxESFJe7jVK0afVoLnx1f5A3DfhdQowbG9Jlmsw=";
+        hash = pnpmDepsHash;
         inherit (final) pname version src pnpmWorkspaces;
     };
 

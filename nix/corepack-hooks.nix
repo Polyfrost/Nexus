@@ -64,6 +64,7 @@
             # dontFixup = true;
 
             outputHash = hash;
+            outputHashAlgo = "sha256";
             outputHashMode = "recursive";
         };
 
